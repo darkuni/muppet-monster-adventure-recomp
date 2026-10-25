@@ -70,7 +70,7 @@ static uint32_t g_kheap = 0, g_kheap_end = 0;   // kernel heap (SysInitMemory / 
 struct HostThread {
     std::thread th;
     bool started = false;
-    bool kill = false;
+    unsigned gen = 0;        // bumped when the TCB's host thread is retired; stale threads exit
 };
 static HostThread g_ht[SYS_TCBS];
 static std::mutex g_bmx;
@@ -78,6 +78,7 @@ static std::condition_variable g_bcv;
 static int g_running = 0;     // host thread that holds the baton
 static int g_cur = 0;         // current TCB (what PCB points at)
 static thread_local int t_me = 0;
+static thread_local unsigned t_gen = 0;
 
 // The kernel tables are found through the table of tables, which the game may re-point
 // (PsyQ's SetConf allocates new event/thread tables from the kernel heap).
@@ -105,33 +106,34 @@ static void load_ctx(Cpu* c, int i) {
     irq_update();
 }
 
-static void host_thread_main(int idx);
+static void host_thread_main(int idx, unsigned gen);
 
 // Hand the CPU to thread `to` and block until someone hands it back to us.
 static void host_switch(int to) {
     gfx_release_context();   // the GL context follows the CPU to the other host thread
     std::unique_lock<std::mutex> lk(g_bmx);
     int me = t_me;
+    unsigned my_gen = t_gen;
     g_running = to;
     if (!g_ht[to].started) {
         if (g_ht[to].th.joinable()) g_ht[to].th.detach();
         g_ht[to].started = true;
-        g_ht[to].kill = false;
-        g_ht[to].th = std::thread(host_thread_main, to);
+        g_ht[to].th = std::thread(host_thread_main, to, g_ht[to].gen);
     }
     g_bcv.notify_all();
-    g_bcv.wait(lk, [&] { return g_running == me || g_ht[me].kill; });
-    if (g_ht[me].kill) throw ThreadKill();
+    g_bcv.wait(lk, [&] { return (g_running == me && g_ht[me].gen == my_gen) || g_ht[me].gen != my_gen; });
+    if (g_ht[me].gen != my_gen) throw ThreadKill();
     lk.unlock();
     gfx_acquire_context();
 }
 
-static void host_thread_main(int idx) {
+static void host_thread_main(int idx, unsigned gen) {
     t_me = idx;
+    t_gen = gen;
     {
         std::unique_lock<std::mutex> lk(g_bmx);
-        g_bcv.wait(lk, [&] { return g_running == idx || g_ht[idx].kill; });
-        if (g_ht[idx].kill) return;
+        g_bcv.wait(lk, [&] { return (g_running == idx && g_ht[idx].gen == gen) || g_ht[idx].gen != gen; });
+        if (g_ht[idx].gen != gen) return;
     }
     gfx_acquire_context();
     Cpu* c = &g_cpu;
@@ -159,7 +161,7 @@ static uint32_t bios_open_thread(Cpu* c, uint32_t pc, uint32_t sp, uint32_t gp) 
         if (g_ht[i].started) {
             // a closed thread's host thread may still be parked: retire it
             std::lock_guard<std::mutex> lk(g_bmx);
-            g_ht[i].kill = true;
+            g_ht[i].gen++;
             g_ht[i].started = false;
             g_bcv.notify_all();
         }

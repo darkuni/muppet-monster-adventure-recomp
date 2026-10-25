@@ -474,9 +474,9 @@ class Recompiler:
 
     def sweep_gaps(self, im, code):
         """Starts of clean instruction runs ending in 'jr ra' between known code."""
-        if not code:
-            return set()
-        lo, hi = min(code), max(code)
+        # the whole image: an overlay may be entered only through pointers the analysis cannot see
+        lo, hi = im.base + (4 if im is not self.exe else 0), im.end - 4
+        lo = min(lo, min(code)) if code else lo
         out = set()
         a = lo
         while a < hi:
