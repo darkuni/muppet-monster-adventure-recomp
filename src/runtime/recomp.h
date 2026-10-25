@@ -121,4 +121,12 @@ void rt_bad_insn(Cpu* c, uint32_t pc, uint32_t word);
 void rt_events(Cpu* c);                         // scheduler: hardware events and interrupts
 void hle_nop(Cpu* c);
 
+// Bisect builds (-DRECOMP_BISECT) can run chosen guest functions in the interpreter instead
+// (BISECT=lo-hi[,lo-hi...], BISECT_FROM=frame) to find code generation bugs.
+#ifdef RECOMP_BISECT
+bool bisect_interp(uint32_t addr);
+#define FUNC_ENTRY(c, a) do { if (bisect_interp(a)) { rt_interp(c, a); return; } } while (0)
+#else
+#define FUNC_ENTRY(c, a) do {} while (0)
+#endif
 #define CHECK_EVENTS(c) do { if ((c)->cycles >= (c)->next_event) rt_events(c); } while (0)

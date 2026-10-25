@@ -4,6 +4,7 @@
 
 // BOOT.BIN 800dffa4
 void o09_800dffa4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dffa4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -48,6 +49,7 @@ void o09_800dffa4(Cpu* c) {
 
 // BOOT.BIN 800e0030
 void o09_800e0030(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0030u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(3) = 0x800e0000u;
@@ -109,6 +111,7 @@ L_800e00b4:
 
 // BOOT.BIN 800e00c4
 void o09_800e00c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e00c4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(3) = 0x800e0000u;
@@ -170,6 +173,7 @@ L_800e0148:
 
 // BOOT.BIN 800e0158
 void o09_800e0158(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0158u);
     CHECK_EVENTS(c);
     R(2) = 0x800e0000u;
     R(2) = MEM_RW(R(2) + 0xaf8u);
@@ -182,6 +186,7 @@ void o09_800e0158(Cpu* c) {
 
 // BOOT.BIN 800e0170
 void o09_800e0170(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0170u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = R(4) + 0u;
@@ -219,6 +224,7 @@ void o09_800e0170(Cpu* c) {
 
 // BOOT.BIN 800e01f4
 void o09_800e01f4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e01f4u);
     CHECK_EVENTS(c);
     R(4) = 0x1f800000u;
     R(5) = 0x800e0000u;
@@ -252,6 +258,7 @@ L_800e0204:
 
 // BOOT.BIN 800e0240
 void o09_800e0240(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0240u);
     CHECK_EVENTS(c);
     R(8) = 0x800e0000u;
     R(8) = R(8) + 0xbdcu;
@@ -285,6 +292,7 @@ void o09_800e03a8(Cpu* c) {
 
 // BOOT.BIN 800e0524
 void o09_800e0524(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0524u);
     CHECK_EVENTS(c);
     {
         bool t = (int32_t)R(8) < 0;
@@ -387,6 +395,7 @@ L_800e05c0:
 
 // FRONT3.BIN 800dee84
 void o0a_800dee84(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dee84u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -396,6 +405,7 @@ void o0a_800dee84(Cpu* c) {
 
 // FRONT3.BIN 800dee90
 void o0a_800dee90(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dee90u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(4) = 0u + 0u;
@@ -467,6 +477,7 @@ void o0a_800dee90(Cpu* c) {
 
 // FRONT3.BIN 800def44
 void o0a_800def44(Cpu* c) {
+    FUNC_ENTRY(c, 0x800def44u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(4) = 0x800e0000u;
@@ -507,6 +518,7 @@ void o0a_800def44(Cpu* c) {
 
 // FRONT3.BIN 800defac
 void o0a_800defac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800defacu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -563,6 +575,7 @@ L_800df010:
 
 // FRONT3.BIN 800df02c
 void o0a_800df02c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df02cu);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -582,6 +595,7 @@ L_800df03c:
 
 // FRONT3.BIN 800df044
 void o0a_800df044(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df044u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -617,6 +631,7 @@ L_800df078:
 
 // FRONT3.BIN 800df088
 void o0a_800df088(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df088u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -675,6 +690,7 @@ L_800df0fc:
 
 // FRONTB.BIN 800df6e4
 void o0b_800df6e4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df6e4u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -684,6 +700,7 @@ void o0b_800df6e4(Cpu* c) {
 
 // FRONTB.BIN 800df6f0
 void o0b_800df6f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df6f0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(7) = R(4) + 0u;
@@ -975,6 +992,7 @@ L_800df8ec:
 
 // FRONTB.BIN 800df8fc
 void o0b_800df8fc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df8fcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1300,6 +1318,7 @@ L_800dfc10:
 
 // FRONTB.BIN 800dfc54
 void o0b_800dfc54(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfc54u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(3) = 0x800c0000u;
@@ -1446,6 +1465,7 @@ L_800dfd54:
 
 // FRONTB.BIN 800dfd64
 void o0b_800dfd64(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfd64u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -1533,6 +1553,7 @@ void o0b_800dfd64(Cpu* c) {
 
 // FRONTB.BIN 800dfe68
 void o0b_800dfe68(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfe68u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x24u, R(17));
@@ -1767,6 +1788,7 @@ L_800e0088:
 
 // FRONTB.BIN 800e00a0
 void o0b_800e00a0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e00a0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -1978,6 +2000,7 @@ L_800e02a8:
 
 // FRONTB.BIN 800e02c0
 void o0b_800e02c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e02c0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     R(7) = 0x800c0000u;
@@ -2434,6 +2457,7 @@ L_800e07c8:
 
 // FRONTB.BIN 800e07ec
 void o0b_800e07ec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e07ecu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -2537,6 +2561,7 @@ L_800e08e8:
 
 // FRONTB.BIN 800e08fc
 void o0b_800e08fc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e08fcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x28u, R(18));
@@ -2853,6 +2878,7 @@ L_800e0c3c:
 
 // FRONTB.BIN 800e0c58
 void o0b_800e0c58(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0c58u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -2970,6 +2996,7 @@ L_800e0d84:
 
 // FRONTB.BIN 800e0d98
 void o0b_800e0d98(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0d98u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x50u;
     MEM_WW(R(29) + 0x44u, R(19));
@@ -3120,6 +3147,7 @@ L_800e0e68:
 
 // FRONTB.BIN 800e0f48
 void o0b_800e0f48(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0f48u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -3325,6 +3353,7 @@ L_800e11f0:
 
 // FRONTB.BIN 800e120c
 void o0b_800e120c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e120cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -3472,6 +3501,7 @@ L_800e1364:
 
 // FRONTB.BIN 800e1378
 void o0b_800e1378(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1378u);
     CHECK_EVENTS(c);
     R(9) = 0x800c0000u;
     R(14) = 0u + 0x9u;
@@ -3586,6 +3616,7 @@ L_800e14d0:
 
 // FRONTB.BIN 800e14e4
 void o0b_800e14e4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e14e4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x1cu, R(19));
@@ -3768,6 +3799,7 @@ L_800e169c:
 
 // FRONTB.BIN 800e16fc
 void o0b_800e16fc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e16fcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -3792,6 +3824,7 @@ void o0b_800e16fc(Cpu* c) {
 
 // FRONTB.BIN 800e172c
 void o0b_800e172c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e172cu);
     CHECK_EVENTS(c);
     R(3) = 0x800c0000u;
     R(2) = 0x800e0000u;
@@ -3805,6 +3838,7 @@ void o0b_800e172c(Cpu* c) {
 
 // FRONTB.BIN 800e1740
 void o0b_800e1740(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1740u);
     CHECK_EVENTS(c);
     R(2) = 0x800c0000u;
     R(3) = MEM_RW(R(2) - 0x7658u);
@@ -3899,6 +3933,7 @@ L_800e1808:
 
 // FRONTB.BIN 800e1838
 void o0b_800e1838(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1838u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -3957,6 +3992,7 @@ L_800e1898:
 
 // FRONTB.BIN 800e18c0
 void o0b_800e18c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e18c0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(5) = 0x800e0000u;
@@ -4054,6 +4090,7 @@ L_800e19a4:
 
 // FRONTB.BIN 800e19b4
 void o0b_800e19b4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e19b4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(7) = R(4) + 0u;
@@ -4144,6 +4181,7 @@ L_800e1a7c:
 
 // FRONTB.BIN 800e1a8c
 void o0b_800e1a8c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1a8cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(4) = R(29) + 0x10u;
@@ -4174,6 +4212,7 @@ void o0b_800e1a8c(Cpu* c) {
 
 // FRONTB.BIN 800e1ad8
 void o0b_800e1ad8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1ad8u);
     CHECK_EVENTS(c);
     R(6) = 0u + 0u;
     R(4) = R(4) << 9;
@@ -4206,6 +4245,7 @@ L_800e1af8:
 
 // FRONTB.BIN 800e1b20
 void o0b_800e1b20(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1b20u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(2) = 0x800e0000u;
@@ -4271,6 +4311,7 @@ void o0b_800e1b20(Cpu* c) {
 
 // FRONTB.BIN 800e1be4
 void o0b_800e1be4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1be4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(4) = R(5) + 0u;
@@ -4289,6 +4330,7 @@ void o0b_800e1be4(Cpu* c) {
 
 // FRONTB.BIN 800e1c08
 void o0b_800e1c08(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1c08u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x58u;
     MEM_WW(R(29) + 0x40u, R(20));
@@ -4606,6 +4648,7 @@ L_800e1ea8:
 
 // FRONTB.BIN 800e1ed4
 void o0b_800e1ed4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1ed4u);
     CHECK_EVENTS(c);
     R(2) = 0x800e0000u;
     R(3) = MEM_RH(R(2) + 0x6ba4u);
@@ -4703,6 +4746,7 @@ L_800e1fcc:
 
 // FRONTB.BIN 800e1fe4
 void o0b_800e1fe4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1fe4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x48u;
     MEM_WW(R(29) + 0x38u, R(22));
@@ -5099,6 +5143,7 @@ L_800e2384:
 
 // FRONTB.BIN 800e2434
 void o0b_800e2434(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2434u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(31));
@@ -5230,6 +5275,7 @@ L_800e2570:
 
 // FRONTB.BIN 800e2580
 void o0b_800e2580(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2580u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(18));
@@ -5323,6 +5369,7 @@ L_800e2644:
 
 // FRONTB.BIN 800e265c
 void o0b_800e265c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e265cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -5416,6 +5463,7 @@ void o0b_800e265c(Cpu* c) {
 
 // FRONTB.BIN 800e2770
 void o0b_800e2770(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2770u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -5443,6 +5491,7 @@ void o0b_800e2770(Cpu* c) {
 
 // FRONTB.BIN 800e27a8
 void o0b_800e27a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e27a8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x40u;
     MEM_WW(R(29) + 0x34u, R(23));
@@ -5572,6 +5621,7 @@ L_800e288c:
 
 // FRONTB.BIN 800e28b8
 void o0b_800e28b8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e28b8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -5612,6 +5662,7 @@ L_800e290c:
 
 // FRONTB.BIN 800e291c
 void o0b_800e291c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e291cu);
     CHECK_EVENTS(c);
     R(4) = 0x10000u;
     R(2) = 0x800e0000u;
@@ -5656,6 +5707,7 @@ L_800e2940:
 
 // FRONTB.BIN 800e2988
 void o0b_800e2988(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2988u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -5691,6 +5743,7 @@ L_800e29b8:
 
 // FRONTB.BIN 800e29e0
 void o0b_800e29e0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e29e0u);
     CHECK_EVENTS(c);
     R(2) = 0x800e0000u;
     R(3) = MEM_RH(R(2) + 0x6ba4u);
@@ -5709,6 +5762,7 @@ void o0b_800e29e0(Cpu* c) {
 
 // FRONTB.BIN 800e29fc
 void o0b_800e29fc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e29fcu);
     CHECK_EVENTS(c);
     R(2) = R(4) << 1;
     R(2) = R(2) + R(4);
@@ -5722,6 +5776,7 @@ void o0b_800e29fc(Cpu* c) {
 
 // FRONTB.BIN 800e2a10
 void o0b_800e2a10(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2a10u);
     CHECK_EVENTS(c);
     R(3) = 0x800e0000u;
     R(2) = R(3) + 0x6ba4u;
@@ -5756,6 +5811,7 @@ L_800e2a40:
 
 // FRONTB.BIN 800e2a54
 void o0b_800e2a54(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2a54u);
     CHECK_EVENTS(c);
     R(2) = R(4) - 0x1u;
     {
@@ -5777,6 +5833,7 @@ L_800e2a64:
 
 // FRONTB.BIN 800e2a74
 void o0b_800e2a74(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2a74u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -5835,6 +5892,7 @@ L_800e2ae8:
 
 // FRONTB.BIN 800e2af8
 void o0b_800e2af8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2af8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -5920,6 +5978,7 @@ L_800e2b6c:
 
 // FRONTB.BIN 800e2bf8
 void o0b_800e2bf8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2bf8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     R(7) = 0x800c0000u;
@@ -6124,6 +6183,7 @@ L_800e2ea4:
 
 // FRONTB.BIN 800e2ecc
 void o0b_800e2ecc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2eccu);
     CHECK_EVENTS(c);
     R(2) = 0x800d0000u;
     R(3) = MEM_RW(R(2) - 0x2098u);
@@ -6666,6 +6726,7 @@ L_800e3400:
 
 // FRONTB.BIN 800e3408
 void o0b_800e3408(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3408u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x2cu, R(31));
@@ -6796,6 +6857,7 @@ L_800e3540:
 
 // FRONTB.BIN 800e3568
 void o0b_800e3568(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3568u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x1cu, R(19));
@@ -6993,6 +7055,7 @@ L_800e36f0:
 
 // FRONTB.BIN 800e371c
 void o0b_800e371c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e371cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     R(2) = 0x800e0000u;
@@ -7123,6 +7186,7 @@ L_800e38b4:
 
 // FRONTB.BIN 800e38cc
 void o0b_800e38cc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e38ccu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(3) = 0x800d0000u;
@@ -7171,6 +7235,7 @@ L_800e391c:
 
 // FRONTB.BIN 800e3938
 void o0b_800e3938(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3938u);
     CHECK_EVENTS(c);
     R(2) = 0x800d0000u;
     R(2) = R(2) - 0x3718u;
@@ -7189,6 +7254,7 @@ void o0b_800e3938(Cpu* c) {
 
 // FRONTB.BIN 800e3964
 void o0b_800e3964(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3964u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x24u, R(31));
@@ -7272,6 +7338,7 @@ L_800e3a08:
 
 // FRONTB.BIN 800e3a28
 void o0b_800e3a28(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3a28u);
     CHECK_EVENTS(c);
     R(6) = 0x800e0000u;
     R(2) = MEM_RB(R(5) + 0x14u);
@@ -7298,6 +7365,7 @@ void o0b_800e3a28(Cpu* c) {
 
 // FRONTB.BIN 800e3a80
 void o0b_800e3a80(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3a80u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(31));
@@ -7359,6 +7427,7 @@ L_800e3adc:
 
 // FRONTB.BIN 800e3b04
 void o0b_800e3b04(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3b04u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -7375,6 +7444,7 @@ void o0b_800e3b04(Cpu* c) {
 
 // FRONTB.BIN 800e3b24
 void o0b_800e3b24(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3b24u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -7438,6 +7508,7 @@ L_800e3ba0:
 
 // FRONTB.BIN 800e3bd8
 void o0b_800e3bd8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3bd8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -7493,6 +7564,7 @@ L_800e3c4c:
 
 // FRONTB.BIN 800e3c70
 void o0b_800e3c70(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3c70u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -7544,6 +7616,7 @@ L_800e3ce4:
 
 // FRONTB.BIN 800e3cf8
 void o0b_800e3cf8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3cf8u);
     CHECK_EVENTS(c);
     R(6) = 0x800b0000u;
     R(5) = 0x800e0000u;
@@ -7572,6 +7645,7 @@ void o0b_800e3cf8(Cpu* c) {
 
 // FRONTB.BIN 800e3d54
 void o0b_800e3d54(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3d54u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -7610,6 +7684,7 @@ L_800e3d94:
 
 // FRONTB.BIN 800e3da4
 void o0b_800e3da4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3da4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = R(4) + 0u;
@@ -7699,6 +7774,7 @@ L_800e3e2c:
 
 // FRONTB.BIN 800e3e3c
 void o0b_800e3e3c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e3cu);
     CHECK_EVENTS(c);
     R(2) = 0x800d0000u;
     {
@@ -7710,6 +7786,7 @@ void o0b_800e3e3c(Cpu* c) {
 
 // FRONTB.BIN 800e3e48
 void o0b_800e3e48(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e48u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -7739,6 +7816,7 @@ L_800e3e64:
 
 // FRONTB.BIN 800e3e7c
 void o0b_800e3e7c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e7cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(2) = R(5) & 0x1u;
@@ -7798,6 +7876,7 @@ L_800e3ed8:
 
 // FRONTB.BIN 800e3ef8
 void o0b_800e3ef8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3ef8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -7814,6 +7893,7 @@ void o0b_800e3ef8(Cpu* c) {
 
 // FRONTB.BIN 800e3f18
 void o0b_800e3f18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f18u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -7832,6 +7912,7 @@ void o0b_800e3f18(Cpu* c) {
 
 // FRONTB.BIN 800e3f3c
 void o0b_800e3f3c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f3cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = R(4) + 0u;
@@ -7921,6 +8002,7 @@ L_800e401c:
 
 // FRONTB.BIN 800e402c
 void o0b_800e402c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e402cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -7967,6 +8049,7 @@ void o0b_800e402c(Cpu* c) {
 
 // FRONTB.BIN 800e40bc
 void o0b_800e40bc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e40bcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -8011,6 +8094,7 @@ void o0b_800e40bc(Cpu* c) {
 
 // FRONTB.BIN 800e4148
 void o0b_800e4148(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4148u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(3) = 0x800e0000u;
@@ -8072,6 +8156,7 @@ L_800e41cc:
 
 // FRONTB.BIN 800e41dc
 void o0b_800e41dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e41dcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(3) = 0x800e0000u;
@@ -8133,6 +8218,7 @@ L_800e4260:
 
 // FRONTB.BIN 800e4270
 void o0b_800e4270(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4270u);
     CHECK_EVENTS(c);
     R(2) = 0x800e0000u;
     R(2) = MEM_RW(R(2) + 0x6160u);
@@ -8145,6 +8231,7 @@ void o0b_800e4270(Cpu* c) {
 
 // FRONTB.BIN 800e4288
 void o0b_800e4288(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4288u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = R(4) + 0u;
@@ -8182,6 +8269,7 @@ void o0b_800e4288(Cpu* c) {
 
 // FRONTB.BIN 800e430c
 void o0b_800e430c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e430cu);
     CHECK_EVENTS(c);
     R(4) = 0x1f800000u;
     R(5) = 0x800e0000u;
@@ -8215,6 +8303,7 @@ L_800e431c:
 
 // FRONTB.BIN 800e4358
 void o0b_800e4358(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4358u);
     CHECK_EVENTS(c);
     R(8) = 0x800e0000u;
     R(8) = R(8) + 0x6244u;
@@ -8238,6 +8327,7 @@ L_800e4370:
 
 // FRONTB.BIN 800e4380
 void o0b_800e4380(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4380u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x4u;
     MEM_WW(R(29), R(31));
@@ -8712,6 +8802,7 @@ L_800e4838:
 
 // FRONTB.BIN 800e44b0
 void o0b_800e44b0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e44b0u);
     CHECK_EVENTS(c);
     R(9) = 0u | 0x3u;
     {
@@ -8726,6 +8817,7 @@ void o0b_800e44b0(Cpu* c) {
 
 // FRONTB.BIN 800e44c0
 void o0b_800e44c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e44c0u);
     CHECK_EVENTS(c);
     goto L_800e44c0;
 L_800e448c:
@@ -8954,6 +9046,7 @@ L_800e462c:
 
 // FRONTB.BIN 800e463c
 void o0b_800e463c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e463cu);
     CHECK_EVENTS(c);
     {
         bool t = (int32_t)R(8) < 0;
@@ -9056,6 +9149,7 @@ L_800e46d8:
 
 // FRONTB.BIN 800e4830
 void o0b_800e4830(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4830u);
     CHECK_EVENTS(c);
     {
         bool t = (int32_t)0u >= 0;
@@ -9092,6 +9186,7 @@ L_800e483c:
 
 // CASTLE1.BIN 800df008
 void o0c_800df008(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df008u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -9194,6 +9289,7 @@ L_800df108:
 
 // CASTLE1.BIN 800df138
 void o0c_800df138(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df138u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -9280,6 +9376,7 @@ L_800df178:
 
 // CASTLE1.BIN 800df250
 void o0c_800df250(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df250u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -9367,6 +9464,7 @@ L_800df290:
 
 // CASTLE1.BIN 800df36c
 void o0c_800df36c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df36cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -9479,6 +9577,7 @@ L_800df488:
 
 // CASTLE1.BIN 800df498
 void o0c_800df498(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df498u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -9585,6 +9684,7 @@ L_800df5b4:
 
 // CASTLE1.BIN 800df5d0
 void o0c_800df5d0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df5d0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -9745,6 +9845,7 @@ L_800df740:
 
 // CASTLE1.BIN 800df750
 void o0c_800df750(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df750u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -9870,6 +9971,7 @@ L_800df878:
 
 // CASTLE1.BIN 800df894
 void o0c_800df894(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df894u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -10140,6 +10242,7 @@ L_800dfb38:
 
 // CASTLE1.BIN 800dfb58
 void o0c_800dfb58(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfb58u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(2) = 0x800e0000u;
@@ -10285,6 +10388,7 @@ L_800dfce0:
 
 // CASTLE1.BIN 800dfcf8
 void o0c_800dfcf8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfcf8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -10509,6 +10613,7 @@ L_800dfe70:
 
 // CASTLE1.BIN 800dffd8
 void o0c_800dffd8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dffd8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -10795,6 +10900,7 @@ L_800e0300:
 
 // CASTLE1.BIN 800e0330
 void o0c_800e0330(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0330u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x40u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -11117,6 +11223,7 @@ L_800e0640:
 
 // CASTLE1.BIN 800e0664
 void o0c_800e0664(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0664u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x24u, R(21));
@@ -11398,6 +11505,7 @@ L_800e08f8:
 
 // CASTLE1.BIN 800e0940
 void o0c_800e0940(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0940u);
     CHECK_EVENTS(c);
     R(2) = 0x800e0000u;
     R(5) = MEM_RW(R(2) + 0x7340u);
@@ -11523,6 +11631,7 @@ L_800e0a74:
 
 // CASTLE1.BIN 800e0a84
 void o0c_800e0a84(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0a84u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x20u, R(18));
@@ -11723,6 +11832,7 @@ L_800e0c8c:
 
 // CASTLE1.BIN 800e0ca8
 void o0c_800e0ca8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0ca8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -11839,6 +11949,7 @@ L_800e0d44:
 
 // CASTLE1.BIN 800e0e08
 void o0c_800e0e08(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0e08u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -11967,6 +12078,7 @@ L_800e0f58:
 
 // CASTLE1.BIN 800e0f6c
 void o0c_800e0f6c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0f6cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12077,6 +12189,7 @@ L_800e107c:
 
 // CASTLE1.BIN 800e1098
 void o0c_800e1098(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1098u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x24u, R(21));
@@ -12290,6 +12403,7 @@ L_800e1260:
 
 // CASTLE1.BIN 800e1288
 void o0c_800e1288(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1288u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     R(3) = 0x800b0000u;
@@ -12454,6 +12568,7 @@ L_800e13d0:
 
 // CASTLE1.BIN 800e1460
 void o0c_800e1460(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1460u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -12631,6 +12746,7 @@ L_800e1608:
 
 // CASTLE1.BIN 800e161c
 void o0c_800e161c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e161cu);
     CHECK_EVENTS(c);
     R(2) = 0x800e0000u;
     R(4) = MEM_RW(R(2) + 0x7ca4u);
@@ -12724,6 +12840,7 @@ L_800e1704:
 
 // CASTLE1.BIN 800e1720
 void o0c_800e1720(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1720u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     R(2) = 0x800e0000u;
@@ -12917,6 +13034,7 @@ L_800e1860:
 
 // CASTLE1.BIN 800e1958
 void o0c_800e1958(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1958u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x48u;
     MEM_WW(R(29) + 0x40u, R(30));
@@ -13133,6 +13251,7 @@ L_800e1b50:
 
 // CASTLE1.BIN 800e1b80
 void o0c_800e1b80(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1b80u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x68u;
     MEM_WW(R(29) + 0x44u, R(17));
@@ -13330,6 +13449,7 @@ L_800e1e04:
 
 // CASTLE1.BIN 800e1e3c
 void o0c_800e1e3c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1e3cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13917,6 +14037,7 @@ L_800e2458:
 
 // CASTLE1.BIN 800e2498
 void o0c_800e2498(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2498u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(4) = 0u + 0u;
@@ -14180,6 +14301,7 @@ L_800e275c:
 
 // CASTLE1.BIN 800e276c
 void o0c_800e276c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e276cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x50u;
     MEM_WW(R(29) + 0x28u, R(16));
@@ -16122,6 +16244,7 @@ L_800e3bb4:
 
 // CASTLE1.BIN 800e3be4
 void o0c_800e3be4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3be4u);
     CHECK_EVENTS(c);
     R(2) = 0x800e0000u;
     R(3) = 0x800e0000u;
@@ -16321,6 +16444,7 @@ L_800e3dd4:
 
 // CASTLE1.BIN 800e3df0
 void o0c_800e3df0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3df0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0x800e0000u;
@@ -16340,6 +16464,7 @@ void o0c_800e3df0(Cpu* c) {
 
 // CASTLE1.BIN 800e3e18
 void o0c_800e3e18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e18u);
     CHECK_EVENTS(c);
     R(2) = MEM_RW(R(4) + 0xa4u);
     R(4) = 0x800d0000u;
@@ -16359,6 +16484,7 @@ void o0c_800e3e18(Cpu* c) {
 
 // CASTLE1.BIN 800e3e44
 void o0c_800e3e44(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e44u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -16379,6 +16505,7 @@ void o0c_800e3e44(Cpu* c) {
 
 // CASTLE1.BIN 800e3e70
 void o0c_800e3e70(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e70u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -16428,6 +16555,7 @@ void o0c_800e3e70(Cpu* c) {
 
 // CASTLE1.BIN 800e3efc
 void o0c_800e3efc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3efcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16463,6 +16591,7 @@ void o0c_800e3efc(Cpu* c) {
 
 // CASTLE1.BIN 800e3f50
 void o0c_800e3f50(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f50u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16498,6 +16627,7 @@ void o0c_800e3f50(Cpu* c) {
 
 // CASTLE1.BIN 800e3fa4
 void o0c_800e3fa4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3fa4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16533,6 +16663,7 @@ void o0c_800e3fa4(Cpu* c) {
 
 // CASTLE1.BIN 800e3ff8
 void o0c_800e3ff8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3ff8u);
     CHECK_EVENTS(c);
     R(9) = R(4) + 0u;
     R(3) = 0u + 0x50u;
@@ -16604,6 +16735,7 @@ L_800e402c:
 
 // CASTLE1.BIN 800e40dc
 void o0c_800e40dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e40dcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -16694,6 +16826,7 @@ L_800e418c:
 
 // CASTLE1.BIN 800e41a8
 void o0c_800e41a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e41a8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -16721,6 +16854,7 @@ L_800e41cc:
 
 // CASTLE1.BIN 800e41dc
 void o0c_800e41dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e41dcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -16747,6 +16881,7 @@ L_800e4200:
 
 // CASTLE1.BIN 800e4210
 void o0c_800e4210(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4210u);
     CHECK_EVENTS(c);
     R(5) = 0x260000u;
     R(5) = R(5) | 0x9ec3u;
@@ -16792,6 +16927,7 @@ void o0c_800e4210(Cpu* c) {
 
 // CASTLE1.BIN 800e42a4
 void o0c_800e42a4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e42a4u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -16801,6 +16937,7 @@ void o0c_800e42a4(Cpu* c) {
 
 // CASTLE1.BIN 800e42ac
 void o0c_800e42ac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e42acu);
     CHECK_EVENTS(c);
     R(7) = R(4) + 0u;
     R(2) = MEM_RB(R(7) + 0x30u);
@@ -16862,6 +16999,7 @@ L_800e42cc:
 
 // CASTLE1.BIN 800e435c
 void o0c_800e435c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e435cu);
     CHECK_EVENTS(c);
     R(5) = R(4) + 0u;
     {
@@ -16891,6 +17029,7 @@ L_800e4378:
 
 // CASTLE1.BIN 800e439c
 void o0c_800e439c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e439cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(5) = R(4) + 0u;
@@ -16938,6 +17077,7 @@ L_800e43f8:
 
 // CASTLE1.BIN 800e4408
 void o0c_800e4408(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4408u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16985,6 +17125,7 @@ L_800e4458:
 
 // CASTLE1.BIN 800e4468
 void o0c_800e4468(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4468u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -17060,6 +17201,7 @@ L_800e44fc:
 
 // CASTLE1.BIN 800e4514
 void o0c_800e4514(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4514u);
     CHECK_EVENTS(c);
     R(5) = 0x260000u;
     R(5) = R(5) | 0x9ec3u;
@@ -17104,6 +17246,7 @@ void o0c_800e4514(Cpu* c) {
 
 // CASTLE1.BIN 800e45a4
 void o0c_800e45a4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e45a4u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17113,6 +17256,7 @@ void o0c_800e45a4(Cpu* c) {
 
 // CASTLE1.BIN 800e45ac
 void o0c_800e45ac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e45acu);
     CHECK_EVENTS(c);
     R(7) = R(4) + 0u;
     R(2) = MEM_RB(R(7) + 0x30u);
@@ -17174,6 +17318,7 @@ L_800e45cc:
 
 // CASTLE1.BIN 800e465c
 void o0c_800e465c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e465cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17183,6 +17328,7 @@ void o0c_800e465c(Cpu* c) {
 
 // CASTLE1.BIN 800e4664
 void o0c_800e4664(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4664u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17234,6 +17380,7 @@ L_800e46b8:
 
 // CASTLE1.BIN 800e46c8
 void o0c_800e46c8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e46c8u);
     CHECK_EVENTS(c);
     R(2) = 0u + 0x2u;
     MEM_WH(R(4) + 0xc4u, R(2));
@@ -17253,6 +17400,7 @@ void o0c_800e46c8(Cpu* c) {
 
 // CASTLE1.BIN 800e46f4
 void o0c_800e46f4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e46f4u);
     CHECK_EVENTS(c);
     R(2) = MEM_RW(R(4) + 0x74u);
     {
@@ -17273,6 +17421,7 @@ L_800e4714:
 
 // CASTLE1.BIN 800e471c
 void o0c_800e471c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e471cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(5) = R(4) + 0u;
@@ -17320,6 +17469,7 @@ L_800e4778:
 
 // CASTLE1.BIN 800e4788
 void o0c_800e4788(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4788u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17367,6 +17517,7 @@ L_800e47d8:
 
 // CASTLE1.BIN 800e47e8
 void o0c_800e47e8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e47e8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -17442,6 +17593,7 @@ L_800e487c:
 
 // CASTLE1.BIN 800e4894
 void o0c_800e4894(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4894u);
     CHECK_EVENTS(c);
     R(5) = 0x260000u;
     R(5) = R(5) | 0x9ec3u;
@@ -17486,6 +17638,7 @@ void o0c_800e4894(Cpu* c) {
 
 // CASTLE1.BIN 800e4924
 void o0c_800e4924(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4924u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17495,6 +17648,7 @@ void o0c_800e4924(Cpu* c) {
 
 // CASTLE1.BIN 800e492c
 void o0c_800e492c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e492cu);
     CHECK_EVENTS(c);
     R(7) = R(4) + 0u;
     R(2) = MEM_RB(R(7) + 0x30u);
@@ -17556,6 +17710,7 @@ L_800e494c:
 
 // CASTLE1.BIN 800e49dc
 void o0c_800e49dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e49dcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17630,6 +17785,7 @@ L_800e4a60:
 
 // CASTLE1.BIN 800e4a70
 void o0c_800e4a70(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a70u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17639,6 +17795,7 @@ void o0c_800e4a70(Cpu* c) {
 
 // CASTLE1.BIN 800e4a78
 void o0c_800e4a78(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a78u);
     CHECK_EVENTS(c);
     R(2) = 0u + 0x2u;
     R(3) = 0u + 0x1u;
@@ -17659,6 +17816,7 @@ void o0c_800e4a78(Cpu* c) {
 
 // CASTLE1.BIN 800e4aa8
 void o0c_800e4aa8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4aa8u);
     CHECK_EVENTS(c);
     R(2) = MEM_RW(R(4) + 0x74u);
     {
@@ -17679,6 +17837,7 @@ L_800e4ac8:
 
 // CASTLE1.BIN 800e4ad0
 void o0c_800e4ad0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4ad0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17761,6 +17920,7 @@ L_800e4b10:
 
 // CASTLE1.BIN 800e4bd8
 void o0c_800e4bd8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4bd8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(5) = R(4) + 0u;
@@ -17808,6 +17968,7 @@ L_800e4c34:
 
 // CASTLE1.BIN 800e4c44
 void o0c_800e4c44(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c44u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(2) = R(2) | 0x4000u;
@@ -17820,6 +17981,7 @@ void o0c_800e4c44(Cpu* c) {
 
 // CASTLE1.BIN 800e4c58
 void o0c_800e4c58(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c58u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(2) = R(2) | 0x4000u;
@@ -17832,6 +17994,7 @@ void o0c_800e4c58(Cpu* c) {
 
 // CASTLE1.BIN 800e4c6c
 void o0c_800e4c6c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c6cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17841,6 +18004,7 @@ void o0c_800e4c6c(Cpu* c) {
 
 // CASTLE1.BIN 800e4c74
 void o0c_800e4c74(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c74u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17850,6 +18014,7 @@ void o0c_800e4c74(Cpu* c) {
 
 // CASTLE1.BIN 800e4c7c
 void o0c_800e4c7c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c7cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17876,6 +18041,7 @@ void o0c_800e4c7c(Cpu* c) {
 
 // CASTLE1.BIN 800e4cb4
 void o0c_800e4cb4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4cb4u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17885,6 +18051,7 @@ void o0c_800e4cb4(Cpu* c) {
 
 // CASTLE1.BIN 800e4cbc
 void o0c_800e4cbc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4cbcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17940,6 +18107,7 @@ void o0c_800e4cbc(Cpu* c) {
 
 // CASTLE1.BIN 800e4d70
 void o0c_800e4d70(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4d70u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18002,6 +18170,7 @@ void o0c_800e4d70(Cpu* c) {
 
 // CASTLE1.BIN 800e4e40
 void o0c_800e4e40(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4e40u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18043,6 +18212,7 @@ L_800e4e84:
 
 // CASTLE1.BIN 800e4ea0
 void o0c_800e4ea0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4ea0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18111,6 +18281,7 @@ void o0c_800e4ea0(Cpu* c) {
 
 // CASTLE1.BIN 800e4f88
 void o0c_800e4f88(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4f88u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -18196,6 +18367,7 @@ L_800e505c:
 
 // CASTLE1.BIN 800e506c
 void o0c_800e506c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e506cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -18205,6 +18377,7 @@ void o0c_800e506c(Cpu* c) {
 
 // CASTLE1.BIN 800e5074
 void o0c_800e5074(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5074u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -18281,6 +18454,7 @@ void o0c_800e5074(Cpu* c) {
 
 // CASTLE1.BIN 800e5164
 void o0c_800e5164(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5164u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -18320,6 +18494,7 @@ L_800e51b8:
 
 // CASTLE1.BIN 800e51c8
 void o0c_800e51c8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e51c8u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -18329,6 +18504,7 @@ void o0c_800e51c8(Cpu* c) {
 
 // CASTLE1.BIN 800e51d0
 void o0c_800e51d0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e51d0u);
     CHECK_EVENTS(c);
     R(7) = 0x260000u;
     R(7) = R(7) | 0x9ec3u;
@@ -18379,6 +18555,7 @@ void o0c_800e51d0(Cpu* c) {
 
 // CASTLE1.BIN 800e527c
 void o0c_800e527c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e527cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18422,6 +18599,7 @@ L_800e52a0:
 
 // CASTLE1.BIN 800e52e0
 void o0c_800e52e0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e52e0u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -18431,6 +18609,7 @@ void o0c_800e52e0(Cpu* c) {
 
 // CASTLE1.BIN 800e52e8
 void o0c_800e52e8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e52e8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18512,6 +18691,7 @@ L_800e53a4:
 
 // CASTLE1.BIN 800e53b4
 void o0c_800e53b4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e53b4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18577,6 +18757,7 @@ L_800e546c:
 
 // CASTLE1.BIN 800e547c
 void o0c_800e547c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e547cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(5) = R(4) + 0u;
@@ -18639,6 +18820,7 @@ L_800e54f4:
 
 // CASTLE1.BIN 800e5504
 void o0c_800e5504(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5504u);
     CHECK_EVENTS(c);
     R(9) = R(4) + 0u;
     R(2) = 0u + 0x64u;
@@ -18712,6 +18894,7 @@ L_800e552c:
 
 // CASTLE1.BIN 800e55f0
 void o0c_800e55f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e55f0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -18735,6 +18918,7 @@ L_800e5610:
 
 // CASTLE1.BIN 800e5620
 void o0c_800e5620(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5620u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18794,6 +18978,7 @@ L_800e569c:
 
 // CASTLE1.BIN 800e56ac
 void o0c_800e56ac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e56acu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -18803,6 +18988,7 @@ void o0c_800e56ac(Cpu* c) {
 
 // CASTLE1.BIN 800e56b4
 void o0c_800e56b4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e56b4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18892,6 +19078,7 @@ L_800e57a0:
 
 // CASTLE1.BIN 800e57b0
 void o0c_800e57b0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e57b0u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -18901,6 +19088,7 @@ void o0c_800e57b0(Cpu* c) {
 
 // CASTLE1.BIN 800e57b8
 void o0c_800e57b8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e57b8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18952,6 +19140,7 @@ L_800e581c:
 
 // CASTLE1.BIN 800e5830
 void o0c_800e5830(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5830u);
     CHECK_EVENTS(c);
     R(6) = 0x40000u;
     R(6) = R(6) | 0x2200u;
@@ -18975,6 +19164,7 @@ void o0c_800e5830(Cpu* c) {
 
 // CASTLE1.BIN 800e586c
 void o0c_800e586c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e586cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -19044,6 +19234,7 @@ L_800e58fc:
 
 // CASTLE1.BIN 800e5918
 void o0c_800e5918(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5918u);
     CHECK_EVENTS(c);
     R(2) = 0x800c0000u;
     R(4) = R(2) - 0x4de4u;
@@ -19079,6 +19270,7 @@ L_800e594c:
 
 // CASTLE1.BIN 800e5954
 void o0c_800e5954(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5954u);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -19113,6 +19305,7 @@ L_800e5988:
 
 // CASTLE1.BIN 800e5990
 void o0c_800e5990(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5990u);
     CHECK_EVENTS(c);
     R(2) = 0x800b0000u;
     R(3) = MEM_RB(R(2) + 0x7464u);
@@ -19165,6 +19358,7 @@ L_800e59fc:
 
 // CASTLE1.BIN 800e5a0c
 void o0c_800e5a0c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5a0cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -19192,6 +19386,7 @@ void o0c_800e5a0c(Cpu* c) {
 
 // CASTLE1.BIN 800e5a5c
 void o0c_800e5a5c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5a5cu);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -19233,6 +19428,7 @@ L_800e5ab0:
 
 // CASTLE1.BIN 800e5ab8
 void o0c_800e5ab8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ab8u);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -19274,6 +19470,7 @@ L_800e5b0c:
 
 // CASTLE1.BIN 800e5b14
 void o0c_800e5b14(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5b14u);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -19315,6 +19512,7 @@ L_800e5b68:
 
 // CASTLE1.BIN 800e5b70
 void o0c_800e5b70(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5b70u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0x84u);
     R(2) = 0x40000u;
@@ -19363,6 +19561,7 @@ L_800e5bdc:
 
 // CASTLE1.BIN 800e5be4
 void o0c_800e5be4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5be4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = R(4) + 0u;
@@ -19423,6 +19622,7 @@ L_800e5c70:
 
 // CASTLE1.BIN 800e5c80
 void o0c_800e5c80(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5c80u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -19455,6 +19655,7 @@ void o0c_800e5c80(Cpu* c) {
 
 // CASTLE1.BIN 800e5cd4
 void o0c_800e5cd4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5cd4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -19471,6 +19672,7 @@ void o0c_800e5cd4(Cpu* c) {
 
 // CASTLE1.BIN 800e5cf4
 void o0c_800e5cf4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5cf4u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x1u;
@@ -19483,6 +19685,7 @@ void o0c_800e5cf4(Cpu* c) {
 
 // CASTLE1.BIN 800e5d04
 void o0c_800e5d04(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5d04u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -19525,6 +19728,7 @@ void o0c_800e5d04(Cpu* c) {
 
 // CASTLE1.BIN 800e5d74
 void o0c_800e5d74(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5d74u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -19567,6 +19771,7 @@ void o0c_800e5d74(Cpu* c) {
 
 // CASTLE1.BIN 800e5de4
 void o0c_800e5de4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5de4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -19612,6 +19817,7 @@ void o0c_800e5de4(Cpu* c) {
 
 // CASTLE1.BIN 800e5e60
 void o0c_800e5e60(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5e60u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x4u;
@@ -19624,6 +19830,7 @@ void o0c_800e5e60(Cpu* c) {
 
 // CASTLE1.BIN 800e5e70
 void o0c_800e5e70(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5e70u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -19682,6 +19889,7 @@ L_800e5f54:
 
 // CASTLE1.BIN 800e5f64
 void o0c_800e5f64(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5f64u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -19773,6 +19981,7 @@ L_800e6070:
 
 // CASTLE1.BIN 800e6080
 void o0c_800e6080(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6080u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -19789,6 +19998,7 @@ void o0c_800e6080(Cpu* c) {
 
 // CASTLE1.BIN 800e60a0
 void o0c_800e60a0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e60a0u);
     CHECK_EVENTS(c);
     R(3) = 0x800e0000u;
     R(2) = 0u + 0x1u;
@@ -19801,6 +20011,7 @@ void o0c_800e60a0(Cpu* c) {
 
 // CASTLE1.BIN 800e60b0
 void o0c_800e60b0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e60b0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -19833,6 +20044,7 @@ void o0c_800e60b0(Cpu* c) {
 
 // CASTLE1.BIN 800e6104
 void o0c_800e6104(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6104u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x28u, R(18));
@@ -19895,6 +20107,7 @@ void o0c_800e6104(Cpu* c) {
 
 // CASTLE1.BIN 800e61c0
 void o0c_800e61c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e61c0u);
     CHECK_EVENTS(c);
     R(4) = R(4) & 0xffffu;
     R(5) = 0x800d0000u;
@@ -19925,6 +20138,7 @@ L_800e6200:
 
 // CASTLE1.BIN 800e6208
 void o0c_800e6208(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6208u);
     CHECK_EVENTS(c);
     R(2) = 0u + 0xf0u;
     MEM_WH(R(4) + 0x66u, R(2));
@@ -19947,6 +20161,7 @@ L_800e6228:
 
 // CASTLE1.BIN 800e6230
 void o0c_800e6230(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6230u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -20029,6 +20244,7 @@ L_800e62f0:
 
 // CASTLE1.BIN 800e6304
 void o0c_800e6304(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6304u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0xfffb0000u;
@@ -20106,6 +20322,7 @@ L_800e63cc:
 
 // CASTLE1.BIN 800e63e8
 void o0c_800e63e8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e63e8u);
     CHECK_EVENTS(c);
     R(2) = 0u + 0x78u;
     MEM_WH(R(4) + 0x66u, R(2));
@@ -20130,6 +20347,7 @@ L_800e640c:
 
 // CASTLE1.BIN 800e6414
 void o0c_800e6414(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6414u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -20154,6 +20372,7 @@ void o0c_800e6414(Cpu* c) {
 
 // CASTLE1.BIN 800e644c
 void o0c_800e644c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e644cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -20189,6 +20408,7 @@ L_800e6480:
 
 // CASTLE1.BIN 800e649c
 void o0c_800e649c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e649cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -20227,6 +20447,7 @@ L_800e64dc:
 
 // CASTLE1.BIN 800e64ec
 void o0c_800e64ec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e64ecu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -20269,6 +20490,7 @@ void o0c_800e64ec(Cpu* c) {
 
 // CASTLE1.BIN 800e655c
 void o0c_800e655c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e655cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -20333,6 +20555,7 @@ L_800e65e4:
 
 // CASTLE1.BIN 800e65f8
 void o0c_800e65f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e65f8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -20391,6 +20614,7 @@ L_800e66dc:
 
 // CASTLE1.BIN 800e66ec
 void o0c_800e66ec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e66ecu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -20474,6 +20698,7 @@ L_800e6790:
 
 // CASTLE2.BIN 800deef0
 void o0d_800deef0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800deef0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -20596,6 +20821,7 @@ L_800df010:
 
 // CASTLE2.BIN 800df020
 void o0d_800df020(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df020u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -20737,6 +20963,7 @@ L_800df190:
 
 // CASTLE2.BIN 800df1a8
 void o0d_800df1a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df1a8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -20898,6 +21125,7 @@ L_800df334:
 
 // CASTLE2.BIN 800df34c
 void o0d_800df34c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df34cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -21010,6 +21238,7 @@ L_800df468:
 
 // CASTLE2.BIN 800df478
 void o0d_800df478(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df478u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -21152,6 +21381,7 @@ L_800df5dc:
 
 // CASTLE2.BIN 800df5f8
 void o0d_800df5f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df5f8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -21312,6 +21542,7 @@ L_800df768:
 
 // CASTLE2.BIN 800df778
 void o0d_800df778(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df778u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -21430,6 +21661,7 @@ L_800df8b4:
 
 // CASTLE2.BIN 800df8c4
 void o0d_800df8c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df8c4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -21555,6 +21787,7 @@ L_800df9ec:
 
 // CASTLE2.BIN 800dfa08
 void o0d_800dfa08(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfa08u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -21825,6 +22058,7 @@ L_800dfcac:
 
 // CASTLE2.BIN 800dfccc
 void o0d_800dfccc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfcccu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x1cu, R(17));
@@ -22056,6 +22290,7 @@ L_800dfee0:
 
 // CASTLE2.BIN 800dfef4
 void o0d_800dfef4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfef4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -22214,6 +22449,7 @@ L_800e0044:
 
 // CASTLE2.BIN 800e009c
 void o0d_800e009c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e009cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -22463,6 +22699,7 @@ L_800e02ec:
 
 // CASTLE2.BIN 800e0318
 void o0d_800e0318(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0318u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x40u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -22647,6 +22884,7 @@ L_800e04ac:
 
 // CASTLE2.BIN 800e04dc
 void o0d_800e04dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e04dcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -22743,6 +22981,7 @@ L_800e05ac:
 
 // CASTLE2.BIN 800e05c4
 void o0d_800e05c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e05c4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -22845,6 +23084,7 @@ L_800e06c4:
 
 // CASTLE2.BIN 800e06f4
 void o0d_800e06f4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e06f4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -23588,6 +23828,7 @@ L_800e0e8c:
 
 // CASTLE2.BIN 800e0ec8
 void o0d_800e0ec8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0ec8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(4) = 0u + 0u;
@@ -24214,6 +24455,7 @@ L_800e11ac:
 
 // CASTLE2.BIN 800e15d0
 void o0d_800e15d0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e15d0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x50u;
     MEM_WW(R(29) + 0x28u, R(16));
@@ -26667,6 +26909,7 @@ L_800e2d7c:
 
 // CASTLE2.BIN 800e2e50
 void o0d_800e2e50(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2e50u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -26770,6 +27013,7 @@ L_800e2f30:
 
 // CASTLE2.BIN 800e2f54
 void o0d_800e2f54(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2f54u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0x800e0000u;
@@ -26789,6 +27033,7 @@ void o0d_800e2f54(Cpu* c) {
 
 // CASTLE2.BIN 800e2f7c
 void o0d_800e2f7c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2f7cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x1u;
@@ -26807,6 +27052,7 @@ void o0d_800e2f7c(Cpu* c) {
 
 // CASTLE2.BIN 800e2fa0
 void o0d_800e2fa0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2fa0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x1u;
@@ -26825,6 +27071,7 @@ void o0d_800e2fa0(Cpu* c) {
 
 // CASTLE2.BIN 800e2fc4
 void o0d_800e2fc4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2fc4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x2u;
@@ -26843,6 +27090,7 @@ void o0d_800e2fc4(Cpu* c) {
 
 // CASTLE2.BIN 800e2fe8
 void o0d_800e2fe8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2fe8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -26887,6 +27135,7 @@ L_800e3034:
 
 // CASTLE2.BIN 800e3044
 void o0d_800e3044(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3044u);
     CHECK_EVENTS(c);
     R(6) = 0x260000u;
     R(6) = R(6) | 0x9ec3u;
@@ -26950,6 +27199,7 @@ void o0d_800e3044(Cpu* c) {
 
 // CASTLE2.BIN 800e3120
 void o0d_800e3120(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3120u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -26966,6 +27216,7 @@ void o0d_800e3120(Cpu* c) {
 
 // CASTLE2.BIN 800e3140
 void o0d_800e3140(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3140u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -27001,6 +27252,7 @@ L_800e3174:
 
 // CASTLE2.BIN 800e3184
 void o0d_800e3184(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3184u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -27105,6 +27357,7 @@ L_800e326c:
 
 // CASTLE2.BIN 800e327c
 void o0d_800e327c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e327cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -27114,6 +27367,7 @@ void o0d_800e327c(Cpu* c) {
 
 // CASTLE2.BIN 800e3284
 void o0d_800e3284(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3284u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -27123,6 +27377,7 @@ void o0d_800e3284(Cpu* c) {
 
 // CASTLE2.BIN 800e328c
 void o0d_800e328c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e328cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -27180,6 +27435,7 @@ void o0d_800e328c(Cpu* c) {
 
 // CASTLE2.BIN 800e3348
 void o0d_800e3348(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3348u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -27189,6 +27445,7 @@ void o0d_800e3348(Cpu* c) {
 
 // CASTLE2.BIN 800e3350
 void o0d_800e3350(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3350u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -27216,6 +27473,7 @@ L_800e3374:
 
 // CASTLE2.BIN 800e3384
 void o0d_800e3384(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3384u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -27245,6 +27503,7 @@ void o0d_800e3384(Cpu* c) {
 
 // CASTLE2.BIN 800e33d0
 void o0d_800e33d0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e33d0u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x80u;
@@ -27259,6 +27518,7 @@ void o0d_800e33d0(Cpu* c) {
 
 // CASTLE2.BIN 800e33e8
 void o0d_800e33e8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e33e8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -27348,6 +27608,7 @@ L_800e3420:
 
 // CASTLE2.BIN 800e350c
 void o0d_800e350c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e350cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -27364,6 +27625,7 @@ void o0d_800e350c(Cpu* c) {
 
 // CASTLE2.BIN 800e352c
 void o0d_800e352c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e352cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -27428,6 +27690,7 @@ L_800e3558:
 
 // CASTLE2.BIN 800e35f0
 void o0d_800e35f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e35f0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -27460,6 +27723,7 @@ L_800e361c:
 
 // CASTLE2.BIN 800e3638
 void o0d_800e3638(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3638u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -27469,6 +27733,7 @@ void o0d_800e3638(Cpu* c) {
 
 // CASTLE2.BIN 800e3640
 void o0d_800e3640(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3640u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -27559,6 +27824,7 @@ L_800e3730:
 
 // CASTLE2.BIN 800e3740
 void o0d_800e3740(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3740u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -27643,6 +27909,7 @@ L_800e3824:
 
 // CASTLE2.BIN 800e3838
 void o0d_800e3838(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3838u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(5) = 0xffd70000u;
@@ -27701,6 +27968,7 @@ L_800e38a4:
 
 // CASTLE2.BIN 800e38d8
 void o0d_800e38d8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e38d8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -27717,6 +27985,7 @@ void o0d_800e38d8(Cpu* c) {
 
 // CASTLE2.BIN 800e38f8
 void o0d_800e38f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e38f8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -27752,6 +28021,7 @@ L_800e392c:
 
 // CASTLE2.BIN 800e393c
 void o0d_800e393c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e393cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -27782,6 +28052,7 @@ L_800e396c:
 
 // CASTLE2.BIN 800e397c
 void o0d_800e397c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e397cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -27791,6 +28062,7 @@ void o0d_800e397c(Cpu* c) {
 
 // CASTLE2.BIN 800e3984
 void o0d_800e3984(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3984u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -27800,6 +28072,7 @@ void o0d_800e3984(Cpu* c) {
 
 // CASTLE2.BIN 800e398c
 void o0d_800e398c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e398cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -27809,6 +28082,7 @@ void o0d_800e398c(Cpu* c) {
 
 // CASTLE2.BIN 800e3994
 void o0d_800e3994(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3994u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -27825,6 +28099,7 @@ void o0d_800e3994(Cpu* c) {
 
 // CASTLE2.BIN 800e39b4
 void o0d_800e39b4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e39b4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -27845,6 +28120,7 @@ void o0d_800e39b4(Cpu* c) {
 
 // CASTLE2.BIN 800e39e0
 void o0d_800e39e0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e39e0u);
     CHECK_EVENTS(c);
     R(6) = 0x40000u;
     R(6) = R(6) | 0x8u;
@@ -27876,6 +28152,7 @@ void o0d_800e39e0(Cpu* c) {
 
 // CASTLE2.BIN 800e3a3c
 void o0d_800e3a3c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3a3cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -27899,6 +28176,7 @@ L_800e3a5c:
 
 // CASTLE2.BIN 800e3a6c
 void o0d_800e3a6c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3a6cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -27908,6 +28186,7 @@ void o0d_800e3a6c(Cpu* c) {
 
 // CASTLE2.BIN 800e3a74
 void o0d_800e3a74(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3a74u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -28010,6 +28289,7 @@ L_800e3b58:
 
 // CASTLE2.BIN 800e3b68
 void o0d_800e3b68(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3b68u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -28019,6 +28299,7 @@ void o0d_800e3b68(Cpu* c) {
 
 // CASTLE2.BIN 800e3b70
 void o0d_800e3b70(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3b70u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -28028,6 +28309,7 @@ void o0d_800e3b70(Cpu* c) {
 
 // CASTLE2.BIN 800e3b78
 void o0d_800e3b78(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3b78u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -28037,6 +28319,7 @@ void o0d_800e3b78(Cpu* c) {
 
 // CASTLE2.BIN 800e3b80
 void o0d_800e3b80(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3b80u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -28064,6 +28347,7 @@ L_800e3ba4:
 
 // CASTLE2.BIN 800e3bb4
 void o0d_800e3bb4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3bb4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -28091,6 +28375,7 @@ void o0d_800e3bb4(Cpu* c) {
 
 // CASTLE2.BIN 800e3bf8
 void o0d_800e3bf8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3bf8u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x80u;
@@ -28105,6 +28390,7 @@ void o0d_800e3bf8(Cpu* c) {
 
 // CASTLE2.BIN 800e3c10
 void o0d_800e3c10(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3c10u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -28153,6 +28439,7 @@ L_800e3c64:
 
 // CASTLE2.BIN 800e3c90
 void o0d_800e3c90(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3c90u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -28226,6 +28513,7 @@ L_800e3d38:
 
 // CASTLE2.BIN 800e3d48
 void o0d_800e3d48(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3d48u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -28290,6 +28578,7 @@ L_800e3d74:
 
 // CASTLE2.BIN 800e3e0c
 void o0d_800e3e0c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e0cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -28328,6 +28617,7 @@ L_800e3e38:
 
 // CASTLE2.BIN 800e3e6c
 void o0d_800e3e6c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e6cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -28407,6 +28697,7 @@ L_800e3efc:
 
 // CASTLE2.BIN 800e3f10
 void o0d_800e3f10(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f10u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -28416,6 +28707,7 @@ void o0d_800e3f10(Cpu* c) {
 
 // CASTLE2.BIN 800e3f18
 void o0d_800e3f18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f18u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -28469,6 +28761,7 @@ L_800e3f80:
 
 // CASTLE2.BIN 800e3f90
 void o0d_800e3f90(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f90u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -28522,6 +28815,7 @@ L_800e3ff8:
 
 // CASTLE2.BIN 800e4008
 void o0d_800e4008(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4008u);
     CHECK_EVENTS(c);
     R(9) = R(4) + 0u;
     R(2) = 0u + 0x64u;
@@ -28595,6 +28889,7 @@ L_800e4030:
 
 // CASTLE2.BIN 800e40f4
 void o0d_800e40f4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e40f4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -28618,6 +28913,7 @@ L_800e4114:
 
 // CASTLE2.BIN 800e4124
 void o0d_800e4124(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4124u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -28677,6 +28973,7 @@ L_800e41a0:
 
 // CASTLE2.BIN 800e41b0
 void o0d_800e41b0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e41b0u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -28686,6 +28983,7 @@ void o0d_800e41b0(Cpu* c) {
 
 // CASTLE2.BIN 800e41b8
 void o0d_800e41b8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e41b8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));

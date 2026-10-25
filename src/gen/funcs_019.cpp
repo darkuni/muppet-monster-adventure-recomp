@@ -4,6 +4,7 @@
 
 // DEMO1.BIN 800e4364
 void o2a_800e4364(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4364u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13,6 +14,7 @@ void o2a_800e4364(Cpu* c) {
 
 // DEMO1.BIN 800e436c
 void o2a_800e436c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e436cu);
     CHECK_EVENTS(c);
     R(7) = R(4) + 0u;
     R(2) = MEM_RB(R(7) + 0x30u);
@@ -74,6 +76,7 @@ L_800e438c:
 
 // DEMO1.BIN 800e441c
 void o2a_800e441c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e441cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -83,6 +86,7 @@ void o2a_800e441c(Cpu* c) {
 
 // DEMO1.BIN 800e4424
 void o2a_800e4424(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4424u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -134,6 +138,7 @@ L_800e4478:
 
 // DEMO1.BIN 800e4488
 void o2a_800e4488(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4488u);
     CHECK_EVENTS(c);
     R(2) = 0u + 0x2u;
     MEM_WH(R(4) + 0xc4u, R(2));
@@ -153,6 +158,7 @@ void o2a_800e4488(Cpu* c) {
 
 // DEMO1.BIN 800e44b4
 void o2a_800e44b4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e44b4u);
     CHECK_EVENTS(c);
     R(2) = MEM_RW(R(4) + 0x74u);
     {
@@ -173,6 +179,7 @@ L_800e44d4:
 
 // DEMO1.BIN 800e44dc
 void o2a_800e44dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e44dcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(5) = R(4) + 0u;
@@ -220,6 +227,7 @@ L_800e4538:
 
 // DEMO1.BIN 800e4548
 void o2a_800e4548(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4548u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -267,6 +275,7 @@ L_800e4598:
 
 // DEMO1.BIN 800e45a8
 void o2a_800e45a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e45a8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -342,6 +351,7 @@ L_800e463c:
 
 // DEMO1.BIN 800e4654
 void o2a_800e4654(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4654u);
     CHECK_EVENTS(c);
     R(5) = 0x260000u;
     R(5) = R(5) | 0x9ec3u;
@@ -386,6 +396,7 @@ void o2a_800e4654(Cpu* c) {
 
 // DEMO1.BIN 800e46e4
 void o2a_800e46e4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e46e4u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -395,6 +406,7 @@ void o2a_800e46e4(Cpu* c) {
 
 // DEMO1.BIN 800e46ec
 void o2a_800e46ec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e46ecu);
     CHECK_EVENTS(c);
     R(7) = R(4) + 0u;
     R(2) = MEM_RB(R(7) + 0x30u);
@@ -456,6 +468,7 @@ L_800e470c:
 
 // DEMO1.BIN 800e479c
 void o2a_800e479c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e479cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -530,6 +543,7 @@ L_800e4820:
 
 // DEMO1.BIN 800e4830
 void o2a_800e4830(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4830u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -539,6 +553,7 @@ void o2a_800e4830(Cpu* c) {
 
 // DEMO1.BIN 800e4838
 void o2a_800e4838(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4838u);
     CHECK_EVENTS(c);
     R(2) = 0u + 0x2u;
     R(3) = 0u + 0x1u;
@@ -559,6 +574,7 @@ void o2a_800e4838(Cpu* c) {
 
 // DEMO1.BIN 800e4868
 void o2a_800e4868(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4868u);
     CHECK_EVENTS(c);
     R(2) = MEM_RW(R(4) + 0x74u);
     {
@@ -579,6 +595,7 @@ L_800e4888:
 
 // DEMO1.BIN 800e4890
 void o2a_800e4890(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4890u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -661,6 +678,7 @@ L_800e48d0:
 
 // DEMO1.BIN 800e4998
 void o2a_800e4998(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4998u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(5) = R(4) + 0u;
@@ -708,6 +726,7 @@ L_800e49f4:
 
 // DEMO1.BIN 800e4a04
 void o2a_800e4a04(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a04u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(2) = R(2) | 0x4000u;
@@ -720,6 +739,7 @@ void o2a_800e4a04(Cpu* c) {
 
 // DEMO1.BIN 800e4a18
 void o2a_800e4a18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a18u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(2) = R(2) | 0x4000u;
@@ -732,6 +752,7 @@ void o2a_800e4a18(Cpu* c) {
 
 // DEMO1.BIN 800e4a2c
 void o2a_800e4a2c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a2cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -741,6 +762,7 @@ void o2a_800e4a2c(Cpu* c) {
 
 // DEMO1.BIN 800e4a34
 void o2a_800e4a34(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a34u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -750,6 +772,7 @@ void o2a_800e4a34(Cpu* c) {
 
 // DEMO1.BIN 800e4a3c
 void o2a_800e4a3c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a3cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -776,6 +799,7 @@ void o2a_800e4a3c(Cpu* c) {
 
 // DEMO1.BIN 800e4a74
 void o2a_800e4a74(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a74u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -785,6 +809,7 @@ void o2a_800e4a74(Cpu* c) {
 
 // DEMO1.BIN 800e4a7c
 void o2a_800e4a7c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a7cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -840,6 +865,7 @@ void o2a_800e4a7c(Cpu* c) {
 
 // DEMO1.BIN 800e4b30
 void o2a_800e4b30(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4b30u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -902,6 +928,7 @@ void o2a_800e4b30(Cpu* c) {
 
 // DEMO1.BIN 800e4c00
 void o2a_800e4c00(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c00u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -943,6 +970,7 @@ L_800e4c44:
 
 // DEMO1.BIN 800e4c60
 void o2a_800e4c60(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c60u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1011,6 +1039,7 @@ void o2a_800e4c60(Cpu* c) {
 
 // DEMO1.BIN 800e4d48
 void o2a_800e4d48(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4d48u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -1096,6 +1125,7 @@ L_800e4e1c:
 
 // DEMO1.BIN 800e4e2c
 void o2a_800e4e2c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4e2cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -1105,6 +1135,7 @@ void o2a_800e4e2c(Cpu* c) {
 
 // DEMO1.BIN 800e4e34
 void o2a_800e4e34(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4e34u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -1181,6 +1212,7 @@ void o2a_800e4e34(Cpu* c) {
 
 // DEMO1.BIN 800e4f24
 void o2a_800e4f24(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4f24u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -1220,6 +1252,7 @@ L_800e4f78:
 
 // DEMO1.BIN 800e4f88
 void o2a_800e4f88(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4f88u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -1229,6 +1262,7 @@ void o2a_800e4f88(Cpu* c) {
 
 // DEMO1.BIN 800e4f90
 void o2a_800e4f90(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4f90u);
     CHECK_EVENTS(c);
     R(7) = 0x260000u;
     R(7) = R(7) | 0x9ec3u;
@@ -1279,6 +1313,7 @@ void o2a_800e4f90(Cpu* c) {
 
 // DEMO1.BIN 800e503c
 void o2a_800e503c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e503cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1322,6 +1357,7 @@ L_800e5060:
 
 // DEMO1.BIN 800e50a0
 void o2a_800e50a0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e50a0u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -1331,6 +1367,7 @@ void o2a_800e50a0(Cpu* c) {
 
 // DEMO1.BIN 800e50a8
 void o2a_800e50a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e50a8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1412,6 +1449,7 @@ L_800e5164:
 
 // DEMO1.BIN 800e5174
 void o2a_800e5174(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5174u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1477,6 +1515,7 @@ L_800e522c:
 
 // DEMO1.BIN 800e523c
 void o2a_800e523c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e523cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(5) = R(4) + 0u;
@@ -1539,6 +1578,7 @@ L_800e52b4:
 
 // DEMO1.BIN 800e52c4
 void o2a_800e52c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e52c4u);
     CHECK_EVENTS(c);
     R(9) = R(4) + 0u;
     R(2) = 0u + 0x64u;
@@ -1612,6 +1652,7 @@ L_800e52ec:
 
 // DEMO1.BIN 800e53b0
 void o2a_800e53b0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e53b0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -1635,6 +1676,7 @@ L_800e53d0:
 
 // DEMO1.BIN 800e53e0
 void o2a_800e53e0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e53e0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1694,6 +1736,7 @@ L_800e545c:
 
 // DEMO1.BIN 800e546c
 void o2a_800e546c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e546cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -1703,6 +1746,7 @@ void o2a_800e546c(Cpu* c) {
 
 // DEMO1.BIN 800e5474
 void o2a_800e5474(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5474u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1792,6 +1836,7 @@ L_800e5560:
 
 // DEMO1.BIN 800e5570
 void o2a_800e5570(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5570u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -1801,6 +1846,7 @@ void o2a_800e5570(Cpu* c) {
 
 // DEMO1.BIN 800e5578
 void o2a_800e5578(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5578u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1852,6 +1898,7 @@ L_800e55dc:
 
 // DEMO1.BIN 800e55f0
 void o2a_800e55f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e55f0u);
     CHECK_EVENTS(c);
     R(6) = 0x40000u;
     R(6) = R(6) | 0x2200u;
@@ -1875,6 +1922,7 @@ void o2a_800e55f0(Cpu* c) {
 
 // DEMO1.BIN 800e562c
 void o2a_800e562c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e562cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1944,6 +1992,7 @@ L_800e56bc:
 
 // DEMO1.BIN 800e56d8
 void o2a_800e56d8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e56d8u);
     CHECK_EVENTS(c);
     R(2) = 0x800c0000u;
     R(4) = R(2) - 0x4de4u;
@@ -1979,6 +2028,7 @@ L_800e570c:
 
 // DEMO1.BIN 800e5714
 void o2a_800e5714(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5714u);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -2013,6 +2063,7 @@ L_800e5748:
 
 // DEMO1.BIN 800e5750
 void o2a_800e5750(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5750u);
     CHECK_EVENTS(c);
     R(2) = 0x800b0000u;
     R(3) = MEM_RB(R(2) + 0x7464u);
@@ -2065,6 +2116,7 @@ L_800e57bc:
 
 // DEMO1.BIN 800e57cc
 void o2a_800e57cc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e57ccu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -2092,6 +2144,7 @@ void o2a_800e57cc(Cpu* c) {
 
 // DEMO1.BIN 800e581c
 void o2a_800e581c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e581cu);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -2133,6 +2186,7 @@ L_800e5870:
 
 // DEMO1.BIN 800e5878
 void o2a_800e5878(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5878u);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -2174,6 +2228,7 @@ L_800e58cc:
 
 // DEMO1.BIN 800e58d4
 void o2a_800e58d4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e58d4u);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -2215,6 +2270,7 @@ L_800e5928:
 
 // DEMO1.BIN 800e5930
 void o2a_800e5930(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5930u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0x84u);
     R(2) = 0x40000u;
@@ -2263,6 +2319,7 @@ L_800e599c:
 
 // DEMO1.BIN 800e59a4
 void o2a_800e59a4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e59a4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = R(4) + 0u;
@@ -2323,6 +2380,7 @@ L_800e5a30:
 
 // DEMO1.BIN 800e5a40
 void o2a_800e5a40(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5a40u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -2355,6 +2413,7 @@ void o2a_800e5a40(Cpu* c) {
 
 // DEMO1.BIN 800e5a94
 void o2a_800e5a94(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5a94u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -2371,6 +2430,7 @@ void o2a_800e5a94(Cpu* c) {
 
 // DEMO1.BIN 800e5ab4
 void o2a_800e5ab4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ab4u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x1u;
@@ -2383,6 +2443,7 @@ void o2a_800e5ab4(Cpu* c) {
 
 // DEMO1.BIN 800e5ac4
 void o2a_800e5ac4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ac4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -2425,6 +2486,7 @@ void o2a_800e5ac4(Cpu* c) {
 
 // DEMO1.BIN 800e5b34
 void o2a_800e5b34(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5b34u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -2467,6 +2529,7 @@ void o2a_800e5b34(Cpu* c) {
 
 // DEMO1.BIN 800e5ba4
 void o2a_800e5ba4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ba4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -2512,6 +2575,7 @@ void o2a_800e5ba4(Cpu* c) {
 
 // DEMO1.BIN 800e5c20
 void o2a_800e5c20(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5c20u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x4u;
@@ -2524,6 +2588,7 @@ void o2a_800e5c20(Cpu* c) {
 
 // DEMO1.BIN 800e5c30
 void o2a_800e5c30(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5c30u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -2582,6 +2647,7 @@ L_800e5d14:
 
 // DEMO1.BIN 800e5d24
 void o2a_800e5d24(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5d24u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -2673,6 +2739,7 @@ L_800e5e30:
 
 // DEMO1.BIN 800e5e40
 void o2a_800e5e40(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5e40u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -2689,6 +2756,7 @@ void o2a_800e5e40(Cpu* c) {
 
 // DEMO1.BIN 800e5e60
 void o2a_800e5e60(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5e60u);
     CHECK_EVENTS(c);
     R(3) = 0x800e0000u;
     R(2) = 0u + 0x1u;
@@ -2701,6 +2769,7 @@ void o2a_800e5e60(Cpu* c) {
 
 // DEMO1.BIN 800e5e70
 void o2a_800e5e70(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5e70u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -2733,6 +2802,7 @@ void o2a_800e5e70(Cpu* c) {
 
 // DEMO1.BIN 800e5ec4
 void o2a_800e5ec4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ec4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x28u, R(18));
@@ -2795,6 +2865,7 @@ void o2a_800e5ec4(Cpu* c) {
 
 // DEMO1.BIN 800e5f80
 void o2a_800e5f80(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5f80u);
     CHECK_EVENTS(c);
     R(4) = R(4) & 0xffffu;
     R(5) = 0x800d0000u;
@@ -2825,6 +2896,7 @@ L_800e5fc0:
 
 // DEMO1.BIN 800e5fc8
 void o2a_800e5fc8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5fc8u);
     CHECK_EVENTS(c);
     R(2) = 0u + 0xf0u;
     MEM_WH(R(4) + 0x66u, R(2));
@@ -2847,6 +2919,7 @@ L_800e5fe8:
 
 // DEMO1.BIN 800e5ff0
 void o2a_800e5ff0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ff0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -2929,6 +3002,7 @@ L_800e60b0:
 
 // DEMO1.BIN 800e60c4
 void o2a_800e60c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e60c4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0xfffb0000u;
@@ -3006,6 +3080,7 @@ L_800e618c:
 
 // DEMO1.BIN 800e61a8
 void o2a_800e61a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e61a8u);
     CHECK_EVENTS(c);
     R(2) = 0u + 0x78u;
     MEM_WH(R(4) + 0x66u, R(2));
@@ -3030,6 +3105,7 @@ L_800e61cc:
 
 // DEMO1.BIN 800e61d4
 void o2a_800e61d4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e61d4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3054,6 +3130,7 @@ void o2a_800e61d4(Cpu* c) {
 
 // DEMO1.BIN 800e620c
 void o2a_800e620c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e620cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3089,6 +3166,7 @@ L_800e6240:
 
 // DEMO1.BIN 800e625c
 void o2a_800e625c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e625cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3127,6 +3205,7 @@ L_800e629c:
 
 // DEMO1.BIN 800e62ac
 void o2a_800e62ac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e62acu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -3169,6 +3248,7 @@ void o2a_800e62ac(Cpu* c) {
 
 // DEMO1.BIN 800e631c
 void o2a_800e631c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e631cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -3233,6 +3313,7 @@ L_800e63a4:
 
 // DEMO1.BIN 800e63b8
 void o2a_800e63b8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e63b8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3291,6 +3372,7 @@ L_800e649c:
 
 // DEMO1.BIN 800e64ac
 void o2a_800e64ac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e64acu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -3374,6 +3456,7 @@ L_800e6550:
 
 // DEMO1.BIN 800e6560
 void o2a_800e6560(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6560u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(3) = 0x800b0000u;
@@ -3515,6 +3598,7 @@ void o2a_800e6560(Cpu* c) {
 
 // DEMO1.BIN 800e671c
 void o2a_800e671c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e671cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -3610,6 +3694,7 @@ L_800e67d8:
 
 // DEMO1.BIN 800e6818
 void o2a_800e6818(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6818u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3773,6 +3858,7 @@ L_800e69b4:
 
 // DEMO1.BIN 800e69cc
 void o2a_800e69cc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e69ccu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x1cu, R(19));
@@ -3828,6 +3914,7 @@ void o2a_800e69cc(Cpu* c) {
 
 // DEMO1.BIN 800e6a78
 void o2a_800e6a78(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6a78u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3866,6 +3953,7 @@ L_800e6ac8:
 
 // DEMO1.BIN 800e6ad8
 void o2a_800e6ad8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6ad8u);
     CHECK_EVENTS(c);
     R(2) = 0x800b0000u;
     R(3) = MEM_RW(R(2) + 0x6dc8u);
@@ -3901,6 +3989,7 @@ L_800e6b10:
 
 // DEMO1.BIN 800e6b20
 void o2a_800e6b20(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6b20u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -3920,6 +4009,7 @@ void o2a_800e6b20(Cpu* c) {
 
 // DEMO2.BIN 800df0f8
 void o2b_800df0f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df0f8u);
     CHECK_EVENTS(c);
     R(2) = 0x800b0000u;
     R(8) = R(4) + 0u;
@@ -3987,6 +4077,7 @@ L_800df1a8:
 
 // DEMO2.BIN 800df1bc
 void o2b_800df1bc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df1bcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -4112,6 +4203,7 @@ L_800df2f4:
 
 // DEMO2.BIN 800df304
 void o2b_800df304(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df304u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -4237,6 +4329,7 @@ L_800df3c8:
 
 // DEMO2.BIN 800df464
 void o2b_800df464(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df464u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -4339,6 +4432,7 @@ L_800df580:
 
 // DEMO2.BIN 800df590
 void o2b_800df590(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df590u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -4464,6 +4558,7 @@ L_800df6b8:
 
 // DEMO2.BIN 800df6d4
 void o2b_800df6d4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df6d4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -4734,6 +4829,7 @@ L_800df978:
 
 // DEMO2.BIN 800df998
 void o2b_800df998(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df998u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -4850,6 +4946,7 @@ L_800dfaa4:
 
 // DEMO2.BIN 800dfac0
 void o2b_800dfac0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfac0u);
     CHECK_EVENTS(c);
     R(2) = 0x800b0000u;
     R(3) = MEM_RB(R(2) + 0x7464u);
@@ -5074,6 +5171,7 @@ L_800dfce0:
 
 // DEMO2.BIN 800dfcfc
 void o2b_800dfcfc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfcfcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -5188,6 +5286,7 @@ L_800dfd38:
 
 // DEMO2.BIN 800dfe48
 void o2b_800dfe48(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfe48u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -5430,6 +5529,7 @@ L_800e00e8:
 
 // DEMO2.BIN 800e0118
 void o2b_800e0118(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0118u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x40u;
     MEM_WW(R(29) + 0x28u, R(20));
@@ -5671,6 +5771,7 @@ L_800e0368:
 
 // DEMO2.BIN 800e0398
 void o2b_800e0398(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0398u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x28u, R(16));
@@ -5828,6 +5929,7 @@ L_800e0560:
 
 // DEMO2.BIN 800e0574
 void o2b_800e0574(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0574u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x40u;
     MEM_WW(R(29) + 0x2cu, R(19));
@@ -6129,6 +6231,7 @@ L_800e0880:
 
 // DEMO2.BIN 800e08b8
 void o2b_800e08b8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e08b8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x24u, R(17));
@@ -6298,6 +6401,7 @@ L_800e0a78:
 
 // DEMO2.BIN 800e0a90
 void o2b_800e0a90(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0a90u);
     CHECK_EVENTS(c);
     R(2) = 0x800b0000u;
     R(3) = MEM_RB(R(2) + 0x7464u);
@@ -6516,6 +6620,7 @@ L_800e0c90:
 
 // DEMO2.BIN 800e0cb0
 void o2b_800e0cb0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0cb0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -6797,6 +6902,7 @@ L_800e0e8c:
 
 // DEMO2.BIN 800e1084
 void o2b_800e1084(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1084u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -6930,6 +7036,7 @@ L_800e11d8:
 
 // DEMO2.BIN 800e11f4
 void o2b_800e11f4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e11f4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(31));
@@ -7059,6 +7166,7 @@ L_800e1348:
 
 // DEMO2.BIN 800e135c
 void o2b_800e135c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e135cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -7929,6 +8037,7 @@ L_800e1c68:
 
 // DEMO2.BIN 800e1ca4
 void o2b_800e1ca4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1ca4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(4) = 0u + 0u;
@@ -8350,6 +8459,7 @@ L_800e1fbc:
 
 // DEMO2.BIN 800e2140
 void o2b_800e2140(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2140u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x50u;
     MEM_WW(R(29) + 0x2cu, R(17));
@@ -11866,6 +11976,7 @@ L_800e438c:
 
 // DEMO2.BIN 800e4400
 void o2b_800e4400(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4400u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(4) = 0u + 0u;
@@ -11894,6 +12005,7 @@ void o2b_800e4400(Cpu* c) {
 
 // DEMO2.BIN 800e4440
 void o2b_800e4440(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4440u);
     CHECK_EVENTS(c);
     R(2) = 0u + 0x190u;
     MEM_WH(R(4) + 0x68u, R(2));
@@ -11914,6 +12026,7 @@ void o2b_800e4440(Cpu* c) {
 
 // DEMO2.BIN 800e4470
 void o2b_800e4470(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4470u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -11923,6 +12036,7 @@ void o2b_800e4470(Cpu* c) {
 
 // DEMO2.BIN 800e4478
 void o2b_800e4478(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4478u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -11962,6 +12076,7 @@ void o2b_800e4478(Cpu* c) {
 
 // DEMO2.BIN 800e44ec
 void o2b_800e44ec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e44ecu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(6) = 0xfffb0000u;
@@ -12010,6 +12125,7 @@ L_800e4554:
 
 // DEMO2.BIN 800e4564
 void o2b_800e4564(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4564u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -12019,6 +12135,7 @@ void o2b_800e4564(Cpu* c) {
 
 // DEMO2.BIN 800e456c
 void o2b_800e456c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e456cu);
     CHECK_EVENTS(c);
     R(2) = MEM_RW(R(4) + 0x84u);
     R(3) = 0u + 0x4u;
@@ -12034,6 +12151,7 @@ void o2b_800e456c(Cpu* c) {
 
 // DEMO2.BIN 800e4588
 void o2b_800e4588(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4588u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -12043,6 +12161,7 @@ void o2b_800e4588(Cpu* c) {
 
 // DEMO2.BIN 800e4590
 void o2b_800e4590(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4590u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12117,6 +12236,7 @@ L_800e45bc:
 
 // DEMO2.BIN 800e4674
 void o2b_800e4674(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4674u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12146,6 +12266,7 @@ void o2b_800e4674(Cpu* c) {
 
 // DEMO2.BIN 800e46c0
 void o2b_800e46c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e46c0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -12199,6 +12320,7 @@ L_800e4738:
 
 // DEMO2.BIN 800e4748
 void o2b_800e4748(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4748u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12265,6 +12387,7 @@ L_800e47d8:
 
 // DEMO2.BIN 800e47f4
 void o2b_800e47f4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e47f4u);
     CHECK_EVENTS(c);
     R(3) = 0u + 0xf0u;
     MEM_WH(R(4) + 0x66u, R(3));
@@ -12288,6 +12411,7 @@ void o2b_800e47f4(Cpu* c) {
 
 // DEMO2.BIN 800e4830
 void o2b_800e4830(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4830u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -12374,6 +12498,7 @@ L_800e48f4:
 
 // DEMO2.BIN 800e4904
 void o2b_800e4904(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4904u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12427,6 +12552,7 @@ L_800e4964:
 
 // DEMO2.BIN 800e4988
 void o2b_800e4988(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4988u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12468,6 +12594,7 @@ L_800e49b0:
 
 // DEMO2.BIN 800e49e0
 void o2b_800e49e0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e49e0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -12521,6 +12648,7 @@ L_800e4a58:
 
 // DEMO2.BIN 800e4a68
 void o2b_800e4a68(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a68u);
     CHECK_EVENTS(c);
     R(2) = 0u + 0xf0u;
     MEM_WH(R(4) + 0x66u, R(2));
@@ -12539,6 +12667,7 @@ void o2b_800e4a68(Cpu* c) {
 
 // DEMO2.BIN 800e4a90
 void o2b_800e4a90(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a90u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -12648,6 +12777,7 @@ L_800e4b90:
 
 // DEMO2.BIN 800e4ba0
 void o2b_800e4ba0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4ba0u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -12657,6 +12787,7 @@ void o2b_800e4ba0(Cpu* c) {
 
 // DEMO2.BIN 800e4ba8
 void o2b_800e4ba8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4ba8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12696,6 +12827,7 @@ void o2b_800e4ba8(Cpu* c) {
 
 // DEMO2.BIN 800e4c14
 void o2b_800e4c14(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c14u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -12705,6 +12837,7 @@ void o2b_800e4c14(Cpu* c) {
 
 // DEMO2.BIN 800e4c1c
 void o2b_800e4c1c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c1cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -12714,6 +12847,7 @@ void o2b_800e4c1c(Cpu* c) {
 
 // DEMO2.BIN 800e4c24
 void o2b_800e4c24(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c24u);
     CHECK_EVENTS(c);
     R(2) = MEM_RW(R(4) + 0x84u);
     R(3) = 0u + 0x4u;
@@ -12729,6 +12863,7 @@ void o2b_800e4c24(Cpu* c) {
 
 // DEMO2.BIN 800e4c40
 void o2b_800e4c40(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c40u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12803,6 +12938,7 @@ L_800e4c6c:
 
 // DEMO2.BIN 800e4d24
 void o2b_800e4d24(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4d24u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12837,6 +12973,7 @@ void o2b_800e4d24(Cpu* c) {
 
 // DEMO2.BIN 800e4d7c
 void o2b_800e4d7c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4d7cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -12890,6 +13027,7 @@ L_800e4df4:
 
 // DEMO2.BIN 800e4e04
 void o2b_800e4e04(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4e04u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(31));
@@ -12963,6 +13101,7 @@ L_800e4eb0:
 
 // DEMO2.BIN 800e4ec0
 void o2b_800e4ec0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4ec0u);
     CHECK_EVENTS(c);
     R(2) = 0u + 0x190u;
     MEM_WH(R(4) + 0x68u, R(2));
@@ -12983,6 +13122,7 @@ void o2b_800e4ec0(Cpu* c) {
 
 // DEMO2.BIN 800e4ef0
 void o2b_800e4ef0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4ef0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -13048,6 +13188,7 @@ L_800e4f7c:
 
 // DEMO2.BIN 800e4f8c
 void o2b_800e4f8c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4f8cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13057,6 +13198,7 @@ void o2b_800e4f8c(Cpu* c) {
 
 // DEMO2.BIN 800e4f94
 void o2b_800e4f94(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4f94u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13109,6 +13251,7 @@ L_800e4ffc:
 
 // DEMO2.BIN 800e500c
 void o2b_800e500c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e500cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -13136,6 +13279,7 @@ L_800e5030:
 
 // DEMO2.BIN 800e5040
 void o2b_800e5040(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5040u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13145,6 +13289,7 @@ void o2b_800e5040(Cpu* c) {
 
 // DEMO2.BIN 800e5048
 void o2b_800e5048(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5048u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13196,6 +13341,7 @@ L_800e50ac:
 
 // DEMO2.BIN 800e50bc
 void o2b_800e50bc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e50bcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13245,6 +13391,7 @@ L_800e5120:
 
 // DEMO2.BIN 800e5130
 void o2b_800e5130(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5130u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -13315,6 +13462,7 @@ L_800e51ec:
 
 // DEMO2.BIN 800e5208
 void o2b_800e5208(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5208u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13392,6 +13540,7 @@ L_800e52e0:
 
 // DEMO2.BIN 800e52f0
 void o2b_800e52f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e52f0u);
     CHECK_EVENTS(c);
     R(8) = 0x260000u;
     R(8) = R(8) | 0x9ec3u;
@@ -13446,6 +13595,7 @@ void o2b_800e52f0(Cpu* c) {
 
 // DEMO2.BIN 800e53a8
 void o2b_800e53a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e53a8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -13511,6 +13661,7 @@ L_800e5434:
 
 // DEMO2.BIN 800e5444
 void o2b_800e5444(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5444u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13520,6 +13671,7 @@ void o2b_800e5444(Cpu* c) {
 
 // DEMO2.BIN 800e544c
 void o2b_800e544c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e544cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13623,6 +13775,7 @@ L_800e5530:
 
 // DEMO2.BIN 800e554c
 void o2b_800e554c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e554cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13632,6 +13785,7 @@ void o2b_800e554c(Cpu* c) {
 
 // DEMO2.BIN 800e5554
 void o2b_800e5554(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5554u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13641,6 +13795,7 @@ void o2b_800e5554(Cpu* c) {
 
 // DEMO2.BIN 800e555c
 void o2b_800e555c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e555cu);
     CHECK_EVENTS(c);
     R(3) = MEM_RH(R(4) + 0x7cu);
     R(2) = 0u + 0xbu;
@@ -13656,6 +13811,7 @@ void o2b_800e555c(Cpu* c) {
 
 // DEMO2.BIN 800e5578
 void o2b_800e5578(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5578u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13665,6 +13821,7 @@ void o2b_800e5578(Cpu* c) {
 
 // DEMO2.BIN 800e5580
 void o2b_800e5580(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5580u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13674,6 +13831,7 @@ void o2b_800e5580(Cpu* c) {
 
 // DEMO2.BIN 800e5588
 void o2b_800e5588(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5588u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13706,6 +13864,7 @@ void o2b_800e5588(Cpu* c) {
 
 // DEMO2.BIN 800e55d8
 void o2b_800e55d8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e55d8u);
     CHECK_EVENTS(c);
     R(8) = R(4) + 0u;
     R(3) = MEM_RB(R(8) + 0x30u);
@@ -13763,6 +13922,7 @@ L_800e5684:
 
 // DEMO2.BIN 800e568c
 void o2b_800e568c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e568cu);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x3u;
@@ -13777,6 +13937,7 @@ void o2b_800e568c(Cpu* c) {
 
 // DEMO2.BIN 800e56a4
 void o2b_800e56a4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e56a4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(3) = 0u + 0x78u;
@@ -13800,6 +13961,7 @@ void o2b_800e56a4(Cpu* c) {
 
 // DEMO2.BIN 800e56dc
 void o2b_800e56dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e56dcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -13860,6 +14022,7 @@ L_800e5768:
 
 // DEMO2.BIN 800e5778
 void o2b_800e5778(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5778u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13869,6 +14032,7 @@ void o2b_800e5778(Cpu* c) {
 
 // DEMO2.BIN 800e5780
 void o2b_800e5780(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5780u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13905,6 +14069,7 @@ void o2b_800e5780(Cpu* c) {
 
 // DEMO2.BIN 800e57e8
 void o2b_800e57e8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e57e8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13949,6 +14114,7 @@ L_800e5848:
 
 // DEMO2.BIN 800e5858
 void o2b_800e5858(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5858u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13958,6 +14124,7 @@ void o2b_800e5858(Cpu* c) {
 
 // DEMO2.BIN 800e5860
 void o2b_800e5860(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5860u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13992,6 +14159,7 @@ L_800e5884:
 
 // DEMO2.BIN 800e58a8
 void o2b_800e58a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e58a8u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14001,6 +14169,7 @@ void o2b_800e58a8(Cpu* c) {
 
 // DEMO2.BIN 800e58b0
 void o2b_800e58b0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e58b0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14061,6 +14230,7 @@ L_800e592c:
 
 // DEMO2.BIN 800e5948
 void o2b_800e5948(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5948u);
     CHECK_EVENTS(c);
     R(3) = MEM_RH(R(4) + 0x7cu);
     R(2) = 0u + 0x1u;
@@ -14084,6 +14254,7 @@ void o2b_800e5948(Cpu* c) {
 
 // DEMO2.BIN 800e5984
 void o2b_800e5984(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5984u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -14107,6 +14278,7 @@ L_800e59a4:
 
 // DEMO2.BIN 800e59b4
 void o2b_800e59b4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e59b4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -14142,6 +14314,7 @@ L_800e59e8:
 
 // DEMO2.BIN 800e59f8
 void o2b_800e59f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e59f8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14246,6 +14419,7 @@ L_800e5ae0:
 
 // DEMO2.BIN 800e5af0
 void o2b_800e5af0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5af0u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14255,6 +14429,7 @@ void o2b_800e5af0(Cpu* c) {
 
 // DEMO2.BIN 800e5af8
 void o2b_800e5af8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5af8u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14264,6 +14439,7 @@ void o2b_800e5af8(Cpu* c) {
 
 // DEMO2.BIN 800e5b00
 void o2b_800e5b00(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5b00u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14273,6 +14449,7 @@ void o2b_800e5b00(Cpu* c) {
 
 // DEMO2.BIN 800e5b08
 void o2b_800e5b08(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5b08u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -14300,6 +14477,7 @@ L_800e5b2c:
 
 // DEMO2.BIN 800e5b3c
 void o2b_800e5b3c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5b3cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14332,6 +14510,7 @@ void o2b_800e5b3c(Cpu* c) {
 
 // DEMO2.BIN 800e5b8c
 void o2b_800e5b8c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5b8cu);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x80u;
@@ -14346,6 +14525,7 @@ void o2b_800e5b8c(Cpu* c) {
 
 // DEMO2.BIN 800e5ba4
 void o2b_800e5ba4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ba4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14392,6 +14572,7 @@ L_800e5bd8:
 
 // DEMO2.BIN 800e5c1c
 void o2b_800e5c1c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5c1cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14456,6 +14637,7 @@ L_800e5c48:
 
 // DEMO2.BIN 800e5ce0
 void o2b_800e5ce0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ce0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14488,6 +14670,7 @@ L_800e5d0c:
 
 // DEMO2.BIN 800e5d28
 void o2b_800e5d28(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5d28u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14553,6 +14736,7 @@ L_800e5d9c:
 
 // DEMO2.BIN 800e5db0
 void o2b_800e5db0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5db0u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14562,6 +14746,7 @@ void o2b_800e5db0(Cpu* c) {
 
 // DEMO2.BIN 800e5db8
 void o2b_800e5db8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5db8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14613,6 +14798,7 @@ L_800e5e18:
 
 // DEMO2.BIN 800e5e28
 void o2b_800e5e28(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5e28u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14655,6 +14841,7 @@ L_800e5e7c:
 
 // DEMO2.BIN 800e5e90
 void o2b_800e5e90(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5e90u);
     CHECK_EVENTS(c);
     R(2) = 0x800c0000u;
     R(4) = R(2) - 0x4de4u;
@@ -14690,6 +14877,7 @@ L_800e5ec4:
 
 // DEMO2.BIN 800e5ecc
 void o2b_800e5ecc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5eccu);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -14724,6 +14912,7 @@ L_800e5f00:
 
 // DEMO2.BIN 800e5f08
 void o2b_800e5f08(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5f08u);
     CHECK_EVENTS(c);
     R(2) = 0x800b0000u;
     R(3) = MEM_RB(R(2) + 0x7464u);
@@ -14776,6 +14965,7 @@ L_800e5f74:
 
 // DEMO2.BIN 800e5f84
 void o2b_800e5f84(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5f84u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14803,6 +14993,7 @@ void o2b_800e5f84(Cpu* c) {
 
 // DEMO2.BIN 800e5fd4
 void o2b_800e5fd4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5fd4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x1u;
@@ -14824,6 +15015,7 @@ void o2b_800e5fd4(Cpu* c) {
 
 // DEMO2.BIN 800e6004
 void o2b_800e6004(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6004u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14833,6 +15025,7 @@ void o2b_800e6004(Cpu* c) {
 
 // DEMO2.BIN 800e600c
 void o2b_800e600c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e600cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14842,6 +15035,7 @@ void o2b_800e600c(Cpu* c) {
 
 // DEMO2.BIN 800e6014
 void o2b_800e6014(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6014u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14891,6 +15085,7 @@ void o2b_800e6014(Cpu* c) {
 
 // DEMO2.BIN 800e60a0
 void o2b_800e60a0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e60a0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -14946,6 +15141,7 @@ void o2b_800e60a0(Cpu* c) {
 
 // DEMO2.BIN 800e613c
 void o2b_800e613c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e613cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -14978,6 +15174,7 @@ void o2b_800e613c(Cpu* c) {
 
 // DEMO2.BIN 800e6190
 void o2b_800e6190(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6190u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15063,6 +15260,7 @@ L_800e625c:
 
 // DEMO2.BIN 800e626c
 void o2b_800e626c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e626cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x1cu, R(17));
@@ -15135,6 +15333,7 @@ L_800e6294:
 
 // DEMO2.BIN 800e632c
 void o2b_800e632c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e632cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15167,6 +15366,7 @@ L_800e635c:
 
 // DEMO2.BIN 800e636c
 void o2b_800e636c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e636cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15198,6 +15398,7 @@ void o2b_800e636c(Cpu* c) {
 
 // DEMO2.BIN 800e63c0
 void o2b_800e63c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e63c0u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x1u;
@@ -15210,6 +15411,7 @@ void o2b_800e63c0(Cpu* c) {
 
 // DEMO2.BIN 800e63d0
 void o2b_800e63d0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e63d0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15257,6 +15459,7 @@ void o2b_800e63d0(Cpu* c) {
 
 // DEMO2.BIN 800e6454
 void o2b_800e6454(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6454u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15304,6 +15507,7 @@ void o2b_800e6454(Cpu* c) {
 
 // DEMO2.BIN 800e64d8
 void o2b_800e64d8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e64d8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -15357,6 +15561,7 @@ void o2b_800e64d8(Cpu* c) {
 
 // DEMO2.BIN 800e6574
 void o2b_800e6574(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6574u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x4u;
@@ -15369,6 +15574,7 @@ void o2b_800e6574(Cpu* c) {
 
 // DEMO2.BIN 800e6584
 void o2b_800e6584(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6584u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15427,6 +15633,7 @@ L_800e6668:
 
 // DEMO2.BIN 800e6678
 void o2b_800e6678(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6678u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15482,6 +15689,7 @@ L_800e66f0:
 
 // DEMO2.BIN 800e6700
 void o2b_800e6700(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6700u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -15524,6 +15732,7 @@ L_800e675c:
 
 // DEMO2.BIN 800e676c
 void o2b_800e676c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e676cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -15556,6 +15765,7 @@ void o2b_800e676c(Cpu* c) {
 
 // DEMO2.BIN 800e67c0
 void o2b_800e67c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e67c0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15647,6 +15857,7 @@ L_800e6888:
 
 // DEMO2.BIN 800e689c
 void o2b_800e689c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e689cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(2) = 0u + 0xcu;
@@ -15673,6 +15884,7 @@ void o2b_800e689c(Cpu* c) {
 
 // DEMO2.BIN 800e68e0
 void o2b_800e68e0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e68e0u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x1u;
@@ -15685,6 +15897,7 @@ void o2b_800e68e0(Cpu* c) {
 
 // DEMO2.BIN 800e68f0
 void o2b_800e68f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e68f0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15728,6 +15941,7 @@ void o2b_800e68f0(Cpu* c) {
 
 // DEMO2.BIN 800e6964
 void o2b_800e6964(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6964u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15771,6 +15985,7 @@ void o2b_800e6964(Cpu* c) {
 
 // DEMO2.BIN 800e69d8
 void o2b_800e69d8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e69d8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -15820,6 +16035,7 @@ void o2b_800e69d8(Cpu* c) {
 
 // DEMO2.BIN 800e6a64
 void o2b_800e6a64(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6a64u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x4u;
@@ -15832,6 +16048,7 @@ void o2b_800e6a64(Cpu* c) {
 
 // DEMO2.BIN 800e6a74
 void o2b_800e6a74(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6a74u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15890,6 +16107,7 @@ L_800e6b58:
 
 // DEMO2.BIN 800e6b68
 void o2b_800e6b68(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6b68u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15944,6 +16162,7 @@ L_800e6be0:
 
 // DEMO2.BIN 800e6bf0
 void o2b_800e6bf0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6bf0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15979,6 +16198,7 @@ void o2b_800e6bf0(Cpu* c) {
 
 // DEMO2.BIN 800e6c44
 void o2b_800e6c44(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6c44u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16033,6 +16253,7 @@ L_800e6cbc:
 
 // DEMO2.BIN 800e6ccc
 void o2b_800e6ccc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6cccu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16068,6 +16289,7 @@ void o2b_800e6ccc(Cpu* c) {
 
 // DEMO2.BIN 800e6d20
 void o2b_800e6d20(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6d20u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16103,6 +16325,7 @@ void o2b_800e6d20(Cpu* c) {
 
 // DEMO2.BIN 800e6d74
 void o2b_800e6d74(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6d74u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(3) = 0x800b0000u;
@@ -16244,6 +16467,7 @@ void o2b_800e6d74(Cpu* c) {
 
 // DEMO2.BIN 800e6f30
 void o2b_800e6f30(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6f30u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -16339,6 +16563,7 @@ L_800e6fec:
 
 // DEMO2.BIN 800e702c
 void o2b_800e702c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e702cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16502,6 +16727,7 @@ L_800e71c8:
 
 // DEMO2.BIN 800e71e0
 void o2b_800e71e0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e71e0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x1cu, R(19));
@@ -16557,6 +16783,7 @@ void o2b_800e71e0(Cpu* c) {
 
 // DEMO2.BIN 800e728c
 void o2b_800e728c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e728cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16595,6 +16822,7 @@ L_800e72dc:
 
 // DEMO2.BIN 800e72ec
 void o2b_800e72ec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e72ecu);
     CHECK_EVENTS(c);
     R(2) = 0x800b0000u;
     R(3) = MEM_RW(R(2) + 0x6dc8u);
@@ -16630,6 +16858,7 @@ L_800e7324:
 
 // DEMO2.BIN 800e7334
 void o2b_800e7334(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7334u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -16649,6 +16878,7 @@ void o2b_800e7334(Cpu* c) {
 
 // DEMO3.BIN 800dec44
 void o2c_800dec44(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dec44u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16809,6 +17039,7 @@ L_800dedb8:
 
 // DEMO3.BIN 800dedc8
 void o2c_800dedc8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dedc8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -16995,6 +17226,7 @@ L_800defcc:
 
 // DEMO3.BIN 800defe4
 void o2c_800defe4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800defe4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17167,6 +17399,7 @@ L_800df158:
 
 // DEMO3.BIN 800df168
 void o2c_800df168(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df168u);
     CHECK_EVENTS(c);
     R(8) = R(4) + 0u;
     R(2) = MEM_RH(R(8) + 0xbcu);
@@ -17255,6 +17488,7 @@ L_800df1e0:
 
 // DEMO3.BIN 800df274
 void o2c_800df274(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df274u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -17435,6 +17669,7 @@ L_800df460:
 
 // DEMO3.BIN 800df478
 void o2c_800df478(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df478u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17444,6 +17679,7 @@ void o2c_800df478(Cpu* c) {
 
 // DEMO3.BIN 800df480
 void o2c_800df480(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df480u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17453,6 +17689,7 @@ void o2c_800df480(Cpu* c) {
 
 // DEMO3.BIN 800df488
 void o2c_800df488(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df488u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17462,6 +17699,7 @@ void o2c_800df488(Cpu* c) {
 
 // DEMO3.BIN 800df490
 void o2c_800df490(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df490u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17471,6 +17709,7 @@ void o2c_800df490(Cpu* c) {
 
 // DEMO3.BIN 800df498
 void o2c_800df498(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df498u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17480,6 +17719,7 @@ void o2c_800df498(Cpu* c) {
 
 // DEMO3.BIN 800df4a0
 void o2c_800df4a0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df4a0u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17489,6 +17729,7 @@ void o2c_800df4a0(Cpu* c) {
 
 // DEMO3.BIN 800df4a8
 void o2c_800df4a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df4a8u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17498,6 +17739,7 @@ void o2c_800df4a8(Cpu* c) {
 
 // DEMO3.BIN 800df4b0
 void o2c_800df4b0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df4b0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x1u;
@@ -17519,6 +17761,7 @@ void o2c_800df4b0(Cpu* c) {
 
 // DEMO3.BIN 800df4e0
 void o2c_800df4e0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df4e0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x1u;
@@ -17537,6 +17780,7 @@ void o2c_800df4e0(Cpu* c) {
 
 // DEMO3.BIN 800df504
 void o2c_800df504(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df504u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x2u;
@@ -17555,6 +17799,7 @@ void o2c_800df504(Cpu* c) {
 
 // DEMO3.BIN 800df528
 void o2c_800df528(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df528u);
     CHECK_EVENTS(c);
     R(8) = R(4) + 0u;
     R(2) = 0u + 0x1u;
@@ -17624,6 +17869,7 @@ L_800df554:
 
 // DEMO3.BIN 800df604
 void o2c_800df604(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df604u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -17647,6 +17893,7 @@ L_800df624:
 
 // DEMO3.BIN 800df634
 void o2c_800df634(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df634u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -17682,6 +17929,7 @@ L_800df668:
 
 // DEMO3.BIN 800df678
 void o2c_800df678(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df678u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17691,6 +17939,7 @@ void o2c_800df678(Cpu* c) {
 
 // DEMO3.BIN 800df680
 void o2c_800df680(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df680u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17700,6 +17949,7 @@ void o2c_800df680(Cpu* c) {
 
 // DEMO3.BIN 800df688
 void o2c_800df688(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df688u);
     CHECK_EVENTS(c);
     R(3) = MEM_RH(R(4) + 0x7cu);
     R(2) = 0u + 0xau;
@@ -17715,6 +17965,7 @@ void o2c_800df688(Cpu* c) {
 
 // DEMO3.BIN 800df6a4
 void o2c_800df6a4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df6a4u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -17724,6 +17975,7 @@ void o2c_800df6a4(Cpu* c) {
 
 // DEMO3.BIN 800df6ac
 void o2c_800df6ac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df6acu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -17751,6 +18003,7 @@ L_800df6d0:
 
 // DEMO3.BIN 800df6e0
 void o2c_800df6e0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df6e0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17780,6 +18033,7 @@ void o2c_800df6e0(Cpu* c) {
 
 // DEMO3.BIN 800df72c
 void o2c_800df72c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df72cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17883,6 +18137,7 @@ L_800df838:
 
 // DEMO3.BIN 800df848
 void o2c_800df848(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df848u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x80u;
@@ -17897,6 +18152,7 @@ void o2c_800df848(Cpu* c) {
 
 // DEMO3.BIN 800df860
 void o2c_800df860(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df860u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17977,6 +18233,7 @@ L_800df894:
 
 // DEMO3.BIN 800df960
 void o2c_800df960(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df960u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -18077,6 +18334,7 @@ L_800dfa74:
 
 // DEMO3.BIN 800dfa84
 void o2c_800dfa84(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfa84u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18139,6 +18397,7 @@ L_800dfab0:
 
 // DEMO3.BIN 800dfb40
 void o2c_800dfb40(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfb40u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18171,6 +18430,7 @@ L_800dfb6c:
 
 // DEMO3.BIN 800dfb88
 void o2c_800dfb88(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfb88u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18269,6 +18529,7 @@ L_800dfc7c:
 
 // DEMO3.BIN 800dfc8c
 void o2c_800dfc8c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfc8cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -18278,6 +18539,7 @@ void o2c_800dfc8c(Cpu* c) {
 
 // DEMO3.BIN 800dfc94
 void o2c_800dfc94(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfc94u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18348,6 +18610,7 @@ L_800dfd0c:
 
 // DEMO3.BIN 800dfd1c
 void o2c_800dfd1c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfd1cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18429,6 +18692,7 @@ L_800dfdfc:
 
 // DEMO3.BIN 800dfe10
 void o2c_800dfe10(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfe10u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18506,6 +18770,7 @@ L_800dfe44:
 
 // DEMO3.BIN 800dff04
 void o2c_800dff04(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dff04u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -18550,6 +18815,7 @@ L_800dff50:
 
 // DEMO3.BIN 800dff60
 void o2c_800dff60(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dff60u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18613,6 +18879,7 @@ L_800dff94:
 
 // DEMO3.BIN 800e0020
 void o2c_800e0020(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0020u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18645,6 +18912,7 @@ L_800e004c:
 
 // DEMO3.BIN 800e0068
 void o2c_800e0068(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0068u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18737,6 +19005,7 @@ L_800e0138:
 
 // DEMO3.BIN 800e0158
 void o2c_800e0158(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0158u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -18746,6 +19015,7 @@ void o2c_800e0158(Cpu* c) {
 
 // DEMO3.BIN 800e0160
 void o2c_800e0160(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0160u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18813,6 +19083,7 @@ L_800e01d4:
 
 // DEMO3.BIN 800e01e4
 void o2c_800e01e4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e01e4u);
     CHECK_EVENTS(c);
     R(6) = 0x260000u;
     R(6) = R(6) | 0x9ec3u;
@@ -18875,6 +19146,7 @@ L_800e0288:
 
 // DEMO3.BIN 800e02a4
 void o2c_800e02a4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e02a4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -18919,6 +19191,7 @@ L_800e02f0:
 
 // DEMO3.BIN 800e0300
 void o2c_800e0300(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0300u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -18954,6 +19227,7 @@ L_800e0334:
 
 // DEMO3.BIN 800e0344
 void o2c_800e0344(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0344u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -18963,6 +19237,7 @@ void o2c_800e0344(Cpu* c) {
 
 // DEMO3.BIN 800e034c
 void o2c_800e034c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e034cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -18972,6 +19247,7 @@ void o2c_800e034c(Cpu* c) {
 
 // DEMO3.BIN 800e0354
 void o2c_800e0354(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0354u);
     CHECK_EVENTS(c);
     R(3) = MEM_RH(R(4) + 0x7cu);
     R(2) = 0u + 0xau;
@@ -18987,6 +19263,7 @@ void o2c_800e0354(Cpu* c) {
 
 // DEMO3.BIN 800e0370
 void o2c_800e0370(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0370u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -18996,6 +19273,7 @@ void o2c_800e0370(Cpu* c) {
 
 // DEMO3.BIN 800e0378
 void o2c_800e0378(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0378u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -19030,6 +19308,7 @@ L_800e03ac:
 
 // DEMO3.BIN 800e03bc
 void o2c_800e03bc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e03bcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -19069,6 +19348,7 @@ void o2c_800e03bc(Cpu* c) {
 
 // DEMO3.BIN 800e0424
 void o2c_800e0424(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0424u);
     CHECK_EVENTS(c);
     R(8) = R(4) + 0u;
     R(3) = MEM_RB(R(8) + 0x30u);
@@ -19126,6 +19406,7 @@ L_800e04d0:
 
 // DEMO3.BIN 800e04d8
 void o2c_800e04d8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e04d8u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x80u;
@@ -19140,6 +19421,7 @@ void o2c_800e04d8(Cpu* c) {
 
 // DEMO3.BIN 800e04f0
 void o2c_800e04f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e04f0u);
     CHECK_EVENTS(c);
     R(2) = MEM_RW(R(4) + 0x84u);
     R(2) = R(2) | 0x14u;
@@ -19152,6 +19434,7 @@ void o2c_800e04f0(Cpu* c) {
 
 // DEMO3.BIN 800e0504
 void o2c_800e0504(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0504u);
     CHECK_EVENTS(c);
     R(2) = MEM_RW(R(4) + 0x84u);
     R(2) = R(2) | 0x10u;
@@ -19164,6 +19447,7 @@ void o2c_800e0504(Cpu* c) {
 
 // DEMO3.BIN 800e0518
 void o2c_800e0518(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0518u);
     CHECK_EVENTS(c);
     R(2) = MEM_RW(R(4) + 0x84u);
     R(2) = R(2) | 0x10u;
@@ -19176,6 +19460,7 @@ void o2c_800e0518(Cpu* c) {
 
 // DEMO3.BIN 800e052c
 void o2c_800e052c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e052cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -19289,6 +19574,7 @@ L_800e0610:
 
 // DEMO3.BIN 800e0620
 void o2c_800e0620(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0620u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -19361,6 +19647,7 @@ void o2c_800e0620(Cpu* c) {
 
 // DEMO3.BIN 800e0718
 void o2c_800e0718(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0718u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -19384,6 +19671,7 @@ L_800e0738:
 
 // DEMO3.BIN 800e0748
 void o2c_800e0748(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0748u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -19436,6 +19724,7 @@ L_800e07a0:
 
 // DEMO3.BIN 800e07dc
 void o2c_800e07dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e07dcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -19510,6 +19799,7 @@ L_800e0860:
 
 // DEMO3.BIN 800e0874
 void o2c_800e0874(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0874u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -19556,6 +19846,7 @@ L_800e08cc:
 
 // DEMO3.BIN 800e08dc
 void o2c_800e08dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e08dcu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -19565,6 +19856,7 @@ void o2c_800e08dc(Cpu* c) {
 
 // DEMO3.BIN 800e08e4
 void o2c_800e08e4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e08e4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -19630,6 +19922,7 @@ L_800e0998:
 
 // DEMO3.BIN 800e09a8
 void o2c_800e09a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e09a8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -19686,6 +19979,7 @@ void o2c_800e09a8(Cpu* c) {
 
 // DEMO3.BIN 800e0a60
 void o2c_800e0a60(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0a60u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -19745,6 +20039,7 @@ L_800e0acc:
 
 // DEMO3.BIN 800e0adc
 void o2c_800e0adc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0adcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -19823,6 +20118,7 @@ L_800e0b78:
 
 // DEMO3.BIN 800e0ba0
 void o2c_800e0ba0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0ba0u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -19832,6 +20128,7 @@ void o2c_800e0ba0(Cpu* c) {
 
 // DEMO3.BIN 800e0ba8
 void o2c_800e0ba8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0ba8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -19855,6 +20152,7 @@ L_800e0bc8:
 
 // DEMO3.BIN 800e0bd8
 void o2c_800e0bd8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0bd8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -19941,6 +20239,7 @@ L_800e0c90:
 
 // DEMO3.BIN 800e0ce0
 void o2c_800e0ce0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0ce0u);
     CHECK_EVENTS(c);
     R(3) = MEM_RH(R(4) + 0x7cu);
     R(2) = MEM_RW(R(4) + 0x84u);
@@ -19961,6 +20260,7 @@ void o2c_800e0ce0(Cpu* c) {
 
 // DEMO3.BIN 800e0d10
 void o2c_800e0d10(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0d10u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x10u, R(16));

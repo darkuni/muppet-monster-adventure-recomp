@@ -119,9 +119,15 @@ static uint32_t gte_divide(uint32_t h, uint32_t sz3) {
 }
 
 static void rtp(int v, int shift, bool lm, bool last) {
-    int64_t x = ((int64_t)TR(0) << 12) + (int64_t)M(0, 0, 0) * VX(v) + (int64_t)M(0, 0, 1) * VY(v) + (int64_t)M(0, 0, 2) * VZ(v);
-    int64_t y = ((int64_t)TR(1) << 12) + (int64_t)M(0, 1, 0) * VX(v) + (int64_t)M(0, 1, 1) * VY(v) + (int64_t)M(0, 1, 2) * VZ(v);
-    int64_t z = ((int64_t)TR(2) << 12) + (int64_t)M(0, 2, 0) * VX(v) + (int64_t)M(0, 2, 1) * VY(v) + (int64_t)M(0, 2, 2) * VZ(v);
+    // the 44-bit accumulator is checked (and wraps) after every addition
+    auto acc = [](int i, int64_t t, int64_t a, int64_t b, int64_t c) {
+        int64_t v = mac_check(i, t + a);
+        v = mac_check(i, v + b);
+        return mac_check(i, v + c);
+    };
+    int64_t x = acc(1, (int64_t)TR(0) << 12, (int64_t)M(0, 0, 0) * VX(v), (int64_t)M(0, 0, 1) * VY(v), (int64_t)M(0, 0, 2) * VZ(v));
+    int64_t y = acc(2, (int64_t)TR(1) << 12, (int64_t)M(0, 1, 0) * VX(v), (int64_t)M(0, 1, 1) * VY(v), (int64_t)M(0, 1, 2) * VZ(v));
+    int64_t z = acc(3, (int64_t)TR(2) << 12, (int64_t)M(0, 2, 0) * VX(v), (int64_t)M(0, 2, 1) * VY(v), (int64_t)M(0, 2, 2) * VZ(v));
     set_mac_ir(1, x, shift, lm);
     set_mac_ir(2, y, shift, lm);
     set_mac(3, z, shift);
@@ -332,6 +338,11 @@ void gte_write_data(int r, uint32_t v) {
             break;
         }
         case 31: break;   // LZCR read-only
+        // the hardware registers are 16 bits wide: the upper half of the written word is dropped
+        case 1: case 3: case 5: case 8: case 9: case 10: case 11:
+            d[r] = (int32_t)(int16_t)v; break;
+        case 7: case 16: case 17: case 18: case 19:
+            d[r] = (int32_t)(uint16_t)v; break;
         default: d[r] = (int32_t)v; break;
     }
 }

@@ -708,6 +708,7 @@ class Recompiler:
                     if t <= a:
                         back_targets.add(t)
         labels = set(f.labels) | {ent} | getattr(f, 'extra_labels', set())
+        out.append('    FUNC_ENTRY(c, 0x%08xu);' % ent)
         out.append('    CHECK_EVENTS(c);')
         if addrs[0] < ent:
             # code reached by jumps lies before the entry point: start at the entry

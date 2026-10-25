@@ -4,6 +4,7 @@
 
 // DEMO3.BIN 800e0e10
 void o2c_800e0e10(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0e10u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13,6 +14,7 @@ void o2c_800e0e10(Cpu* c) {
 
 // DEMO3.BIN 800e0e18
 void o2c_800e0e18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0e18u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -42,6 +44,7 @@ void o2c_800e0e18(Cpu* c) {
 
 // DEMO3.BIN 800e0e64
 void o2c_800e0e64(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0e64u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -51,6 +54,7 @@ void o2c_800e0e64(Cpu* c) {
 
 // DEMO3.BIN 800e0e6c
 void o2c_800e0e6c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0e6cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -60,6 +64,7 @@ void o2c_800e0e6c(Cpu* c) {
 
 // DEMO3.BIN 800e0e74
 void o2c_800e0e74(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0e74u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -143,6 +148,7 @@ L_800e0f04:
 
 // DEMO3.BIN 800e0f4c
 void o2c_800e0f4c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0f4cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));

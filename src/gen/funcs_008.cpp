@@ -4,6 +4,7 @@
 
 // CASTLEB.BIN 800e22a4
 void o0f_800e22a4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e22a4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x1cu, R(17));
@@ -81,6 +82,7 @@ L_800e2350:
 
 // CASTLEB.BIN 800e2364
 void o0f_800e2364(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2364u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -148,6 +150,7 @@ L_800e2398:
 
 // CASTLEB.BIN 800e2428
 void o0f_800e2428(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2428u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -185,6 +188,7 @@ L_800e2460:
 
 // CASTLEB.BIN 800e2470
 void o0f_800e2470(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2470u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0xffu;
@@ -201,6 +205,7 @@ void o0f_800e2470(Cpu* c) {
 
 // CASTLEB.BIN 800e2490
 void o0f_800e2490(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2490u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -249,6 +254,7 @@ L_800e2500:
 
 // CASTLEB.BIN 800e2510
 void o0f_800e2510(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2510u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x14u, R(31));
@@ -301,6 +307,7 @@ L_800e2574:
 
 // CASTLEB.BIN 800e2584
 void o0f_800e2584(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2584u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -310,6 +317,7 @@ void o0f_800e2584(Cpu* c) {
 
 // CASTLEB.BIN 800e258c
 void o0f_800e258c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e258cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -372,6 +380,7 @@ L_800e2610:
 
 // CASTLEB.BIN 800e2620
 void o0f_800e2620(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2620u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(2) = 0x800b0000u;
@@ -451,6 +460,7 @@ L_800e26c8:
 
 // CASTLEB.BIN 800e26f8
 void o0f_800e26f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e26f8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -480,6 +490,7 @@ L_800e2724:
 
 // CASTLEB.BIN 800e2734
 void o0f_800e2734(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2734u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -489,6 +500,7 @@ void o0f_800e2734(Cpu* c) {
 
 // CASTLEB.BIN 800e273c
 void o0f_800e273c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e273cu);
     CHECK_EVENTS(c);
     R(2) = 0x800e0000u;
     R(3) = 0u + 0x9u;
@@ -503,6 +515,7 @@ void o0f_800e273c(Cpu* c) {
 
 // CASTLEB.BIN 800e2754
 void o0f_800e2754(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2754u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -531,6 +544,7 @@ void o0f_800e2754(Cpu* c) {
 
 // CASTLEB.BIN 800e279c
 void o0f_800e279c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e279cu);
     CHECK_EVENTS(c);
     R(3) = 0x800c0000u;
     R(2) = MEM_RH(R(4) + 0x8u);
@@ -552,6 +566,7 @@ void o0f_800e279c(Cpu* c) {
 
 // CASTLEB.BIN 800e27d4
 void o0f_800e27d4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e27d4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -610,6 +625,7 @@ L_800e2860:
 
 // CASTLEB.BIN 800e2870
 void o0f_800e2870(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2870u);
     CHECK_EVENTS(c);
     R(3) = 0x800e0000u;
     R(2) = MEM_RW(R(3) + 0x3c0cu);
@@ -623,6 +639,7 @@ void o0f_800e2870(Cpu* c) {
 
 // CASTLEB.BIN 800e2888
 void o0f_800e2888(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2888u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -674,6 +691,7 @@ L_800e28f8:
 
 // CASTLEB.BIN 800e2914
 void o0f_800e2914(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2914u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(5) = 0xa000000u;
@@ -701,6 +719,7 @@ L_800e2948:
 
 // CASTLEB.BIN 800e2950
 void o0f_800e2950(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2950u);
     CHECK_EVENTS(c);
     R(5) = R(4) + 0u;
     R(2) = MEM_RH(R(5) + 0x7cu);
@@ -767,6 +786,7 @@ L_800e29bc:
 
 // CASTLEB.BIN 800e29ec
 void o0f_800e29ec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e29ecu);
     CHECK_EVENTS(c);
     R(8) = MEM_RW(R(4) + 0x8cu);
     R(2) = MEM_RW(R(8) + 0x10u);
@@ -814,6 +834,7 @@ void o0f_800e29ec(Cpu* c) {
 
 // CASTLEB.BIN 800e2a98
 void o0f_800e2a98(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2a98u);
     CHECK_EVENTS(c);
     R(5) = R(4) + 0u;
     R(3) = 0u + 0x64u;
@@ -860,6 +881,7 @@ L_800e2aec:
 
 // CASTLEB.BIN 800e2b18
 void o0f_800e2b18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2b18u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -876,6 +898,7 @@ void o0f_800e2b18(Cpu* c) {
 
 // CASTLEB.BIN 800e2b38
 void o0f_800e2b38(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2b38u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -984,6 +1007,7 @@ L_800e2c28:
 
 // CASTLEB.BIN 800e2c3c
 void o0f_800e2c3c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2c3cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1026,6 +1050,7 @@ L_800e2c94:
 
 // CASTLEB.BIN 800e2ca4
 void o0f_800e2ca4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2ca4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(5) = R(4) + 0u;
@@ -1108,6 +1133,7 @@ L_800e2d58:
 
 // CASTLEB.BIN 800e2d68
 void o0f_800e2d68(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2d68u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1177,6 +1203,7 @@ L_800e2e04:
 
 // CASTLEB.BIN 800e2e14
 void o0f_800e2e14(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2e14u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1224,6 +1251,7 @@ L_800e2e48:
 
 // CASTLEB.BIN 800e2e90
 void o0f_800e2e90(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2e90u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x1u;
@@ -1242,6 +1270,7 @@ void o0f_800e2e90(Cpu* c) {
 
 // CASTLEB.BIN 800e2eb4
 void o0f_800e2eb4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2eb4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1301,6 +1330,7 @@ L_800e2f3c:
 
 // CASTLEB.BIN 800e2f4c
 void o0f_800e2f4c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2f4cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -1393,6 +1423,7 @@ L_800e3024:
 
 // CASTLEB.BIN 800e3038
 void o0f_800e3038(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3038u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -1452,6 +1483,7 @@ L_800e30b0:
 
 // CASTLEB.BIN 800e30c0
 void o0f_800e30c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e30c0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1530,6 +1562,7 @@ L_800e3164:
 
 // CASTLEB.BIN 800e3178
 void o0f_800e3178(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3178u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x24u, R(17));
@@ -1600,6 +1633,7 @@ L_800e3220:
 
 // CASTLEB.BIN 800e3234
 void o0f_800e3234(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3234u);
     CHECK_EVENTS(c);
     R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(4) + 0x8u);
     R(5) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(4) + 0xau);
@@ -1622,6 +1656,7 @@ void o0f_800e3234(Cpu* c) {
 
 // CASTLEB.BIN 800e326c
 void o0f_800e326c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e326cu);
     CHECK_EVENTS(c);
     R(2) = 0x800c0000u;
     R(2) = MEM_RW(R(2) - 0x7090u);
@@ -1847,6 +1882,7 @@ L_800e34f0:
 
 // FOREST1.BIN 800df084
 void o10_800df084(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df084u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1978,6 +2014,7 @@ L_800df200:
 
 // FOREST1.BIN 800df210
 void o10_800df210(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df210u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -2101,6 +2138,7 @@ L_800df324:
 
 // FOREST1.BIN 800df334
 void o10_800df334(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df334u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -2222,6 +2260,7 @@ L_800df4a0:
 
 // FOREST1.BIN 800df4b0
 void o10_800df4b0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df4b0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -2337,6 +2376,7 @@ L_800df5cc:
 
 // FOREST1.BIN 800df5dc
 void o10_800df5dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df5dcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -2470,6 +2510,7 @@ L_800df754:
 
 // FOREST1.BIN 800df768
 void o10_800df768(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df768u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -2599,6 +2640,7 @@ L_800df8ac:
 
 // FOREST1.BIN 800df8bc
 void o10_800df8bc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df8bcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     R(2) = 0x800b0000u;
@@ -2677,6 +2719,7 @@ L_800df970:
 
 // FOREST1.BIN 800df9a8
 void o10_800df9a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df9a8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -2802,6 +2845,7 @@ L_800dfad0:
 
 // FOREST1.BIN 800dfaec
 void o10_800dfaec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfaecu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -3072,6 +3116,7 @@ L_800dfd90:
 
 // FOREST1.BIN 800dfdb0
 void o10_800dfdb0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfdb0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x28u, R(16));
@@ -3229,6 +3274,7 @@ L_800dff78:
 
 // FOREST1.BIN 800dff8c
 void o10_800dff8c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dff8cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x24u, R(17));
@@ -3502,6 +3548,7 @@ L_800e0218:
 
 // FOREST1.BIN 800e0230
 void o10_800e0230(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0230u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -3788,6 +3835,7 @@ L_800e04dc:
 
 // FOREST1.BIN 800e0540
 void o10_800e0540(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0540u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -4044,6 +4092,7 @@ L_800e07c0:
 
 // FOREST1.BIN 800e07f0
 void o10_800e07f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e07f0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x40u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -4225,6 +4274,7 @@ L_800e0978:
 
 // FOREST1.BIN 800e09a8
 void o10_800e09a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e09a8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x20u, R(18));
@@ -4406,6 +4456,7 @@ L_800e0b74:
 
 // FOREST1.BIN 800e0b90
 void o10_800e0b90(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0b90u);
     CHECK_EVENTS(c);
     R(2) = 0x800b0000u;
     R(3) = MEM_RB(R(2) + 0x7464u);
@@ -4628,6 +4679,7 @@ L_800e0cac:
 
 // FOREST1.BIN 800e0e20
 void o10_800e0e20(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0e20u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -4821,6 +4873,7 @@ L_800e1014:
 
 // FOREST1.BIN 800e1044
 void o10_800e1044(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1044u);
     CHECK_EVENTS(c);
     R(3) = 0x800f0000u;
     R(2) = MEM_RW(R(3) - 0x5a50u);
@@ -5080,6 +5133,7 @@ L_800e12b0:
 
 // FOREST1.BIN 800e12d8
 void o10_800e12d8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e12d8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x28u, R(22));
@@ -5257,6 +5311,7 @@ L_800e1488:
 
 // FOREST1.BIN 800e1500
 void o10_800e1500(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1500u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -6396,6 +6451,7 @@ L_800e20b0:
 
 // FOREST1.BIN 800e20ec
 void o10_800e20ec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e20ecu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(3) = 0x800c0000u;
@@ -6718,6 +6774,7 @@ L_800e22b4:
 
 // FOREST1.BIN 800e2488
 void o10_800e2488(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2488u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x50u;
     MEM_WW(R(29) + 0x28u, R(16));
@@ -9155,6 +9212,7 @@ L_800e3d60:
 
 // FOREST1.BIN 800e3da4
 void o10_800e3da4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3da4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(4) = 0u + 0u;
@@ -9180,6 +9238,7 @@ void o10_800e3da4(Cpu* c) {
 
 // FOREST1.BIN 800e3ddc
 void o10_800e3ddc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3ddcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -9257,6 +9316,7 @@ L_800e3e58:
 
 // FOREST1.BIN 800e3ea0
 void o10_800e3ea0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3ea0u);
     CHECK_EVENTS(c);
     R(6) = R(4) + 0u;
     {
@@ -9296,6 +9356,7 @@ L_800e3ebc:
 
 // FOREST1.BIN 800e3f08
 void o10_800e3f08(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f08u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(6) = R(4) + 0u;
@@ -9319,6 +9380,7 @@ void o10_800e3f08(Cpu* c) {
 
 // FOREST1.BIN 800e3f40
 void o10_800e3f40(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f40u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(2) = R(2) | 0x200u;
@@ -9331,6 +9393,7 @@ void o10_800e3f40(Cpu* c) {
 
 // FOREST1.BIN 800e3f54
 void o10_800e3f54(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f54u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -9366,6 +9429,7 @@ L_800e3f88:
 
 // FOREST1.BIN 800e3f98
 void o10_800e3f98(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f98u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -9436,6 +9500,7 @@ L_800e3fd8:
 
 // FOREST1.BIN 800e4070
 void o10_800e4070(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4070u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -9453,6 +9518,7 @@ void o10_800e4070(Cpu* c) {
 
 // FOREST1.BIN 800e4090
 void o10_800e4090(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4090u);
     CHECK_EVENTS(c);
     R(5) = 0x260000u;
     R(5) = R(5) | 0x9ec3u;
@@ -9495,6 +9561,7 @@ void o10_800e4090(Cpu* c) {
 
 // FOREST1.BIN 800e4118
 void o10_800e4118(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4118u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -9535,6 +9602,7 @@ L_800e415c:
 
 // FOREST1.BIN 800e417c
 void o10_800e417c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e417cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -9596,6 +9664,7 @@ L_800e41fc:
 
 // FOREST1.BIN 800e420c
 void o10_800e420c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e420cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -9657,6 +9726,7 @@ L_800e4288:
 
 // FOREST1.BIN 800e4298
 void o10_800e4298(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4298u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -9666,6 +9736,7 @@ void o10_800e4298(Cpu* c) {
 
 // FOREST1.BIN 800e42a0
 void o10_800e42a0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e42a0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -9693,6 +9764,7 @@ void o10_800e42a0(Cpu* c) {
 
 // FOREST1.BIN 800e42e4
 void o10_800e42e4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e42e4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -9729,6 +9801,7 @@ L_800e4324:
 
 // FOREST1.BIN 800e4334
 void o10_800e4334(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4334u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -9797,6 +9870,7 @@ L_800e43b4:
 
 // FOREST1.BIN 800e43cc
 void o10_800e43cc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e43ccu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -9830,6 +9904,7 @@ void o10_800e43cc(Cpu* c) {
 
 // FOREST1.BIN 800e4428
 void o10_800e4428(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4428u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -9892,6 +9967,7 @@ L_800e44bc:
 
 // FOREST1.BIN 800e44cc
 void o10_800e44cc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e44ccu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -9901,6 +9977,7 @@ void o10_800e44cc(Cpu* c) {
 
 // FOREST1.BIN 800e44d4
 void o10_800e44d4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e44d4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -9938,6 +10015,7 @@ void o10_800e44d4(Cpu* c) {
 
 // FOREST1.BIN 800e4540
 void o10_800e4540(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4540u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -9984,6 +10062,7 @@ L_800e45a8:
 
 // FOREST1.BIN 800e45b8
 void o10_800e45b8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e45b8u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -9993,6 +10072,7 @@ void o10_800e45b8(Cpu* c) {
 
 // FOREST1.BIN 800e45c0
 void o10_800e45c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e45c0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -10022,6 +10102,7 @@ L_800e45dc:
 
 // FOREST1.BIN 800e45f8
 void o10_800e45f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e45f8u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -10031,6 +10112,7 @@ void o10_800e45f8(Cpu* c) {
 
 // FOREST1.BIN 800e4600
 void o10_800e4600(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4600u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -10093,6 +10175,7 @@ L_800e4684:
 
 // FOREST1.BIN 800e46a0
 void o10_800e46a0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e46a0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -10127,6 +10210,7 @@ void o10_800e46a0(Cpu* c) {
 
 // FOREST1.BIN 800e4700
 void o10_800e4700(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4700u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(6) = R(4) + 0u;
@@ -10165,6 +10249,7 @@ L_800e4748:
 
 // FOREST1.BIN 800e4758
 void o10_800e4758(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4758u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -10174,6 +10259,7 @@ void o10_800e4758(Cpu* c) {
 
 // FOREST1.BIN 800e4760
 void o10_800e4760(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4760u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x1u;
@@ -10192,6 +10278,7 @@ void o10_800e4760(Cpu* c) {
 
 // FOREST1.BIN 800e4784
 void o10_800e4784(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4784u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x2u;
@@ -10210,6 +10297,7 @@ void o10_800e4784(Cpu* c) {
 
 // FOREST1.BIN 800e47a8
 void o10_800e47a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e47a8u);
     CHECK_EVENTS(c);
     R(5) = 0x40000u;
     R(5) = R(5) | 0x200u;
@@ -10231,6 +10319,7 @@ void o10_800e47a8(Cpu* c) {
 
 // FOREST1.BIN 800e47dc
 void o10_800e47dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e47dcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -10290,6 +10379,7 @@ L_800e4858:
 
 // FOREST1.BIN 800e4868
 void o10_800e4868(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4868u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -10299,6 +10389,7 @@ void o10_800e4868(Cpu* c) {
 
 // FOREST1.BIN 800e4870
 void o10_800e4870(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4870u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(8) = R(4) + 0u;
@@ -10366,6 +10457,7 @@ L_800e4924:
 
 // FOREST1.BIN 800e4934
 void o10_800e4934(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4934u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -10375,6 +10467,7 @@ void o10_800e4934(Cpu* c) {
 
 // FOREST1.BIN 800e493c
 void o10_800e493c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e493cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -10439,6 +10532,7 @@ L_800e49b4:
 
 // FOREST1.BIN 800e49c4
 void o10_800e49c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e49c4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -10476,6 +10570,7 @@ L_800e4a00:
 
 // FOREST1.BIN 800e4a10
 void o10_800e4a10(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a10u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -10530,6 +10625,7 @@ L_800e4a80:
 
 // FOREST1.BIN 800e4a90
 void o10_800e4a90(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a90u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x3u;
@@ -10544,6 +10640,7 @@ void o10_800e4a90(Cpu* c) {
 
 // FOREST1.BIN 800e4aa8
 void o10_800e4aa8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4aa8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -10622,6 +10719,7 @@ L_800e4ae4:
 
 // FOREST1.BIN 800e4ba0
 void o10_800e4ba0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4ba0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -10687,6 +10785,7 @@ L_800e4c2c:
 
 // FOREST1.BIN 800e4c3c
 void o10_800e4c3c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c3cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -10722,6 +10821,7 @@ L_800e4c70:
 
 // FOREST1.BIN 800e4c80
 void o10_800e4c80(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c80u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -10775,6 +10875,7 @@ L_800e4cd8:
 
 // FOREST1.BIN 800e4d18
 void o10_800e4d18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4d18u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -10784,6 +10885,7 @@ void o10_800e4d18(Cpu* c) {
 
 // FOREST1.BIN 800e4d20
 void o10_800e4d20(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4d20u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -10793,6 +10895,7 @@ void o10_800e4d20(Cpu* c) {
 
 // FOREST1.BIN 800e4d28
 void o10_800e4d28(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4d28u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -10858,6 +10961,7 @@ L_800e4d54:
 
 // FOREST1.BIN 800e4df0
 void o10_800e4df0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4df0u);
     CHECK_EVENTS(c);
     R(2) = 0u + 0x78u;
     {
@@ -10869,6 +10973,7 @@ void o10_800e4df0(Cpu* c) {
 
 // FOREST1.BIN 800e4dfc
 void o10_800e4dfc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4dfcu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -10878,6 +10983,7 @@ void o10_800e4dfc(Cpu* c) {
 
 // FOREST1.BIN 800e4e04
 void o10_800e4e04(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4e04u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -10905,6 +11011,7 @@ void o10_800e4e04(Cpu* c) {
 
 // FOREST1.BIN 800e4e48
 void o10_800e4e48(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4e48u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -10939,6 +11046,7 @@ void o10_800e4e48(Cpu* c) {
 
 // FOREST1.BIN 800e4ea8
 void o10_800e4ea8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4ea8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -11004,6 +11112,7 @@ L_800e4f34:
 
 // FOREST1.BIN 800e4f44
 void o10_800e4f44(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4f44u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -11094,6 +11203,7 @@ L_800e502c:
 
 // FOREST1.BIN 800e5040
 void o10_800e5040(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5040u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -11195,6 +11305,7 @@ L_800e50f8:
 
 // FOREST1.BIN 800e5108
 void o10_800e5108(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5108u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -11257,6 +11368,7 @@ L_800e519c:
 
 // FOREST1.BIN 800e51b8
 void o10_800e51b8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e51b8u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -11266,6 +11378,7 @@ void o10_800e51b8(Cpu* c) {
 
 // FOREST1.BIN 800e51c0
 void o10_800e51c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e51c0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -11341,6 +11454,7 @@ L_800e5254:
 
 // FOREST1.BIN 800e5268
 void o10_800e5268(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5268u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -11350,6 +11464,7 @@ void o10_800e5268(Cpu* c) {
 
 // FOREST1.BIN 800e5270
 void o10_800e5270(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5270u);
     CHECK_EVENTS(c);
     R(2) = 0u + 0x1u;
     {
@@ -11361,6 +11476,7 @@ void o10_800e5270(Cpu* c) {
 
 // FOREST1.BIN 800e527c
 void o10_800e527c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e527cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -11405,6 +11521,7 @@ L_800e52a4:
 
 // FOREST1.BIN 800e52ec
 void o10_800e52ec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e52ecu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -11459,6 +11576,7 @@ L_800e535c:
 
 // FOREST1.BIN 800e5374
 void o10_800e5374(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5374u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -11529,6 +11647,7 @@ L_800e53fc:
 
 // FOREST1.BIN 800e540c
 void o10_800e540c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e540cu);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x2u;
@@ -11543,6 +11662,7 @@ void o10_800e540c(Cpu* c) {
 
 // FOREST1.BIN 800e5424
 void o10_800e5424(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5424u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -11578,6 +11698,7 @@ void o10_800e5424(Cpu* c) {
 
 // FOREST1.BIN 800e5488
 void o10_800e5488(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5488u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -11643,6 +11764,7 @@ L_800e5514:
 
 // FOREST1.BIN 800e5524
 void o10_800e5524(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5524u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -11733,6 +11855,7 @@ L_800e5610:
 
 // FOREST1.BIN 800e5620
 void o10_800e5620(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5620u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -11840,6 +11963,7 @@ L_800e56e0:
 
 // FOREST1.BIN 800e56f0
 void o10_800e56f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e56f0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -11869,6 +11993,7 @@ L_800e571c:
 
 // FOREST1.BIN 800e5730
 void o10_800e5730(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5730u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -11878,6 +12003,7 @@ void o10_800e5730(Cpu* c) {
 
 // FOREST1.BIN 800e5738
 void o10_800e5738(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5738u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -11959,6 +12085,7 @@ L_800e57e4:
 
 // FOREST1.BIN 800e57f8
 void o10_800e57f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e57f8u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -11968,6 +12095,7 @@ void o10_800e57f8(Cpu* c) {
 
 // FOREST1.BIN 800e5800
 void o10_800e5800(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5800u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -12035,6 +12163,7 @@ L_800e5894:
 
 // FOREST1.BIN 800e58a8
 void o10_800e58a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e58a8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12105,6 +12234,7 @@ L_800e5930:
 
 // FOREST1.BIN 800e5940
 void o10_800e5940(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5940u);
     CHECK_EVENTS(c);
     R(8) = 0x40000u;
     R(8) = R(8) | 0x200u;
@@ -12168,6 +12298,7 @@ void o10_800e5940(Cpu* c) {
 
 // FOREST1.BIN 800e5a1c
 void o10_800e5a1c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5a1cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -12280,6 +12411,7 @@ L_800e5b20:
 
 // FOREST1.BIN 800e5b30
 void o10_800e5b30(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5b30u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -12289,6 +12421,7 @@ void o10_800e5b30(Cpu* c) {
 
 // FOREST1.BIN 800e5b38
 void o10_800e5b38(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5b38u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12325,6 +12458,7 @@ L_800e5b74:
 
 // FOREST1.BIN 800e5b84
 void o10_800e5b84(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5b84u);
     CHECK_EVENTS(c);
     R(7) = 0x260000u;
     R(7) = R(7) | 0x9ec3u;
@@ -12368,6 +12502,7 @@ void o10_800e5b84(Cpu* c) {
 
 // FOREST1.BIN 800e5c10
 void o10_800e5c10(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5c10u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -12377,6 +12512,7 @@ void o10_800e5c10(Cpu* c) {
 
 // FOREST1.BIN 800e5c18
 void o10_800e5c18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5c18u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12434,6 +12570,7 @@ void o10_800e5c18(Cpu* c) {
 
 // FOREST1.BIN 800e5cd4
 void o10_800e5cd4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5cd4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12472,6 +12609,7 @@ L_800e5cf8:
 
 // FOREST1.BIN 800e5d2c
 void o10_800e5d2c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5d2cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12538,6 +12676,7 @@ L_800e5da8:
 
 // FOREST1.BIN 800e5db8
 void o10_800e5db8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5db8u);
     CHECK_EVENTS(c);
     R(8) = 0x40000u;
     R(8) = R(8) | 0x200u;
@@ -12595,6 +12734,7 @@ void o10_800e5db8(Cpu* c) {
 
 // FOREST1.BIN 800e5e7c
 void o10_800e5e7c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5e7cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -12604,6 +12744,7 @@ void o10_800e5e7c(Cpu* c) {
 
 // FOREST1.BIN 800e5e84
 void o10_800e5e84(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5e84u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12726,6 +12867,7 @@ L_800e5f80:
 
 // FOREST1.BIN 800e5f90
 void o10_800e5f90(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5f90u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12804,6 +12946,7 @@ L_800e603c:
 
 // FOREST1.BIN 800e604c
 void o10_800e604c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e604cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -12813,6 +12956,7 @@ void o10_800e604c(Cpu* c) {
 
 // FOREST1.BIN 800e6054
 void o10_800e6054(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6054u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12870,6 +13014,7 @@ void o10_800e6054(Cpu* c) {
 
 // FOREST1.BIN 800e6110
 void o10_800e6110(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6110u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -12879,6 +13024,7 @@ void o10_800e6110(Cpu* c) {
 
 // FOREST1.BIN 800e6118
 void o10_800e6118(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6118u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = R(4) + 0u;
@@ -12947,6 +13093,7 @@ L_800e61b4:
 
 // FOREST1.BIN 800e61c4
 void o10_800e61c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e61c4u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x3u;
@@ -12961,6 +13108,7 @@ void o10_800e61c4(Cpu* c) {
 
 // FOREST1.BIN 800e61dc
 void o10_800e61dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e61dcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13012,6 +13160,7 @@ L_800e6248:
 
 // FOREST1.BIN 800e6264
 void o10_800e6264(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6264u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x1u;
@@ -13030,6 +13179,7 @@ void o10_800e6264(Cpu* c) {
 
 // FOREST1.BIN 800e6288
 void o10_800e6288(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6288u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x1u;
@@ -13048,6 +13198,7 @@ void o10_800e6288(Cpu* c) {
 
 // FOREST1.BIN 800e62ac
 void o10_800e62ac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e62acu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x2u;
@@ -13066,6 +13217,7 @@ void o10_800e62ac(Cpu* c) {
 
 // FOREST1.BIN 800e62d0
 void o10_800e62d0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e62d0u);
     CHECK_EVENTS(c);
     R(2) = 0x800c0000u;
     R(4) = R(2) - 0x4de4u;
@@ -13101,6 +13253,7 @@ L_800e6304:
 
 // FOREST1.BIN 800e630c
 void o10_800e630c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e630cu);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -13135,6 +13288,7 @@ L_800e6340:
 
 // FOREST1.BIN 800e6348
 void o10_800e6348(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6348u);
     CHECK_EVENTS(c);
     R(2) = 0x800b0000u;
     R(3) = MEM_RB(R(2) + 0x7464u);
@@ -13187,6 +13341,7 @@ L_800e63b4:
 
 // FOREST1.BIN 800e63c4
 void o10_800e63c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e63c4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13214,6 +13369,7 @@ void o10_800e63c4(Cpu* c) {
 
 // FOREST1.BIN 800e6414
 void o10_800e6414(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6414u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13269,6 +13425,7 @@ L_800e648c:
 
 // FOREST1.BIN 800e649c
 void o10_800e649c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e649cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -13311,6 +13468,7 @@ L_800e64f8:
 
 // FOREST1.BIN 800e6508
 void o10_800e6508(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6508u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13356,6 +13514,7 @@ void o10_800e6508(Cpu* c) {
 
 // FOREST1.BIN 800e658c
 void o10_800e658c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e658cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -13388,6 +13547,7 @@ void o10_800e658c(Cpu* c) {
 
 // FOREST1.BIN 800e65e0
 void o10_800e65e0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e65e0u);
     CHECK_EVENTS(c);
     R(5) = R(4) + 0u;
     {
@@ -13437,6 +13597,7 @@ L_800e6644:
 
 // FOREST1.BIN 800e6658
 void o10_800e6658(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6658u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(3) = 0xfffb0000u;
@@ -13471,6 +13632,7 @@ void o10_800e6658(Cpu* c) {
 
 // FOREST1.BIN 800e66b8
 void o10_800e66b8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e66b8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13521,6 +13683,7 @@ L_800e6728:
 
 // FOREST1.BIN 800e6738
 void o10_800e6738(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6738u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x1u;
@@ -13533,6 +13696,7 @@ void o10_800e6738(Cpu* c) {
 
 // FOREST1.BIN 800e6748
 void o10_800e6748(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6748u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -13575,6 +13739,7 @@ void o10_800e6748(Cpu* c) {
 
 // FOREST1.BIN 800e67b8
 void o10_800e67b8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e67b8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -13617,6 +13782,7 @@ void o10_800e67b8(Cpu* c) {
 
 // FOREST1.BIN 800e6828
 void o10_800e6828(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6828u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -13662,6 +13828,7 @@ void o10_800e6828(Cpu* c) {
 
 // FOREST1.BIN 800e68a4
 void o10_800e68a4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e68a4u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x4u;
@@ -13674,6 +13841,7 @@ void o10_800e68a4(Cpu* c) {
 
 // FOREST1.BIN 800e68b4
 void o10_800e68b4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e68b4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13732,6 +13900,7 @@ L_800e6998:
 
 // FOREST1.BIN 800e69a8
 void o10_800e69a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e69a8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -13764,6 +13933,7 @@ void o10_800e69a8(Cpu* c) {
 
 // FOREST1.BIN 800e69fc
 void o10_800e69fc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e69fcu);
     CHECK_EVENTS(c);
     R(2) = MEM_RW(R(4) + 0x84u);
     R(3) = 0u - 0x1001u;
@@ -13777,6 +13947,7 @@ void o10_800e69fc(Cpu* c) {
 
 // FOREST1.BIN 800e6a10
 void o10_800e6a10(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6a10u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13816,6 +13987,7 @@ L_800e6a5c:
 
 // FOREST1.BIN 800e6a6c
 void o10_800e6a6c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6a6cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13843,6 +14015,7 @@ void o10_800e6a6c(Cpu* c) {
 
 // FOREST1.BIN 800e6ab0
 void o10_800e6ab0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6ab0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13875,6 +14048,7 @@ void o10_800e6ab0(Cpu* c) {
 
 // FOREST1.BIN 800e6b08
 void o10_800e6b08(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6b08u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13949,6 +14123,7 @@ L_800e6ba0:
 
 // FOREST1.BIN 800e6bb0
 void o10_800e6bb0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6bb0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13993,6 +14168,7 @@ L_800e6c00:
 
 // FOREST1.BIN 800e6c1c
 void o10_800e6c1c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6c1cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14033,6 +14209,7 @@ L_800e6c50:
 
 // FOREST1.BIN 800e6c7c
 void o10_800e6c7c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6c7cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14066,6 +14243,7 @@ void o10_800e6c7c(Cpu* c) {
 
 // FOREST1.BIN 800e6cd8
 void o10_800e6cd8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6cd8u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x1u;
@@ -14078,6 +14256,7 @@ void o10_800e6cd8(Cpu* c) {
 
 // FOREST1.BIN 800e6ce8
 void o10_800e6ce8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6ce8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -14120,6 +14299,7 @@ void o10_800e6ce8(Cpu* c) {
 
 // FOREST1.BIN 800e6d58
 void o10_800e6d58(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6d58u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -14162,6 +14342,7 @@ void o10_800e6d58(Cpu* c) {
 
 // FOREST1.BIN 800e6dc8
 void o10_800e6dc8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6dc8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -14207,6 +14388,7 @@ void o10_800e6dc8(Cpu* c) {
 
 // FOREST1.BIN 800e6e44
 void o10_800e6e44(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6e44u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x4u;
@@ -14219,6 +14401,7 @@ void o10_800e6e44(Cpu* c) {
 
 // FOREST1.BIN 800e6e54
 void o10_800e6e54(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6e54u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14277,6 +14460,7 @@ L_800e6f38:
 
 // FOREST1.BIN 800e6f48
 void o10_800e6f48(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6f48u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14322,6 +14506,7 @@ void o10_800e6f48(Cpu* c) {
 
 // FOREST1.BIN 800e6fcc
 void o10_800e6fcc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6fccu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14408,6 +14593,7 @@ L_800e7070:
 
 // FOREST1.BIN 800e7090
 void o10_800e7090(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7090u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14441,6 +14627,7 @@ void o10_800e7090(Cpu* c) {
 
 // FOREST1.BIN 800e70ec
 void o10_800e70ec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e70ecu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -14467,6 +14654,7 @@ L_800e710c:
 
 // FOREST1.BIN 800e711c
 void o10_800e711c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e711cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14593,6 +14781,7 @@ L_800e7224:
 
 // FOREST1.BIN 800e7234
 void o10_800e7234(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7234u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -14628,6 +14817,7 @@ L_800e7268:
 
 // FOREST1.BIN 800e7278
 void o10_800e7278(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7278u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -14654,6 +14844,7 @@ L_800e7298:
 
 // FOREST1.BIN 800e72a8
 void o10_800e72a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e72a8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14687,6 +14878,7 @@ void o10_800e72a8(Cpu* c) {
 
 // FOREST1.BIN 800e7304
 void o10_800e7304(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7304u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -14713,6 +14905,7 @@ L_800e7324:
 
 // FOREST1.BIN 800e7334
 void o10_800e7334(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7334u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14839,6 +15032,7 @@ L_800e743c:
 
 // FOREST1.BIN 800e744c
 void o10_800e744c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e744cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -14874,6 +15068,7 @@ L_800e7480:
 
 // FOREST1.BIN 800e7490
 void o10_800e7490(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7490u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -14900,6 +15095,7 @@ L_800e74b0:
 
 // FOREST1.BIN 800e74c0
 void o10_800e74c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e74c0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14938,6 +15134,7 @@ void o10_800e74c0(Cpu* c) {
 
 // FOREST1.BIN 800e752c
 void o10_800e752c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e752cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -14954,6 +15151,7 @@ void o10_800e752c(Cpu* c) {
 
 // FOREST1.BIN 800e754c
 void o10_800e754c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e754cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -14989,6 +15187,7 @@ L_800e7580:
 
 // FOREST1.BIN 800e7590
 void o10_800e7590(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7590u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15027,6 +15226,7 @@ void o10_800e7590(Cpu* c) {
 
 // FOREST1.BIN 800e75fc
 void o10_800e75fc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e75fcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15113,6 +15313,7 @@ L_800e76a0:
 
 // FOREST1.BIN 800e76c0
 void o10_800e76c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e76c0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -15148,6 +15349,7 @@ L_800e76f4:
 
 // FOREST1.BIN 800e7704
 void o10_800e7704(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7704u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15233,6 +15435,7 @@ L_800e77a4:
 
 // FOREST1.BIN 800e77c4
 void o10_800e77c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e77c4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15273,6 +15476,7 @@ void o10_800e77c4(Cpu* c) {
 
 // FOREST1.BIN 800e7834
 void o10_800e7834(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7834u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -15299,6 +15503,7 @@ L_800e7854:
 
 // FOREST1.BIN 800e7864
 void o10_800e7864(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7864u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15425,6 +15630,7 @@ L_800e796c:
 
 // FOREST1.BIN 800e797c
 void o10_800e797c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e797cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -15460,6 +15666,7 @@ L_800e79b0:
 
 // FOREST1.BIN 800e79c0
 void o10_800e79c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e79c0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -15486,6 +15693,7 @@ L_800e79e0:
 
 // FOREST1.BIN 800e79f0
 void o10_800e79f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e79f0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15526,6 +15734,7 @@ void o10_800e79f0(Cpu* c) {
 
 // FOREST1.BIN 800e7a60
 void o10_800e7a60(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7a60u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -15552,6 +15761,7 @@ L_800e7a80:
 
 // FOREST1.BIN 800e7a90
 void o10_800e7a90(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7a90u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15678,6 +15888,7 @@ L_800e7b98:
 
 // FOREST1.BIN 800e7ba8
 void o10_800e7ba8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7ba8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -15713,6 +15924,7 @@ L_800e7bdc:
 
 // FOREST1.BIN 800e7bec
 void o10_800e7bec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7becu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -15739,6 +15951,7 @@ L_800e7c0c:
 
 // FOREST1.BIN 800e7c1c
 void o10_800e7c1c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7c1cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15784,6 +15997,7 @@ void o10_800e7c1c(Cpu* c) {
 
 // FOREST1.BIN 800e7c9c
 void o10_800e7c9c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7c9cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -15800,6 +16014,7 @@ void o10_800e7c9c(Cpu* c) {
 
 // FOREST1.BIN 800e7cbc
 void o10_800e7cbc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7cbcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -15835,6 +16050,7 @@ L_800e7cf0:
 
 // FOREST1.BIN 800e7d00
 void o10_800e7d00(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7d00u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15880,6 +16096,7 @@ void o10_800e7d00(Cpu* c) {
 
 // FOREST1.BIN 800e7d80
 void o10_800e7d80(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7d80u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15965,6 +16182,7 @@ L_800e7e20:
 
 // FOREST1.BIN 800e7e40
 void o10_800e7e40(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7e40u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -16000,6 +16218,7 @@ L_800e7e74:
 
 // FOREST1.BIN 800e7e84
 void o10_800e7e84(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7e84u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16035,6 +16254,7 @@ void o10_800e7e84(Cpu* c) {
 
 // FOREST1.BIN 800e7ed8
 void o10_800e7ed8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7ed8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16070,6 +16290,7 @@ void o10_800e7ed8(Cpu* c) {
 
 // FOREST1.BIN 800e7f2c
 void o10_800e7f2c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7f2cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16105,6 +16326,7 @@ void o10_800e7f2c(Cpu* c) {
 
 // FOREST1.BIN 800e7f80
 void o10_800e7f80(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7f80u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16140,6 +16362,7 @@ void o10_800e7f80(Cpu* c) {
 
 // FOREST1.BIN 800e7fd4
 void o10_800e7fd4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7fd4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x48u;
     R(14) = 0u + 0u;
@@ -16349,6 +16572,7 @@ L_800e811c:
 
 // FOREST1.BIN 800e8298
 void o10_800e8298(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8298u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x90u;
     MEM_WW(R(29) + 0x84u, R(23));
@@ -17092,6 +17316,7 @@ L_800e8b40:
 
 // FOREST1.BIN 800e8ba4
 void o10_800e8ba4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8ba4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0x800c0000u;
@@ -17128,6 +17353,7 @@ L_800e8c04:
 
 // FOREST1.BIN 800e8c14
 void o10_800e8c14(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8c14u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -17156,6 +17382,7 @@ void o10_800e8c14(Cpu* c) {
 
 // FOREST1.BIN 800e8c4c
 void o10_800e8c4c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8c4cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x48u;
     MEM_WW(R(29) + 0x24u, R(17));
@@ -17315,6 +17542,7 @@ L_800e8e08:
 
 // FOREST1.BIN 800e8e34
 void o10_800e8e34(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8e34u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x2cu, R(19));
@@ -17441,6 +17669,7 @@ L_800e8fe0:
 
 // FOREST2.BIN 800defc0
 void o11_800defc0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800defc0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17572,6 +17801,7 @@ L_800df13c:
 
 // FOREST2.BIN 800df14c
 void o11_800df14c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df14cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17695,6 +17925,7 @@ L_800df260:
 
 // FOREST2.BIN 800df270
 void o11_800df270(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df270u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -17816,6 +18047,7 @@ L_800df3dc:
 
 // FOREST2.BIN 800df3ec
 void o11_800df3ec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df3ecu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -17975,6 +18207,7 @@ L_800df57c:
 
 // FOREST2.BIN 800df594
 void o11_800df594(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df594u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -18123,6 +18356,7 @@ L_800df6f8:
 
 // FOREST2.BIN 800df708
 void o11_800df708(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df708u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -18229,6 +18463,7 @@ L_800df828:
 
 // FOREST2.BIN 800df838
 void o11_800df838(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df838u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(2) = 0xfffb0000u;
@@ -18325,6 +18560,7 @@ L_800df880:
 
 // FOREST2.BIN 800df970
 void o11_800df970(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df970u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18419,6 +18655,7 @@ L_800dfa7c:
 
 // FOREST2.BIN 800dfa94
 void o11_800dfa94(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfa94u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -18598,6 +18835,7 @@ L_800dfc28:
 
 // FOREST2.BIN 800dfc38
 void o11_800dfc38(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfc38u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -18716,6 +18954,7 @@ L_800dfd74:
 
 // FOREST2.BIN 800dfd84
 void o11_800dfd84(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfd84u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -18812,6 +19051,7 @@ L_800dfe54:
 
 // FOREST2.BIN 800dfe6c
 void o11_800dfe6c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfe6cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -18937,6 +19177,7 @@ L_800dff94:
 
 // FOREST2.BIN 800dffb0
 void o11_800dffb0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dffb0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -19207,6 +19448,7 @@ L_800e0254:
 
 // FOREST2.BIN 800e0274
 void o11_800e0274(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0274u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -19294,6 +19536,7 @@ void o11_800e0274(Cpu* c) {
 
 // FOREST2.BIN 800e0388
 void o11_800e0388(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0388u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     R(3) = R(4) & 0xffffu;
@@ -19445,6 +19688,7 @@ L_800e04b4:
 
 // FOREST2.BIN 800e052c
 void o11_800e052c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e052cu);
     CHECK_EVENTS(c);
     R(2) = 0x800f0000u;
     R(3) = MEM_RW(R(2) - 0x7bc8u);
@@ -19617,6 +19861,7 @@ L_800e06c0:
 
 // FOREST2.BIN 800e06dc
 void o11_800e06dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e06dcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x40u;
     MEM_WW(R(29) + 0x1cu, R(17));
@@ -19803,6 +20048,7 @@ L_800e0890:
 
 // FOREST2.BIN 800e08cc
 void o11_800e08cc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e08ccu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     R(3) = 0x800b0000u;
@@ -19929,6 +20175,7 @@ L_800e09b4:
 
 // FOREST2.BIN 800e0a50
 void o11_800e0a50(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0a50u);
     CHECK_EVENTS(c);
     R(3) = 0x800f0000u;
     R(5) = 0x800f0000u;
@@ -20216,6 +20463,7 @@ L_800e0d24:
 
 // FOREST2.BIN 800e0d40
 void o11_800e0d40(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0d40u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x50u;
     MEM_WW(R(29) + 0x2cu, R(17));
@@ -20542,6 +20790,7 @@ L_800e10b0:
 
 // FOREST2.BIN 800e10e0
 void o11_800e10e0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e10e0u);
     CHECK_EVENTS(c);
     R(3) = 0x800b0000u;
     R(2) = MEM_RB(R(3) + 0x7464u);
@@ -20722,6 +20971,7 @@ L_800e12d4:
 
 // FOREST2.BIN 800e1304
 void o11_800e1304(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1304u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(2) = 0x800e0000u;
@@ -20828,6 +21078,7 @@ L_800e13f0:
 
 // FOREST2.BIN 800e1404
 void o11_800e1404(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1404u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -21889,6 +22140,7 @@ L_800e1fa8:
 
 // FOREST2.BIN 800e1fe8
 void o11_800e1fe8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1fe8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(4) = 0u + 0u;
@@ -22426,6 +22678,7 @@ L_800e2278:
 
 // FOREST2.BIN 800e25f0
 void o11_800e25f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e25f0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x50u;
     MEM_WW(R(29) + 0x28u, R(16));
@@ -24989,6 +25242,7 @@ L_800e3ec0:
 
 // FOREST2.BIN 800e3f38
 void o11_800e3f38(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f38u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -24998,6 +25252,7 @@ void o11_800e3f38(Cpu* c) {
 
 // FOREST2.BIN 800e3f40
 void o11_800e3f40(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f40u);
     CHECK_EVENTS(c);
     R(2) = 0x800e0000u;
     R(3) = 0x800f0000u;
@@ -25021,6 +25276,7 @@ void o11_800e3f40(Cpu* c) {
 
 // FOREST2.BIN 800e3f78
 void o11_800e3f78(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f78u);
     CHECK_EVENTS(c);
     R(5) = 0x40000u;
     R(5) = R(5) | 0x200u;
@@ -25042,6 +25298,7 @@ void o11_800e3f78(Cpu* c) {
 
 // FOREST2.BIN 800e3fac
 void o11_800e3fac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3facu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -25101,6 +25358,7 @@ L_800e4028:
 
 // FOREST2.BIN 800e4038
 void o11_800e4038(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4038u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -25110,6 +25368,7 @@ void o11_800e4038(Cpu* c) {
 
 // FOREST2.BIN 800e4040
 void o11_800e4040(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4040u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(8) = R(4) + 0u;
@@ -25177,6 +25436,7 @@ L_800e40f4:
 
 // FOREST2.BIN 800e4104
 void o11_800e4104(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4104u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -25186,6 +25446,7 @@ void o11_800e4104(Cpu* c) {
 
 // FOREST2.BIN 800e410c
 void o11_800e410c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e410cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -25250,6 +25511,7 @@ L_800e4184:
 
 // FOREST2.BIN 800e4194
 void o11_800e4194(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4194u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -25287,6 +25549,7 @@ L_800e41d0:
 
 // FOREST2.BIN 800e41e0
 void o11_800e41e0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e41e0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -25341,6 +25604,7 @@ L_800e4250:
 
 // FOREST2.BIN 800e4260
 void o11_800e4260(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4260u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x3u;
@@ -25355,6 +25619,7 @@ void o11_800e4260(Cpu* c) {
 
 // FOREST2.BIN 800e4278
 void o11_800e4278(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4278u);
     CHECK_EVENTS(c);
     R(5) = 0x40000u;
     R(5) = R(5) | 0x200u;
@@ -25378,6 +25643,7 @@ void o11_800e4278(Cpu* c) {
 
 // FOREST2.BIN 800e42b4
 void o11_800e42b4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e42b4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -25443,6 +25709,7 @@ L_800e4340:
 
 // FOREST2.BIN 800e4350
 void o11_800e4350(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4350u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -25486,6 +25753,7 @@ L_800e438c:
 
 // FOREST2.BIN 800e43b0
 void o11_800e43b0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e43b0u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -25495,6 +25763,7 @@ void o11_800e43b0(Cpu* c) {
 
 // FOREST2.BIN 800e43b8
 void o11_800e43b8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e43b8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -25565,6 +25834,7 @@ L_800e444c:
 
 // FOREST2.BIN 800e445c
 void o11_800e445c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e445cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -25631,6 +25901,7 @@ L_800e44e0:
 
 // FOREST2.BIN 800e44f0
 void o11_800e44f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e44f0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -25694,6 +25965,7 @@ L_800e4578:
 
 // FOREST2.BIN 800e458c
 void o11_800e458c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e458cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -25764,6 +26036,7 @@ L_800e4614:
 
 // FOREST2.BIN 800e4624
 void o11_800e4624(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4624u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -25773,6 +26046,7 @@ void o11_800e4624(Cpu* c) {
 
 // FOREST2.BIN 800e462c
 void o11_800e462c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e462cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -25796,6 +26070,7 @@ L_800e464c:
 
 // FOREST2.BIN 800e465c
 void o11_800e465c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e465cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -25805,6 +26080,7 @@ void o11_800e465c(Cpu* c) {
 
 // FOREST2.BIN 800e4664
 void o11_800e4664(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4664u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -25841,6 +26117,7 @@ void o11_800e4664(Cpu* c) {
 
 // FOREST2.BIN 800e46cc
 void o11_800e46cc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e46ccu);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(2) = R(2) & 0xdfffu;
@@ -25854,6 +26131,7 @@ void o11_800e46cc(Cpu* c) {
 
 // FOREST2.BIN 800e46e4
 void o11_800e46e4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e46e4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -25921,6 +26199,7 @@ void o11_800e46e4(Cpu* c) {
 
 // FOREST2.BIN 800e47c8
 void o11_800e47c8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e47c8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -26020,6 +26299,7 @@ L_800e4878:
 
 // FOREST2.BIN 800e4888
 void o11_800e4888(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4888u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -26055,6 +26335,7 @@ L_800e48bc:
 
 // FOREST2.BIN 800e48cc
 void o11_800e48cc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e48ccu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -26172,6 +26453,7 @@ L_800e4994:
 
 // FOREST2.BIN 800e49a4
 void o11_800e49a4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e49a4u);
     CHECK_EVENTS(c);
     R(3) = MEM_RH(R(4) + 0x7cu);
     R(2) = 0u + 0xau;
@@ -26188,6 +26470,7 @@ void o11_800e49a4(Cpu* c) {
 
 // FOREST2.BIN 800e49c4
 void o11_800e49c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e49c4u);
     CHECK_EVENTS(c);
     R(5) = 0x260000u;
     R(5) = R(5) | 0x9ec3u;
@@ -26229,6 +26512,7 @@ void o11_800e49c4(Cpu* c) {
 
 // FOREST2.BIN 800e4a48
 void o11_800e4a48(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a48u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -26317,6 +26601,7 @@ L_800e4b48:
 
 // FOREST2.BIN 800e4b5c
 void o11_800e4b5c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4b5cu);
     CHECK_EVENTS(c);
     R(8) = R(4) + 0u;
     R(3) = MEM_RB(R(8) + 0x30u);
@@ -26374,6 +26659,7 @@ L_800e4c08:
 
 // FOREST2.BIN 800e4c10
 void o11_800e4c10(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c10u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -26383,6 +26669,7 @@ void o11_800e4c10(Cpu* c) {
 
 // FOREST2.BIN 800e4c18
 void o11_800e4c18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c18u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -26399,6 +26686,7 @@ void o11_800e4c18(Cpu* c) {
 
 // FOREST2.BIN 800e4c38
 void o11_800e4c38(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c38u);
     CHECK_EVENTS(c);
     R(5) = 0x260000u;
     R(5) = R(5) | 0x9ec3u;
@@ -26440,6 +26728,7 @@ void o11_800e4c38(Cpu* c) {
 
 // FOREST2.BIN 800e4cbc
 void o11_800e4cbc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4cbcu);
     CHECK_EVENTS(c);
     {
         MEM_WH(R(4) + 0xceu, R(0));
@@ -26450,6 +26739,7 @@ void o11_800e4cbc(Cpu* c) {
 
 // FOREST2.BIN 800e4cc4
 void o11_800e4cc4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4cc4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -26510,6 +26800,7 @@ L_800e4d2c:
 
 // FOREST2.BIN 800e4d3c
 void o11_800e4d3c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4d3cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -26519,6 +26810,7 @@ void o11_800e4d3c(Cpu* c) {
 
 // FOREST2.BIN 800e4d44
 void o11_800e4d44(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4d44u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -26585,6 +26877,7 @@ L_800e4dbc:
 
 // FOREST2.BIN 800e4dcc
 void o11_800e4dcc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4dccu);
     CHECK_EVENTS(c);
     R(3) = 0u + 0xa0u;
     R(2) = 0u + 0x190u;
@@ -26616,6 +26909,7 @@ L_800e4dec:
 
 // FOREST2.BIN 800e4e10
 void o11_800e4e10(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4e10u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -26625,6 +26919,7 @@ void o11_800e4e10(Cpu* c) {
 
 // FOREST2.BIN 800e4e18
 void o11_800e4e18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4e18u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -26641,6 +26936,7 @@ void o11_800e4e18(Cpu* c) {
 
 // FOREST2.BIN 800e4e38
 void o11_800e4e38(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4e38u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -26733,6 +27029,7 @@ L_800e4f20:
 
 // FOREST2.BIN 800e4f30
 void o11_800e4f30(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4f30u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -26848,6 +27145,7 @@ L_800e5044:
 
 // FOREST2.BIN 800e5054
 void o11_800e5054(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5054u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -26876,6 +27174,7 @@ void o11_800e5054(Cpu* c) {
 
 // FOREST2.BIN 800e509c
 void o11_800e509c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e509cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -26885,6 +27184,7 @@ void o11_800e509c(Cpu* c) {
 
 // FOREST2.BIN 800e50a4
 void o11_800e50a4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e50a4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));

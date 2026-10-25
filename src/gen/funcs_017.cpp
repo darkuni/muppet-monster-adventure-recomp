@@ -4,6 +4,7 @@
 
 // VILLAGE1.BIN 800e6214
 void o20_800e6214(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6214u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -47,6 +48,7 @@ L_800e6264:
 
 // VILLAGE1.BIN 800e6274
 void o20_800e6274(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6274u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -82,6 +84,7 @@ L_800e62a8:
 
 // VILLAGE1.BIN 800e62b8
 void o20_800e62b8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e62b8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -137,6 +140,7 @@ L_800e6310:
 
 // VILLAGE1.BIN 800e6338
 void o20_800e6338(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6338u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -181,6 +185,7 @@ void o20_800e6338(Cpu* c) {
 
 // VILLAGE1.BIN 800e63b8
 void o20_800e63b8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e63b8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -207,6 +212,7 @@ L_800e63d8:
 
 // VILLAGE1.BIN 800e63e8
 void o20_800e63e8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e63e8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -333,6 +339,7 @@ L_800e64f0:
 
 // VILLAGE1.BIN 800e6500
 void o20_800e6500(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6500u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -368,6 +375,7 @@ L_800e6534:
 
 // VILLAGE1.BIN 800e6544
 void o20_800e6544(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6544u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -394,6 +402,7 @@ L_800e6564:
 
 // VILLAGE1.BIN 800e6574
 void o20_800e6574(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6574u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -438,6 +447,7 @@ void o20_800e6574(Cpu* c) {
 
 // VILLAGE1.BIN 800e65f4
 void o20_800e65f4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e65f4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -464,6 +474,7 @@ L_800e6614:
 
 // VILLAGE1.BIN 800e6624
 void o20_800e6624(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6624u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -590,6 +601,7 @@ L_800e672c:
 
 // VILLAGE1.BIN 800e673c
 void o20_800e673c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e673cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -625,6 +637,7 @@ L_800e6770:
 
 // VILLAGE1.BIN 800e6780
 void o20_800e6780(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6780u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -651,6 +664,7 @@ L_800e67a0:
 
 // VILLAGE1.BIN 800e67b0
 void o20_800e67b0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e67b0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -695,6 +709,7 @@ void o20_800e67b0(Cpu* c) {
 
 // VILLAGE1.BIN 800e6830
 void o20_800e6830(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6830u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -738,6 +753,7 @@ L_800e6880:
 
 // VILLAGE1.BIN 800e6890
 void o20_800e6890(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6890u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -773,6 +789,7 @@ L_800e68c4:
 
 // VILLAGE1.BIN 800e68d4
 void o20_800e68d4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e68d4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -817,6 +834,7 @@ void o20_800e68d4(Cpu* c) {
 
 // VILLAGE1.BIN 800e6954
 void o20_800e6954(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6954u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -860,6 +878,7 @@ L_800e69a4:
 
 // VILLAGE1.BIN 800e69b4
 void o20_800e69b4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e69b4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -895,6 +914,7 @@ L_800e69e8:
 
 // VILLAGE1.BIN 800e69f8
 void o20_800e69f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e69f8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -939,6 +959,7 @@ void o20_800e69f8(Cpu* c) {
 
 // VILLAGE1.BIN 800e6a78
 void o20_800e6a78(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6a78u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -948,6 +969,7 @@ void o20_800e6a78(Cpu* c) {
 
 // VILLAGE1.BIN 800e6a80
 void o20_800e6a80(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6a80u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -957,6 +979,7 @@ void o20_800e6a80(Cpu* c) {
 
 // VILLAGE1.BIN 800e6a88
 void o20_800e6a88(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6a88u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -983,6 +1006,7 @@ L_800e6aa8:
 
 // VILLAGE1.BIN 800e6ab8
 void o20_800e6ab8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6ab8u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -992,6 +1016,7 @@ void o20_800e6ab8(Cpu* c) {
 
 // VILLAGE1.BIN 800e6ac0
 void o20_800e6ac0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6ac0u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -1001,6 +1026,7 @@ void o20_800e6ac0(Cpu* c) {
 
 // VILLAGE1.BIN 800e6ac8
 void o20_800e6ac8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6ac8u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -1010,6 +1036,7 @@ void o20_800e6ac8(Cpu* c) {
 
 // VILLAGE1.BIN 800e6ad0
 void o20_800e6ad0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6ad0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1134,6 +1161,7 @@ L_800e6bd4:
 
 // VILLAGE1.BIN 800e6be4
 void o20_800e6be4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6be4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -1169,6 +1197,7 @@ L_800e6c18:
 
 // VILLAGE1.BIN 800e6c28
 void o20_800e6c28(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6c28u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -1195,6 +1224,7 @@ L_800e6c48:
 
 // VILLAGE1.BIN 800e6c58
 void o20_800e6c58(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6c58u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1239,6 +1269,7 @@ void o20_800e6c58(Cpu* c) {
 
 // VILLAGE1.BIN 800e6cd8
 void o20_800e6cd8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6cd8u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -1248,6 +1279,7 @@ void o20_800e6cd8(Cpu* c) {
 
 // VILLAGE1.BIN 800e6ce0
 void o20_800e6ce0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6ce0u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -1257,6 +1289,7 @@ void o20_800e6ce0(Cpu* c) {
 
 // VILLAGE1.BIN 800e6ce8
 void o20_800e6ce8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6ce8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -1283,6 +1316,7 @@ L_800e6d08:
 
 // VILLAGE1.BIN 800e6d18
 void o20_800e6d18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6d18u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -1292,6 +1326,7 @@ void o20_800e6d18(Cpu* c) {
 
 // VILLAGE1.BIN 800e6d20
 void o20_800e6d20(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6d20u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -1301,6 +1336,7 @@ void o20_800e6d20(Cpu* c) {
 
 // VILLAGE1.BIN 800e6d28
 void o20_800e6d28(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6d28u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -1310,6 +1346,7 @@ void o20_800e6d28(Cpu* c) {
 
 // VILLAGE1.BIN 800e6d30
 void o20_800e6d30(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6d30u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1436,6 +1473,7 @@ L_800e6e38:
 
 // VILLAGE1.BIN 800e6e48
 void o20_800e6e48(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6e48u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -1471,6 +1509,7 @@ L_800e6e7c:
 
 // VILLAGE1.BIN 800e6e8c
 void o20_800e6e8c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6e8cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -1497,6 +1536,7 @@ L_800e6eac:
 
 // VILLAGE1.BIN 800e6ebc
 void o20_800e6ebc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6ebcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1546,6 +1586,7 @@ void o20_800e6ebc(Cpu* c) {
 
 // VILLAGE1.BIN 800e6f48
 void o20_800e6f48(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6f48u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -1562,6 +1603,7 @@ void o20_800e6f48(Cpu* c) {
 
 // VILLAGE1.BIN 800e6f68
 void o20_800e6f68(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6f68u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -1597,6 +1639,7 @@ L_800e6f9c:
 
 // VILLAGE1.BIN 800e6fac
 void o20_800e6fac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6facu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1672,6 +1715,7 @@ L_800e7044:
 
 // VILLAGE1.BIN 800e7054
 void o20_800e7054(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7054u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1707,6 +1751,7 @@ L_800e7090:
 
 // VILLAGE1.BIN 800e70a0
 void o20_800e70a0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e70a0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1739,6 +1784,7 @@ L_800e70d4:
 
 // VILLAGE1.BIN 800e70e4
 void o20_800e70e4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e70e4u);
     CHECK_EVENTS(c);
     R(5) = R(4) + 0u;
     {
@@ -1764,6 +1810,7 @@ L_800e710c:
 
 // VILLAGE1.BIN 800e7114
 void o20_800e7114(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7114u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1819,6 +1866,7 @@ L_800e7184:
 
 // VILLAGE1.BIN 800e7194
 void o20_800e7194(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7194u);
     CHECK_EVENTS(c);
     R(2) = 0x800f0000u;
     R(4) = MEM_RW(R(2) - 0x54f0u);
@@ -1852,6 +1900,7 @@ void o20_800e7194(Cpu* c) {
 
 // VILLAGE1.BIN 800e71e8
 void o20_800e71e8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e71e8u);
     CHECK_EVENTS(c);
     R(2) = 0x800f0000u;
     R(4) = MEM_RH(R(2) - 0x54a8u);
@@ -1870,6 +1919,7 @@ void o20_800e71e8(Cpu* c) {
 
 // VILLAGE1.BIN 800e7210
 void o20_800e7210(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7210u);
     CHECK_EVENTS(c);
     R(2) = 0x800b0000u;
     R(3) = 0x800c0000u;
@@ -1884,6 +1934,7 @@ void o20_800e7210(Cpu* c) {
 
 // VILLAGE1.BIN 800e7228
 void o20_800e7228(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7228u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -1917,6 +1968,7 @@ void o20_800e7228(Cpu* c) {
 
 // VILLAGE1.BIN 800e7284
 void o20_800e7284(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7284u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x28u, R(18));
@@ -2009,6 +2061,7 @@ L_800e7364:
 
 // VILLAGE1.BIN 800e737c
 void o20_800e737c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e737cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -2079,6 +2132,7 @@ L_800e7414:
 
 // VILLAGE1.BIN 800e742c
 void o20_800e742c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e742cu);
     CHECK_EVENTS(c);
     R(5) = 0x800f0000u;
     R(2) = MEM_RH(R(4) + 0xcu);
@@ -2093,6 +2147,7 @@ void o20_800e742c(Cpu* c) {
 
 // VILLAGE1.BIN 800e7448
 void o20_800e7448(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7448u);
     CHECK_EVENTS(c);
     R(2) = 0u + 0x15eu;
     MEM_WH(R(4) + 0x68u, R(2));
@@ -2114,6 +2169,7 @@ void o20_800e7448(Cpu* c) {
 
 // VILLAGE1.BIN 800e747c
 void o20_800e747c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e747cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -2179,6 +2235,7 @@ L_800e7508:
 
 // VILLAGE1.BIN 800e7518
 void o20_800e7518(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7518u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -2214,6 +2271,7 @@ L_800e754c:
 
 // VILLAGE1.BIN 800e755c
 void o20_800e755c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e755cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -2266,6 +2324,7 @@ L_800e75c4:
 
 // VILLAGE1.BIN 800e75d4
 void o20_800e75d4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e75d4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(8) = R(4) + 0u;
@@ -2365,6 +2424,7 @@ L_800e76c4:
 
 // VILLAGE1.BIN 800e76d4
 void o20_800e76d4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e76d4u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -2374,6 +2434,7 @@ void o20_800e76d4(Cpu* c) {
 
 // VILLAGE1.BIN 800e76dc
 void o20_800e76dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e76dcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -2447,6 +2508,7 @@ L_800e7770:
 
 // VILLAGE1.BIN 800e7780
 void o20_800e7780(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7780u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -2474,6 +2536,7 @@ void o20_800e7780(Cpu* c) {
 
 // VILLAGE1.BIN 800e77c4
 void o20_800e77c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e77c4u);
     CHECK_EVENTS(c);
     R(8) = 0x260000u;
     R(8) = R(8) | 0x9ec3u;
@@ -2530,6 +2593,7 @@ void o20_800e77c4(Cpu* c) {
 
 // VILLAGE1.BIN 800e7884
 void o20_800e7884(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7884u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -2595,6 +2659,7 @@ L_800e7910:
 
 // VILLAGE1.BIN 800e7920
 void o20_800e7920(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7920u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -2630,6 +2695,7 @@ L_800e7954:
 
 // VILLAGE1.BIN 800e7964
 void o20_800e7964(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7964u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -2720,6 +2786,7 @@ L_800e7a2c:
 
 // VILLAGE1.BIN 800e7a3c
 void o20_800e7a3c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7a3cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -2729,6 +2796,7 @@ void o20_800e7a3c(Cpu* c) {
 
 // VILLAGE1.BIN 800e7a44
 void o20_800e7a44(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7a44u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -2738,6 +2806,7 @@ void o20_800e7a44(Cpu* c) {
 
 // VILLAGE1.BIN 800e7a4c
 void o20_800e7a4c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7a4cu);
     CHECK_EVENTS(c);
     R(3) = MEM_RH(R(4) + 0x7cu);
     R(2) = 0u + 0xbu;
@@ -2753,6 +2822,7 @@ void o20_800e7a4c(Cpu* c) {
 
 // VILLAGE1.BIN 800e7a68
 void o20_800e7a68(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7a68u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -2762,6 +2832,7 @@ void o20_800e7a68(Cpu* c) {
 
 // VILLAGE1.BIN 800e7a70
 void o20_800e7a70(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7a70u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -2789,6 +2860,7 @@ L_800e7a94:
 
 // VILLAGE1.BIN 800e7aa4
 void o20_800e7aa4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7aa4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -2832,6 +2904,7 @@ void o20_800e7aa4(Cpu* c) {
 
 // VILLAGE1.BIN 800e7b1c
 void o20_800e7b1c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7b1cu);
     CHECK_EVENTS(c);
     R(8) = R(4) + 0u;
     R(3) = MEM_RB(R(8) + 0x30u);
@@ -2889,6 +2962,7 @@ L_800e7bc8:
 
 // VILLAGE1.BIN 800e7bd0
 void o20_800e7bd0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7bd0u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x80u;
@@ -2903,6 +2977,7 @@ void o20_800e7bd0(Cpu* c) {
 
 // VILLAGE1.BIN 800e7be8
 void o20_800e7be8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7be8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -2935,6 +3010,7 @@ void o20_800e7be8(Cpu* c) {
 
 // VILLAGE1.BIN 800e7c40
 void o20_800e7c40(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7c40u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -3000,6 +3076,7 @@ L_800e7ccc:
 
 // VILLAGE1.BIN 800e7cdc
 void o20_800e7cdc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7cdcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -3030,6 +3107,7 @@ L_800e7d0c:
 
 // VILLAGE1.BIN 800e7d1c
 void o20_800e7d1c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7d1cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -3054,6 +3132,7 @@ L_800e7d3c:
 
 // VILLAGE1.BIN 800e7d4c
 void o20_800e7d4c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7d4cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3091,6 +3170,7 @@ void o20_800e7d4c(Cpu* c) {
 
 // VILLAGE1.BIN 800e7db4
 void o20_800e7db4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7db4u);
     CHECK_EVENTS(c);
     R(2) = 0x800c0000u;
     R(4) = R(2) - 0x4de4u;
@@ -3126,6 +3206,7 @@ L_800e7de8:
 
 // VILLAGE1.BIN 800e7df0
 void o20_800e7df0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7df0u);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -3160,6 +3241,7 @@ L_800e7e24:
 
 // VILLAGE1.BIN 800e7e2c
 void o20_800e7e2c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7e2cu);
     CHECK_EVENTS(c);
     R(2) = 0x800b0000u;
     R(3) = MEM_RB(R(2) + 0x7464u);
@@ -3212,6 +3294,7 @@ L_800e7e98:
 
 // VILLAGE1.BIN 800e7ea8
 void o20_800e7ea8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7ea8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3239,6 +3322,7 @@ void o20_800e7ea8(Cpu* c) {
 
 // VILLAGE1.BIN 800e7ef8
 void o20_800e7ef8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7ef8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3294,6 +3378,7 @@ L_800e7f70:
 
 // VILLAGE1.BIN 800e7f80
 void o20_800e7f80(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7f80u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -3336,6 +3421,7 @@ L_800e7fdc:
 
 // VILLAGE1.BIN 800e7fec
 void o20_800e7fec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7fecu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3385,6 +3471,7 @@ void o20_800e7fec(Cpu* c) {
 
 // VILLAGE1.BIN 800e8078
 void o20_800e8078(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8078u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -3440,6 +3527,7 @@ void o20_800e8078(Cpu* c) {
 
 // VILLAGE1.BIN 800e8114
 void o20_800e8114(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8114u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -3472,6 +3560,7 @@ void o20_800e8114(Cpu* c) {
 
 // VILLAGE1.BIN 800e8168
 void o20_800e8168(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8168u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3557,6 +3646,7 @@ L_800e8234:
 
 // VILLAGE1.BIN 800e8244
 void o20_800e8244(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8244u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x1cu, R(17));
@@ -3629,6 +3719,7 @@ L_800e826c:
 
 // VILLAGE1.BIN 800e8304
 void o20_800e8304(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8304u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3661,6 +3752,7 @@ L_800e8334:
 
 // VILLAGE1.BIN 800e8344
 void o20_800e8344(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8344u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3692,6 +3784,7 @@ void o20_800e8344(Cpu* c) {
 
 // VILLAGE1.BIN 800e8398
 void o20_800e8398(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8398u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x1u;
@@ -3704,6 +3797,7 @@ void o20_800e8398(Cpu* c) {
 
 // VILLAGE1.BIN 800e83a8
 void o20_800e83a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e83a8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3751,6 +3845,7 @@ void o20_800e83a8(Cpu* c) {
 
 // VILLAGE1.BIN 800e842c
 void o20_800e842c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e842cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3798,6 +3893,7 @@ void o20_800e842c(Cpu* c) {
 
 // VILLAGE1.BIN 800e84b0
 void o20_800e84b0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e84b0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -3851,6 +3947,7 @@ void o20_800e84b0(Cpu* c) {
 
 // VILLAGE1.BIN 800e854c
 void o20_800e854c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e854cu);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x4u;
@@ -3863,6 +3960,7 @@ void o20_800e854c(Cpu* c) {
 
 // VILLAGE1.BIN 800e855c
 void o20_800e855c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e855cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3921,6 +4019,7 @@ L_800e8640:
 
 // VILLAGE1.BIN 800e8650
 void o20_800e8650(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8650u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3966,6 +4065,7 @@ void o20_800e8650(Cpu* c) {
 
 // VILLAGE1.BIN 800e86d4
 void o20_800e86d4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e86d4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -3998,6 +4098,7 @@ void o20_800e86d4(Cpu* c) {
 
 // VILLAGE1.BIN 800e8728
 void o20_800e8728(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8728u);
     CHECK_EVENTS(c);
     R(5) = R(4) + 0u;
     {
@@ -4048,6 +4149,7 @@ L_800e87a4:
 
 // VILLAGE1.BIN 800e87ac
 void o20_800e87ac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e87acu);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x1u;
@@ -4060,6 +4162,7 @@ void o20_800e87ac(Cpu* c) {
 
 // VILLAGE1.BIN 800e87bc
 void o20_800e87bc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e87bcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -4102,6 +4205,7 @@ void o20_800e87bc(Cpu* c) {
 
 // VILLAGE1.BIN 800e882c
 void o20_800e882c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e882cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -4144,6 +4248,7 @@ void o20_800e882c(Cpu* c) {
 
 // VILLAGE1.BIN 800e889c
 void o20_800e889c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e889cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -4189,6 +4294,7 @@ void o20_800e889c(Cpu* c) {
 
 // VILLAGE1.BIN 800e8918
 void o20_800e8918(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8918u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x4u;
@@ -4201,6 +4307,7 @@ void o20_800e8918(Cpu* c) {
 
 // VILLAGE1.BIN 800e8928
 void o20_800e8928(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8928u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -4259,6 +4366,7 @@ L_800e8a0c:
 
 // VILLAGE1.BIN 800e8a1c
 void o20_800e8a1c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8a1cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x1cu, R(19));
@@ -4346,6 +4454,7 @@ L_800e8ae4:
 
 // VILLAGE1.BIN 800e8b04
 void o20_800e8b04(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e8b04u);
     CHECK_EVENTS(c);
     {
         R(20) = R(17) | 0x1d0du;
@@ -4356,6 +4465,7 @@ void o20_800e8b04(Cpu* c) {
 
 // VILLAGE2.BIN 800dec24
 void o21_800dec24(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dec24u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -4516,6 +4626,7 @@ L_800ded98:
 
 // VILLAGE2.BIN 800deda8
 void o21_800deda8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800deda8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -4702,6 +4813,7 @@ L_800defac:
 
 // VILLAGE2.BIN 800defc4
 void o21_800defc4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800defc4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -4874,6 +4986,7 @@ L_800df138:
 
 // VILLAGE2.BIN 800df148
 void o21_800df148(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df148u);
     CHECK_EVENTS(c);
     R(8) = R(4) + 0u;
     R(2) = MEM_RH(R(8) + 0xbcu);
@@ -4962,6 +5075,7 @@ L_800df1c0:
 
 // VILLAGE2.BIN 800df254
 void o21_800df254(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df254u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -5073,6 +5187,7 @@ L_800df348:
 
 // VILLAGE2.BIN 800df368
 void o21_800df368(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df368u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -5253,6 +5368,7 @@ L_800df554:
 
 // VILLAGE2.BIN 800df56c
 void o21_800df56c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df56cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -5463,6 +5579,7 @@ L_800df760:
 
 // VILLAGE2.BIN 800df770
 void o21_800df770(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df770u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -5576,6 +5693,7 @@ L_800df86c:
 
 // VILLAGE2.BIN 800df8b4
 void o21_800df8b4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df8b4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -5732,6 +5850,7 @@ L_800dfa14:
 
 // VILLAGE2.BIN 800dfa2c
 void o21_800dfa2c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfa2cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x24u, R(17));
@@ -5900,6 +6019,7 @@ L_800dfbd0:
 
 // VILLAGE2.BIN 800dfbec
 void o21_800dfbec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfbecu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -6025,6 +6145,7 @@ L_800dfd14:
 
 // VILLAGE2.BIN 800dfd30
 void o21_800dfd30(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfd30u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -6295,6 +6416,7 @@ L_800dffd4:
 
 // VILLAGE2.BIN 800dfff4
 void o21_800dfff4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfff4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(2) = 0x800f0000u;
@@ -6440,6 +6562,7 @@ L_800e017c:
 
 // VILLAGE2.BIN 800e0194
 void o21_800e0194(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0194u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(2) = 0x800b0000u;
@@ -6634,6 +6757,7 @@ L_800e02cc:
 
 // VILLAGE2.BIN 800e0434
 void o21_800e0434(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0434u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -6863,6 +6987,7 @@ L_800e06c0:
 
 // VILLAGE2.BIN 800e06f0
 void o21_800e06f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e06f0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     R(2) = 0x800f0000u;
@@ -7091,6 +7216,7 @@ L_800e0920:
 
 // VILLAGE2.BIN 800e0938
 void o21_800e0938(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0938u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x24u, R(21));
@@ -7372,6 +7498,7 @@ L_800e0bcc:
 
 // VILLAGE2.BIN 800e0c14
 void o21_800e0c14(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0c14u);
     CHECK_EVENTS(c);
     R(2) = 0x800f0000u;
     R(5) = MEM_RW(R(2) - 0x7f14u);
@@ -7457,6 +7584,7 @@ L_800e0ce8:
 
 // VILLAGE2.BIN 800e0cf8
 void o21_800e0cf8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0cf8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(18));
@@ -7641,6 +7769,7 @@ L_800e0edc:
 
 // VILLAGE2.BIN 800e0ef4
 void o21_800e0ef4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0ef4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x28u, R(16));
@@ -7798,6 +7927,7 @@ L_800e10bc:
 
 // VILLAGE2.BIN 800e10d0
 void o21_800e10d0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e10d0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x24u, R(17));
@@ -7926,6 +8056,7 @@ L_800e121c:
 
 // VILLAGE2.BIN 800e1238
 void o21_800e1238(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1238u);
     CHECK_EVENTS(c);
     R(4) = 0x800f0000u;
     R(2) = 0x800f0000u;
@@ -8092,6 +8223,7 @@ L_800e13c8:
 
 // VILLAGE2.BIN 800e13dc
 void o21_800e13dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e13dcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -8196,6 +8328,7 @@ L_800e14c0:
 
 // VILLAGE2.BIN 800e14d4
 void o21_800e14d4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e14d4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -8352,6 +8485,7 @@ L_800e15e8:
 
 // VILLAGE2.BIN 800e168c
 void o21_800e168c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e168cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x1cu, R(19));
@@ -8483,6 +8617,7 @@ void o21_800e168c(Cpu* c) {
 
 // VILLAGE2.BIN 800e1828
 void o21_800e1828(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1828u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -8573,6 +8708,7 @@ L_800e18c4:
 
 // VILLAGE2.BIN 800e1920
 void o21_800e1920(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1920u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(6) = R(4) + 0u;
@@ -8678,6 +8814,7 @@ L_800e1a28:
 
 // VILLAGE2.BIN 800e1a38
 void o21_800e1a38(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1a38u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     R(4) = R(5) + 0u;
@@ -8859,6 +8996,7 @@ void o21_800e1a38(Cpu* c) {
 
 // VILLAGE2.BIN 800e1cc4
 void o21_800e1cc4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1cc4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(3) = 0x800c0000u;
@@ -9432,6 +9570,7 @@ L_800e1e70:
 
 // VILLAGE2.BIN 800e233c
 void o21_800e233c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e233cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x50u;
     MEM_WW(R(29) + 0x34u, R(19));
@@ -12973,6 +13112,7 @@ L_800e4754:
 
 // VILLAGE2.BIN 800e47c8
 void o21_800e47c8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e47c8u);
     CHECK_EVENTS(c);
     R(2) = 0x800c0000u;
     R(3) = MEM_RW(R(2) - 0x76acu);
@@ -13007,6 +13147,7 @@ L_800e47fc:
 
 // VILLAGE2.BIN 800e480c
 void o21_800e480c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e480cu);
     CHECK_EVENTS(c);
     R(2) = 0x800f0000u;
     R(3) = 0x800f0000u;
@@ -13036,6 +13177,7 @@ void o21_800e480c(Cpu* c) {
 
 // VILLAGE2.BIN 800e4858
 void o21_800e4858(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4858u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13045,6 +13187,7 @@ void o21_800e4858(Cpu* c) {
 
 // VILLAGE2.BIN 800e4860
 void o21_800e4860(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4860u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13054,6 +13197,7 @@ void o21_800e4860(Cpu* c) {
 
 // VILLAGE2.BIN 800e4868
 void o21_800e4868(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4868u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13063,6 +13207,7 @@ void o21_800e4868(Cpu* c) {
 
 // VILLAGE2.BIN 800e4870
 void o21_800e4870(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4870u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x1u;
@@ -13084,6 +13229,7 @@ void o21_800e4870(Cpu* c) {
 
 // VILLAGE2.BIN 800e48a0
 void o21_800e48a0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e48a0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x1u;
@@ -13102,6 +13248,7 @@ void o21_800e48a0(Cpu* c) {
 
 // VILLAGE2.BIN 800e48c4
 void o21_800e48c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e48c4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x2u;
@@ -13120,6 +13267,7 @@ void o21_800e48c4(Cpu* c) {
 
 // VILLAGE2.BIN 800e48e8
 void o21_800e48e8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e48e8u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13129,6 +13277,7 @@ void o21_800e48e8(Cpu* c) {
 
 // VILLAGE2.BIN 800e48f0
 void o21_800e48f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e48f0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(2) = 0x800e0000u;
@@ -13197,6 +13346,7 @@ L_800e495c:
 
 // VILLAGE2.BIN 800e49b0
 void o21_800e49b0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e49b0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13225,6 +13375,7 @@ void o21_800e49b0(Cpu* c) {
 
 // VILLAGE2.BIN 800e49f8
 void o21_800e49f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e49f8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13273,6 +13424,7 @@ L_800e4a64:
 
 // VILLAGE2.BIN 800e4a74
 void o21_800e4a74(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a74u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13282,6 +13434,7 @@ void o21_800e4a74(Cpu* c) {
 
 // VILLAGE2.BIN 800e4a7c
 void o21_800e4a7c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a7cu);
     CHECK_EVENTS(c);
     R(6) = 0xfffd0000u;
     R(6) = R(6) | 0xffffu;
@@ -13307,6 +13460,7 @@ void o21_800e4a7c(Cpu* c) {
 
 // VILLAGE2.BIN 800e4ac0
 void o21_800e4ac0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4ac0u);
     CHECK_EVENTS(c);
     R(5) = 0x51eb0000u;
     R(2) = MEM_RH(R(4) + 0xccu);
@@ -13331,6 +13485,7 @@ void o21_800e4ac0(Cpu* c) {
 
 // VILLAGE2.BIN 800e4b00
 void o21_800e4b00(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4b00u);
     CHECK_EVENTS(c);
     R(8) = R(4) + 0u;
     R(2) = 0u + 0x1u;
@@ -13400,6 +13555,7 @@ L_800e4b2c:
 
 // VILLAGE2.BIN 800e4bdc
 void o21_800e4bdc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4bdcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -13423,6 +13579,7 @@ L_800e4bfc:
 
 // VILLAGE2.BIN 800e4c0c
 void o21_800e4c0c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c0cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -13458,6 +13615,7 @@ L_800e4c40:
 
 // VILLAGE2.BIN 800e4c50
 void o21_800e4c50(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c50u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13467,6 +13625,7 @@ void o21_800e4c50(Cpu* c) {
 
 // VILLAGE2.BIN 800e4c58
 void o21_800e4c58(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c58u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13476,6 +13635,7 @@ void o21_800e4c58(Cpu* c) {
 
 // VILLAGE2.BIN 800e4c60
 void o21_800e4c60(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c60u);
     CHECK_EVENTS(c);
     R(3) = MEM_RH(R(4) + 0x7cu);
     R(2) = 0u + 0xau;
@@ -13491,6 +13651,7 @@ void o21_800e4c60(Cpu* c) {
 
 // VILLAGE2.BIN 800e4c7c
 void o21_800e4c7c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c7cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13500,6 +13661,7 @@ void o21_800e4c7c(Cpu* c) {
 
 // VILLAGE2.BIN 800e4c84
 void o21_800e4c84(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c84u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -13527,6 +13689,7 @@ L_800e4ca8:
 
 // VILLAGE2.BIN 800e4cb8
 void o21_800e4cb8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4cb8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13556,6 +13719,7 @@ void o21_800e4cb8(Cpu* c) {
 
 // VILLAGE2.BIN 800e4d04
 void o21_800e4d04(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4d04u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13659,6 +13823,7 @@ L_800e4e10:
 
 // VILLAGE2.BIN 800e4e20
 void o21_800e4e20(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4e20u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x80u;
@@ -13673,6 +13838,7 @@ void o21_800e4e20(Cpu* c) {
 
 // VILLAGE2.BIN 800e4e38
 void o21_800e4e38(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4e38u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13753,6 +13919,7 @@ L_800e4e6c:
 
 // VILLAGE2.BIN 800e4f38
 void o21_800e4f38(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4f38u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -13853,6 +14020,7 @@ L_800e504c:
 
 // VILLAGE2.BIN 800e505c
 void o21_800e505c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e505cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13915,6 +14083,7 @@ L_800e5088:
 
 // VILLAGE2.BIN 800e5118
 void o21_800e5118(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5118u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13947,6 +14116,7 @@ L_800e5144:
 
 // VILLAGE2.BIN 800e5160
 void o21_800e5160(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5160u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14045,6 +14215,7 @@ L_800e5254:
 
 // VILLAGE2.BIN 800e5264
 void o21_800e5264(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5264u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14054,6 +14225,7 @@ void o21_800e5264(Cpu* c) {
 
 // VILLAGE2.BIN 800e526c
 void o21_800e526c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e526cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14124,6 +14296,7 @@ L_800e52e4:
 
 // VILLAGE2.BIN 800e52f4
 void o21_800e52f4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e52f4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14205,6 +14378,7 @@ L_800e53d4:
 
 // VILLAGE2.BIN 800e53e8
 void o21_800e53e8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e53e8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14282,6 +14456,7 @@ L_800e541c:
 
 // VILLAGE2.BIN 800e54dc
 void o21_800e54dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e54dcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -14326,6 +14501,7 @@ L_800e5528:
 
 // VILLAGE2.BIN 800e5538
 void o21_800e5538(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5538u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14389,6 +14565,7 @@ L_800e556c:
 
 // VILLAGE2.BIN 800e55f8
 void o21_800e55f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e55f8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14421,6 +14598,7 @@ L_800e5624:
 
 // VILLAGE2.BIN 800e5640
 void o21_800e5640(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5640u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14430,6 +14608,7 @@ void o21_800e5640(Cpu* c) {
 
 // VILLAGE2.BIN 800e5648
 void o21_800e5648(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5648u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14497,6 +14676,7 @@ L_800e56bc:
 
 // VILLAGE2.BIN 800e56cc
 void o21_800e56cc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e56ccu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14535,6 +14715,7 @@ L_800e5714:
 
 // VILLAGE2.BIN 800e5724
 void o21_800e5724(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5724u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -14579,6 +14760,7 @@ L_800e5770:
 
 // VILLAGE2.BIN 800e5780
 void o21_800e5780(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5780u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -14614,6 +14796,7 @@ L_800e57b4:
 
 // VILLAGE2.BIN 800e57c4
 void o21_800e57c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e57c4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14671,6 +14854,7 @@ L_800e5838:
 
 // VILLAGE2.BIN 800e5848
 void o21_800e5848(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5848u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14680,6 +14864,7 @@ void o21_800e5848(Cpu* c) {
 
 // VILLAGE2.BIN 800e5850
 void o21_800e5850(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5850u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14689,6 +14874,7 @@ void o21_800e5850(Cpu* c) {
 
 // VILLAGE2.BIN 800e5858
 void o21_800e5858(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5858u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14698,6 +14884,7 @@ void o21_800e5858(Cpu* c) {
 
 // VILLAGE2.BIN 800e5860
 void o21_800e5860(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5860u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(2) = 0x10000u;
@@ -14768,6 +14955,7 @@ L_800e58e8:
 
 // VILLAGE2.BIN 800e58f8
 void o21_800e58f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e58f8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14801,6 +14989,7 @@ void o21_800e58f8(Cpu* c) {
 
 // VILLAGE2.BIN 800e5950
 void o21_800e5950(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5950u);
     CHECK_EVENTS(c);
     R(6) = 0x260000u;
     R(6) = R(6) | 0x9ec3u;
@@ -14863,6 +15052,7 @@ L_800e59f4:
 
 // VILLAGE2.BIN 800e5a10
 void o21_800e5a10(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5a10u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -14907,6 +15097,7 @@ L_800e5a5c:
 
 // VILLAGE2.BIN 800e5a6c
 void o21_800e5a6c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5a6cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -14942,6 +15133,7 @@ L_800e5aa0:
 
 // VILLAGE2.BIN 800e5ab0
 void o21_800e5ab0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ab0u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14951,6 +15143,7 @@ void o21_800e5ab0(Cpu* c) {
 
 // VILLAGE2.BIN 800e5ab8
 void o21_800e5ab8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ab8u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14960,6 +15153,7 @@ void o21_800e5ab8(Cpu* c) {
 
 // VILLAGE2.BIN 800e5ac0
 void o21_800e5ac0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ac0u);
     CHECK_EVENTS(c);
     R(3) = MEM_RH(R(4) + 0x7cu);
     R(2) = 0u + 0xau;
@@ -14975,6 +15169,7 @@ void o21_800e5ac0(Cpu* c) {
 
 // VILLAGE2.BIN 800e5adc
 void o21_800e5adc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5adcu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14984,6 +15179,7 @@ void o21_800e5adc(Cpu* c) {
 
 // VILLAGE2.BIN 800e5ae4
 void o21_800e5ae4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ae4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -15018,6 +15214,7 @@ L_800e5b18:
 
 // VILLAGE2.BIN 800e5b28
 void o21_800e5b28(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5b28u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15057,6 +15254,7 @@ void o21_800e5b28(Cpu* c) {
 
 // VILLAGE2.BIN 800e5b90
 void o21_800e5b90(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5b90u);
     CHECK_EVENTS(c);
     R(8) = R(4) + 0u;
     R(3) = MEM_RB(R(8) + 0x30u);
@@ -15114,6 +15312,7 @@ L_800e5c3c:
 
 // VILLAGE2.BIN 800e5c44
 void o21_800e5c44(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5c44u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x80u;
@@ -15128,6 +15327,7 @@ void o21_800e5c44(Cpu* c) {
 
 // VILLAGE2.BIN 800e5c5c
 void o21_800e5c5c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5c5cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15169,6 +15369,7 @@ L_800e5c90:
 
 // VILLAGE2.BIN 800e5cc0
 void o21_800e5cc0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5cc0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15235,6 +15436,7 @@ L_800e5d38:
 
 // VILLAGE2.BIN 800e5d54
 void o21_800e5d54(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5d54u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15290,6 +15492,7 @@ L_800e5dd8:
 
 // VILLAGE2.BIN 800e5df0
 void o21_800e5df0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5df0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15382,6 +15585,7 @@ L_800e5ecc:
 
 // VILLAGE2.BIN 800e5ef0
 void o21_800e5ef0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ef0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15443,6 +15647,7 @@ L_800e5f60:
 
 // VILLAGE2.BIN 800e5f70
 void o21_800e5f70(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5f70u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15493,6 +15698,7 @@ L_800e5fdc:
 
 // VILLAGE2.BIN 800e5ff8
 void o21_800e5ff8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ff8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -15535,6 +15741,7 @@ L_800e6044:
 
 // VILLAGE2.BIN 800e6054
 void o21_800e6054(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6054u);
     CHECK_EVENTS(c);
     R(6) = R(4) + 0u;
     R(5) = MEM_RW(R(6) + 0x8cu);
@@ -15594,6 +15801,7 @@ L_800e60ac:
 
 // VILLAGE2.BIN 800e6120
 void o21_800e6120(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6120u);
     CHECK_EVENTS(c);
     R(8) = 0x260000u;
     R(8) = R(8) | 0x9ec3u;
@@ -15652,6 +15860,7 @@ void o21_800e6120(Cpu* c) {
 
 // VILLAGE2.BIN 800e61e8
 void o21_800e61e8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e61e8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -15716,6 +15925,7 @@ L_800e6268:
 
 // VILLAGE2.BIN 800e6278
 void o21_800e6278(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6278u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -15725,6 +15935,7 @@ void o21_800e6278(Cpu* c) {
 
 // VILLAGE2.BIN 800e6280
 void o21_800e6280(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6280u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x30u, R(20));
@@ -15817,6 +16028,7 @@ L_800e6368:
 
 // VILLAGE2.BIN 800e6388
 void o21_800e6388(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6388u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -15826,6 +16038,7 @@ void o21_800e6388(Cpu* c) {
 
 // VILLAGE2.BIN 800e6390
 void o21_800e6390(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6390u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -15892,6 +16105,7 @@ void o21_800e6390(Cpu* c) {
 
 // VILLAGE2.BIN 800e6468
 void o21_800e6468(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6468u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -15901,6 +16115,7 @@ void o21_800e6468(Cpu* c) {
 
 // VILLAGE2.BIN 800e6470
 void o21_800e6470(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6470u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -15938,6 +16153,7 @@ L_800e64ac:
 
 // VILLAGE2.BIN 800e64bc
 void o21_800e64bc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e64bcu);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -15977,6 +16193,7 @@ L_800e64f8:
 
 // VILLAGE2.BIN 800e650c
 void o21_800e650c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e650cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -16016,6 +16233,7 @@ L_800e6558:
 
 // VILLAGE2.BIN 800e6568
 void o21_800e6568(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6568u);
     CHECK_EVENTS(c);
     R(5) = MEM_RW(R(4) + 0x8cu);
     R(2) = MEM_RW(R(5) + 0x8u);
@@ -16034,6 +16252,7 @@ void o21_800e6568(Cpu* c) {
 
 // VILLAGE2.BIN 800e65a0
 void o21_800e65a0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e65a0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16077,6 +16296,7 @@ L_800e65f0:
 
 // VILLAGE2.BIN 800e6604
 void o21_800e6604(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6604u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16202,6 +16422,7 @@ L_800e6708:
 
 // VILLAGE2.BIN 800e672c
 void o21_800e672c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e672cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -16304,6 +16525,7 @@ L_800e6808:
 
 // VILLAGE2.BIN 800e685c
 void o21_800e685c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e685cu);
     CHECK_EVENTS(c);
     R(2) = 0x800c0000u;
     R(4) = R(2) - 0x4de4u;
@@ -16339,6 +16561,7 @@ L_800e6890:
 
 // VILLAGE2.BIN 800e6898
 void o21_800e6898(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6898u);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -16373,6 +16596,7 @@ L_800e68cc:
 
 // VILLAGE2.BIN 800e68d4
 void o21_800e68d4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e68d4u);
     CHECK_EVENTS(c);
     R(2) = 0x800b0000u;
     R(3) = MEM_RB(R(2) + 0x7464u);
@@ -16425,6 +16649,7 @@ L_800e6940:
 
 // VILLAGE2.BIN 800e6950
 void o21_800e6950(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6950u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16452,6 +16677,7 @@ void o21_800e6950(Cpu* c) {
 
 // VILLAGE2.BIN 800e69a0
 void o21_800e69a0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e69a0u);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -16493,6 +16719,7 @@ L_800e69f4:
 
 // VILLAGE2.BIN 800e69fc
 void o21_800e69fc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e69fcu);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -16534,6 +16761,7 @@ L_800e6a50:
 
 // VILLAGE2.BIN 800e6a58
 void o21_800e6a58(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6a58u);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -16575,6 +16803,7 @@ L_800e6aac:
 
 // VILLAGE2.BIN 800e6ab4
 void o21_800e6ab4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6ab4u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0x84u);
     R(2) = 0x40000u;
@@ -16623,6 +16852,7 @@ L_800e6b20:
 
 // VILLAGE2.BIN 800e6b28
 void o21_800e6b28(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6b28u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = R(4) + 0u;
@@ -16683,6 +16913,7 @@ L_800e6bb4:
 
 // VILLAGE2.BIN 800e6bc4
 void o21_800e6bc4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6bc4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -16715,6 +16946,7 @@ void o21_800e6bc4(Cpu* c) {
 
 // VILLAGE2.BIN 800e6c18
 void o21_800e6c18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6c18u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -16731,6 +16963,7 @@ void o21_800e6c18(Cpu* c) {
 
 // VILLAGE2.BIN 800e6c38
 void o21_800e6c38(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6c38u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x1u;
@@ -16743,6 +16976,7 @@ void o21_800e6c38(Cpu* c) {
 
 // VILLAGE2.BIN 800e6c48
 void o21_800e6c48(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6c48u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -16785,6 +17019,7 @@ void o21_800e6c48(Cpu* c) {
 
 // VILLAGE2.BIN 800e6cb8
 void o21_800e6cb8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6cb8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -16827,6 +17062,7 @@ void o21_800e6cb8(Cpu* c) {
 
 // VILLAGE2.BIN 800e6d28
 void o21_800e6d28(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6d28u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -16872,6 +17108,7 @@ void o21_800e6d28(Cpu* c) {
 
 // VILLAGE2.BIN 800e6da4
 void o21_800e6da4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6da4u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x4u;
@@ -16884,6 +17121,7 @@ void o21_800e6da4(Cpu* c) {
 
 // VILLAGE2.BIN 800e6db4
 void o21_800e6db4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6db4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16942,6 +17180,7 @@ L_800e6e98:
 
 // VILLAGE2.BIN 800e6ea8
 void o21_800e6ea8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6ea8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16997,6 +17236,7 @@ L_800e6f20:
 
 // VILLAGE2.BIN 800e6f30
 void o21_800e6f30(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6f30u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -17039,6 +17279,7 @@ L_800e6f8c:
 
 // VILLAGE2.BIN 800e6f9c
 void o21_800e6f9c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6f9cu);
     CHECK_EVENTS(c);
     R(3) = 0x800f0000u;
     R(2) = 0u + 0x1u;
@@ -17051,6 +17292,7 @@ void o21_800e6f9c(Cpu* c) {
 
 // VILLAGE2.BIN 800e6fac
 void o21_800e6fac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6facu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -17083,6 +17325,7 @@ void o21_800e6fac(Cpu* c) {
 
 // VILLAGE2.BIN 800e7000
 void o21_800e7000(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7000u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17120,6 +17363,7 @@ L_800e7034:
 
 // VILLAGE2.BIN 800e7044
 void o21_800e7044(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7044u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -17166,6 +17410,7 @@ void o21_800e7044(Cpu* c) {
 
 // VILLAGE2.BIN 800e70c4
 void o21_800e70c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e70c4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -17234,6 +17479,7 @@ L_800e7158:
 
 // VILLAGE2.BIN 800e716c
 void o21_800e716c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e716cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17292,6 +17538,7 @@ L_800e7250:
 
 // VILLAGE2.BIN 800e7260
 void o21_800e7260(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7260u);
     CHECK_EVENTS(c);
     R(5) = R(4) + 0u;
     R(2) = 0u + 0x96u;
@@ -17322,6 +17569,7 @@ L_800e729c:
 
 // VILLAGE2.BIN 800e72a4
 void o21_800e72a4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e72a4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17359,6 +17607,7 @@ L_800e72dc:
 
 // VILLAGE2.BIN 800e72f8
 void o21_800e72f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e72f8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17388,6 +17637,7 @@ void o21_800e72f8(Cpu* c) {
 
 // VILLAGE2.BIN 800e7344
 void o21_800e7344(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7344u);
     CHECK_EVENTS(c);
     R(3) = 0u + 0x50u;
     R(2) = 0u + 0x140u;
@@ -17416,6 +17666,7 @@ L_800e736c:
 
 // VILLAGE2.BIN 800e7380
 void o21_800e7380(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7380u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17461,6 +17712,7 @@ L_800e73d8:
 
 // VILLAGE2.BIN 800e73e8
 void o21_800e73e8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e73e8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17512,6 +17764,7 @@ L_800e745c:
 
 // VILLAGE2.BIN 800e746c
 void o21_800e746c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e746cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -17528,6 +17781,7 @@ void o21_800e746c(Cpu* c) {
 
 // VILLAGE2.BIN 800e748c
 void o21_800e748c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e748cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(4) = 0x800f0000u;
@@ -17547,6 +17801,7 @@ void o21_800e748c(Cpu* c) {
 
 // VILLAGE2.BIN 800e74b4
 void o21_800e74b4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e74b4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(4) = 0x800f0000u;
@@ -17585,6 +17840,7 @@ L_800e7500:
 
 // VILLAGE2.BIN 800e7510
 void o21_800e7510(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7510u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(4) = 0x800f0000u;
@@ -17645,6 +17901,7 @@ L_800e7590:
 
 // VILLAGE2.BIN 800e75a0
 void o21_800e75a0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e75a0u);
     CHECK_EVENTS(c);
     R(2) = 0x800f0000u;
     R(3) = MEM_RW(R(2) - 0x799cu);
@@ -17660,6 +17917,7 @@ void o21_800e75a0(Cpu* c) {
 
 // VILLAGE2.BIN 800e75c0
 void o21_800e75c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e75c0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x48u;
     MEM_WW(R(29) + 0x24u, R(17));
@@ -17819,6 +18077,7 @@ L_800e777c:
 
 // VILLAGE3.BIN 800deef8
 void o22_800deef8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800deef8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x24u, R(17));
@@ -17922,6 +18181,7 @@ L_800defdc:
 
 // VILLAGE3.BIN 800df024
 void o22_800df024(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df024u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -18108,6 +18368,7 @@ L_800df228:
 
 // VILLAGE3.BIN 800df240
 void o22_800df240(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df240u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -18209,6 +18470,7 @@ L_800df35c:
 
 // VILLAGE3.BIN 800df36c
 void o22_800df36c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df36cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18340,6 +18602,7 @@ L_800df4e8:
 
 // VILLAGE3.BIN 800df4f8
 void o22_800df4f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df4f8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18462,6 +18725,7 @@ L_800df608:
 
 // VILLAGE3.BIN 800df618
 void o22_800df618(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df618u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -18583,6 +18847,7 @@ L_800df784:
 
 // VILLAGE3.BIN 800df794
 void o22_800df794(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df794u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18698,6 +18963,7 @@ L_800df8b0:
 
 // VILLAGE3.BIN 800df8c0
 void o22_800df8c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df8c0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18818,6 +19084,7 @@ L_800df9e8:
 
 // VILLAGE3.BIN 800dfa04
 void o22_800dfa04(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfa04u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18933,6 +19200,7 @@ L_800dfb18:
 
 // VILLAGE3.BIN 800dfb34
 void o22_800dfb34(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfb34u);
     CHECK_EVENTS(c);
     R(2) = 0x800c0000u;
     R(3) = MEM_RW(R(2) - 0x7b3cu);
@@ -19116,6 +19384,7 @@ L_800dfd2c:
 
 // VILLAGE3.BIN 800dfd3c
 void o22_800dfd3c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfd3cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -19241,6 +19510,7 @@ L_800dfe64:
 
 // VILLAGE3.BIN 800dfe80
 void o22_800dfe80(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfe80u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -19511,6 +19781,7 @@ L_800e0124:
 
 // VILLAGE3.BIN 800e0144
 void o22_800e0144(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0144u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x28u, R(18));
@@ -19683,6 +19954,7 @@ L_800e02d4:
 
 // VILLAGE3.BIN 800e02ec
 void o22_800e02ec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e02ecu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x28u, R(18));
@@ -19857,6 +20129,7 @@ L_800e0484:
 
 // VILLAGE3.BIN 800e049c
 void o22_800e049c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e049cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x28u, R(18));
@@ -20031,6 +20304,7 @@ L_800e0634:
 
 // VILLAGE3.BIN 800e064c
 void o22_800e064c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e064cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x28u, R(18));
@@ -20198,6 +20472,7 @@ L_800e07cc:
 
 // VILLAGE3.BIN 800e07e4
 void o22_800e07e4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e07e4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x28u, R(18));
@@ -20372,6 +20647,7 @@ L_800e097c:
 
 // VILLAGE3.BIN 800e0994
 void o22_800e0994(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0994u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     R(3) = 0x800b0000u;
@@ -20590,6 +20866,7 @@ L_800e0bd0:
 
 // VILLAGE3.BIN 800e0c00
 void o22_800e0c00(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0c00u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -20758,6 +21035,7 @@ L_800e0d98:
 
 // VILLAGE3.BIN 800e0dac
 void o22_800e0dac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0dacu);
     CHECK_EVENTS(c);
     R(2) = 0x800f0000u;
     R(4) = MEM_RW(R(2) - 0x5ee0u);
@@ -20977,6 +21255,7 @@ L_800e1038:
 
 // VILLAGE3.BIN 800e105c
 void o22_800e105c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e105cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     R(2) = 0x800f0000u;
@@ -21188,6 +21467,7 @@ L_800e11c4:
 
 // VILLAGE3.BIN 800e12c0
 void o22_800e12c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e12c0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -21284,6 +21564,7 @@ L_800e1390:
 
 // VILLAGE3.BIN 800e13a8
 void o22_800e13a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e13a8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x28u, R(22));
@@ -22916,6 +23197,7 @@ L_800e2484:
 
 // VILLAGE3.BIN 800e24c4
 void o22_800e24c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e24c4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     R(4) = 0u + 0u;
@@ -23300,6 +23582,7 @@ L_800e2910:
 
 // VILLAGE3.BIN 800e2924
 void o22_800e2924(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2924u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x80u;
     MEM_WW(R(29) + 0x58u, R(16));
@@ -26438,6 +26721,7 @@ L_800e4a18:
 
 // VILLAGE3.BIN 800e4a8c
 void o22_800e4a8c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a8cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x20u, R(20));
@@ -26565,6 +26849,7 @@ L_800e4bd4:
 
 // VILLAGE3.BIN 800e4c08
 void o22_800e4c08(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c08u);
     CHECK_EVENTS(c);
     R(2) = 0x800f0000u;
     R(3) = MEM_RW(R(2) - 0x6be0u);
@@ -26862,6 +27147,7 @@ L_800e4f10:
 
 // VILLAGE3.BIN 800e4f44
 void o22_800e4f44(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4f44u);
     CHECK_EVENTS(c);
     R(2) = 0x800c0000u;
     R(3) = MEM_RW(R(2) - 0x76acu);
@@ -26899,6 +27185,7 @@ L_800e4f84:
 
 // VILLAGE3.BIN 800e4f94
 void o22_800e4f94(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4f94u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(2) = 0x800f0000u;
@@ -26974,6 +27261,7 @@ L_800e5018:
 
 // VILLAGE3.BIN 800e5070
 void o22_800e5070(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5070u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -27037,6 +27325,7 @@ L_800e50ec:
 
 // VILLAGE3.BIN 800e5114
 void o22_800e5114(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5114u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -27107,6 +27396,7 @@ L_800e51a0:
 
 // VILLAGE3.BIN 800e51bc
 void o22_800e51bc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e51bcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x1cu, R(19));
@@ -27183,6 +27473,7 @@ L_800e5260:
 
 // VILLAGE3.BIN 800e5290
 void o22_800e5290(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5290u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -27257,6 +27548,7 @@ L_800e5328:
 
 // VILLAGE3.BIN 800e5358
 void o22_800e5358(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5358u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -27266,6 +27558,7 @@ void o22_800e5358(Cpu* c) {
 
 // VILLAGE3.BIN 800e5360
 void o22_800e5360(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5360u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -27275,6 +27568,7 @@ void o22_800e5360(Cpu* c) {
 
 // VILLAGE3.BIN 800e5368
 void o22_800e5368(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5368u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -27284,6 +27578,7 @@ void o22_800e5368(Cpu* c) {
 
 // VILLAGE3.BIN 800e5370
 void o22_800e5370(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5370u);
     CHECK_EVENTS(c);
     R(5) = R(4) + 0u;
     {
@@ -27312,6 +27607,7 @@ L_800e5398:
 
 // VILLAGE3.BIN 800e53ac
 void o22_800e53ac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e53acu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -27321,6 +27617,7 @@ void o22_800e53ac(Cpu* c) {
 
 // VILLAGE3.BIN 800e53b4
 void o22_800e53b4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e53b4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0x400000u;
@@ -27349,6 +27646,7 @@ void o22_800e53b4(Cpu* c) {
 
 // VILLAGE3.BIN 800e5400
 void o22_800e5400(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5400u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0u + 0x800u;
@@ -27375,6 +27673,7 @@ void o22_800e5400(Cpu* c) {
 
 // VILLAGE3.BIN 800e5444
 void o22_800e5444(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5444u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -27468,6 +27767,7 @@ L_800e54fc:
 
 // VILLAGE3.BIN 800e550c
 void o22_800e550c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e550cu);
     CHECK_EVENTS(c);
     R(5) = 0x400000u;
     R(5) = R(5) | 0x10u;

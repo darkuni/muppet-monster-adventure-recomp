@@ -2,6 +2,7 @@
 // libpad speaks (reads, config mode, analog/LED, rumble mapping) and the /ACK interrupt.
 // Memory cards are handled at BIOS level (bios.cpp/memcard.cpp), so port addressing
 // for cards gets no answer here.
+#include <cstdlib>
 #include "hw.h"
 #include "log.h"
 #include "config.h"
@@ -125,8 +126,7 @@ static uint8_t pad_exchange(uint8_t in, bool* ack) {
         switch (p.cmd) {
             case 0x43: if (i == 3) p.exit_config = in == 0x00; break;
             case 0x44:
-                if (i == 3 && in <= 1 && !p.locked) p.analog = in == 1;
-                if (i == 3 && in <= 1) p.analog = in == 1;
+                if (i == 3 && in <= 1) p.analog = in == 1 && !getenv("PAD_DIGITAL");
                 if (i == 4) p.locked = (in & 3) == 3;
                 break;
             case 0x46:

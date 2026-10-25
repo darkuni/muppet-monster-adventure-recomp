@@ -314,3 +314,30 @@ void interp_one(Cpu* c, uint32_t pc, uint32_t w) {
         default: rt_bad_insn(c, pc, w);
     }
 }
+
+#ifdef RECOMP_BISECT
+#include <string>
+#include <vector>
+bool bisect_interp(uint32_t addr) {
+    static std::vector<std::pair<uint32_t, uint32_t>> ranges;
+    static int64_t from = -1;
+    if (from < 0) {
+        const char* e = getenv("BISECT");
+        std::string s = e ? e : "";
+        size_t p = 0;
+        while (p < s.size()) {
+            size_t c = s.find(',', p);
+            std::string it = s.substr(p, c == std::string::npos ? std::string::npos : c - p);
+            p = c == std::string::npos ? s.size() : c + 1;
+            uint32_t lo = 0, hi = 0;
+            if (sscanf(it.c_str(), "%x-%x", &lo, &hi) == 2) ranges.push_back({lo, hi});
+        }
+        const char* f = getenv("BISECT_FROM_SEC");
+        from = f ? (int64_t)(atof(f) * CPU_HZ) : 0;
+        fprintf(stderr, "[bisect] %zu ranges from cycle %lld\n", ranges.size(), (long long)from);
+    }
+    if (g_cpu.cycles < from) return false;
+    for (auto& r : ranges) if (addr >= r.first && addr < r.second) return true;
+    return false;
+}
+#endif

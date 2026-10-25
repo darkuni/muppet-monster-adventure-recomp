@@ -4,6 +4,7 @@
 
 // GRVYARDB.BIN 800e1300
 void o17_800e1300(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1300u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -340,6 +341,7 @@ L_800e1640:
 
 // GRVYARDB.BIN 800e1658
 void o17_800e1658(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1658u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -454,6 +456,7 @@ L_800e1780:
 
 // GRVYARDB.BIN 800e1790
 void o17_800e1790(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1790u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x58u;
     MEM_WW(R(29) + 0x34u, R(17));
@@ -926,6 +929,7 @@ L_800e1c8c:
 
 // GRVYARDB.BIN 800e1cbc
 void o17_800e1cbc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1cbcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x48u;
     MEM_WW(R(29) + 0x24u, R(17));
@@ -1081,6 +1085,7 @@ L_800e1ea0:
 
 // GRVYARDB.BIN 800e1ed8
 void o17_800e1ed8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1ed8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     R(3) = 0x800b0000u;
@@ -1739,6 +1744,7 @@ L_800e258c:
 
 // GRVYARDB.BIN 800e25c8
 void o17_800e25c8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e25c8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(4) = 0u + 0u;
@@ -1931,6 +1937,7 @@ L_800e26d4:
 
 // GRVYARDB.BIN 800e27c8
 void o17_800e27c8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e27c8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x40u;
     R(4) = 0u + 0x1f40u;
@@ -2459,6 +2466,7 @@ L_800e296c:
 
 // GRVYARDB.BIN 800e2e0c
 void o17_800e2e0c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2e0cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(2) = 0x800e0000u;
@@ -2557,6 +2565,7 @@ L_800e2f08:
 
 // GRVYARDB.BIN 800e2f18
 void o17_800e2f18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2f18u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x40u;
     R(2) = 0x800b0000u;
@@ -2809,6 +2818,7 @@ L_800e31a4:
 
 // GRVYARDB.BIN 800e31d0
 void o17_800e31d0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e31d0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x48u;
     R(7) = R(4) + 0u;
@@ -2948,6 +2958,7 @@ L_800e3368:
 
 // GRVYARDB.BIN 800e337c
 void o17_800e337c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e337cu);
     CHECK_EVENTS(c);
     R(2) = 0x800e0000u;
     R(3) = MEM_RW(R(2) + 0x49a8u);
@@ -3181,6 +3192,7 @@ L_800e3660:
 
 // GRVYARDB.BIN 800e368c
 void o17_800e368c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e368cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(4) = 0x800e0000u;
@@ -3202,6 +3214,7 @@ void o17_800e368c(Cpu* c) {
 
 // GRVYARDB.BIN 800e36b8
 void o17_800e36b8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e36b8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(31));
@@ -3236,6 +3249,7 @@ void o17_800e36b8(Cpu* c) {
 
 // GRVYARDB.BIN 800e3724
 void o17_800e3724(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3724u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -3275,6 +3289,7 @@ void o17_800e3724(Cpu* c) {
 
 // GRVYARDB.BIN 800e3788
 void o17_800e3788(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3788u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0xcu);
     R(2) = R(2) + 0xfa0u;
@@ -3312,6 +3327,7 @@ L_800e37d4:
 
 // GRVYARDB.BIN 800e37dc
 void o17_800e37dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e37dcu);
     CHECK_EVENTS(c);
     R(5) = R(4) + 0u;
     R(2) = MEM_RH(R(5) + 0xcu);
@@ -3346,6 +3362,7 @@ L_800e380c:
 
 // GRVYARDB.BIN 800e3830
 void o17_800e3830(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3830u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -3430,6 +3447,7 @@ L_800e38f8:
 
 // GRVYARDB.BIN 800e3908
 void o17_800e3908(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3908u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3478,6 +3496,7 @@ L_800e393c:
 
 // GRVYARDB.BIN 800e3990
 void o17_800e3990(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3990u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -3521,6 +3540,7 @@ L_800e39e4:
 
 // GRVYARDB.BIN 800e39f4
 void o17_800e39f4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e39f4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3562,6 +3582,7 @@ L_800e3a38:
 
 // GRVYARDB.BIN 800e3a58
 void o17_800e3a58(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3a58u);
     CHECK_EVENTS(c);
     R(2) = 0x800e0000u;
     R(3) = MEM_RW(R(2) + 0x4f70u);
@@ -3641,6 +3662,7 @@ L_800e3b08:
 
 // GRVYARDB.BIN 800e3b18
 void o17_800e3b18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3b18u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3682,6 +3704,7 @@ void o17_800e3b18(Cpu* c) {
 
 // GRVYARDB.BIN 800e3b94
 void o17_800e3b94(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3b94u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(4) = R(4) + 0x10u;
@@ -3700,6 +3723,7 @@ void o17_800e3b94(Cpu* c) {
 
 // GRVYARDB.BIN 800e3bb8
 void o17_800e3bb8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3bb8u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -3709,6 +3733,7 @@ void o17_800e3bb8(Cpu* c) {
 
 // GRVYARDB.BIN 800e3bc0
 void o17_800e3bc0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3bc0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -3783,6 +3808,7 @@ L_800e3c58:
 
 // GRVYARDB.BIN 800e3c68
 void o17_800e3c68(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3c68u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(4) = R(4) + 0x10u;
@@ -3801,6 +3827,7 @@ void o17_800e3c68(Cpu* c) {
 
 // GRVYARDB.BIN 800e3c8c
 void o17_800e3c8c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3c8cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(5) = R(4) + 0u;
@@ -3865,6 +3892,7 @@ L_800e3d18:
 
 // GRVYARDB.BIN 800e3d28
 void o17_800e3d28(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3d28u);
     CHECK_EVENTS(c);
     R(3) = 0u + 0x50u;
     R(2) = 0u + 0x12cu;
@@ -3893,6 +3921,7 @@ L_800e3d4c:
 
 // GRVYARDB.BIN 800e3d60
 void o17_800e3d60(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3d60u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(2) = R(2) | 0x4000u;
@@ -3905,6 +3934,7 @@ void o17_800e3d60(Cpu* c) {
 
 // GRVYARDB.BIN 800e3d74
 void o17_800e3d74(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3d74u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(2) = R(2) & 0xbfffu;
@@ -3917,6 +3947,7 @@ void o17_800e3d74(Cpu* c) {
 
 // GRVYARDB.BIN 800e3d88
 void o17_800e3d88(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3d88u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -3935,6 +3966,7 @@ void o17_800e3d88(Cpu* c) {
 
 // GRVYARDB.BIN 800e3dac
 void o17_800e3dac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3dacu);
     CHECK_EVENTS(c);
     R(2) = 0u + 0x80u;
     MEM_WB(R(4) + 0x9eu, R(2));
@@ -3954,6 +3986,7 @@ void o17_800e3dac(Cpu* c) {
 
 // GRVYARDB.BIN 800e3dd8
 void o17_800e3dd8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3dd8u);
     CHECK_EVENTS(c);
     R(5) = R(4) + 0u;
     R(2) = 0u - 0x1040u;
@@ -3984,6 +4017,7 @@ L_800e3e14:
 
 // GRVYARDB.BIN 800e3e1c
 void o17_800e3e1c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e1cu);
     CHECK_EVENTS(c);
     R(2) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(4) + 0x38u);
     R(3) = MEM_RH(R(4) + 0x38u);
@@ -4014,6 +4048,7 @@ L_800e3e3c:
 
 // GRVYARDB.BIN 800e3e54
 void o17_800e3e54(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e54u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u - 0xa0u;
@@ -4028,6 +4063,7 @@ void o17_800e3e54(Cpu* c) {
 
 // GRVYARDB.BIN 800e3e6c
 void o17_800e3e6c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e6cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -4037,6 +4073,7 @@ void o17_800e3e6c(Cpu* c) {
 
 // GRVYARDB.BIN 800e3e74
 void o17_800e3e74(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e74u);
     CHECK_EVENTS(c);
     R(5) = R(4) + 0u;
     {
@@ -4066,6 +4103,7 @@ L_800e3ea0:
 
 // GRVYARDB.BIN 800e3eb0
 void o17_800e3eb0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3eb0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(2) = 0x800e0000u;
@@ -4096,6 +4134,7 @@ void o17_800e3eb0(Cpu* c) {
 
 // GRVYARDB.BIN 800e3f00
 void o17_800e3f00(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f00u);
     CHECK_EVENTS(c);
     R(5) = R(4) + 0u;
     R(2) = MEM_RH(R(5) + 0xcu);
@@ -4124,6 +4163,7 @@ L_800e3f38:
 
 // GRVYARDB.BIN 800e3f40
 void o17_800e3f40(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f40u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -4150,6 +4190,7 @@ L_800e3f60:
 
 // GRVYARDB.BIN 800e3f70
 void o17_800e3f70(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f70u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -4159,6 +4200,7 @@ void o17_800e3f70(Cpu* c) {
 
 // GRVYARDB.BIN 800e3f78
 void o17_800e3f78(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f78u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -4199,6 +4241,7 @@ L_800e3fc0:
 
 // GRVYARDB.BIN 800e3fd0
 void o17_800e3fd0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3fd0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x28u, R(16));
@@ -4255,6 +4298,7 @@ L_800e4054:
 
 // GRVYARDB.BIN 800e4064
 void o17_800e4064(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4064u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -4264,6 +4308,7 @@ void o17_800e4064(Cpu* c) {
 
 // GRVYARDB.BIN 800e406c
 void o17_800e406c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e406cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -4297,6 +4342,7 @@ void o17_800e406c(Cpu* c) {
 
 // GRVYARDB.BIN 800e40c8
 void o17_800e40c8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e40c8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -4357,6 +4403,7 @@ L_800e4140:
 
 // GRVYARDB.BIN 800e4150
 void o17_800e4150(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4150u);
     CHECK_EVENTS(c);
     R(5) = R(4) + 0u;
     R(2) = MEM_RH(R(5) + 0xc6u);
@@ -4389,6 +4436,7 @@ L_800e419c:
 
 // GRVYARDB.BIN 800e41a4
 void o17_800e41a4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e41a4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -4450,6 +4498,7 @@ L_800e4220:
 
 // GRVYARDB.BIN 800e4230
 void o17_800e4230(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4230u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -4501,6 +4550,7 @@ L_800e428c:
 
 // GRVYARDB.BIN 800e429c
 void o17_800e429c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e429cu);
     CHECK_EVENTS(c);
     R(3) = 0x800e0000u;
     R(2) = MEM_RB(R(3) + 0x4f50u);
@@ -4512,6 +4562,7 @@ void o17_800e429c(Cpu* c) {
 
 // GRVYARDB.BIN 800e42ac
 void o17_800e42ac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e42acu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -4567,6 +4618,7 @@ L_800e4318:
 
 // GRVYARDB.BIN 800e4340
 void o17_800e4340(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4340u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -4631,6 +4683,7 @@ L_800e4388:
 
 // GRVYARDB.BIN 800e43f8
 void o17_800e43f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e43f8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -4723,6 +4776,7 @@ L_800e44d8:
 
 // GRVYARDB.BIN 800e44e8
 void o17_800e44e8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e44e8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(5) = R(4) + 0u;
@@ -4825,6 +4879,7 @@ L_800e45c4:
 
 // GRVYARDB.BIN 800e45d4
 void o17_800e45d4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e45d4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(3) = R(4) + 0u;
@@ -4863,6 +4918,7 @@ void o17_800e45d4(Cpu* c) {
 
 // GRVYARDB.BIN 800e4638
 void o17_800e4638(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4638u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -4872,6 +4928,7 @@ void o17_800e4638(Cpu* c) {
 
 // GRVYARDB.BIN 800e4640
 void o17_800e4640(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4640u);
     CHECK_EVENTS(c);
     R(5) = 0x800e0000u;
     R(2) = MEM_RW(R(5) + 0x4fb8u);
@@ -4894,6 +4951,7 @@ void o17_800e4640(Cpu* c) {
 
 // GRVYARDB.BIN 800e4678
 void o17_800e4678(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4678u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -4940,6 +4998,7 @@ L_800e46d0:
 
 // GRVYARDB.BIN 800e46ec
 void o17_800e46ec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e46ecu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(6) = 0x800e0000u;
@@ -4977,6 +5036,7 @@ L_800e4728:
 
 // GRVYARDB.BIN 800e4738
 void o17_800e4738(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4738u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     R(2) = 0x800c0000u;
@@ -5076,6 +5136,7 @@ L_800e486c:
 
 // ICEMONT1.BIN 800def70
 void o18_800def70(Cpu* c) {
+    FUNC_ENTRY(c, 0x800def70u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -5259,6 +5320,7 @@ L_800df170:
 
 // ICEMONT1.BIN 800df188
 void o18_800df188(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df188u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -5443,6 +5505,7 @@ L_800df37c:
 
 // ICEMONT1.BIN 800df3a0
 void o18_800df3a0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df3a0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -5555,6 +5618,7 @@ L_800df4bc:
 
 // ICEMONT1.BIN 800df4cc
 void o18_800df4cc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df4ccu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -5679,6 +5743,7 @@ L_800df60c:
 
 // ICEMONT1.BIN 800df628
 void o18_800df628(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df628u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -5839,6 +5904,7 @@ L_800df798:
 
 // ICEMONT1.BIN 800df7a8
 void o18_800df7a8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df7a8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -5957,6 +6023,7 @@ L_800df8e4:
 
 // ICEMONT1.BIN 800df8f4
 void o18_800df8f4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df8f4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -6082,6 +6149,7 @@ L_800dfa1c:
 
 // ICEMONT1.BIN 800dfa38
 void o18_800dfa38(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfa38u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -6352,6 +6420,7 @@ L_800dfcdc:
 
 // ICEMONT1.BIN 800dfcfc
 void o18_800dfcfc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfcfcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -6448,6 +6517,7 @@ L_800dfdcc:
 
 // ICEMONT1.BIN 800dfde4
 void o18_800dfde4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfde4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -6564,6 +6634,7 @@ L_800dfef0:
 
 // ICEMONT1.BIN 800dff0c
 void o18_800dff0c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dff0cu);
     CHECK_EVENTS(c);
     R(2) = 0x800b0000u;
     R(3) = MEM_RB(R(2) + 0x7464u);
@@ -6788,6 +6859,7 @@ L_800e012c:
 
 // ICEMONT1.BIN 800e0148
 void o18_800e0148(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0148u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -6902,6 +6974,7 @@ L_800e0184:
 
 // ICEMONT1.BIN 800e0294
 void o18_800e0294(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0294u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -7144,6 +7217,7 @@ L_800e0534:
 
 // ICEMONT1.BIN 800e0564
 void o18_800e0564(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0564u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x40u;
     MEM_WW(R(29) + 0x28u, R(20));
@@ -7385,6 +7459,7 @@ L_800e07b4:
 
 // ICEMONT1.BIN 800e07e4
 void o18_800e07e4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e07e4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -7471,6 +7546,7 @@ void o18_800e07e4(Cpu* c) {
 
 // ICEMONT1.BIN 800e08f4
 void o18_800e08f4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e08f4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     R(3) = R(4) & 0xffffu;
@@ -7622,6 +7698,7 @@ L_800e0a20:
 
 // ICEMONT1.BIN 800e0a98
 void o18_800e0a98(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0a98u);
     CHECK_EVENTS(c);
     R(2) = 0x800f0000u;
     R(3) = MEM_RW(R(2) - 0x6b2cu);
@@ -7817,6 +7894,7 @@ L_800e0c88:
 
 // ICEMONT1.BIN 800e0ca4
 void o18_800e0ca4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0ca4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -8789,6 +8867,7 @@ L_800e16f8:
 
 // ICEMONT1.BIN 800e1738
 void o18_800e1738(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1738u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(3) = 0x800b0000u;
@@ -9275,6 +9354,7 @@ L_800e1b1c:
 
 // ICEMONT1.BIN 800e1c84
 void o18_800e1c84(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e1c84u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x50u;
     MEM_WW(R(29) + 0x28u, R(16));
@@ -12413,6 +12493,7 @@ L_800e3aec:
 
 // ICEMONT1.BIN 800e3b60
 void o18_800e3b60(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3b60u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12484,6 +12565,7 @@ L_800e3bfc:
 
 // ICEMONT1.BIN 800e3c20
 void o18_800e3c20(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3c20u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -12493,6 +12575,7 @@ void o18_800e3c20(Cpu* c) {
 
 // ICEMONT1.BIN 800e3c28
 void o18_800e3c28(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3c28u);
     CHECK_EVENTS(c);
     R(7) = 0x260000u;
     R(7) = R(7) | 0x9ec3u;
@@ -12547,6 +12630,7 @@ void o18_800e3c28(Cpu* c) {
 
 // ICEMONT1.BIN 800e3ce0
 void o18_800e3ce0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3ce0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -12570,6 +12654,7 @@ L_800e3d00:
 
 // ICEMONT1.BIN 800e3d10
 void o18_800e3d10(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3d10u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -12605,6 +12690,7 @@ L_800e3d44:
 
 // ICEMONT1.BIN 800e3d54
 void o18_800e3d54(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3d54u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12709,6 +12795,7 @@ L_800e3e3c:
 
 // ICEMONT1.BIN 800e3e4c
 void o18_800e3e4c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e4cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -12718,6 +12805,7 @@ void o18_800e3e4c(Cpu* c) {
 
 // ICEMONT1.BIN 800e3e54
 void o18_800e3e54(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e54u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -12727,6 +12815,7 @@ void o18_800e3e54(Cpu* c) {
 
 // ICEMONT1.BIN 800e3e5c
 void o18_800e3e5c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e5cu);
     CHECK_EVENTS(c);
     R(3) = MEM_RH(R(4) + 0x7cu);
     R(2) = 0u + 0xau;
@@ -12742,6 +12831,7 @@ void o18_800e3e5c(Cpu* c) {
 
 // ICEMONT1.BIN 800e3e78
 void o18_800e3e78(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e78u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -12751,6 +12841,7 @@ void o18_800e3e78(Cpu* c) {
 
 // ICEMONT1.BIN 800e3e80
 void o18_800e3e80(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3e80u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -12778,6 +12869,7 @@ L_800e3ea4:
 
 // ICEMONT1.BIN 800e3eb4
 void o18_800e3eb4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3eb4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12845,6 +12937,7 @@ L_800e3f24:
 
 // ICEMONT1.BIN 800e3f5c
 void o18_800e3f5c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e3f5cu);
     CHECK_EVENTS(c);
     R(8) = R(4) + 0u;
     R(3) = MEM_RB(R(8) + 0x30u);
@@ -12902,6 +12995,7 @@ L_800e4008:
 
 // ICEMONT1.BIN 800e4010
 void o18_800e4010(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4010u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x80u;
@@ -12916,6 +13010,7 @@ void o18_800e4010(Cpu* c) {
 
 // ICEMONT1.BIN 800e4028
 void o18_800e4028(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4028u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -12996,6 +13091,7 @@ L_800e405c:
 
 // ICEMONT1.BIN 800e4128
 void o18_800e4128(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4128u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -13040,6 +13136,7 @@ L_800e4174:
 
 // ICEMONT1.BIN 800e4184
 void o18_800e4184(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4184u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13102,6 +13199,7 @@ L_800e41b0:
 
 // ICEMONT1.BIN 800e4240
 void o18_800e4240(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4240u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13134,6 +13232,7 @@ L_800e426c:
 
 // ICEMONT1.BIN 800e4288
 void o18_800e4288(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4288u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13236,6 +13335,7 @@ L_800e4380:
 
 // ICEMONT1.BIN 800e439c
 void o18_800e439c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e439cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13245,6 +13345,7 @@ void o18_800e439c(Cpu* c) {
 
 // ICEMONT1.BIN 800e43a4
 void o18_800e43a4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e43a4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13312,6 +13413,7 @@ L_800e4418:
 
 // ICEMONT1.BIN 800e4428
 void o18_800e4428(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4428u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13396,6 +13498,7 @@ L_800e4514:
 
 // ICEMONT1.BIN 800e4528
 void o18_800e4528(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4528u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(8) = R(4) + 0u;
@@ -13469,6 +13572,7 @@ L_800e4554:
 
 // ICEMONT1.BIN 800e4610
 void o18_800e4610(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4610u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -13513,6 +13617,7 @@ L_800e465c:
 
 // ICEMONT1.BIN 800e466c
 void o18_800e466c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e466cu);
     CHECK_EVENTS(c);
     R(5) = 0x260000u;
     R(5) = R(5) | 0x9ec3u;
@@ -13556,6 +13661,7 @@ void o18_800e466c(Cpu* c) {
 
 // ICEMONT1.BIN 800e46f8
 void o18_800e46f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e46f8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13602,6 +13708,7 @@ L_800e4754:
 
 // ICEMONT1.BIN 800e4764
 void o18_800e4764(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4764u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13679,6 +13786,7 @@ L_800e4830:
 
 // ICEMONT1.BIN 800e4840
 void o18_800e4840(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4840u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13688,6 +13796,7 @@ void o18_800e4840(Cpu* c) {
 
 // ICEMONT1.BIN 800e4848
 void o18_800e4848(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4848u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13755,6 +13864,7 @@ L_800e48bc:
 
 // ICEMONT1.BIN 800e48cc
 void o18_800e48cc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e48ccu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -13764,6 +13874,7 @@ void o18_800e48cc(Cpu* c) {
 
 // ICEMONT1.BIN 800e48d4
 void o18_800e48d4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e48d4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13838,6 +13949,7 @@ L_800e4964:
 
 // ICEMONT1.BIN 800e4974
 void o18_800e4974(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4974u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -13906,6 +14018,7 @@ void o18_800e4974(Cpu* c) {
 
 // ICEMONT1.BIN 800e4a5c
 void o18_800e4a5c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4a5cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -13991,6 +14104,7 @@ L_800e4b30:
 
 // ICEMONT1.BIN 800e4b40
 void o18_800e4b40(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4b40u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14000,6 +14114,7 @@ void o18_800e4b40(Cpu* c) {
 
 // ICEMONT1.BIN 800e4b48
 void o18_800e4b48(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4b48u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -14076,6 +14191,7 @@ void o18_800e4b48(Cpu* c) {
 
 // ICEMONT1.BIN 800e4c38
 void o18_800e4c38(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c38u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -14115,6 +14231,7 @@ L_800e4c8c:
 
 // ICEMONT1.BIN 800e4c9c
 void o18_800e4c9c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4c9cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14124,6 +14241,7 @@ void o18_800e4c9c(Cpu* c) {
 
 // ICEMONT1.BIN 800e4ca4
 void o18_800e4ca4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4ca4u);
     CHECK_EVENTS(c);
     R(7) = 0x260000u;
     R(7) = R(7) | 0x9ec3u;
@@ -14174,6 +14292,7 @@ void o18_800e4ca4(Cpu* c) {
 
 // ICEMONT1.BIN 800e4d50
 void o18_800e4d50(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4d50u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14217,6 +14336,7 @@ L_800e4d74:
 
 // ICEMONT1.BIN 800e4db4
 void o18_800e4db4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4db4u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14226,6 +14346,7 @@ void o18_800e4db4(Cpu* c) {
 
 // ICEMONT1.BIN 800e4dbc
 void o18_800e4dbc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4dbcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14307,6 +14428,7 @@ L_800e4e78:
 
 // ICEMONT1.BIN 800e4e88
 void o18_800e4e88(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4e88u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14372,6 +14494,7 @@ L_800e4f40:
 
 // ICEMONT1.BIN 800e4f50
 void o18_800e4f50(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4f50u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     R(5) = R(4) + 0u;
@@ -14434,6 +14557,7 @@ L_800e4fc8:
 
 // ICEMONT1.BIN 800e4fd8
 void o18_800e4fd8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e4fd8u);
     CHECK_EVENTS(c);
     R(9) = R(4) + 0u;
     R(2) = 0u + 0x64u;
@@ -14507,6 +14631,7 @@ L_800e5000:
 
 // ICEMONT1.BIN 800e50c4
 void o18_800e50c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e50c4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -14530,6 +14655,7 @@ L_800e50e4:
 
 // ICEMONT1.BIN 800e50f4
 void o18_800e50f4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e50f4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14589,6 +14715,7 @@ L_800e5170:
 
 // ICEMONT1.BIN 800e5180
 void o18_800e5180(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5180u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14598,6 +14725,7 @@ void o18_800e5180(Cpu* c) {
 
 // ICEMONT1.BIN 800e5188
 void o18_800e5188(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5188u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14687,6 +14815,7 @@ L_800e5274:
 
 // ICEMONT1.BIN 800e5284
 void o18_800e5284(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5284u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14696,6 +14825,7 @@ void o18_800e5284(Cpu* c) {
 
 // ICEMONT1.BIN 800e528c
 void o18_800e528c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e528cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14747,6 +14877,7 @@ L_800e52f0:
 
 // ICEMONT1.BIN 800e5304
 void o18_800e5304(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5304u);
     CHECK_EVENTS(c);
     R(6) = 0x40000u;
     R(6) = R(6) | 0x2200u;
@@ -14770,6 +14901,7 @@ void o18_800e5304(Cpu* c) {
 
 // ICEMONT1.BIN 800e5340
 void o18_800e5340(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5340u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -14839,6 +14971,7 @@ L_800e53d0:
 
 // ICEMONT1.BIN 800e53ec
 void o18_800e53ec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e53ecu);
     CHECK_EVENTS(c);
     R(10) = R(4) + 0u;
     R(2) = 0u + 0x1u;
@@ -14910,6 +15043,7 @@ L_800e5418:
 
 // ICEMONT1.BIN 800e54d0
 void o18_800e54d0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e54d0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -14933,6 +15067,7 @@ L_800e54f0:
 
 // ICEMONT1.BIN 800e5500
 void o18_800e5500(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5500u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -14942,6 +15077,7 @@ void o18_800e5500(Cpu* c) {
 
 // ICEMONT1.BIN 800e5508
 void o18_800e5508(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5508u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15028,6 +15164,7 @@ L_800e55cc:
 
 // ICEMONT1.BIN 800e55dc
 void o18_800e55dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e55dcu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -15037,6 +15174,7 @@ void o18_800e55dc(Cpu* c) {
 
 // ICEMONT1.BIN 800e55e4
 void o18_800e55e4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e55e4u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -15046,6 +15184,7 @@ void o18_800e55e4(Cpu* c) {
 
 // ICEMONT1.BIN 800e55ec
 void o18_800e55ec(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e55ecu);
     CHECK_EVENTS(c);
     R(7) = 0x260000u;
     R(7) = R(7) | 0x9ec3u;
@@ -15094,6 +15233,7 @@ void o18_800e55ec(Cpu* c) {
 
 // ICEMONT1.BIN 800e5690
 void o18_800e5690(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5690u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -15103,6 +15243,7 @@ void o18_800e5690(Cpu* c) {
 
 // ICEMONT1.BIN 800e5698
 void o18_800e5698(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5698u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15147,6 +15288,7 @@ L_800e56e0:
 
 // ICEMONT1.BIN 800e5704
 void o18_800e5704(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5704u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15188,6 +15330,7 @@ void o18_800e5704(Cpu* c) {
 
 // ICEMONT1.BIN 800e5774
 void o18_800e5774(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5774u);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x3u;
@@ -15202,6 +15345,7 @@ void o18_800e5774(Cpu* c) {
 
 // ICEMONT1.BIN 800e578c
 void o18_800e578c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e578cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15252,6 +15396,7 @@ L_800e57f4:
 
 // ICEMONT1.BIN 800e5818
 void o18_800e5818(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5818u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -15278,6 +15423,7 @@ L_800e5838:
 
 // ICEMONT1.BIN 800e5848
 void o18_800e5848(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5848u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15336,6 +15482,7 @@ L_800e58b8:
 
 // ICEMONT1.BIN 800e58e0
 void o18_800e58e0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e58e0u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -15345,6 +15492,7 @@ void o18_800e58e0(Cpu* c) {
 
 // ICEMONT1.BIN 800e58e8
 void o18_800e58e8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e58e8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(5) = 0xfffb0000u;
@@ -15413,6 +15561,7 @@ L_800e5974:
 
 // ICEMONT1.BIN 800e5984
 void o18_800e5984(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5984u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -15422,6 +15571,7 @@ void o18_800e5984(Cpu* c) {
 
 // ICEMONT1.BIN 800e598c
 void o18_800e598c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e598cu);
     CHECK_EVENTS(c);
     R(2) = 0u + 0x4u;
     MEM_WB(R(4) + 0x31u, R(2));
@@ -15441,6 +15591,7 @@ void o18_800e598c(Cpu* c) {
 
 // ICEMONT1.BIN 800e59b8
 void o18_800e59b8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e59b8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(5) = 0xfffb0000u;
@@ -15473,6 +15624,7 @@ void o18_800e59b8(Cpu* c) {
 
 // ICEMONT1.BIN 800e5a10
 void o18_800e5a10(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5a10u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -15482,6 +15634,7 @@ void o18_800e5a10(Cpu* c) {
 
 // ICEMONT1.BIN 800e5a18
 void o18_800e5a18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5a18u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -15491,6 +15644,7 @@ void o18_800e5a18(Cpu* c) {
 
 // ICEMONT1.BIN 800e5a20
 void o18_800e5a20(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5a20u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15521,6 +15675,7 @@ void o18_800e5a20(Cpu* c) {
 
 // ICEMONT1.BIN 800e5a70
 void o18_800e5a70(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5a70u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15573,6 +15728,7 @@ L_800e5a94:
 
 // ICEMONT1.BIN 800e5b04
 void o18_800e5b04(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5b04u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -15628,6 +15784,7 @@ L_800e5b70:
 
 // ICEMONT1.BIN 800e5b80
 void o18_800e5b80(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5b80u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -15644,6 +15801,7 @@ void o18_800e5b80(Cpu* c) {
 
 // ICEMONT1.BIN 800e5ba0
 void o18_800e5ba0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ba0u);
     CHECK_EVENTS(c);
     R(2) = 0x800c0000u;
     R(4) = R(2) - 0x4de4u;
@@ -15679,6 +15837,7 @@ L_800e5bd4:
 
 // ICEMONT1.BIN 800e5bdc
 void o18_800e5bdc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5bdcu);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -15713,6 +15872,7 @@ L_800e5c10:
 
 // ICEMONT1.BIN 800e5c18
 void o18_800e5c18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5c18u);
     CHECK_EVENTS(c);
     R(2) = 0x800b0000u;
     R(3) = MEM_RB(R(2) + 0x7464u);
@@ -15765,6 +15925,7 @@ L_800e5c84:
 
 // ICEMONT1.BIN 800e5c94
 void o18_800e5c94(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5c94u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15792,6 +15953,7 @@ void o18_800e5c94(Cpu* c) {
 
 // ICEMONT1.BIN 800e5ce4
 void o18_800e5ce4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ce4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15896,6 +16058,7 @@ L_800e5dac:
 
 // ICEMONT1.BIN 800e5dcc
 void o18_800e5dcc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5dccu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -15936,6 +16099,7 @@ void o18_800e5dcc(Cpu* c) {
 
 // ICEMONT1.BIN 800e5e3c
 void o18_800e5e3c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5e3cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -15962,6 +16126,7 @@ L_800e5e5c:
 
 // ICEMONT1.BIN 800e5e6c
 void o18_800e5e6c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5e6cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16088,6 +16253,7 @@ L_800e5f74:
 
 // ICEMONT1.BIN 800e5f84
 void o18_800e5f84(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5f84u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -16123,6 +16289,7 @@ L_800e5fb8:
 
 // ICEMONT1.BIN 800e5fc8
 void o18_800e5fc8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5fc8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -16149,6 +16316,7 @@ L_800e5fe8:
 
 // ICEMONT1.BIN 800e5ff8
 void o18_800e5ff8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5ff8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16189,6 +16357,7 @@ void o18_800e5ff8(Cpu* c) {
 
 // ICEMONT1.BIN 800e6068
 void o18_800e6068(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6068u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -16215,6 +16384,7 @@ L_800e6088:
 
 // ICEMONT1.BIN 800e6098
 void o18_800e6098(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6098u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16341,6 +16511,7 @@ L_800e61a0:
 
 // ICEMONT1.BIN 800e61b0
 void o18_800e61b0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e61b0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -16376,6 +16547,7 @@ L_800e61e4:
 
 // ICEMONT1.BIN 800e61f4
 void o18_800e61f4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e61f4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -16402,6 +16574,7 @@ L_800e6214:
 
 // ICEMONT1.BIN 800e6224
 void o18_800e6224(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6224u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16447,6 +16620,7 @@ void o18_800e6224(Cpu* c) {
 
 // ICEMONT1.BIN 800e62a4
 void o18_800e62a4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e62a4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -16463,6 +16637,7 @@ void o18_800e62a4(Cpu* c) {
 
 // ICEMONT1.BIN 800e62c4
 void o18_800e62c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e62c4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -16498,6 +16673,7 @@ L_800e62f8:
 
 // ICEMONT1.BIN 800e6308
 void o18_800e6308(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6308u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16543,6 +16719,7 @@ void o18_800e6308(Cpu* c) {
 
 // ICEMONT1.BIN 800e6388
 void o18_800e6388(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6388u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16647,6 +16824,7 @@ L_800e6450:
 
 // ICEMONT1.BIN 800e6470
 void o18_800e6470(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6470u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -16682,6 +16860,7 @@ L_800e64a4:
 
 // ICEMONT1.BIN 800e64b4
 void o18_800e64b4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e64b4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16778,6 +16957,7 @@ L_800e6578:
 
 // ICEMONT1.BIN 800e6598
 void o18_800e6598(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6598u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16818,6 +16998,7 @@ void o18_800e6598(Cpu* c) {
 
 // ICEMONT1.BIN 800e6608
 void o18_800e6608(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6608u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -16844,6 +17025,7 @@ L_800e6628:
 
 // ICEMONT1.BIN 800e6638
 void o18_800e6638(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6638u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -16970,6 +17152,7 @@ L_800e6740:
 
 // ICEMONT1.BIN 800e6750
 void o18_800e6750(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6750u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17014,6 +17197,7 @@ L_800e679c:
 
 // ICEMONT1.BIN 800e67ac
 void o18_800e67ac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e67acu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -17040,6 +17224,7 @@ L_800e67cc:
 
 // ICEMONT1.BIN 800e67dc
 void o18_800e67dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e67dcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17073,6 +17258,7 @@ void o18_800e67dc(Cpu* c) {
 
 // ICEMONT1.BIN 800e6838
 void o18_800e6838(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6838u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -17099,6 +17285,7 @@ L_800e6858:
 
 // ICEMONT1.BIN 800e6868
 void o18_800e6868(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6868u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17225,6 +17412,7 @@ L_800e6970:
 
 // ICEMONT1.BIN 800e6980
 void o18_800e6980(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6980u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x28u, R(18));
@@ -17299,6 +17487,7 @@ L_800e69c4:
 
 // ICEMONT1.BIN 800e6a44
 void o18_800e6a44(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6a44u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -17325,6 +17514,7 @@ L_800e6a64:
 
 // ICEMONT1.BIN 800e6a74
 void o18_800e6a74(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6a74u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17370,6 +17560,7 @@ void o18_800e6a74(Cpu* c) {
 
 // ICEMONT1.BIN 800e6af4
 void o18_800e6af4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6af4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -17386,6 +17577,7 @@ void o18_800e6af4(Cpu* c) {
 
 // ICEMONT1.BIN 800e6b14
 void o18_800e6b14(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6b14u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x28u, R(18));
@@ -17460,6 +17652,7 @@ L_800e6b58:
 
 // ICEMONT1.BIN 800e6bd8
 void o18_800e6bd8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6bd8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17505,6 +17698,7 @@ void o18_800e6bd8(Cpu* c) {
 
 // ICEMONT1.BIN 800e6c58
 void o18_800e6c58(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6c58u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17601,6 +17795,7 @@ L_800e6d1c:
 
 // ICEMONT1.BIN 800e6d3c
 void o18_800e6d3c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6d3cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x28u, R(18));
@@ -17675,6 +17870,7 @@ L_800e6d80:
 
 // ICEMONT1.BIN 800e6e00
 void o18_800e6e00(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6e00u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17710,6 +17906,7 @@ void o18_800e6e00(Cpu* c) {
 
 // ICEMONT1.BIN 800e6e54
 void o18_800e6e54(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6e54u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17764,6 +17961,7 @@ L_800e6ecc:
 
 // ICEMONT1.BIN 800e6edc
 void o18_800e6edc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6edcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     R(2) = 0x800f0000u;
@@ -17835,6 +18033,7 @@ L_800e6f78:
 
 // ICEMONT1.BIN 800e6f88
 void o18_800e6f88(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6f88u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17870,6 +18069,7 @@ void o18_800e6f88(Cpu* c) {
 
 // ICEMONT1.BIN 800e6fdc
 void o18_800e6fdc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6fdcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -17905,6 +18105,7 @@ void o18_800e6fdc(Cpu* c) {
 
 // ICEMONT1.BIN 800e7030
 void o18_800e7030(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7030u);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -17927,6 +18128,7 @@ L_800e7048:
 
 // ICEMONT1.BIN 800e705c
 void o18_800e705c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e705cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -18010,6 +18212,7 @@ L_800e7110:
 
 // ICEMONT1.BIN 800e7130
 void o18_800e7130(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7130u);
     CHECK_EVENTS(c);
     R(2) = 0x800f0000u;
     R(5) = MEM_RW(R(2) - 0x7360u);
@@ -18051,6 +18254,7 @@ L_800e7190:
 
 // ICEMONT1.BIN 800e71a0
 void o18_800e71a0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e71a0u);
     CHECK_EVENTS(c);
     R(6) = 0x400000u;
     R(6) = R(6) | 0x4u;
@@ -18081,6 +18285,7 @@ void o18_800e71a0(Cpu* c) {
 
 // ICEMONT1.BIN 800e71f8
 void o18_800e71f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e71f8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -18141,6 +18346,7 @@ L_800e727c:
 
 // ICEMONT1.BIN 800e728c
 void o18_800e728c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e728cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -18150,6 +18356,7 @@ void o18_800e728c(Cpu* c) {
 
 // ICEMONT1.BIN 800e7294
 void o18_800e7294(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7294u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -18223,6 +18430,7 @@ L_800e7338:
 
 // ICEMONT1.BIN 800e7348
 void o18_800e7348(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7348u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18254,6 +18462,7 @@ L_800e7374:
 
 // ICEMONT1.BIN 800e7384
 void o18_800e7384(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7384u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -18263,6 +18472,7 @@ void o18_800e7384(Cpu* c) {
 
 // ICEMONT1.BIN 800e738c
 void o18_800e738c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e738cu);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x80u;
@@ -18277,6 +18487,7 @@ void o18_800e738c(Cpu* c) {
 
 // ICEMONT1.BIN 800e73a4
 void o18_800e73a4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e73a4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18326,6 +18537,7 @@ void o18_800e73a4(Cpu* c) {
 
 // ICEMONT1.BIN 800e7430
 void o18_800e7430(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7430u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -18381,6 +18593,7 @@ void o18_800e7430(Cpu* c) {
 
 // ICEMONT1.BIN 800e74cc
 void o18_800e74cc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e74ccu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -18413,6 +18626,7 @@ void o18_800e74cc(Cpu* c) {
 
 // ICEMONT1.BIN 800e7520
 void o18_800e7520(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7520u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18498,6 +18712,7 @@ L_800e75ec:
 
 // ICEMONT1.BIN 800e75fc
 void o18_800e75fc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e75fcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x1cu, R(17));
@@ -18570,6 +18785,7 @@ L_800e7624:
 
 // ICEMONT1.BIN 800e76bc
 void o18_800e76bc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e76bcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18602,6 +18818,7 @@ L_800e76ec:
 
 // ICEMONT1.BIN 800e76fc
 void o18_800e76fc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e76fcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18633,6 +18850,7 @@ void o18_800e76fc(Cpu* c) {
 
 // ICEMONT1.BIN 800e7750
 void o18_800e7750(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7750u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x1u;
@@ -18645,6 +18863,7 @@ void o18_800e7750(Cpu* c) {
 
 // ICEMONT1.BIN 800e7760
 void o18_800e7760(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7760u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18692,6 +18911,7 @@ void o18_800e7760(Cpu* c) {
 
 // ICEMONT1.BIN 800e77e4
 void o18_800e77e4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e77e4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18739,6 +18959,7 @@ void o18_800e77e4(Cpu* c) {
 
 // ICEMONT1.BIN 800e7868
 void o18_800e7868(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7868u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -18792,6 +19013,7 @@ void o18_800e7868(Cpu* c) {
 
 // ICEMONT1.BIN 800e7904
 void o18_800e7904(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7904u);
     CHECK_EVENTS(c);
     R(3) = MEM_RW(R(4) + 0xa4u);
     R(2) = 0u + 0x4u;
@@ -18804,6 +19026,7 @@ void o18_800e7904(Cpu* c) {
 
 // ICEMONT1.BIN 800e7914
 void o18_800e7914(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7914u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18862,6 +19085,7 @@ L_800e79f8:
 
 // ICEMONT1.BIN 800e7a08
 void o18_800e7a08(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7a08u);
     CHECK_EVENTS(c);
     R(2) = 0x800f0000u;
     R(4) = MEM_RW(R(2) - 0x6b78u);
@@ -18889,6 +19113,7 @@ void o18_800e7a08(Cpu* c) {
 
 // ICEMONT1.BIN 800e7a4c
 void o18_800e7a4c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7a4cu);
     CHECK_EVENTS(c);
     R(2) = 0x800f0000u;
     R(4) = MEM_RH(R(2) - 0x6b40u);
@@ -18907,6 +19132,7 @@ void o18_800e7a4c(Cpu* c) {
 
 // ICEMONT1.BIN 800e7a74
 void o18_800e7a74(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7a74u);
     CHECK_EVENTS(c);
     R(2) = 0x800b0000u;
     R(3) = 0x800c0000u;
@@ -18921,6 +19147,7 @@ void o18_800e7a74(Cpu* c) {
 
 // ICEMONT1.BIN 800e7a8c
 void o18_800e7a8c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7a8cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -18954,6 +19181,7 @@ void o18_800e7a8c(Cpu* c) {
 
 // ICEMONT1.BIN 800e7ae8
 void o18_800e7ae8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7ae8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x28u, R(18));
@@ -19046,6 +19274,7 @@ L_800e7bc8:
 
 // ICEMONT1.BIN 800e7be0
 void o18_800e7be0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7be0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -19116,6 +19345,7 @@ L_800e7c78:
 
 // ICEMONT1.BIN 800e7c90
 void o18_800e7c90(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e7c90u);
     CHECK_EVENTS(c);
     R(5) = 0x800f0000u;
     R(2) = MEM_RH(R(4) + 0xcu);
@@ -19130,6 +19360,7 @@ void o18_800e7c90(Cpu* c) {
 
 // ICEMONT2.BIN 800df120
 void o19_800df120(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df120u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x24u, R(17));
@@ -19294,6 +19525,7 @@ L_800df288:
 
 // ICEMONT2.BIN 800df29c
 void o19_800df29c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df29cu);
     CHECK_EVENTS(c);
     R(2) = 0x800f0000u;
     R(3) = MEM_RW(R(2) - 0x7858u);
@@ -19352,6 +19584,7 @@ L_800df32c:
 
 // ICEMONT2.BIN 800df33c
 void o19_800df33c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df33cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -19526,6 +19759,7 @@ L_800df4e4:
 
 // ICEMONT2.BIN 800df4f4
 void o19_800df4f4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df4f4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -19709,6 +19943,7 @@ L_800df6f4:
 
 // ICEMONT2.BIN 800df70c
 void o19_800df70c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df70cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -19849,6 +20084,7 @@ L_800df868:
 
 // ICEMONT2.BIN 800df880
 void o19_800df880(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df880u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -19963,6 +20199,7 @@ L_800df9a8:
 
 // ICEMONT2.BIN 800df9b8
 void o19_800df9b8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800df9b8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     R(2) = 0x800b0000u;
@@ -20041,6 +20278,7 @@ L_800dfa6c:
 
 // ICEMONT2.BIN 800dfaa4
 void o19_800dfaa4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfaa4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -20166,6 +20404,7 @@ L_800dfbcc:
 
 // ICEMONT2.BIN 800dfbe8
 void o19_800dfbe8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfbe8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x18u, R(18));
@@ -20436,6 +20675,7 @@ L_800dfe8c:
 
 // ICEMONT2.BIN 800dfeac
 void o19_800dfeac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800dfeacu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x1cu, R(17));
@@ -20667,6 +20907,7 @@ L_800e00c0:
 
 // ICEMONT2.BIN 800e00d4
 void o19_800e00d4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e00d4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -20825,6 +21066,7 @@ L_800e0224:
 
 // ICEMONT2.BIN 800e027c
 void o19_800e027c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e027cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -21074,6 +21316,7 @@ L_800e04cc:
 
 // ICEMONT2.BIN 800e04f8
 void o19_800e04f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e04f8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x40u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -21258,6 +21501,7 @@ L_800e068c:
 
 // ICEMONT2.BIN 800e06bc
 void o19_800e06bc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e06bcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x28u, R(16));
@@ -21415,6 +21659,7 @@ L_800e0884:
 
 // ICEMONT2.BIN 800e0898
 void o19_800e0898(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0898u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x24u, R(17));
@@ -21633,6 +21878,7 @@ L_800e0ac0:
 
 // ICEMONT2.BIN 800e0ad4
 void o19_800e0ad4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0ad4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     MEM_WW(R(29) + 0x28u, R(18));
@@ -21778,6 +22024,7 @@ L_800e0c5c:
 
 // ICEMONT2.BIN 800e0c74
 void o19_800e0c74(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0c74u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -22018,6 +22265,7 @@ L_800e0e34:
 
 // ICEMONT2.BIN 800e0f58
 void o19_800e0f58(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e0f58u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x14u, R(17));
@@ -22146,6 +22394,7 @@ L_800e10a4:
 
 // ICEMONT2.BIN 800e10c4
 void o19_800e10c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e10c4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(31));
@@ -22260,6 +22509,7 @@ L_800e11f8:
 
 // ICEMONT2.BIN 800e120c
 void o19_800e120c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e120cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -22398,6 +22648,7 @@ L_800e1330:
 
 // ICEMONT2.BIN 800e139c
 void o19_800e139c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e139cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x38u;
     MEM_WW(R(29) + 0x2cu, R(23));
@@ -23730,6 +23981,7 @@ L_800e214c:
 
 // ICEMONT2.BIN 800e2188
 void o19_800e2188(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2188u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     R(4) = 0u + 0u;
@@ -24355,6 +24607,7 @@ L_800e2594:
 
 // ICEMONT2.BIN 800e2868
 void o19_800e2868(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e2868u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x50u;
     MEM_WW(R(29) + 0x28u, R(16));
@@ -28303,6 +28556,7 @@ L_800e5060:
 
 // ICEMONT2.BIN 800e50d4
 void o19_800e50d4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e50d4u);
     CHECK_EVENTS(c);
     R(2) = 0x800c0000u;
     R(3) = MEM_RW(R(2) - 0x76acu);
@@ -28357,6 +28611,7 @@ L_800e5138:
 
 // ICEMONT2.BIN 800e5148
 void o19_800e5148(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5148u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x30u;
     R(2) = 0x800f0000u;
@@ -28446,6 +28701,7 @@ L_800e51e8:
 
 // ICEMONT2.BIN 800e5220
 void o19_800e5220(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5220u);
     CHECK_EVENTS(c);
     {
         bool t = R(4) == 0u;
@@ -28482,6 +28738,7 @@ L_800e525c:
 
 // ICEMONT2.BIN 800e5268
 void o19_800e5268(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5268u);
     CHECK_EVENTS(c);
     R(7) = 0x260000u;
     R(7) = R(7) | 0x9ec3u;
@@ -28536,6 +28793,7 @@ void o19_800e5268(Cpu* c) {
 
 // ICEMONT2.BIN 800e5320
 void o19_800e5320(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5320u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -28580,6 +28838,7 @@ L_800e536c:
 
 // ICEMONT2.BIN 800e537c
 void o19_800e537c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e537cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -28589,6 +28848,7 @@ void o19_800e537c(Cpu* c) {
 
 // ICEMONT2.BIN 800e5384
 void o19_800e5384(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5384u);
     CHECK_EVENTS(c);
     R(5) = 0xfffb0000u;
     R(2) = MEM_RW(R(4) + 0x84u);
@@ -28608,6 +28868,7 @@ void o19_800e5384(Cpu* c) {
 
 // ICEMONT2.BIN 800e53b0
 void o19_800e53b0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e53b0u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -28617,6 +28878,7 @@ void o19_800e53b0(Cpu* c) {
 
 // ICEMONT2.BIN 800e53b8
 void o19_800e53b8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e53b8u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -28626,6 +28888,7 @@ void o19_800e53b8(Cpu* c) {
 
 // ICEMONT2.BIN 800e53c0
 void o19_800e53c0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e53c0u);
     CHECK_EVENTS(c);
     R(3) = MEM_RH(R(4) + 0x7cu);
     R(2) = 0u + 0xau;
@@ -28641,6 +28904,7 @@ void o19_800e53c0(Cpu* c) {
 
 // ICEMONT2.BIN 800e53dc
 void o19_800e53dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e53dcu);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     MEM_WB(R(4) + 0x31u, R(0));
@@ -28654,6 +28918,7 @@ void o19_800e53dc(Cpu* c) {
 
 // ICEMONT2.BIN 800e53f0
 void o19_800e53f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e53f0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -28747,6 +29012,7 @@ L_800e54b0:
 
 // ICEMONT2.BIN 800e54c4
 void o19_800e54c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e54c4u);
     CHECK_EVENTS(c);
     R(7) = 0x260000u;
     R(7) = R(7) | 0x9ec3u;
@@ -28801,6 +29067,7 @@ void o19_800e54c4(Cpu* c) {
 
 // ICEMONT2.BIN 800e557c
 void o19_800e557c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e557cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -28824,6 +29091,7 @@ L_800e559c:
 
 // ICEMONT2.BIN 800e55ac
 void o19_800e55ac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e55acu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     {
@@ -28859,6 +29127,7 @@ L_800e55e0:
 
 // ICEMONT2.BIN 800e55f0
 void o19_800e55f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e55f0u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -28963,6 +29232,7 @@ L_800e56d8:
 
 // ICEMONT2.BIN 800e56e8
 void o19_800e56e8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e56e8u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -28972,6 +29242,7 @@ void o19_800e56e8(Cpu* c) {
 
 // ICEMONT2.BIN 800e56f0
 void o19_800e56f0(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e56f0u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -28981,6 +29252,7 @@ void o19_800e56f0(Cpu* c) {
 
 // ICEMONT2.BIN 800e56f8
 void o19_800e56f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e56f8u);
     CHECK_EVENTS(c);
     R(3) = MEM_RH(R(4) + 0x7cu);
     R(2) = 0u + 0xau;
@@ -28996,6 +29268,7 @@ void o19_800e56f8(Cpu* c) {
 
 // ICEMONT2.BIN 800e5714
 void o19_800e5714(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5714u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -29005,6 +29278,7 @@ void o19_800e5714(Cpu* c) {
 
 // ICEMONT2.BIN 800e571c
 void o19_800e571c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e571cu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -29032,6 +29306,7 @@ L_800e5740:
 
 // ICEMONT2.BIN 800e5750
 void o19_800e5750(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5750u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -29099,6 +29374,7 @@ L_800e57c0:
 
 // ICEMONT2.BIN 800e57f8
 void o19_800e57f8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e57f8u);
     CHECK_EVENTS(c);
     R(8) = R(4) + 0u;
     R(3) = MEM_RB(R(8) + 0x30u);
@@ -29156,6 +29432,7 @@ L_800e58a4:
 
 // ICEMONT2.BIN 800e58ac
 void o19_800e58ac(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e58acu);
     CHECK_EVENTS(c);
     R(2) = MEM_RH(R(4) + 0x7cu);
     R(3) = 0u + 0x80u;
@@ -29170,6 +29447,7 @@ void o19_800e58ac(Cpu* c) {
 
 // ICEMONT2.BIN 800e58c4
 void o19_800e58c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e58c4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -29250,6 +29528,7 @@ L_800e58f8:
 
 // ICEMONT2.BIN 800e59c4
 void o19_800e59c4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e59c4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -29294,6 +29573,7 @@ L_800e5a10:
 
 // ICEMONT2.BIN 800e5a20
 void o19_800e5a20(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5a20u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -29356,6 +29636,7 @@ L_800e5a4c:
 
 // ICEMONT2.BIN 800e5adc
 void o19_800e5adc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5adcu);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -29388,6 +29669,7 @@ L_800e5b08:
 
 // ICEMONT2.BIN 800e5b24
 void o19_800e5b24(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5b24u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -29490,6 +29772,7 @@ L_800e5c1c:
 
 // ICEMONT2.BIN 800e5c38
 void o19_800e5c38(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5c38u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -29499,6 +29782,7 @@ void o19_800e5c38(Cpu* c) {
 
 // ICEMONT2.BIN 800e5c40
 void o19_800e5c40(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5c40u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -29566,6 +29850,7 @@ L_800e5cb4:
 
 // ICEMONT2.BIN 800e5cc4
 void o19_800e5cc4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5cc4u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -29650,6 +29935,7 @@ L_800e5db0:
 
 // ICEMONT2.BIN 800e5dc4
 void o19_800e5dc4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5dc4u);
     CHECK_EVENTS(c);
     R(2) = 0u + 0x64u;
     MEM_WH(R(4) + 0x66u, R(2));
@@ -29684,6 +29970,7 @@ L_800e5de0:
 
 // ICEMONT2.BIN 800e5e14
 void o19_800e5e14(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5e14u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(31));
@@ -29700,6 +29987,7 @@ void o19_800e5e14(Cpu* c) {
 
 // ICEMONT2.BIN 800e5e34
 void o19_800e5e34(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5e34u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -29742,6 +30030,7 @@ L_800e5e70:
 
 // ICEMONT2.BIN 800e5e88
 void o19_800e5e88(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5e88u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -29794,6 +30083,7 @@ L_800e5ef8:
 
 // ICEMONT2.BIN 800e5f08
 void o19_800e5f08(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5f08u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -29803,6 +30093,7 @@ void o19_800e5f08(Cpu* c) {
 
 // ICEMONT2.BIN 800e5f10
 void o19_800e5f10(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5f10u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -29812,6 +30103,7 @@ void o19_800e5f10(Cpu* c) {
 
 // ICEMONT2.BIN 800e5f18
 void o19_800e5f18(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5f18u);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -29821,6 +30113,7 @@ void o19_800e5f18(Cpu* c) {
 
 // ICEMONT2.BIN 800e5f20
 void o19_800e5f20(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5f20u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x28u;
     MEM_WW(R(29) + 0x20u, R(16));
@@ -29891,6 +30184,7 @@ L_800e5fb8:
 
 // ICEMONT2.BIN 800e5fc8
 void o19_800e5fc8(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e5fc8u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x20u;
     MEM_WW(R(29) + 0x18u, R(16));
@@ -29996,6 +30290,7 @@ L_800e60bc:
 
 // ICEMONT2.BIN 800e60cc
 void o19_800e60cc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e60ccu);
     CHECK_EVENTS(c);
     R(5) = R(4) + 0u;
     {
@@ -30039,6 +30334,7 @@ L_800e6104:
 
 // ICEMONT2.BIN 800e612c
 void o19_800e612c(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e612cu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
@@ -30048,6 +30344,7 @@ void o19_800e612c(Cpu* c) {
 
 // ICEMONT2.BIN 800e6134
 void o19_800e6134(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6134u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -30079,6 +30376,7 @@ void o19_800e6134(Cpu* c) {
 
 // ICEMONT2.BIN 800e6188
 void o19_800e6188(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e6188u);
     CHECK_EVENTS(c);
     R(29) = R(29) - 0x18u;
     MEM_WW(R(29) + 0x10u, R(16));
@@ -30108,6 +30406,7 @@ void o19_800e6188(Cpu* c) {
 
 // ICEMONT2.BIN 800e61d4
 void o19_800e61d4(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e61d4u);
     CHECK_EVENTS(c);
     {
         MEM_WB(R(4) + 0x31u, R(0));
@@ -30118,6 +30417,7 @@ void o19_800e61d4(Cpu* c) {
 
 // ICEMONT2.BIN 800e61dc
 void o19_800e61dc(Cpu* c) {
+    FUNC_ENTRY(c, 0x800e61dcu);
     CHECK_EVENTS(c);
     {
         c->cycles += 2;
