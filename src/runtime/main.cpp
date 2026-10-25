@@ -19,8 +19,82 @@
 namespace fs = std::filesystem;
 static std::string g_exe_dir;
 
+#include "hostinput.h"
+// INPUT_SCRIPT="2400=cross,2410=,3000=up+cross" : from frame N hold these buttons (headless tests)
+static void scripted_input(int frame) {
+    static std::vector<std::pair<int, uint32_t>> steps;
+    static bool parsed = false;
+    if (!parsed) {
+        parsed = true;
+        const char* e = getenv("INPUT_SCRIPT");
+        if (!e) return;
+        std::string s = e;
+        size_t p = 0;
+        while (p < s.size()) {
+            size_t c = s.find(',', p);
+            std::string item = s.substr(p, c == std::string::npos ? std::string::npos : c - p);
+            p = c == std::string::npos ? s.size() : c + 1;
+            size_t eq = item.find('=');
+            if (eq == std::string::npos) continue;
+            int f = atoi(item.substr(0, eq).c_str());
+            uint32_t b = 0;
+            std::string names = item.substr(eq + 1) + "+";
+            size_t q = 0;
+            while (q < names.size()) {
+                size_t pl = names.find('+', q);
+                std::string n = names.substr(q, pl - q);
+                q = pl + 1;
+                static const struct { const char* n; uint32_t b; } map[] = {
+                    {"up", IN_UP}, {"down", IN_DOWN}, {"left", IN_LEFT}, {"right", IN_RIGHT}, {"cross", IN_SOUTH},
+                    {"circle", IN_EAST}, {"square", IN_WEST}, {"triangle", IN_NORTH}, {"l1", IN_L1}, {"r1", IN_R1},
+                    {"l2", IN_L2}, {"r2", IN_R2}, {"start", IN_START}, {"select", IN_BACK}};
+                for (auto& m : map) if (n == m.n) b |= m.b;
+            }
+            steps.push_back({f, b});
+        }
+    }
+    for (auto& st : steps) if (st.first == frame) g_host_input.buttons = st.second;
+}
+
+// WATCH="800bb360,gp+178c" : print these RAM words whenever they change (debugging)
+static void watch_ram(int frame) {
+    static std::vector<std::pair<std::string, uint32_t>> w;
+    static std::vector<uint32_t> last;
+    static bool parsed = false;
+    if (!parsed) {
+        parsed = true;
+        const char* e = getenv("WATCH");
+        if (!e) return;
+        std::string s = std::string(e) + ",";
+        size_t p = 0, c;
+        while ((c = s.find(',', p)) != std::string::npos) {
+            std::string it = s.substr(p, c - p);
+            p = c + 1;
+            if (!it.empty()) w.push_back({it, 0});
+        }
+        last.assign(w.size(), 0xdeadbeef);
+    }
+    for (size_t i = 0; i < w.size(); i++) {
+        const std::string& it = w[i].first;
+        uint32_t a = it.rfind("gp+", 0) == 0 ? g_cpu.r[28] + (uint32_t)strtoul(it.c_str() + 3, nullptr, 16)
+                                             : (uint32_t)strtoul(it.c_str(), nullptr, 16);
+        uint32_t v = MEM_RW(a & ~3u);
+        if (v != last[i]) {
+            fprintf(stderr, "[watch f%d] %s (%08x) = %08x\n", frame, it.c_str(), a, v);
+            last[i] = v;
+        }
+    }
+}
+
 void platform_vblank() {
     static int frames = 0;
+    static int vbl = 0;
+    scripted_input(++vbl);
+    watch_ram(vbl);
+    static int dump_at = -1;
+    static char dump_fn[256];
+    if (dump_at == -1) { dump_at = 0; if (getenv("RAM_DUMP_AT")) sscanf(getenv("RAM_DUMP_AT"), "%d:%255s", &dump_at, dump_fn); }
+    if (dump_at && vbl == dump_at) { FILE* f = fopen(dump_fn, "wb"); if (f) { fwrite(g_ram, 1, 0x200000, f); fclose(f); } }
     static int limit = getenv("FRAMES") ? atoi(getenv("FRAMES")) : 0;
     if (limit && ++frames >= limit) {
         fprintf(stderr, "[main] frame limit reached (%d frames, %.1f s emulated)\n", frames, g_cpu.cycles / (double)CPU_HZ);

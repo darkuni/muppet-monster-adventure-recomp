@@ -39,6 +39,8 @@ void platform_rumble(int, int) {}
 #include "audio_ring.h"
 #include "hostclock.h"
 #include <thread>
+#include <cstdlib>
+#include <cstdio>
 #include <chrono>
 void platform_audio_push(const int16_t* lr, int frames) {
     static bool started = false;
@@ -51,6 +53,32 @@ void platform_audio_push(const int16_t* lr, int frames) {
         }).detach();
     }
     audio_ring_push(lr, frames);
+    // AUDIO_DUMP=file.wav: record everything the SPU outputs (headless verification)
+    static FILE* wav = nullptr;
+    static uint32_t total = 0;
+    static bool tried = false;
+    if (!tried) {
+        tried = true;
+        if (const char* p = getenv("AUDIO_DUMP")) {
+            wav = fopen(p, "wb");
+            if (wav) { uint8_t hdr[44] = {}; fwrite(hdr, 1, 44, wav); }
+        }
+    }
+    if (wav) {
+        fwrite(lr, 4, frames, wav);
+        total += frames * 4;
+        // keep the header valid as we go
+        long pos = ftell(wav);
+        uint32_t rate = 44100, byterate = 44100 * 4, riff = total + 36;
+        uint16_t fmt = 1, ch = 2, align = 4, bits = 16;
+        uint32_t fmtlen = 16;
+        fseek(wav, 0, SEEK_SET);
+        fwrite("RIFF", 1, 4, wav); fwrite(&riff, 4, 1, wav); fwrite("WAVEfmt ", 1, 8, wav);
+        fwrite(&fmtlen, 4, 1, wav); fwrite(&fmt, 2, 1, wav); fwrite(&ch, 2, 1, wav); fwrite(&rate, 4, 1, wav);
+        fwrite(&byterate, 4, 1, wav); fwrite(&align, 2, 1, wav); fwrite(&bits, 2, 1, wav);
+        fwrite("data", 1, 4, wav); fwrite(&total, 4, 1, wav);
+        fseek(wav, pos, SEEK_SET);
+    }
 }
 void gl_platform_present(unsigned, int, int) {}
 bool gl_platform_poll() { return true; }

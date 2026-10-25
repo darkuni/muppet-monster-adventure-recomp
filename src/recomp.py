@@ -405,6 +405,7 @@ class Recompiler:
             entries[self.exe.name].add(a)
         # Overlay roots: direct calls from the exe into the overlay region resolve per-overlay
         ovl_calls = set()
+        dptr = defaultdict(set)         # entries found only through data words (recomputed each round)
         changed = True
         rounds = 0
         while changed:
@@ -412,7 +413,7 @@ class Recompiler:
             changed = False
             self.funcs = {}
             for im in self.images:
-                es = entries[im.name]
+                es = entries[im.name] | dptr[im.name]
                 for e in sorted(es):
                     if (im.name, e) in self.notfunc:
                         continue
@@ -425,7 +426,7 @@ class Recompiler:
             new = defaultdict(set)
             for (imn, e), f in self.funcs.items():
                 im = byname[imn]
-                for t in f.calls | f.tails:
+                for t in f.calls | (f.tails - dptr[imn]):
                     ti = self.target_image(im, t)
                     if ti is not None:
                         new[ti.name].add(t)
@@ -438,14 +439,25 @@ class Recompiler:
                             new[cand.name].add(t)
                     if im is self.exe and OVL_BASE <= t < OVL_END:
                         ovl_calls.add(t)
+            # jump table words are data pointers into their own function: never entries
+            twords = defaultdict(set)
+            for (imn, e), f in self.funcs.items():
+                for (tab, tgts) in f.tables.values():
+                    for k in range(len(tgts)):
+                        twords[imn].add(tab + 4 * k)
+            ndptr = defaultdict(set)
             for im in self.images:
-                for (ti, t) in self.scan_data_ptrs(im, code[im.name]):
-                    new[ti.name].add(t)
+                for (ti, t) in self.scan_data_ptrs(im, code[im.name] | twords[im.name]):
+                    if t not in entries[ti.name]:
+                        ndptr[ti.name].add(t)
+            if any(ndptr[k] != dptr[k] for k in set(ndptr) | set(dptr)):
+                changed = True
+            dptr = ndptr
             for ov in self.overlays:
                 for t in ovl_calls:
                     if ov.has(t) and is_plausible_entry(ov, t):
                         new[ov.name].add(t)
-            if not any(s - entries[k] for k, s in new.items()):
+            if not changed and not any(s - entries[k] for k, s in new.items()):
                 # converged on references: sweep gaps for unreferenced functions (dead or pointer-only code)
                 for im in self.images:
                     for a in self.sweep_gaps(im, code[im.name]):
@@ -456,6 +468,8 @@ class Recompiler:
                     entries[imn] |= add
                     changed = True
             print('round %d: %d functions' % (rounds, len(self.funcs)), file=sys.stderr)
+        for k, v in dptr.items():
+            entries[k] |= v
         self.entries = entries
 
     def sweep_gaps(self, im, code):
@@ -695,8 +709,9 @@ class Recompiler:
                         back_targets.add(t)
         labels = set(f.labels) | {ent} | getattr(f, 'extra_labels', set())
         out.append('    CHECK_EVENTS(c);')
-        if ent in labels and ent in back_targets:
-            pass
+        if addrs[0] < ent:
+            # code reached by jumps lies before the entry point: start at the entry
+            out.append('    goto L_%08x;' % ent)
         ind = '    '
         cyc = 0
         # determine load-delay hazards: insn at a+4 reads the register a load at a writes

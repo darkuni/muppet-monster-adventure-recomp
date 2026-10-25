@@ -247,9 +247,10 @@ static void dma_run(int ch) {
     uint32_t addr = d.madr & 0x1ffffc;
     int64_t cost = 0;
     if (mode == 2) {
-        // linked list (GPU)
+        // linked list (GPU); an address with bit 23 set (the 0xFFFFFF terminator) ends it at once
         int guard = 0;
-        for (;;) {
+        for (uint32_t a = d.madr; !(a & 0x800000);) {
+            addr = a & 0x1ffffc;
             uint32_t hdr;
             memcpy(&hdr, g_ram + addr, 4);
             uint32_t n = hdr >> 24;
@@ -260,8 +261,7 @@ static void dma_run(int ch) {
                 gpu_write(0, w);
             }
             cost += n + 1;
-            if (hdr & 0x800000) break;
-            addr = hdr & 0x1ffffc;
+            a = hdr & 0xffffff;
             if (++guard > 1000000) { LOG("dma", "GPU linked list loop"); break; }
         }
         d.madr = 0xffffff;

@@ -2,538 +2,6 @@
 #include "funcs.h"
 #define R(n) c->r[n]
 
-// SLUS_012.38 80067b18
-void f_80067b18(Cpu* c) {
-    CHECK_EVENTS(c);
-    R(29) = R(29) - 0x18u;
-    MEM_WW(R(29) + 0x10u, R(31));
-    R(6) = MEM_RW(R(4));
-    {
-        bool t = R(4) == 0u;
-        R(5) = R(6) + 0x4u;
-        c->cycles += 5;
-        if (t) { goto L_80067b34; }
-    }
-    {
-        bool t = R(6) != 0u;
-        c->cycles += 2;
-        if (t) { goto L_80067b54; }
-    }
-L_80067b34:
-    R(4) = 0x80010000u;
-    R(4) = R(4) + 0x20f0u;
-    R(5) = 0x800b0000u;
-    R(5) = R(5) + 0x7b88u;
-    R(31) = 0x80067b4cu;
-        R(6) = 0u + 0xb1au;
-    c->cycles += 6;
-    f_8003a3f4(c);
-    {
-        c->cycles += 2;
-        goto L_80067be4;
-    }
-L_80067b54:
-    R(2) = MEM_RB(R(4) + 0x14u);
-    {
-        bool t = R(2) != 0u;
-        R(4) = 0x80010000u;
-        c->cycles += 4;
-        if (t) { goto L_80067b80; }
-    }
-    R(4) = R(4) + 0x212cu;
-    R(5) = 0x800b0000u;
-    R(5) = R(5) + 0x7b88u;
-    R(31) = 0x80067b78u;
-        R(6) = 0u + 0xb20u;
-    c->cycles += 5;
-    f_8003a3f4(c);
-    {
-        c->cycles += 2;
-        goto L_80067be4;
-    }
-L_80067b80:
-    R(2) = MEM_RB(R(6) + 0x1u);
-    {
-        bool t = R(2) == 0u;
-        R(3) = 0u + 0u;
-        c->cycles += 4;
-        if (t) { goto L_80067be4; }
-    }
-L_80067b90:
-    CHECK_EVENTS(c);
-    R(4) = 0u + 0u;
-    R(2) = MEM_RB(R(6));
-    {
-        bool t = R(2) == 0u;
-        R(7) = R(3) + 0x1u;
-        c->cycles += 5;
-        if (t) { goto L_80067bd0; }
-    }
-L_80067ba4:
-    CHECK_EVENTS(c);
-    R(2) = MEM_RB(R(5));
-    R(4) = R(4) + 0x1u;
-    R(2) = R(2) & 0xf0u;
-    R(3) = R(2) >> 4;
-    R(2) = R(2) | R(3);
-    MEM_WB(R(5), R(2));
-    R(3) = MEM_RB(R(6));
-    R(3) = (int32_t)R(4) < (int32_t)R(3);
-    {
-        bool t = R(3) != 0u;
-        R(5) = R(5) + 0x1u;
-        c->cycles += 11;
-        if (t) { goto L_80067ba4; }
-    }
-L_80067bd0:
-    R(2) = MEM_RB(R(6) + 0x1u);
-    R(3) = R(7) + 0u;
-    R(2) = (int32_t)R(3) < (int32_t)R(2);
-    {
-        bool t = R(2) != 0u;
-        c->cycles += 5;
-        if (t) { goto L_80067b90; }
-    }
-L_80067be4:
-    R(31) = MEM_RW(R(29) + 0x10u);
-    {
-        R(29) = R(29) + 0x18u;
-        c->cycles += 4;
-        return;
-    }
-}
-
-// SLUS_012.38 80067bf4
-void f_80067bf4(Cpu* c) {
-    CHECK_EVENTS(c);
-    R(2) = 0x800c0000u;
-    R(2) = MEM_RW(R(2) - 0x7b60u);
-    R(4) = MEM_RW(R(28) + 0x1e28u);
-    R(29) = R(29) - 0x18u;
-    MEM_WW(R(29) + 0x10u, R(31));
-    R(3) = R(2) << 1;
-    R(3) = R(3) + R(2);
-    R(3) = R(3) << 2;
-    R(3) = R(3) + R(2);
-    R(3) = R(3) << 3;
-    R(2) = 0x800c0000u;
-    R(2) = MEM_RW(R(2) - 0x7efcu);
-    R(3) = R(3) + 0x1cu;
-    {
-        bool t = R(4) == 0u;
-        R(5) = R(2) + R(3);
-        c->cycles += 15;
-        if (t) { goto L_80067c64; }
-    }
-    R(3) = MEM_RB(R(4) + 0x10u);
-    R(2) = 0u + 0x1u;
-    {
-        bool t = R(3) != R(2);
-        c->cycles += 4;
-        if (t) { goto L_80067c64; }
-    }
-    R(2) = MEM_RB(R(4) + 0x11u);
-    MEM_WB(R(5) + 0x1u, R(2));
-    R(3) = 0x800c0000u;
-    R(3) = MEM_RW(R(3) - 0x7458u);
-    R(1) = 0x800c0000u;
-    MEM_WW(R(1) - 0x7454u, R(3));
-    R(31) = 0x80067c64u;
-    c->cycles += 9;
-    f_80085fa8(c);
-L_80067c64:
-    R(31) = MEM_RW(R(29) + 0x10u);
-    {
-        R(29) = R(29) + 0x18u;
-        c->cycles += 4;
-        return;
-    }
-}
-
-// SLUS_012.38 80067c74
-void f_80067c74(Cpu* c) {
-    CHECK_EVENTS(c);
-    R(3) = 0x800c0000u;
-    R(3) = MEM_RW(R(3) - 0x7b60u);
-    R(4) = 0x800c0000u;
-    R(4) = MEM_RW(R(4) - 0x7b5cu);
-    R(29) = R(29) - 0x18u;
-    MEM_WW(R(29) + 0x14u, R(31));
-    MEM_WW(R(29) + 0x10u, R(16));
-    R(2) = R(3) << 1;
-    R(2) = R(2) + R(3);
-    R(2) = R(2) << 2;
-    R(2) = R(2) + R(3);
-    R(2) = R(2) << 3;
-    R(3) = 0x800c0000u;
-    R(3) = MEM_RW(R(3) - 0x7efcu);
-    R(2) = R(2) + 0x1cu;
-    R(16) = R(3) + R(2);
-    R(2) = 0u + 0x8u;
-    {
-        bool t = R(4) != R(2);
-        c->cycles += 19;
-        if (t) { goto L_80067ce4; }
-    }
-    R(2) = 0x800b0000u;
-    R(2) = MEM_RB(R(2) + 0x6f76u);
-    {
-        bool t = R(2) != 0u;
-        c->cycles += 5;
-        if (t) { goto L_80067d6c; }
-    }
-    R(31) = 0x80067cdcu;
-    c->cycles += 2;
-    f_80037018(c);
-    {
-        c->cycles += 2;
-        goto L_80067d6c;
-    }
-L_80067ce4:
-    R(31) = 0x80067cecu;
-    c->cycles += 2;
-    f_8006aca8(c);
-    R(2) = 0x800c0000u;
-    R(2) = MEM_RB(R(2) - 0x7b26u);
-    {
-        bool t = R(2) == 0u;
-        R(2) = 0u + 0x1u;
-        c->cycles += 5;
-        if (t) { goto L_80067d14; }
-    }
-    R(4) = MEM_RB(R(16) + 0x1u);
-    R(31) = 0x80067d0cu;
-    c->cycles += 3;
-    f_80067274(c);
-    {
-        c->cycles += 2;
-        goto L_80067d3c;
-    }
-L_80067d14:
-    MEM_WB(R(16), R(2));
-    MEM_WB(R(16) + 0x1u, R(0));
-    R(2) = 0x800b0000u;
-    R(2) = MEM_RW(R(2) + 0x7c78u);
-    R(1) = 0x800c0000u;
-    MEM_WW(R(1) - 0x7458u, R(2));
-    R(1) = 0x800c0000u;
-    MEM_WW(R(1) - 0x7454u, R(2));
-    R(31) = 0x80067d3cu;
-    c->cycles += 10;
-    f_80043600(c);
-L_80067d3c:
-    R(2) = 0x800c0000u;
-    R(2) = MEM_RW(R(2) - 0x7b5cu);
-    {
-        bool t = R(2) != 0u;
-        R(2) = 0u + 0x3u;
-        c->cycles += 5;
-        if (t) { goto L_80067d6c; }
-    }
-    R(3) = 0x800c0000u;
-    R(3) = MEM_RW(R(3) - 0x7b58u);
-    {
-        bool t = R(3) != R(2);
-        R(4) = 0x800c0000u;
-        c->cycles += 5;
-        if (t) { goto L_80067d6c; }
-    }
-    R(31) = 0x80067d6cu;
-        R(4) = R(4) - 0x777cu;
-    c->cycles += 2;
-    f_8007544c(c);
-L_80067d6c:
-    R(31) = 0x80067d74u;
-    c->cycles += 2;
-    f_8008d518(c);
-    R(31) = MEM_RW(R(29) + 0x14u);
-    R(16) = MEM_RW(R(29) + 0x10u);
-    {
-        R(29) = R(29) + 0x18u;
-        c->cycles += 4;
-        return;
-    }
-}
-
-// SLUS_012.38 80067d84
-void f_80067d84(Cpu* c) {
-    CHECK_EVENTS(c);
-    MEM_WW(R(28) + 0xea0u, R(0));
-    MEM_WW(R(28) + 0xea4u, R(0));
-    {
-        c->cycles += 4;
-        return;
-    }
-}
-
-// SLUS_012.38 80067d94
-void f_80067d94(Cpu* c) {
-    CHECK_EVENTS(c);
-    R(2) = MEM_RW(R(28) + 0xea0u);
-    {
-        bool t = R(2) == 0u;
-        c->cycles += 4;
-        if (t) { goto L_80067db8; }
-    }
-L_80067da4:
-    CHECK_EVENTS(c);
-    MEM_WW(R(2) + 0x14u, R(0));
-    R(2) = MEM_RW(R(2) + 0x10u);
-    {
-        bool t = R(2) != 0u;
-        c->cycles += 5;
-        if (t) { goto L_80067da4; }
-    }
-L_80067db8:
-    MEM_WW(R(28) + 0xea4u, R(0));
-    {
-        c->cycles += 3;
-        return;
-    }
-}
-
-// SLUS_012.38 80067dc4
-void f_80067dc4(Cpu* c) {
-    CHECK_EVENTS(c);
-    R(29) = R(29) - 0x38u;
-    MEM_WW(R(29) + 0x24u, R(21));
-    R(21) = MEM_RH(R(29) + 0x48u);
-    MEM_WW(R(29) + 0x28u, R(22));
-    R(22) = MEM_RH(R(29) + 0x4cu);
-    MEM_WW(R(29) + 0x2cu, R(23));
-    R(23) = R(4) & 0xffffu;
-    MEM_WW(R(29) + 0x20u, R(20));
-    R(20) = MEM_RH(R(29) + 0x50u);
-    R(4) = 0u + 0x18u;
-    MEM_WW(R(29) + 0x1cu, R(19));
-    R(19) = R(5) & 0xffffu;
-    MEM_WW(R(29) + 0x10u, R(16));
-    R(16) = R(6) & 0xffffu;
-    MEM_WW(R(29) + 0x18u, R(18));
-    R(18) = R(7) & 0xffffu;
-    MEM_WW(R(29) + 0x30u, R(31));
-    R(31) = 0x80067e10u;
-        MEM_WW(R(29) + 0x14u, R(17));
-    c->cycles += 19;
-    f_8003b82c(c);
-    R(17) = R(2) + 0u;
-    R(4) = R(17) + 0u;
-    R(5) = 0u + 0u;
-    R(31) = 0x80067e24u;
-        R(6) = 0u + 0x18u;
-    c->cycles += 5;
-    f_8003bad4(c);
-    {
-        bool t = R(16) != 0u;
-        c->cycles += 2;
-        if (t) { goto L_80067e34; }
-    }
-    {
-        bool t = R(18) == 0u;
-        c->cycles += 2;
-        if (t) { goto L_80067e48; }
-    }
-L_80067e34:
-    R(2) = MEM_RB(R(17) + 0x1u);
-    MEM_WB(R(17) + 0x3u, R(16));
-    MEM_WB(R(17) + 0x4u, R(18));
-    R(2) = R(2) | 0x2u;
-    MEM_WB(R(17) + 0x1u, R(2));
-    c->cycles += 5;
-L_80067e48:
-    R(2) = MEM_RB(R(17) + 0x1u);
-    R(2) = R(2) | R(21);
-    {
-        bool t = R(19) == 0u;
-        MEM_WB(R(17) + 0x1u, R(2));
-        c->cycles += 5;
-        if (t) { goto L_80067e68; }
-    }
-    R(2) = R(2) | 0x4u;
-    MEM_WB(R(17) + 0x5u, R(19));
-    MEM_WB(R(17) + 0x1u, R(2));
-    c->cycles += 3;
-L_80067e68:
-    R(2) = 0u | 0xffffu;
-    {
-        bool t = R(20) == R(2);
-        c->cycles += 3;
-        if (t) { goto L_80067e80; }
-    }
-    R(31) = 0x80067e7cu;
-        R(4) = R(20) + 0u;
-    c->cycles += 2;
-    f_80030ac8(c);
-    MEM_WW(R(17) + 0x8u, R(2));
-    c->cycles += 1;
-L_80067e80:
-    R(2) = MEM_RW(R(28) + 0xea0u);
-    MEM_WW(R(17) + 0x10u, R(2));
-    R(2) = R(22) < 0x100u;
-    MEM_WW(R(28) + 0xea0u, R(17));
-    {
-        bool t = R(2) == 0u;
-        MEM_WH(R(17) + 0x6u, R(23));
-        c->cycles += 7;
-        if (t) { goto L_80067ef8; }
-    }
-    R(31) = 0x80067ea4u;
-        R(4) = R(22) & 0xffu;
-    c->cycles += 2;
-    f_80044594(c);
-    {
-        bool t = R(2) == 0u;
-        MEM_WW(R(17) + 0xcu, R(2));
-        c->cycles += 2;
-        if (t) { goto L_80067ef8; }
-    }
-    R(16) = R(2) + 0u;
-    c->cycles += 1;
-L_80067eb0:
-    CHECK_EVENTS(c);
-    R(4) = MEM_RW(R(16));
-    R(31) = 0x80067ebcu;
-    c->cycles += 3;
-    f_800462c4(c);
-    R(16) = MEM_RW(R(16) + 0x4u);
-    {
-        bool t = R(16) != 0u;
-        c->cycles += 4;
-        if (t) { goto L_80067eb0; }
-    }
-    R(16) = MEM_RW(R(17) + 0xcu);
-    {
-        bool t = R(16) == 0u;
-        c->cycles += 4;
-        if (t) { goto L_80067ef8; }
-    }
-L_80067edc:
-    CHECK_EVENTS(c);
-    R(4) = MEM_RW(R(16));
-    R(31) = 0x80067ee8u;
-        R(5) = 0u + 0u;
-    c->cycles += 3;
-    f_8004629c(c);
-    R(16) = MEM_RW(R(16) + 0x4u);
-    {
-        bool t = R(16) != 0u;
-        c->cycles += 4;
-        if (t) { goto L_80067edc; }
-    }
-L_80067ef8:
-    R(31) = MEM_RW(R(29) + 0x30u);
-    R(23) = MEM_RW(R(29) + 0x2cu);
-    R(22) = MEM_RW(R(29) + 0x28u);
-    R(21) = MEM_RW(R(29) + 0x24u);
-    R(20) = MEM_RW(R(29) + 0x20u);
-    R(19) = MEM_RW(R(29) + 0x1cu);
-    R(18) = MEM_RW(R(29) + 0x18u);
-    R(17) = MEM_RW(R(29) + 0x14u);
-    R(16) = MEM_RW(R(29) + 0x10u);
-    {
-        R(29) = R(29) + 0x38u;
-        c->cycles += 11;
-        return;
-    }
-}
-
-// SLUS_012.38 80067f24
-void f_80067f24(Cpu* c) {
-    CHECK_EVENTS(c);
-    R(29) = R(29) - 0x30u;
-    MEM_WW(R(29) + 0x1cu, R(17));
-    R(17) = R(4) + 0u;
-    R(4) = R(5) & 0xffffu;
-    MEM_WW(R(29) + 0x20u, R(18));
-    R(18) = R(6) & 0xffffu;
-    MEM_WW(R(29) + 0x24u, R(19));
-    R(19) = R(7) & 0xffffu;
-    MEM_WW(R(29) + 0x28u, R(31));
-    {
-        bool t = R(17) == 0u;
-        MEM_WW(R(29) + 0x18u, R(16));
-        c->cycles += 11;
-        if (t) { goto L_80067ffc; }
-    }
-    R(31) = 0x80067f58u;
-        MEM_WH(R(17) + 0x8u, R(0));
-    c->cycles += 2;
-    f_80030ac8(c);
-    R(16) = R(2) + 0u;
-    {
-        bool t = R(16) == 0u;
-        c->cycles += 3;
-        if (t) { goto L_80067ffc; }
-    }
-    R(31) = 0x80067f6cu;
-        R(4) = R(18) + 0u;
-    c->cycles += 2;
-    f_80030ac8(c);
-    R(4) = R(2) + 0u;
-    {
-        bool t = R(4) == 0u;
-        c->cycles += 3;
-        if (t) { goto L_80067ffc; }
-    }
-    R(2) = MEM_RH(R(4));
-    R(3) = MEM_RH(R(16));
-    R(2) = R(2) - R(3);
-    MEM_WH(R(29) + 0x10u, R(2));
-    R(3) = MEM_RH(R(4) + 0x2u);
-    R(2) = MEM_RH(R(16) + 0x2u);
-    R(3) = R(3) - R(2);
-    MEM_WH(R(29) + 0x12u, R(3));
-    R(2) = MEM_RH(R(4) + 0x4u);
-    R(3) = MEM_RH(R(16) + 0x4u);
-    R(4) = MEM_RH(R(17) + 0xau);
-    R(2) = R(2) - R(3);
-    {
-        bool t = R(4) != 0u;
-        MEM_WH(R(29) + 0x14u, R(2));
-        c->cycles += 16;
-        if (t) { goto L_80067fbc; }
-    }
-    MEM_WH(R(29) + 0x14u, R(0));
-    c->cycles += 1;
-L_80067fbc:
-    R(2) = MEM_RW(R(29) + 0x10u);
-    {
-        bool t = R(2) != 0u;
-        R(4) = R(29) + 0x10u;
-        c->cycles += 4;
-        if (t) { goto L_80067fdc; }
-    }
-    R(2) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29) + 0x14u);
-    {
-        bool t = R(2) == 0u;
-        c->cycles += 4;
-        if (t) { goto L_80067ffc; }
-    }
-L_80067fdc:
-    R(31) = 0x80067fe4u;
-        R(5) = R(17) + 0u;
-    c->cycles += 2;
-    f_8005fbec(c);
-    R(3) = MEM_RW(R(28) + 0x1e2cu);
-    R(2) = 0u | 0xffffu;
-    MEM_WH(R(17) + 0x8u, R(19));
-    MEM_WH(R(17) + 0xcu, R(2));
-    MEM_WW(R(17) + 0x10u, R(3));
-    MEM_WW(R(28) + 0x1e2cu, R(17));
-    c->cycles += 6;
-L_80067ffc:
-    R(31) = MEM_RW(R(29) + 0x28u);
-    R(19) = MEM_RW(R(29) + 0x24u);
-    R(18) = MEM_RW(R(29) + 0x20u);
-    R(17) = MEM_RW(R(29) + 0x1cu);
-    R(16) = MEM_RW(R(29) + 0x18u);
-    {
-        R(29) = R(29) + 0x30u;
-        c->cycles += 7;
-        return;
-    }
-}
-
 // SLUS_012.38 80068018
 void f_80068018(Cpu* c) {
     CHECK_EVENTS(c);
@@ -56570,6 +56038,1271 @@ L_8008c670:
     {
         R(29) = R(29) + 0x10u;
         c->cycles += 2;
+        return;
+    }
+}
+
+// SLUS_012.38 8008c6b0
+void f_8008c6b0(Cpu* c) {
+    CHECK_EVENTS(c);
+    R(9) = 0x800d0000u;
+    R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(9) - 0x3720u);
+    R(29) = R(29) - 0x60u;
+    MEM_WW(R(29) + 0x48u, R(18));
+    R(18) = MEM_RW(R(28) + 0x23b0u);
+    { int64_t m = (int64_t)(int32_t)R(18) * (int32_t)R(3); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(9) = R(9) - 0x3720u;
+    MEM_WW(R(29) + 0x5cu, R(23));
+    MEM_WW(R(29) + 0x58u, R(22));
+    MEM_WW(R(29) + 0x54u, R(21));
+    MEM_WW(R(29) + 0x50u, R(20));
+    MEM_WW(R(29) + 0x4cu, R(19));
+    MEM_WW(R(29) + 0x44u, R(17));
+    MEM_WW(R(29) + 0x40u, R(16));
+    R(5) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(9) + 0x2u);
+    R(3) = c->lo;
+    R(19) = MEM_RW(R(28) + 0x23b4u);
+    { int64_t m = (int64_t)(int32_t)R(19) * (int32_t)R(5); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(4) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(9) + 0x4u);
+    R(5) = c->lo;
+    R(20) = MEM_RW(R(28) + 0x23b8u);
+    { int64_t m = (int64_t)(int32_t)R(20) * (int32_t)R(4); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(9) = R(9) - 0x298u;
+    R(2) = MEM_RH(R(9) + 0x298u);
+    R(2) = R(2) << 16;
+    R(10) = (uint32_t)((int32_t)R(2) >> 16);
+    R(3) = R(3) + R(5);
+    R(4) = c->lo;
+    R(3) = R(3) + R(4);
+    {
+        bool t = (int32_t)R(3) >= 0;
+        c->cycles += 35;
+        if (t) { goto L_8008c740; }
+    }
+    R(3) = 0u - R(3);
+    c->cycles += 1;
+L_8008c740:
+    R(6) = R(3) + 0u;
+    { uint64_t m = (uint64_t)R(10) * R(6); c->lo = (uint32_t)m; c->hi = (uint32_t)(m >> 32); }
+    R(11) = (uint32_t)((int32_t)R(2) >> 31);
+    R(4) = MEM_RH(R(9) + 0x29au);
+    R(17) = c->hi;
+    R(16) = c->lo;
+    R(4) = R(4) << 16;
+    R(2) = (uint32_t)((int32_t)R(4) >> 16);
+    { uint64_t m = (uint64_t)R(2) * R(6); c->lo = (uint32_t)m; c->hi = (uint32_t)(m >> 32); }
+    R(8) = MEM_RH(R(9) + 0x29cu);
+    R(8) = R(8) << 16;
+    R(7) = (uint32_t)((int32_t)R(3) >> 31);
+    R(15) = c->hi;
+    R(14) = c->lo;
+    R(3) = (uint32_t)((int32_t)R(4) >> 31);
+    R(4) = (uint32_t)((int32_t)R(8) >> 16);
+    { uint64_t m = (uint64_t)R(4) * R(6); c->lo = (uint32_t)m; c->hi = (uint32_t)(m >> 32); }
+    R(13) = c->hi;
+    R(12) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(10) * (int32_t)R(7); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(21) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(6) * (int32_t)R(11); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(22) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(2) * (int32_t)R(7); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(23) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(6) * (int32_t)R(3); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(18) = R(18) << 12;
+    R(24) = c->lo;
+    R(19) = R(19) << 12;
+    R(20) = R(20) << 12;
+    { int64_t m = (int64_t)(int32_t)R(4) * (int32_t)R(7); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(5) = (uint32_t)((int32_t)R(8) >> 31);
+    R(8) = R(19) + 0u;
+    R(9) = (uint32_t)((int32_t)R(19) >> 31);
+    R(10) = R(20) + 0u;
+    R(11) = (uint32_t)((int32_t)R(20) >> 31);
+    R(17) = R(17) + R(21);
+    R(2) = R(18) + 0u;
+    R(17) = R(17) + R(22);
+    R(16) = R(16) >> 12;
+    R(3) = (uint32_t)((int32_t)R(18) >> 31);
+    R(15) = R(15) + R(23);
+    R(25) = c->lo;
+    R(15) = R(15) + R(24);
+    R(4) = R(17) << 20;
+    { int64_t m = (int64_t)(int32_t)R(6) * (int32_t)R(5); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(16) = R(16) | R(4);
+    R(17) = (uint32_t)((int32_t)R(17) >> 12);
+    R(14) = R(14) >> 12;
+    R(4) = R(15) << 20;
+    R(14) = R(14) | R(4);
+    R(15) = (uint32_t)((int32_t)R(15) >> 12);
+    R(2) = R(2) + R(16);
+    R(8) = R(8) + R(14);
+    MEM_WW(R(29), R(16));
+    MEM_WW(R(29) + 0x4u, R(17));
+    MEM_WW(R(29) + 0x8u, R(14));
+    MEM_WW(R(29) + 0xcu, R(15));
+    R(13) = R(13) + R(25);
+    R(6) = c->lo;
+    R(13) = R(13) + R(6);
+    R(12) = R(12) >> 12;
+    R(4) = R(13) << 20;
+    R(12) = R(12) | R(4);
+    R(13) = (uint32_t)((int32_t)R(13) >> 12);
+    R(4) = R(2) < R(16);
+    R(3) = R(3) + R(17);
+    R(3) = R(3) + R(4);
+    R(4) = R(8) < R(14);
+    R(9) = R(9) + R(15);
+    R(9) = R(9) + R(4);
+    R(10) = R(10) + R(12);
+    R(4) = R(10) < R(12);
+    R(11) = R(11) + R(13);
+    R(11) = R(11) + R(4);
+    R(6) = R(2) >> 12;
+    R(4) = R(3) << 20;
+    R(6) = R(6) | R(4);
+    R(7) = (uint32_t)((int32_t)R(3) >> 12);
+    MEM_WW(R(29) + 0x28u, R(8));
+    MEM_WW(R(29) + 0x2cu, R(9));
+    R(8) = R(8) >> 12;
+    MEM_WW(R(29) + 0x20u, R(2));
+    MEM_WW(R(29) + 0x24u, R(3));
+    R(2) = R(9) << 20;
+    R(8) = R(8) | R(2);
+    R(9) = (uint32_t)((int32_t)R(9) >> 12);
+    MEM_WW(R(29) + 0x30u, R(10));
+    MEM_WW(R(29) + 0x34u, R(11));
+    R(10) = R(10) >> 12;
+    R(3) = R(11) << 20;
+    R(10) = R(10) | R(3);
+    R(2) = MEM_RW(R(28) + 0x13dcu);
+    MEM_WW(R(29) + 0x10u, R(12));
+    MEM_WW(R(29) + 0x14u, R(13));
+    MEM_WW(R(28) + 0x2094u, R(6));
+    MEM_WW(R(28) + 0x2098u, R(8));
+    MEM_WW(R(28) + 0x209cu, R(10));
+    {
+        bool t = R(2) == 0u;
+        R(11) = (uint32_t)((int32_t)R(11) >> 12);
+        c->cycles += 109;
+        if (t) { goto L_8008c920; }
+    }
+    R(3) = 0x800d0000u;
+    R(2) = MEM_RW(R(3) - 0x4458u);
+    R(3) = R(3) - 0x4458u;
+    R(2) = R(6) + R(2);
+    MEM_WW(R(28) + 0x2094u, R(2));
+    R(2) = MEM_RW(R(3) + 0x8u);
+    R(4) = MEM_RW(R(3) + 0x10u);
+    R(2) = R(8) + R(2);
+    R(4) = R(10) + R(4);
+    MEM_WW(R(28) + 0x2098u, R(2));
+    MEM_WW(R(28) + 0x209cu, R(4));
+    c->cycles += 11;
+L_8008c920:
+    R(23) = MEM_RW(R(29) + 0x5cu);
+    R(22) = MEM_RW(R(29) + 0x58u);
+    R(21) = MEM_RW(R(29) + 0x54u);
+    R(20) = MEM_RW(R(29) + 0x50u);
+    R(19) = MEM_RW(R(29) + 0x4cu);
+    R(18) = MEM_RW(R(29) + 0x48u);
+    R(17) = MEM_RW(R(29) + 0x44u);
+    R(16) = MEM_RW(R(29) + 0x40u);
+    {
+        R(29) = R(29) + 0x60u;
+        c->cycles += 10;
+        return;
+    }
+}
+
+// SLUS_012.38 8008c948
+void f_8008c948(Cpu* c) {
+    CHECK_EVENTS(c);
+    R(29) = R(29) - 0x98u;
+    R(2) = 0x800d0000u;
+    R(9) = 0x800d0000u;
+    R(2) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(2) - 0x3720u);
+    R(4) = MEM_RW(R(28) + 0x23b0u);
+    R(5) = R(9) - 0x3720u;
+    MEM_WW(R(29) + 0x94u, R(31));
+    { int64_t m = (int64_t)(int32_t)R(4) * (int32_t)R(2); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    MEM_WW(R(29) + 0x90u, R(30));
+    MEM_WW(R(29) + 0x8cu, R(23));
+    MEM_WW(R(29) + 0x88u, R(22));
+    MEM_WW(R(29) + 0x84u, R(21));
+    MEM_WW(R(29) + 0x80u, R(20));
+    MEM_WW(R(29) + 0x7cu, R(19));
+    MEM_WW(R(29) + 0x78u, R(18));
+    MEM_WW(R(29) + 0x74u, R(17));
+    MEM_WW(R(29) + 0x70u, R(16));
+    MEM_WW(R(29) + 0x58u, R(2));
+    R(24) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(5) + 0x2u);
+    R(3) = c->lo;
+    R(2) = MEM_RW(R(28) + 0x23b4u);
+    { int64_t m = (int64_t)(int32_t)R(2) * (int32_t)R(24); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(30) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(5) + 0x4u);
+    R(10) = c->lo;
+    R(2) = MEM_RW(R(28) + 0x23b8u);
+    { int64_t m = (int64_t)(int32_t)R(2) * (int32_t)R(30); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(5) = R(5) - 0x298u;
+    R(2) = MEM_RH(R(5) + 0x298u);
+    R(3) = R(3) + R(10);
+    R(2) = R(2) << 16;
+    R(6) = (uint32_t)((int32_t)R(2) >> 16);
+    R(4) = c->lo;
+    R(3) = R(3) + R(4);
+    {
+        bool t = (int32_t)R(3) >= 0;
+        c->cycles += 37;
+        if (t) { goto L_8008c9e0; }
+    }
+    R(3) = 0u - R(3);
+    c->cycles += 1;
+L_8008c9e0:
+    R(8) = R(3) + 0u;
+    { uint64_t m = (uint64_t)R(6) * R(8); c->lo = (uint32_t)m; c->hi = (uint32_t)(m >> 32); }
+    R(7) = (uint32_t)((int32_t)R(2) >> 31);
+    R(4) = MEM_RH(R(5) + 0x29au);
+    R(17) = c->hi;
+    R(16) = c->lo;
+    R(4) = R(4) << 16;
+    R(2) = (uint32_t)((int32_t)R(4) >> 16);
+    { uint64_t m = (uint64_t)R(2) * R(8); c->lo = (uint32_t)m; c->hi = (uint32_t)(m >> 32); }
+    R(9) = (uint32_t)((int32_t)R(3) >> 31);
+    R(3) = (uint32_t)((int32_t)R(4) >> 31);
+    R(4) = MEM_RH(R(5) + 0x29cu);
+    R(15) = c->hi;
+    R(14) = c->lo;
+    R(4) = R(4) << 16;
+    R(10) = (uint32_t)((int32_t)R(4) >> 16);
+    { uint64_t m = (uint64_t)R(10) * R(8); c->lo = (uint32_t)m; c->hi = (uint32_t)(m >> 32); }
+    R(13) = c->hi;
+    R(12) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(6) * (int32_t)R(9); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(11) = (uint32_t)((int32_t)R(4) >> 31);
+    R(4) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(8) * (int32_t)R(7); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    MEM_WW(R(29) + 0x68u, R(4));
+    R(4) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(2) * (int32_t)R(9); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(23) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(8) * (int32_t)R(3); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(22) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(10) * (int32_t)R(9); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(18) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(28) + 0x20d8u);
+    R(21) = c->lo;
+    R(2) = MEM_RW(R(29) + 0x58u);
+    { int64_t m = (int64_t)(int32_t)R(2) * (int32_t)R(18); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(18) = c->lo;
+    R(20) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(28) + 0x20dau);
+    { int64_t m = (int64_t)(int32_t)R(24) * (int32_t)R(20); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(25) = MEM_RW(R(28) + 0x23b0u);
+    R(19) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(28) + 0x20dcu);
+    R(25) = R(25) << 12;
+    MEM_WW(R(29) + 0x5cu, R(25));
+    MEM_WW(R(29) + 0x6cu, R(4));
+    R(15) = R(15) + R(23);
+    R(15) = R(15) + R(22);
+    R(14) = R(14) >> 12;
+    R(2) = R(25) + 0u;
+    R(20) = c->lo;
+    R(3) = (uint32_t)((int32_t)R(25) >> 31);
+    R(25) = MEM_RW(R(28) + 0x23b4u);
+    { int64_t m = (int64_t)(int32_t)R(30) * (int32_t)R(19); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(25) = R(25) << 12;
+    R(4) = R(25) + 0u;
+    R(5) = (uint32_t)((int32_t)R(25) >> 31);
+    MEM_WW(R(29) + 0x60u, R(25));
+    R(25) = MEM_RW(R(28) + 0x23b8u);
+    R(13) = R(13) + R(21);
+    R(25) = R(25) << 12;
+    R(6) = R(25) + 0u;
+    R(7) = (uint32_t)((int32_t)R(25) >> 31);
+    MEM_WW(R(29) + 0x64u, R(25));
+    R(18) = R(18) + R(20);
+    R(19) = c->lo;
+    R(18) = R(18) + R(19);
+    R(9) = R(18) + 0u;
+    R(18) = (uint32_t)((int32_t)R(18) >> 31);
+    MEM_WW(R(29) + 0x50u, R(9));
+    MEM_WW(R(29) + 0x54u, R(18));
+    R(25) = MEM_RW(R(29) + 0x68u);
+    { int64_t m = (int64_t)(int32_t)R(8) * (int32_t)R(11); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(9) = MEM_RW(R(29) + 0x6cu);
+    R(17) = R(17) + R(25);
+    R(17) = R(17) + R(9);
+    R(16) = R(16) >> 12;
+    R(10) = R(17) << 20;
+    R(16) = R(16) | R(10);
+    R(17) = (uint32_t)((int32_t)R(17) >> 12);
+    R(2) = R(2) + R(16);
+    R(10) = 0x800d0000u;
+    R(25) = R(18) + 0u;
+    MEM_WW(R(29) + 0x10u, R(16));
+    MEM_WW(R(29) + 0x14u, R(17));
+    R(8) = c->lo;
+    R(13) = R(13) + R(8);
+    R(8) = R(15) << 20;
+    R(14) = R(14) | R(8);
+    R(15) = (uint32_t)((int32_t)R(15) >> 12);
+    R(12) = R(12) >> 12;
+    R(8) = R(13) << 20;
+    R(12) = R(12) | R(8);
+    R(13) = (uint32_t)((int32_t)R(13) >> 12);
+    R(8) = R(2) < R(16);
+    R(3) = R(3) + R(17);
+    R(3) = R(3) + R(8);
+    R(4) = R(4) + R(14);
+    R(8) = R(4) < R(14);
+    R(5) = R(5) + R(15);
+    R(5) = R(5) + R(8);
+    R(6) = R(6) + R(12);
+    R(8) = R(6) < R(12);
+    R(7) = R(7) + R(13);
+    R(7) = R(7) + R(8);
+    MEM_WW(R(29) + 0x30u, R(2));
+    MEM_WW(R(29) + 0x34u, R(3));
+    R(2) = R(2) >> 12;
+    R(8) = R(3) << 20;
+    R(2) = R(2) | R(8);
+    R(3) = (uint32_t)((int32_t)R(3) >> 12);
+    MEM_WW(R(29) + 0x38u, R(4));
+    MEM_WW(R(29) + 0x3cu, R(5));
+    R(4) = R(4) >> 12;
+    R(8) = R(5) << 20;
+    R(4) = R(4) | R(8);
+    R(5) = (uint32_t)((int32_t)R(5) >> 12);
+    MEM_WW(R(29) + 0x40u, R(6));
+    MEM_WW(R(29) + 0x44u, R(7));
+    R(6) = R(6) >> 12;
+    MEM_WW(R(28) + 0x2094u, R(2));
+    R(2) = R(7) << 20;
+    R(6) = R(6) | R(2);
+    MEM_WW(R(29) + 0x18u, R(14));
+    MEM_WW(R(29) + 0x1cu, R(15));
+    MEM_WW(R(29) + 0x20u, R(12));
+    MEM_WW(R(29) + 0x24u, R(13));
+    MEM_WW(R(28) + 0x2098u, R(4));
+    MEM_WW(R(28) + 0x209cu, R(6));
+    {
+        bool t = (int32_t)R(25) > 0;
+        R(7) = (uint32_t)((int32_t)R(7) >> 12);
+        c->cycles += 139;
+        if (t) { goto L_8008cc2c; }
+    }
+    R(2) = R(18) + 0u;
+    {
+        bool t = R(2) != 0u;
+        R(2) = 0xc30000u;
+        c->cycles += 3;
+        if (t) { goto L_8008cca0; }
+    }
+    R(3) = MEM_RW(R(29) + 0x50u);
+    R(2) = R(2) | 0xffffu;
+    R(2) = R(2) < R(3);
+    {
+        bool t = R(2) == 0u;
+        c->cycles += 5;
+        if (t) { goto L_8008cca0; }
+    }
+L_8008cc2c:
+    R(2) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(28) + 0x1384u);
+    R(3) = MEM_RW(R(29) + 0x58u);
+    { int64_t m = (int64_t)(int32_t)R(3) * (int32_t)R(2); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(2) = c->lo;
+    R(4) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(28) + 0x1386u);
+    { int64_t m = (int64_t)(int32_t)R(24) * (int32_t)R(4); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(4) = c->lo;
+    R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(28) + 0x1388u);
+    { int64_t m = (int64_t)(int32_t)R(30) * (int32_t)R(3); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(2) = R(2) + R(4);
+    R(3) = c->lo;
+    R(2) = R(2) + R(3);
+    R(8) = R(2) + 0u;
+    R(9) = (uint32_t)((int32_t)R(2) >> 31);
+    R(2) = (int32_t)R(9) < -1;
+    {
+        bool t = R(2) != 0u;
+        R(2) = 0u - 0x1u;
+        c->cycles += 20;
+        if (t) { goto L_8008cca0; }
+    }
+    {
+        bool t = R(9) != R(2);
+        R(2) = 0x10000u;
+        c->cycles += 2;
+        if (t) { goto L_8008cc94; }
+    }
+    R(2) = 0xff3c0000u;
+    R(2) = R(8) < R(2);
+    {
+        bool t = R(2) != 0u;
+        R(2) = 0x10000u;
+        c->cycles += 4;
+        if (t) { goto L_8008cca0; }
+    }
+L_8008cc94:
+    R(2) = R(2) | 0x8000u;
+    R(2) = R(6) + R(2);
+    MEM_WW(R(28) + 0x209cu, R(2));
+    c->cycles += 3;
+L_8008cca0:
+    R(2) = MEM_RW(R(28) + 0x13a0u);
+    {
+        bool t = R(2) == 0u;
+        c->cycles += 4;
+        if (t) { goto L_8008ccc0; }
+    }
+    R(4) = R(28) + 0x2094u;
+    R(5) = R(4) + 0u;
+    R(31) = 0x8008ccc0u;
+        R(6) = R(10) - 0x3720u;
+    c->cycles += 4;
+    f_80092f60(c);
+L_8008ccc0:
+    R(31) = MEM_RW(R(29) + 0x94u);
+    R(30) = MEM_RW(R(29) + 0x90u);
+    R(23) = MEM_RW(R(29) + 0x8cu);
+    R(22) = MEM_RW(R(29) + 0x88u);
+    R(21) = MEM_RW(R(29) + 0x84u);
+    R(20) = MEM_RW(R(29) + 0x80u);
+    R(19) = MEM_RW(R(29) + 0x7cu);
+    R(18) = MEM_RW(R(29) + 0x78u);
+    R(17) = MEM_RW(R(29) + 0x74u);
+    R(16) = MEM_RW(R(29) + 0x70u);
+    {
+        R(29) = R(29) + 0x98u;
+        c->cycles += 12;
+        return;
+    }
+}
+
+// SLUS_012.38 8008ccf0
+void f_8008ccf0(Cpu* c) {
+    CHECK_EVENTS(c);
+    R(29) = R(29) - 0x78u;
+    R(2) = MEM_RW(R(28) + 0x13e0u);
+    R(4) = 0x800d0000u;
+    MEM_WW(R(29) + 0x58u, R(18));
+    R(18) = MEM_RW(R(28) + 0x23b0u);
+    R(4) = R(4) - 0x41a0u;
+    MEM_WW(R(29) + 0x74u, R(31));
+    MEM_WW(R(29) + 0x70u, R(30));
+    MEM_WW(R(29) + 0x6cu, R(23));
+    MEM_WW(R(29) + 0x68u, R(22));
+    MEM_WW(R(29) + 0x64u, R(21));
+    MEM_WW(R(29) + 0x60u, R(20));
+    MEM_WW(R(29) + 0x5cu, R(19));
+    MEM_WW(R(29) + 0x54u, R(17));
+    MEM_WW(R(29) + 0x50u, R(16));
+    R(9) = R(2) << 2;
+    R(9) = R(9) + R(2);
+    R(9) = R(9) << 2;
+    R(9) = R(9) + R(2);
+    R(9) = R(9) << 5;
+    R(30) = R(9) + R(4);
+    R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(30));
+    { int64_t m = (int64_t)(int32_t)R(18) * (int32_t)R(3); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(19) = MEM_RW(R(28) + 0x23b4u);
+    R(3) = c->lo;
+    R(8) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(30) + 0x2u);
+    { int64_t m = (int64_t)(int32_t)R(19) * (int32_t)R(8); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(20) = MEM_RW(R(28) + 0x23b8u);
+    R(8) = c->lo;
+    R(5) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(30) + 0x4u);
+    { int64_t m = (int64_t)(int32_t)R(20) * (int32_t)R(5); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(4) = R(4) - 0x298u;
+    R(9) = R(9) + R(4);
+    R(2) = MEM_RH(R(9) + 0x298u);
+    R(2) = R(2) << 16;
+    R(10) = (uint32_t)((int32_t)R(2) >> 16);
+    R(3) = R(3) + R(8);
+    R(5) = c->lo;
+    R(3) = R(3) + R(5);
+    {
+        bool t = (int32_t)R(3) >= 0;
+        c->cycles += 45;
+        if (t) { goto L_8008cda8; }
+    }
+    R(3) = 0u - R(3);
+    c->cycles += 1;
+L_8008cda8:
+    R(6) = R(3) + 0u;
+    { uint64_t m = (uint64_t)R(10) * R(6); c->lo = (uint32_t)m; c->hi = (uint32_t)(m >> 32); }
+    R(4) = MEM_RH(R(9) + 0x29au);
+    R(11) = (uint32_t)((int32_t)R(2) >> 31);
+    R(17) = c->hi;
+    R(16) = c->lo;
+    R(4) = R(4) << 16;
+    R(2) = (uint32_t)((int32_t)R(4) >> 16);
+    { uint64_t m = (uint64_t)R(2) * R(6); c->lo = (uint32_t)m; c->hi = (uint32_t)(m >> 32); }
+    R(8) = MEM_RH(R(9) + 0x29cu);
+    R(8) = R(8) << 16;
+    R(7) = (uint32_t)((int32_t)R(3) >> 31);
+    R(15) = c->hi;
+    R(14) = c->lo;
+    R(3) = (uint32_t)((int32_t)R(4) >> 31);
+    R(4) = (uint32_t)((int32_t)R(8) >> 16);
+    { uint64_t m = (uint64_t)R(4) * R(6); c->lo = (uint32_t)m; c->hi = (uint32_t)(m >> 32); }
+    R(13) = c->hi;
+    R(12) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(10) * (int32_t)R(7); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(21) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(6) * (int32_t)R(11); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(22) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(2) * (int32_t)R(7); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(23) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(6) * (int32_t)R(3); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(18) = R(18) << 12;
+    R(24) = c->lo;
+    R(19) = R(19) << 12;
+    R(20) = R(20) << 12;
+    { int64_t m = (int64_t)(int32_t)R(4) * (int32_t)R(7); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(5) = (uint32_t)((int32_t)R(8) >> 31);
+    R(8) = R(19) + 0u;
+    R(9) = (uint32_t)((int32_t)R(19) >> 31);
+    R(10) = R(20) + 0u;
+    R(11) = (uint32_t)((int32_t)R(20) >> 31);
+    R(17) = R(17) + R(21);
+    R(2) = R(18) + 0u;
+    R(17) = R(17) + R(22);
+    R(16) = R(16) >> 12;
+    R(3) = (uint32_t)((int32_t)R(18) >> 31);
+    R(15) = R(15) + R(23);
+    R(25) = c->lo;
+    R(15) = R(15) + R(24);
+    R(4) = R(17) << 20;
+    { int64_t m = (int64_t)(int32_t)R(6) * (int32_t)R(5); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(16) = R(16) | R(4);
+    R(17) = (uint32_t)((int32_t)R(17) >> 12);
+    R(14) = R(14) >> 12;
+    R(4) = R(15) << 20;
+    R(14) = R(14) | R(4);
+    R(15) = (uint32_t)((int32_t)R(15) >> 12);
+    R(2) = R(2) + R(16);
+    R(8) = R(8) + R(14);
+    MEM_WW(R(29) + 0x10u, R(16));
+    MEM_WW(R(29) + 0x14u, R(17));
+    MEM_WW(R(29) + 0x18u, R(14));
+    MEM_WW(R(29) + 0x1cu, R(15));
+    R(13) = R(13) + R(25);
+    R(6) = c->lo;
+    R(13) = R(13) + R(6);
+    R(12) = R(12) >> 12;
+    R(4) = R(13) << 20;
+    R(12) = R(12) | R(4);
+    R(13) = (uint32_t)((int32_t)R(13) >> 12);
+    R(4) = R(2) < R(16);
+    R(3) = R(3) + R(17);
+    R(3) = R(3) + R(4);
+    R(4) = R(8) < R(14);
+    R(9) = R(9) + R(15);
+    R(9) = R(9) + R(4);
+    R(10) = R(10) + R(12);
+    R(4) = R(10) < R(12);
+    R(11) = R(11) + R(13);
+    R(11) = R(11) + R(4);
+    MEM_WW(R(29) + 0x30u, R(2));
+    MEM_WW(R(29) + 0x34u, R(3));
+    R(2) = R(2) >> 12;
+    R(4) = R(3) << 20;
+    R(2) = R(2) | R(4);
+    R(3) = (uint32_t)((int32_t)R(3) >> 12);
+    MEM_WW(R(29) + 0x38u, R(8));
+    MEM_WW(R(29) + 0x3cu, R(9));
+    R(8) = R(8) >> 12;
+    R(4) = R(9) << 20;
+    R(8) = R(8) | R(4);
+    R(9) = (uint32_t)((int32_t)R(9) >> 12);
+    MEM_WW(R(29) + 0x40u, R(10));
+    MEM_WW(R(29) + 0x44u, R(11));
+    R(10) = R(10) >> 12;
+    MEM_WW(R(28) + 0x2094u, R(2));
+    R(2) = R(11) << 20;
+    R(10) = R(10) | R(2);
+    R(2) = MEM_RW(R(28) + 0x13a0u);
+    MEM_WW(R(29) + 0x20u, R(12));
+    MEM_WW(R(29) + 0x24u, R(13));
+    MEM_WW(R(28) + 0x2098u, R(8));
+    MEM_WW(R(28) + 0x209cu, R(10));
+    {
+        bool t = R(2) == 0u;
+        R(11) = (uint32_t)((int32_t)R(11) >> 12);
+        c->cycles += 109;
+        if (t) { goto L_8008cf6c; }
+    }
+    R(4) = R(28) + 0x2094u;
+    R(5) = R(4) + 0u;
+    R(31) = 0x8008cf6cu;
+        R(6) = R(30) + 0u;
+    c->cycles += 4;
+    f_80092f60(c);
+L_8008cf6c:
+    R(31) = MEM_RW(R(29) + 0x74u);
+    R(30) = MEM_RW(R(29) + 0x70u);
+    R(23) = MEM_RW(R(29) + 0x6cu);
+    R(22) = MEM_RW(R(29) + 0x68u);
+    R(21) = MEM_RW(R(29) + 0x64u);
+    R(20) = MEM_RW(R(29) + 0x60u);
+    R(19) = MEM_RW(R(29) + 0x5cu);
+    R(18) = MEM_RW(R(29) + 0x58u);
+    R(17) = MEM_RW(R(29) + 0x54u);
+    R(16) = MEM_RW(R(29) + 0x50u);
+    {
+        R(29) = R(29) + 0x78u;
+        c->cycles += 12;
+        return;
+    }
+}
+
+// SLUS_012.38 8008cf9c
+void f_8008cf9c(Cpu* c) {
+    CHECK_EVENTS(c);
+    R(29) = R(29) - 0x28u;
+    MEM_WW(R(29) + 0x20u, R(18));
+    R(18) = R(4) + 0u;
+    MEM_WW(R(29) + 0x24u, R(31));
+    MEM_WW(R(29) + 0x1cu, R(17));
+    MEM_WW(R(29) + 0x18u, R(16));
+    R(2) = MEM_RH(R(6));
+    R(3) = MEM_RH(R(5));
+    R(4) = R(29) + 0x10u;
+    R(2) = R(2) - R(3);
+    MEM_WH(R(29) + 0x10u, R(2));
+    R(3) = MEM_RH(R(6) + 0x2u);
+    R(7) = MEM_RH(R(5) + 0x2u);
+    R(2) = MEM_RH(R(6) + 0x4u);
+    R(6) = MEM_RH(R(5) + 0x4u);
+    R(5) = R(4) + 0u;
+    R(3) = R(3) - R(7);
+    R(2) = R(2) - R(6);
+    MEM_WH(R(29) + 0x12u, R(3));
+    R(31) = 0x8008cff0u;
+        MEM_WH(R(29) + 0x14u, R(2));
+    c->cycles += 21;
+    f_80097cb8(c);
+    R(2) = MEM_RW(R(18));
+    {
+        bool t = R(2) == 0u;
+        c->cycles += 4;
+        if (t) { goto L_8008d0f0; }
+    }
+    {
+        bool t = (int32_t)R(2) <= 0;
+        R(16) = 0u + 0u;
+        c->cycles += 2;
+        if (t) { goto L_8008d0f0; }
+    }
+    R(17) = 0u | 0xffffu;
+    R(2) = R(16) << 2;
+    c->cycles += 2;
+L_8008d010:
+    CHECK_EVENTS(c);
+    R(2) = R(18) + R(2);
+    R(5) = MEM_RW(R(2) + 0x4u);
+    R(3) = MEM_RH(R(5) + 0xeu);
+    {
+        bool t = R(3) == R(17);
+        R(2) = R(3) + 0u;
+        c->cycles += 7;
+        if (t) { goto L_8008d0dc; }
+    }
+    R(4) = 0x800c0000u;
+    R(4) = MEM_RW(R(4) - 0x79c4u);
+    R(2) = R(2) << 3;
+    R(4) = R(4) + R(2);
+    R(3) = MEM_RH(R(4) + 0x2u);
+    {
+        bool t = R(3) == R(17);
+        R(2) = R(3) + 0u;
+        c->cycles += 8;
+        if (t) { goto L_8008d0dc; }
+    }
+    R(3) = 0x800c0000u;
+    R(3) = MEM_RW(R(3) - 0x7994u);
+    R(2) = R(2) << 2;
+    R(2) = R(2) + R(3);
+    R(7) = MEM_RH(R(2));
+    R(3) = R(7) - 0x64u;
+    R(3) = R(3) < 0x64u;
+    {
+        bool t = R(3) == 0u;
+        c->cycles += 10;
+        if (t) { goto L_8008d0dc; }
+    }
+    R(2) = MEM_RH(R(5) + 0x6u);
+    R(6) = 0x800c0000u;
+    R(6) = MEM_RW(R(6) - 0x7984u);
+    R(4) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29) + 0x10u);
+    R(2) = R(2) << 3;
+    R(6) = R(6) + R(2);
+    R(2) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(6));
+    { int64_t m = (int64_t)(int32_t)R(4) * (int32_t)R(2); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(5) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29) + 0x12u);
+    R(4) = c->lo;
+    R(2) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(6) + 0x2u);
+    { int64_t m = (int64_t)(int32_t)R(5) * (int32_t)R(2); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29) + 0x14u);
+    R(5) = c->lo;
+    R(2) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(6) + 0x4u);
+    { int64_t m = (int64_t)(int32_t)R(3) * (int32_t)R(2); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(4) = R(4) + R(5);
+    R(3) = c->lo;
+    R(4) = R(4) + R(3);
+    {
+        bool t = (int32_t)R(4) >= 0;
+        c->cycles += 24;
+        if (t) { goto L_8008d0dc; }
+    }
+    R(31) = 0x8008d0dcu;
+        R(4) = R(7) + 0u;
+    c->cycles += 2;
+    f_80076238(c);
+L_8008d0dc:
+    R(2) = MEM_RW(R(18));
+    R(16) = R(16) + 0x1u;
+    R(2) = (int32_t)R(16) < (int32_t)R(2);
+    {
+        bool t = R(2) != 0u;
+        R(2) = R(16) << 2;
+        c->cycles += 5;
+        if (t) { goto L_8008d010; }
+    }
+L_8008d0f0:
+    R(31) = MEM_RW(R(29) + 0x24u);
+    R(18) = MEM_RW(R(29) + 0x20u);
+    R(17) = MEM_RW(R(29) + 0x1cu);
+    R(16) = MEM_RW(R(29) + 0x18u);
+    {
+        R(29) = R(29) + 0x28u;
+        c->cycles += 6;
+        return;
+    }
+}
+
+// SLUS_012.38 8008d108
+void f_8008d108(Cpu* c) {
+    CHECK_EVENTS(c);
+    R(29) = R(29) - 0x18u;
+    MEM_WW(R(29) + 0x14u, R(31));
+    MEM_WW(R(29) + 0x10u, R(16));
+    MEM_WW(R(28) + 0x2094u, R(0));
+    MEM_WW(R(28) + 0x2098u, R(0));
+    MEM_WW(R(28) + 0x209cu, R(0));
+    R(3) = MEM_RW(R(4));
+    R(2) = R(3) < 0x18u;
+    {
+        bool t = R(2) == 0u;
+        R(16) = R(5) + 0u;
+        c->cycles += 11;
+        if (t) { goto L_8008d218; }
+    }
+    R(2) = 0x80010000u;
+    R(2) = R(2) + 0x2ed8u;
+    R(3) = R(3) << 2;
+    R(3) = R(3) + R(2);
+    R(4) = MEM_RW(R(3));
+    { uint32_t t = R(4);
+    c->cycles += 8;
+    switch (t) {
+    case 0x8008d154u: goto L_8008d154;
+    case 0x8008d164u: goto L_8008d164;
+    case 0x8008d174u: goto L_8008d174;
+    case 0x8008d184u: goto L_8008d184;
+    case 0x8008d194u: goto L_8008d194;
+    case 0x8008d1a4u: goto L_8008d1a4;
+    case 0x8008d1b4u: goto L_8008d1b4;
+    case 0x8008d1c4u: goto L_8008d1c4;
+    case 0x8008d1d4u: goto L_8008d1d4;
+    case 0x8008d1e4u: goto L_8008d1e4;
+    case 0x8008d1f8u: goto L_8008d1f8;
+    case 0x8008d218u: goto L_8008d218;
+    default: rt_call(c, t); return;
+    } }
+L_8008d154:
+    R(31) = 0x8008d15cu;
+    c->cycles += 2;
+    f_80094280(c);
+    {
+        c->cycles += 2;
+        goto L_8008d224;
+    }
+L_8008d164:
+    R(31) = 0x8008d16cu;
+    c->cycles += 2;
+    f_8008c6b0(c);
+    {
+        c->cycles += 2;
+        goto L_8008d224;
+    }
+L_8008d174:
+    R(31) = 0x8008d17cu;
+    c->cycles += 2;
+    f_8008fa5c(c);
+    {
+        c->cycles += 2;
+        goto L_8008d224;
+    }
+L_8008d184:
+    R(31) = 0x8008d18cu;
+    c->cycles += 2;
+    f_800942d4(c);
+    {
+        c->cycles += 2;
+        goto L_8008d224;
+    }
+L_8008d194:
+    R(31) = 0x8008d19cu;
+    c->cycles += 2;
+    f_80092cac(c);
+    {
+        c->cycles += 2;
+        goto L_8008d224;
+    }
+L_8008d1a4:
+    R(31) = 0x8008d1acu;
+    c->cycles += 2;
+    f_8008d26c(c);
+    {
+        c->cycles += 2;
+        goto L_8008d224;
+    }
+L_8008d1b4:
+    R(31) = 0x8008d1bcu;
+    c->cycles += 2;
+    f_8008c948(c);
+    {
+        c->cycles += 2;
+        goto L_8008d224;
+    }
+L_8008d1c4:
+    R(31) = 0x8008d1ccu;
+    c->cycles += 2;
+    f_8008ccf0(c);
+    {
+        c->cycles += 2;
+        goto L_8008d224;
+    }
+L_8008d1d4:
+    R(31) = 0x8008d1dcu;
+    c->cycles += 2;
+    f_80094320(c);
+    {
+        c->cycles += 2;
+        goto L_8008d224;
+    }
+L_8008d1e4:
+    R(2) = MEM_RW(R(28) + 0x23b0u);
+    R(3) = MEM_RW(R(28) + 0x23b4u);
+    R(4) = MEM_RW(R(28) + 0x23b8u);
+    {
+        c->cycles += 5;
+        goto L_8008d204;
+    }
+L_8008d1f8:
+    R(2) = MEM_RW(R(28) + 0x21b0u);
+    R(3) = MEM_RW(R(28) + 0x21b4u);
+    R(4) = MEM_RW(R(28) + 0x21b8u);
+    c->cycles += 3;
+L_8008d204:
+    MEM_WW(R(28) + 0x2094u, R(2));
+    MEM_WW(R(28) + 0x2098u, R(3));
+    MEM_WW(R(28) + 0x209cu, R(4));
+    {
+        c->cycles += 5;
+        goto L_8008d224;
+    }
+L_8008d218:
+    MEM_WW(R(28) + 0x2094u, R(0));
+    MEM_WW(R(28) + 0x2098u, R(0));
+    MEM_WW(R(28) + 0x209cu, R(0));
+    c->cycles += 3;
+L_8008d224:
+    R(2) = MEM_RW(R(28) + 0x22ccu);
+    R(3) = MEM_RW(R(28) + 0x2094u);
+    R(2) = R(2) + R(3);
+    MEM_WW(R(16), R(2));
+    R(3) = MEM_RW(R(28) + 0x22d0u);
+    R(2) = MEM_RW(R(28) + 0x2098u);
+    R(3) = R(3) + R(2);
+    MEM_WW(R(16) + 0x4u, R(3));
+    R(2) = MEM_RW(R(28) + 0x22d4u);
+    R(3) = MEM_RW(R(28) + 0x209cu);
+    R(31) = MEM_RW(R(29) + 0x14u);
+    R(2) = R(2) + R(3);
+    MEM_WW(R(16) + 0x8u, R(2));
+    R(16) = MEM_RW(R(29) + 0x10u);
+    {
+        R(29) = R(29) + 0x18u;
+        c->cycles += 18;
+        return;
+    }
+}
+
+// SLUS_012.38 8008d26c
+void f_8008d26c(Cpu* c) {
+    CHECK_EVENTS(c);
+    R(29) = R(29) - 0x78u;
+    R(2) = MEM_RW(R(28) + 0x13e4u);
+    R(4) = 0x800d0000u;
+    MEM_WW(R(29) + 0x58u, R(18));
+    R(18) = MEM_RW(R(28) + 0x23b0u);
+    R(4) = R(4) - 0x41a0u;
+    MEM_WW(R(29) + 0x74u, R(31));
+    MEM_WW(R(29) + 0x70u, R(30));
+    MEM_WW(R(29) + 0x6cu, R(23));
+    MEM_WW(R(29) + 0x68u, R(22));
+    MEM_WW(R(29) + 0x64u, R(21));
+    MEM_WW(R(29) + 0x60u, R(20));
+    MEM_WW(R(29) + 0x5cu, R(19));
+    MEM_WW(R(29) + 0x54u, R(17));
+    MEM_WW(R(29) + 0x50u, R(16));
+    R(9) = R(2) << 2;
+    R(9) = R(9) + R(2);
+    R(9) = R(9) << 2;
+    R(9) = R(9) + R(2);
+    R(9) = R(9) << 5;
+    R(30) = R(9) + R(4);
+    R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(30));
+    { int64_t m = (int64_t)(int32_t)R(18) * (int32_t)R(3); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(19) = MEM_RW(R(28) + 0x23b4u);
+    R(3) = c->lo;
+    R(8) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(30) + 0x2u);
+    { int64_t m = (int64_t)(int32_t)R(19) * (int32_t)R(8); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(20) = MEM_RW(R(28) + 0x23b8u);
+    R(8) = c->lo;
+    R(5) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(30) + 0x4u);
+    { int64_t m = (int64_t)(int32_t)R(20) * (int32_t)R(5); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(4) = R(4) - 0x298u;
+    R(9) = R(9) + R(4);
+    R(2) = MEM_RH(R(9) + 0x298u);
+    R(2) = R(2) << 16;
+    R(10) = (uint32_t)((int32_t)R(2) >> 16);
+    R(3) = R(3) + R(8);
+    R(5) = c->lo;
+    R(3) = R(3) + R(5);
+    {
+        bool t = (int32_t)R(3) >= 0;
+        c->cycles += 45;
+        if (t) { goto L_8008d324; }
+    }
+    R(3) = 0u - R(3);
+    c->cycles += 1;
+L_8008d324:
+    R(6) = R(3) + 0u;
+    { uint64_t m = (uint64_t)R(10) * R(6); c->lo = (uint32_t)m; c->hi = (uint32_t)(m >> 32); }
+    R(4) = MEM_RH(R(9) + 0x29au);
+    R(11) = (uint32_t)((int32_t)R(2) >> 31);
+    R(17) = c->hi;
+    R(16) = c->lo;
+    R(4) = R(4) << 16;
+    R(2) = (uint32_t)((int32_t)R(4) >> 16);
+    { uint64_t m = (uint64_t)R(2) * R(6); c->lo = (uint32_t)m; c->hi = (uint32_t)(m >> 32); }
+    R(8) = MEM_RH(R(9) + 0x29cu);
+    R(8) = R(8) << 16;
+    R(7) = (uint32_t)((int32_t)R(3) >> 31);
+    R(15) = c->hi;
+    R(14) = c->lo;
+    R(3) = (uint32_t)((int32_t)R(4) >> 31);
+    R(4) = (uint32_t)((int32_t)R(8) >> 16);
+    { uint64_t m = (uint64_t)R(4) * R(6); c->lo = (uint32_t)m; c->hi = (uint32_t)(m >> 32); }
+    R(13) = c->hi;
+    R(12) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(10) * (int32_t)R(7); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(21) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(6) * (int32_t)R(11); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(22) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(2) * (int32_t)R(7); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(23) = c->lo;
+    { int64_t m = (int64_t)(int32_t)R(6) * (int32_t)R(3); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(18) = R(18) << 12;
+    R(24) = c->lo;
+    R(19) = R(19) << 12;
+    R(20) = R(20) << 12;
+    { int64_t m = (int64_t)(int32_t)R(4) * (int32_t)R(7); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(5) = (uint32_t)((int32_t)R(8) >> 31);
+    R(8) = R(19) + 0u;
+    R(9) = (uint32_t)((int32_t)R(19) >> 31);
+    R(10) = R(20) + 0u;
+    R(11) = (uint32_t)((int32_t)R(20) >> 31);
+    R(17) = R(17) + R(21);
+    R(2) = R(18) + 0u;
+    R(17) = R(17) + R(22);
+    R(16) = R(16) >> 12;
+    R(3) = (uint32_t)((int32_t)R(18) >> 31);
+    R(15) = R(15) + R(23);
+    R(25) = c->lo;
+    R(15) = R(15) + R(24);
+    R(4) = R(17) << 20;
+    { int64_t m = (int64_t)(int32_t)R(6) * (int32_t)R(5); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
+    R(16) = R(16) | R(4);
+    R(17) = (uint32_t)((int32_t)R(17) >> 12);
+    R(14) = R(14) >> 12;
+    R(4) = R(15) << 20;
+    R(14) = R(14) | R(4);
+    R(15) = (uint32_t)((int32_t)R(15) >> 12);
+    R(2) = R(2) + R(16);
+    R(8) = R(8) + R(14);
+    MEM_WW(R(29) + 0x10u, R(16));
+    MEM_WW(R(29) + 0x14u, R(17));
+    MEM_WW(R(29) + 0x18u, R(14));
+    MEM_WW(R(29) + 0x1cu, R(15));
+    R(13) = R(13) + R(25);
+    R(6) = c->lo;
+    R(13) = R(13) + R(6);
+    R(12) = R(12) >> 12;
+    R(4) = R(13) << 20;
+    R(12) = R(12) | R(4);
+    R(13) = (uint32_t)((int32_t)R(13) >> 12);
+    R(4) = R(2) < R(16);
+    R(3) = R(3) + R(17);
+    R(3) = R(3) + R(4);
+    R(4) = R(8) < R(14);
+    R(9) = R(9) + R(15);
+    R(9) = R(9) + R(4);
+    R(10) = R(10) + R(12);
+    R(4) = R(10) < R(12);
+    R(11) = R(11) + R(13);
+    R(11) = R(11) + R(4);
+    MEM_WW(R(29) + 0x30u, R(2));
+    MEM_WW(R(29) + 0x34u, R(3));
+    R(2) = R(2) >> 12;
+    R(4) = R(3) << 20;
+    R(2) = R(2) | R(4);
+    R(3) = (uint32_t)((int32_t)R(3) >> 12);
+    MEM_WW(R(29) + 0x38u, R(8));
+    MEM_WW(R(29) + 0x3cu, R(9));
+    R(8) = R(8) >> 12;
+    R(4) = R(9) << 20;
+    R(8) = R(8) | R(4);
+    R(9) = (uint32_t)((int32_t)R(9) >> 12);
+    MEM_WW(R(29) + 0x40u, R(10));
+    MEM_WW(R(29) + 0x44u, R(11));
+    R(10) = R(10) >> 12;
+    MEM_WW(R(28) + 0x2094u, R(2));
+    R(2) = R(11) << 20;
+    R(10) = R(10) | R(2);
+    R(2) = MEM_RW(R(28) + 0x13a0u);
+    MEM_WW(R(29) + 0x20u, R(12));
+    MEM_WW(R(29) + 0x24u, R(13));
+    MEM_WW(R(28) + 0x2098u, R(8));
+    MEM_WW(R(28) + 0x209cu, R(10));
+    {
+        bool t = R(2) == 0u;
+        R(11) = (uint32_t)((int32_t)R(11) >> 12);
+        c->cycles += 109;
+        if (t) { goto L_8008d4e8; }
+    }
+    R(4) = R(28) + 0x2094u;
+    R(5) = R(4) + 0u;
+    R(31) = 0x8008d4e8u;
+        R(6) = R(30) + 0u;
+    c->cycles += 4;
+    f_80092f60(c);
+L_8008d4e8:
+    R(31) = MEM_RW(R(29) + 0x74u);
+    R(30) = MEM_RW(R(29) + 0x70u);
+    R(23) = MEM_RW(R(29) + 0x6cu);
+    R(22) = MEM_RW(R(29) + 0x68u);
+    R(21) = MEM_RW(R(29) + 0x64u);
+    R(20) = MEM_RW(R(29) + 0x60u);
+    R(19) = MEM_RW(R(29) + 0x5cu);
+    R(18) = MEM_RW(R(29) + 0x58u);
+    R(17) = MEM_RW(R(29) + 0x54u);
+    R(16) = MEM_RW(R(29) + 0x50u);
+    {
+        R(29) = R(29) + 0x78u;
+        c->cycles += 12;
+        return;
+    }
+}
+
+// SLUS_012.38 8008d518
+void f_8008d518(Cpu* c) {
+    CHECK_EVENTS(c);
+    R(3) = 0xffff0000u;
+    R(3) = R(3) | 0x63c0u;
+    MEM_WW(R(28) + 0x13c0u, R(3));
+    MEM_WW(R(28) + 0x13c4u, R(3));
+    R(3) = MEM_RH(R(28) + 0x133cu);
+    R(29) = R(29) - 0x38u;
+    MEM_WW(R(29) + 0x2cu, R(19));
+    R(19) = 0x800d0000u;
+    MEM_WW(R(29) + 0x28u, R(18));
+    R(18) = R(19) - 0x4e4cu;
+    MEM_WW(R(29) + 0x30u, R(31));
+    MEM_WW(R(29) + 0x24u, R(17));
+    MEM_WW(R(29) + 0x20u, R(16));
+    MEM_WW(R(28) + 0x2150u, R(0));
+    MEM_WW(R(28) + 0x2154u, R(0));
+    MEM_WW(R(28) + 0x2158u, R(0));
+    R(4) = MEM_RH(R(18) + 0x5cu);
+    R(2) = 0u + 0x1u;
+    MEM_WW(R(28) + 0x138cu, R(2));
+    R(2) = 0u + 0x82u;
+    MEM_WW(R(28) + 0x20f4u, R(0));
+    MEM_WW(R(28) + 0x2200u, R(0));
+    MEM_WW(R(28) + 0x2364u, R(0));
+    MEM_WW(R(28) + 0x213cu, R(0));
+    MEM_WW(R(28) + 0x2270u, R(0));
+    MEM_WW(R(28) + 0x23f8u, R(0));
+    MEM_WW(R(28) + 0x2378u, R(0));
+    MEM_WW(R(28) + 0x2338u, R(0));
+    MEM_WW(R(28) + 0x2394u, R(0));
+    MEM_WW(R(28) + 0x2294u, R(0));
+    MEM_WW(R(28) + 0x20ecu, R(0));
+    MEM_WW(R(28) + 0x1390u, R(0));
+    MEM_WH(R(18) + 0x50u, R(2));
+    MEM_WH(R(18) + 0x52u, R(3));
+    R(3) = MEM_RW(R(18) + 0x214u);
+    R(2) = 0u + 0x4u;
+    MEM_WH(R(18) + 0x56u, R(0));
+    MEM_WH(R(18) + 0x54u, R(0));
+    MEM_WH(R(18) + 0x58u, R(0));
+    MEM_WH(R(28) + 0x233cu, R(4));
+    {
+        bool t = R(3) == R(2);
+        R(17) = 0x800c0000u;
+        c->cycles += 42;
+        if (t) { goto L_8008d790; }
+    }
+    R(17) = R(17) - 0x7784u;
+    R(4) = R(17) + 0u;
+    R(5) = R(29) + 0x10u;
+    R(31) = 0x8008d5d4u;
+        R(6) = 0u + 0u;
+    c->cycles += 5;
+    f_800935e0(c);
+    R(4) = R(29) + 0x10u;
+    R(5) = R(17) + 0x8u;
+    R(16) = R(29) + 0x18u;
+    R(6) = R(16) + 0u;
+    R(31) = 0x8008d5ecu;
+        R(7) = 0u + 0u;
+    c->cycles += 6;
+    f_8009485c(c);
+    R(4) = R(18) + 0u;
+    R(5) = R(16) + 0u;
+    R(31) = 0x8008d5fcu;
+        R(6) = R(29) + 0x10u;
+    c->cycles += 4;
+    f_80093dd4(c);
+    R(4) = 0x800d0000u;
+    R(4) = R(4) - 0x4890u;
+    R(5) = 0u + 0u;
+    R(3) = 0u + 0x1eu;
+    R(17) = R(17) - 0x8u;
+    MEM_WH(R(18) + 0x3au, R(3));
+    MEM_WB(R(18) + 0x3fu, R(3));
+    R(2) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29) + 0x18u);
+    R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29) + 0x1au);
+    R(8) = MEM_RH(R(19) - 0x4e4cu);
+    R(2) = R(2) << 12;
+    MEM_WW(R(28) + 0x21a0u, R(2));
+    R(2) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29) + 0x1cu);
+    R(3) = R(3) << 12;
+    MEM_WW(R(28) + 0x21a4u, R(3));
+    R(3) = MEM_RH(R(17) + 0x8u);
+    R(6) = MEM_RH(R(17) + 0xau);
+    R(7) = MEM_RH(R(17) + 0xcu);
+    R(2) = R(2) << 12;
+    MEM_WH(R(28) + 0x2110u, R(3));
+    R(3) = R(3) << 16;
+    R(3) = (uint32_t)((int32_t)R(3) >> 4);
+    MEM_WH(R(28) + 0x2112u, R(6));
+    R(6) = R(6) << 16;
+    R(6) = (uint32_t)((int32_t)R(6) >> 4);
+    MEM_WH(R(28) + 0x2114u, R(7));
+    R(7) = R(7) << 16;
+    R(7) = (uint32_t)((int32_t)R(7) >> 4);
+    MEM_WW(R(28) + 0x2348u, R(6));
+    R(6) = R(8) << 16;
+    MEM_WW(R(28) + 0x21a8u, R(2));
+    MEM_WW(R(28) + 0x2344u, R(3));
+    R(9) = MEM_RH(R(18) + 0x2u);
+    R(10) = MEM_RH(R(18) + 0x4u);
+    R(6) = (uint32_t)((int32_t)R(6) >> 4);
+    MEM_WW(R(28) + 0x234cu, R(7));
+    MEM_WH(R(28) + 0x2300u, R(8));
+    MEM_WW(R(28) + 0x2074u, R(6));
+    R(3) = R(9) << 16;
+    R(3) = (uint32_t)((int32_t)R(3) >> 4);
+    R(2) = R(10) << 16;
+    MEM_WH(R(28) + 0x2302u, R(9));
+    MEM_WH(R(28) + 0x2304u, R(10));
+    MEM_WW(R(28) + 0x2078u, R(3));
+    R(7) = MEM_RH(R(18) + 0x8u);
+    R(2) = (uint32_t)((int32_t)R(2) >> 4);
+    MEM_WW(R(28) + 0x207cu, R(2));
+    MEM_WH(R(18) + 0x48u, R(8));
+    MEM_WH(R(18) + 0x4au, R(9));
+    MEM_WH(R(18) + 0x4cu, R(10));
+    MEM_WW(R(28) + 0x22ccu, R(6));
+    MEM_WW(R(28) + 0x22d0u, R(3));
+    MEM_WW(R(28) + 0x22d4u, R(2));
+    MEM_WH(R(28) + 0x20d8u, R(7));
+    R(2) = MEM_RH(R(18) + 0xau);
+    R(3) = MEM_RH(R(18) + 0xcu);
+    MEM_WW(R(28) + 0x13d8u, R(0));
+    MEM_WW(R(28) + 0x13d4u, R(0));
+    MEM_WW(R(28) + 0x2294u, R(0));
+    MEM_WW(R(28) + 0x13a4u, R(0));
+    MEM_WW(R(28) + 0x20f8u, R(0));
+    MEM_WW(R(28) + 0x13b8u, R(0));
+    MEM_WW(R(28) + 0x223cu, R(0));
+    MEM_WW(R(28) + 0x2240u, R(0));
+    MEM_WW(R(28) + 0x2244u, R(0));
+    MEM_WH(R(28) + 0x23d0u, R(0));
+    MEM_WH(R(28) + 0x23d2u, R(0));
+    MEM_WH(R(28) + 0x23d4u, R(0));
+    MEM_WH(R(28) + 0x20dau, R(2));
+    MEM_WH(R(28) + 0x20dcu, R(3));
+    R(31) = 0x8008d71cu;
+        R(6) = 0u + 0x2a0u;
+    c->cycles += 72;
+    f_8003bad4(c);
+    R(4) = 0x800d0000u;
+    R(4) = R(4) - 0x4438u;
+    R(5) = 0u + 0u;
+    R(31) = 0x8008d730u;
+        R(6) = 0u + 0xa80u;
+    c->cycles += 5;
+    f_8003bad4(c);
+    R(4) = 0x800d0000u;
+    R(4) = R(4) - 0x39b8u;
+    R(5) = 0u + 0u;
+    R(31) = 0x8008d744u;
+        R(6) = 0u + 0x2a0u;
+    c->cycles += 5;
+    f_8003bad4(c);
+    R(3) = MEM_RW(R(28) + 0x2150u);
+    R(2) = MEM_RW(R(28) + 0x2154u);
+    R(5) = MEM_RW(R(28) + 0x2158u);
+    R(4) = MEM_RH(R(17) + 0x10u);
+    MEM_WB(R(28) + 0x13ecu, R(0));
+    R(4) = 0u - R(4);
+    MEM_WW(R(28) + 0x2318u, R(3));
+    MEM_WW(R(28) + 0x231cu, R(2));
+    MEM_WW(R(28) + 0x2320u, R(5));
+    MEM_WH(R(28) + 0x2280u, R(4));
+    R(2) = MEM_RH(R(17) + 0x12u);
+    R(3) = MEM_RH(R(17) + 0x14u);
+    MEM_WH(R(28) + 0x2368u, R(4));
+    R(2) = 0u - R(2);
+    R(3) = 0u - R(3);
+    MEM_WH(R(28) + 0x2282u, R(2));
+    MEM_WH(R(28) + 0x2284u, R(3));
+    MEM_WH(R(28) + 0x236au, R(2));
+    MEM_WH(R(28) + 0x236cu, R(3));
+    c->cycles += 19;
+L_8008d790:
+    R(31) = MEM_RW(R(29) + 0x30u);
+    R(19) = MEM_RW(R(29) + 0x2cu);
+    R(18) = MEM_RW(R(29) + 0x28u);
+    R(17) = MEM_RW(R(29) + 0x24u);
+    R(16) = MEM_RW(R(29) + 0x20u);
+    {
+        R(29) = R(29) + 0x38u;
+        c->cycles += 7;
         return;
     }
 }

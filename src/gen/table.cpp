@@ -84,12 +84,6 @@ const FuncEntry g_exe_funcs[] = {
     {0x8001dd34u, f_8001dd34},
     {0x8001de30u, f_8001de30},
     {0x8001df6cu, f_8001df6c},
-    {0x8001e024u, f_8001e024},
-    {0x8001e078u, f_8001e078},
-    {0x8001e120u, f_8001e120},
-    {0x8001e14cu, f_8001e14c},
-    {0x8001e19cu, f_8001e19c},
-    {0x8001e1c4u, f_8001e1c4},
     {0x8001e214u, f_8001e214},
     {0x8001e520u, f_8001e520},
     {0x8001e9a4u, f_8001e9a4},
@@ -138,7 +132,6 @@ const FuncEntry g_exe_funcs[] = {
     {0x800208f8u, f_800208f8},
     {0x8002099cu, f_8002099c},
     {0x80020a64u, f_80020a64},
-    {0x80020ab8u, f_80020ab8},
     {0x80020ae4u, f_80020ae4},
     {0x80020bc0u, f_80020bc0},
     {0x80020e30u, f_80020e30},
@@ -1708,7 +1701,7 @@ const FuncEntry g_exe_funcs[] = {
     {0x800a9a98u, f_800a9a98},
     {0x800a9ab8u, f_800a9ab8},
 };
-const size_t g_exe_funcs_count = 1704;
+const size_t g_exe_funcs_count = 1697;
 static const FuncEntry ovl_09[] = {
     {0x800dee40u, o09_800dee40},
     {0x800df10cu, o09_800df10c},
