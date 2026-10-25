@@ -585,7 +585,8 @@ static void write_screenshot(const char* path, int w, int h) {
 void gfx_present(const DisplayInfo& d) {
     if (!g_ready) return;
     gfx_flush();
-    int ow = d.rgb24 ? d.w : d.w * S, oh = d.rgb24 ? d.h : d.h * S;
+    int ps = d.rgb24 ? 1 : S;     // 24-bit (movie) frames are presented at their native size
+    int ow = d.w * ps, oh = d.window_h * ps;
     if (ow != g_out_w || oh != g_out_h) {
         glBindTexture(GL_TEXTURE_2D, g_out_tex);
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, ow, oh, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
@@ -597,13 +598,13 @@ void gfx_present(const DisplayInfo& d) {
     glViewport(0, 0, ow, oh);
     glDisable(GL_SCISSOR_TEST);
     glDisable(GL_BLEND);
-    if (!d.enabled) {
-        glClearColor(0, 0, 0, 1);
-        glClear(GL_COLOR_BUFFER_BIT);
+    glClearColor(0, 0, 0, 1);
+    glClear(GL_COLOR_BUFFER_BIT);
+    if (!d.enabled || d.h <= 0) {
     } else if (d.rgb24) {
         sync_read_copy();
         glBindFramebuffer(GL_FRAMEBUFFER, g_out_fbo);
-        glViewport(0, 0, ow, oh);
+        glViewport(0, d.top, ow, d.h);
         glUseProgram(g_prog24);
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, g_vram_read);
@@ -617,9 +618,8 @@ void gfx_present(const DisplayInfo& d) {
         glBindFramebuffer(GL_READ_FRAMEBUFFER, g_fbo);
         glBindFramebuffer(GL_DRAW_FRAMEBUFFER, g_out_fbo);
         int w = std::min(d.w, 1024 - d.x), h = std::min(d.h, 512 - d.y);
-        glClearColor(0, 0, 0, 1);
-        glClear(GL_COLOR_BUFFER_BIT);
-        glBlitFramebuffer(d.x * S, d.y * S, (d.x + w) * S, (d.y + h) * S, 0, 0, w * S, h * S, GL_COLOR_BUFFER_BIT, GL_NEAREST);
+        glBlitFramebuffer(d.x * S, d.y * S, (d.x + w) * S, (d.y + h) * S, 0, d.top * S, w * S, (d.top + h) * S,
+                          GL_COLOR_BUFFER_BIT, GL_NEAREST);
     }
     static int frame = 0;
     frame++;

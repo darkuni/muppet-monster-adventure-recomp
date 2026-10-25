@@ -398,9 +398,15 @@ void gpu_vblank() {
     d.w = hres();
     int y1 = g_vrange & 0x3ff, y2 = (g_vrange >> 10) & 0x3ff;
     int lines = y2 - y1;
-    if (lines <= 0 || lines > 288) lines = 240;
+    if (lines <= 0 || lines > 288) { lines = 240; y1 = 16; }
+    // The TV shows lines 16..255 (NTSC); the picture sits where the vertical range puts it.
+    int top = y1 - 16;
+    if (top < 0) { d.y += -top; lines += top; top = 0; }
+    if (top + lines > 240) lines = std::max(0, 240 - top);
     bool interlace480 = ((g_dispmode >> 5) & 1) && ((g_dispmode >> 2) & 1);
     d.h = interlace480 ? lines * 2 : lines;
+    d.top = interlace480 ? top * 2 : top;
+    d.window_h = interlace480 ? 480 : 240;
     d.rgb24 = (g_dispmode >> 4) & 1;
     d.enabled = !g_display_off;
     LOG("disp", "display %d,%d %dx%d rgb24=%d hrange=%06x vrange=%05x mode=%02x", d.x, d.y, d.w, d.h, d.rgb24, g_hrange, g_vrange, g_dispmode);

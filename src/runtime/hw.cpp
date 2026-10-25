@@ -18,7 +18,7 @@ HostInput g_host_input;
 uint8_t* g_ram = nullptr;
 bool g_cache_isolated = false;
 bool g_in_exception = false;
-static uint8_t g_scratch[1024];
+uint8_t g_scratch[1024];   // data cache used as scratchpad RAM (0x1F800000)
 static uint32_t g_memctrl[16];
 static uint32_t g_ram_size = 0x00000b88;
 static uint32_t g_cache_ctrl = 0;

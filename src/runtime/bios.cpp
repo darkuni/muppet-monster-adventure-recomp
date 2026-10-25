@@ -17,7 +17,9 @@
 #include <cstring>
 #include <mutex>
 #include <string>
+#include <algorithm>
 #include <thread>
+#include <vector>
 
 // ---------------------------------------------------------------- kernel memory layout
 static const uint32_t K_TOT = 0x80000100u;     // table of tables
@@ -25,18 +27,26 @@ static const uint32_t K_EXCB = 0x8000A000u;    // 4 priority chains, 8 bytes eac
 static const uint32_t K_PCB = 0x8000A040u;     // process control block: [0] = current TCB
 static const uint32_t K_TCB = 0x8000A100u;     // TCBs, 0xC0 bytes each
 static const uint32_t K_EVCB = 0x8000A500u;    // event control blocks, 0x1C bytes each
+static const uint32_t K_DCB = 0x8000A800u;     // device control blocks, 0x50 bytes each ("cdrom", "bu")
+static const uint32_t K_DCB_NAMES = 0x8000A8C0u;
+static const uint32_t K_FCB = 0x8000A900u;     // scratch file control block for device calls
+static const uint32_t DCB_SIZE = 0x50;
+static const uint32_t DEV_BU_FIRSTFILE = 0xbfc20000u + 0xf0 * 4;   // B0:F0 (private): "bu" device firstfile
 static const uint32_t K_EXC_STACK = 0x8000EFF0u;
 static const uint32_t TCB_SIZE = 0xC0, EVCB_SIZE = 0x1C;
 
 // ---------------------------------------------------------------- guest memory helpers
 uint32_t gw(uint32_t a) { return MEM_RW(a); }
 void sw_(uint32_t a, uint32_t v) { MEM_WW(a, v); }
-uint8_t* guest_ptr(uint32_t a) { return g_ram + (a & 0x1fffff); }
+extern uint8_t g_scratch[1024];
+static bool is_scratch(uint32_t a) { return (a & 0x1ffffc00u) == 0x1f800000u; }
+uint8_t* guest_ptr(uint32_t a) { return is_scratch(a) ? g_scratch + (a & 0x3ff) : g_ram + (a & 0x1fffff); }
 std::string_view guest_str(uint32_t a) {
     if (!a) return {};
     const char* p = (const char*)guest_ptr(a);
+    size_t lim = is_scratch(a) ? 0x400 - (a & 0x3ff) : 4096;   // stack/strings may live in the scratchpad
     size_t n = 0;
-    while (n < 4096 && p[n]) n++;
+    while (n < lim && p[n]) n++;
     return std::string_view(p, n);
 }
 void guest_strcpy_out(uint32_t a, const char* s) {
@@ -257,9 +267,34 @@ static std::string guest_format(Cpu* c, uint32_t fmt_addr, int first_arg) {
 static uint32_t g_card_last_error = 0;
 
 static void card_done_events(Cpu* c, uint32_t spec) {
+    LOG("card", "card event %04x", spec);
     bios_deliver_event(c, 0xf4000001u, spec);   // SwCARD
     bios_deliver_event(c, 0xf0000011u, spec);   // HwCARD
 }
+// Asynchronous card operations complete later, from the card interrupt: libcard/libmcrd clear
+// their event flags after starting a transfer and only then wait, so completion must not be
+// signaled inside the call.
+static std::vector<std::pair<int64_t, uint32_t>> g_card_pending;   // (due cycle, event spec)
+static void card_async_done(Cpu* c, uint32_t spec, int sectors = 1) {
+    // a 128-byte sector takes about 1/100 s over the serial link
+    g_card_pending.push_back({c->cycles + (int64_t)std::max(1, sectors) * (CPU_HZ / 100), spec});
+}
+static bool card_busy() { return !g_card_pending.empty(); }
+static void card_deliver_pending(Cpu* c) {
+    while (!g_card_pending.empty() && c->cycles >= g_card_pending.front().first) {
+        uint32_t spec = g_card_pending.front().second;
+        g_card_pending.erase(g_card_pending.begin());
+        card_done_events(c, spec);
+    }
+}
+// A new transfer discards completions that were delivered but not yet consumed (TestEvent style)
+static void card_undeliver() {
+    for (int i = 0; i < evcb_count(); i++) {
+        uint32_t e = evcb(i);
+        if (gw(e) == 0xf4000001u && gw(e + 4) == 0x4000) sw_(e + 4, 0x2000);
+    }
+}
+static bool g_fd_async[16];
 
 static int card_slot(uint32_t port) { return (port & 0x10) ? 1 : 0; }
 
@@ -363,14 +398,16 @@ static void bios_a0(Cpu* c, int fn) {
         case 0x72: v0 = 0; break;   // _96_remove (BIOS CD driver; the game uses libcd)
         case 0xab: {   // _card_info(port): async
             int slot = card_slot(a0);
+            if (card_busy()) { v0 = 0; break; }
             v0 = 1;
-            card_done_events(c, memcard_present(slot) ? 0x0004 : 0x0100);
+            card_async_done(c, memcard_present(slot) ? 0x0004 : 0x0100);
             break;
         }
         case 0xac: {   // _card_load(port): async directory read
             int slot = card_slot(a0);
+            if (card_busy()) { v0 = 0; break; }
             v0 = 1;
-            card_done_events(c, memcard_present(slot) ? 0x0004 : 0x0100);
+            card_async_done(c, memcard_present(slot) ? 0x0004 : 0x0100);
             break;
         }
         default: unknown(c, 0, fn);
@@ -429,38 +466,67 @@ static void bios_b0(Cpu* c, int fn) {
             LOG("card", "open(%s, %x) -> %d", name.c_str(), a1, h);
             v0 = (uint32_t)h;
             g_card_last_error = h < 0 ? 2 : 0;
+            if (h >= 0 && h < 16) g_fd_async[h] = (a1 & 0x8000) != 0;
             if (h >= 0 && (a1 & 0x8000)) card_done_events(c, 0x0004);
             break;
         }
-        case 0x33: v0 = (uint32_t)memcard_seek((int)a0, (int)a1, (int)a2); break;   // lseek
+        case 0x33:   // lseek
+            v0 = (uint32_t)memcard_seek((int)a0, (int)a1, (int)a2);
+            LOG("card", "lseek(%d, %d, %d) -> %d", a0, a1, a2, (int)v0);
+            break;
         case 0x34: case 0x35: {   // read / write
-            std::string tmp(a2, '\0');
             bool wr = fn == 0x35;
+            if (a0 < 16 && g_fd_async[a0]) {
+                // asynchronous: the transfer is started (0) or refused while another is running (-1);
+                // completion is reported by an event
+                if (card_busy()) { v0 = 0xffffffffu; break; }
+                std::string tmp(a2, '\0');
+                if (wr) for (uint32_t i = 0; i < a2; i++) tmp[i] = (char)MEM_RB(a1 + i);
+                int n = memcard_rw((int)a0, (uint8_t*)tmp.data(), (int)a2, wr);
+                if (!wr && n > 0) for (int i = 0; i < n; i++) MEM_WB(a1 + i, (uint8_t)tmp[i]);
+                LOG("card", "async %s(%d, %08x, %d) -> %d", wr ? "write" : "read", a0, a1, a2, n);
+                card_undeliver();
+                card_async_done(c, n > 0 ? 0x0004 : 0x8000, (int)(a2 + 127) / 128);
+                v0 = 0;
+                break;
+            }
+            std::string tmp(a2, '\0');
             if (wr) for (uint32_t i = 0; i < a2; i++) tmp[i] = (char)MEM_RB(a1 + i);
             int n = memcard_rw((int)a0, (uint8_t*)tmp.data(), (int)a2, wr);
             if (!wr && n > 0) for (int i = 0; i < n; i++) MEM_WB(a1 + i, (uint8_t)tmp[i]);
             LOG("card", "%s(%d, %08x, %d) -> %d", wr ? "write" : "read", a0, a1, a2, n);
             v0 = (uint32_t)n;
-            card_done_events(c, n >= 0 ? 0x0004 : 0x8000);
             break;
         }
-        case 0x36: memcard_close((int)a0); v0 = a0; break;   // close
+        case 0x36: memcard_close((int)a0); v0 = a0; LOG("card", "close(%d)", a0); break;   // close
         case 0x3f: {   // puts
             std::string s(guest_str(a0));
             if (log_enabled("printf") || log_enabled("tty")) fprintf(stderr, "[tty] %s\n", s.c_str());
             v0 = 0;
             break;
         }
-        case 0x42: case 0x43: {   // firstfile(pattern, dirent) / nextfile(dirent)
+        case 0x42: {   // firstfile(pattern, dirent): through the device's firstfile entry (which libmcrd hooks)
+            std::string p(guest_str(a0));
+            if (p.compare(0, 2, "bu") != 0) { v0 = 0; break; }
+            size_t colon = p.find(':');
+            for (uint32_t k = 0; k < 0x2c; k += 4) sw_(K_FCB + k, 0);
+            sw_(K_FCB + 0x14, p.compare(0, 4, "bu10") == 0 ? 0x10 : 0x00);   // unit / port
+            sw_(K_FCB + 0x24, K_DCB + DCB_SIZE);
+            uint32_t pat = a0 + (uint32_t)(colon == std::string::npos ? 0 : colon + 1);
+            v0 = guest_call(c, gw(K_DCB + DCB_SIZE + 0x34), K_FCB, pat, a1);
+            break;
+        }
+        case 0xf0: case 0x43: {   // "bu" device firstfile(fcb, pattern, dirent) / nextfile(dirent)
             static std::string pattern;
             static int slot = 0, pos = 0;
-            uint32_t de = fn == 0x42 ? a1 : a0;
-            if (fn == 0x42) {
-                std::string p(guest_str(a0));
-                slot = p.compare(0, 4, "bu10") == 0 ? 1 : 0;
-                size_t colon = p.find(':');
-                pattern = colon == std::string::npos ? p : p.substr(colon + 1);
+            uint32_t de = fn == 0xf0 ? a2 : a0;
+            if (fn == 0xf0) {
+                slot = (gw(a0 + 0x14) & 0x10) ? 1 : 0;
+                pattern = std::string(guest_str(a1));
                 pos = 0;
+                LOG("card", "firstfile(slot %d, %s)", slot, pattern.c_str());
+                // the directory is read from the card: completion is signaled like any card access
+                card_done_events(c, memcard_present(slot) ? 0x0004 : 0x0100);
             }
             char name[32];
             int size = 0, idx = 0;
@@ -472,7 +538,7 @@ static void bios_b0(Cpu* c, int fn) {
                 sw_(de + 28, 0);
                 sw_(de + 32, (uint32_t)idx);
                 v0 = de;
-                LOG("card", "%s -> %s (%d bytes)", fn == 0x42 ? "firstfile" : "nextfile", name, size);
+                LOG("card", "%s -> %s (%d bytes)", fn == 0xf0 ? "firstfile" : "nextfile", name, size);
             } else {
                 v0 = 0;
             }
@@ -488,6 +554,7 @@ static void bios_b0(Cpu* c, int fn) {
         case 0x4a: case 0x4b: case 0x4c: v0 = 1; break;   // InitCard / StartCard / StopCard
         case 0x4e: case 0x4f: {   // write_card_sector(port, sector, src) / read_card_sector(port, sector, dst)
             int slot = card_slot(a0);
+            if (card_busy()) { v0 = 0; break; }
             uint8_t buf[128];
             bool ok;
             if (fn == 0x4e) {
@@ -498,7 +565,8 @@ static void bios_b0(Cpu* c, int fn) {
                 if (ok) for (int i = 0; i < 128; i++) MEM_WB(a2 + i, buf[i]);
             }
             v0 = 1;
-            card_done_events(c, ok ? 0x0004 : 0x0100);
+            LOG("card", "%s_card_sector(%x, %d) %s", fn == 0x4e ? "write" : "read", a0, a1, ok ? "ok" : "failed");
+            card_async_done(c, ok ? 0x0004 : 0x0100);
             break;
         }
         case 0x50: v0 = 1; break;   // allow_new_card
@@ -621,6 +689,7 @@ void bios_exception(Cpu* c) {
     c->cause = 0x400;
     c->r[29] = K_EXC_STACK;
     try {
+        card_deliver_pending(c);
         run_chains(c);
         default_handlers(c);
         if (g_custom_exit) {
@@ -665,6 +734,16 @@ void bios_init(const char* save_dir) {
     for (int i = 0; i < 0xc0; i++) sw_(0x80000200u + i * 4, 0xbfc10000u + i * 4);
     for (int i = 0; i < 0x60; i++) sw_(0x80000874u + i * 4, 0xbfc20000u + i * 4);
     for (int i = 0; i < 0x20; i++) sw_(0x80000674u + i * 4, 0xbfc30000u + i * 4);
+    // device control blocks: libcard/libmcrd find the "bu" device here and hook its firstfile entry
+    sw_(K_TOT + 0x50, K_DCB); sw_(K_TOT + 0x54, 2 * DCB_SIZE);
+    for (uint32_t k = 0; k < 2 * DCB_SIZE; k += 4) sw_(K_DCB + k, 0);
+    guest_strcpy_out(K_DCB_NAMES, "cdrom");
+    guest_strcpy_out(K_DCB_NAMES + 8, "bu");
+    sw_(K_DCB + 0x00, K_DCB_NAMES);
+    sw_(K_DCB + DCB_SIZE + 0x00, K_DCB_NAMES + 8);
+    sw_(K_DCB + DCB_SIZE + 0x04, 0x14);          // flags: block device
+    sw_(K_DCB + DCB_SIZE + 0x08, 0x80);          // sector size
+    sw_(K_DCB + DCB_SIZE + 0x34, DEV_BU_FIRSTFILE);
     for (int i = 0; i < SYS_TCBS; i++) sw_(tcb_addr(i), 0x1000);
     sw_(tcb_addr(0), 0x4000);
     set_current(0);

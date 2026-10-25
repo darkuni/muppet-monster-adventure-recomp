@@ -26,6 +26,8 @@ struct GfxState {
 
 struct DisplayInfo {
     int x, y, w, h;      // display area in VRAM
+    int top = 0;         // first picture line within the visible window (vertical display range start)
+    int window_h = 240;  // visible lines on a standard TV (240 NTSC, 480 interlaced)
     bool rgb24;
     bool enabled;
 };
