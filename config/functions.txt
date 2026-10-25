@@ -1,0 +1,14 @@
+# Extra function entry points / names for the recompiler.
+#   func <image> <address> [name]
+#   notfunc <image> <address>
+#   table <image> <jr address> <table address> <count>
+#
+# libetc's interrupt dispatcher: SetCustomExitFromException() longjmps to the instruction
+# after setjmp() (so the exception path enters this function in the middle).
+func SLUS_012.38 800998cc libetc_intr_entry
+
+# BOOT.BIN (overlay 09): the movie (BS v3) Huffman decoder is resumable and uses ra as a
+# continuation pointer (it saves ra in its state block and its helper "returns" through it
+# into the middle of the decoder), so it runs in the interpreter.
+interp BOOT.BIN 800e0268
+interp BOOT.BIN 800e03a8

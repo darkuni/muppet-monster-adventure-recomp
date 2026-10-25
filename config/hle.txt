@@ -1,0 +1,6 @@
+# Guest functions replaced by host code (address  host function)
+# libcard patches the BIOS memory card driver in kernel RAM; the HLE BIOS has nothing to patch.
+800a885c hle_nop    # _patch_card_info
+800a8938 hle_nop    # _patch_card
+800a89cc hle_nop    # _patch_card2
+800a8a3c hle_nop    # _copy_memcard_patch

@@ -1,0 +1,184 @@
+// Minimal OpenGL 3.3 loader for the functions the renderer uses (Windows; filled via SDL_GL_GetProcAddress).
+#pragma once
+#include <GL/glcorearb.h>
+#define GL_FUNCS(X) \
+  X(PFNGLACTIVETEXTUREPROC, glActiveTexture) \
+  X(PFNGLATTACHSHADERPROC, glAttachShader) \
+  X(PFNGLBINDBUFFERPROC, glBindBuffer) \
+  X(PFNGLBINDFRAMEBUFFERPROC, glBindFramebuffer) \
+  X(PFNGLBINDRENDERBUFFERPROC, glBindRenderbuffer) \
+  X(PFNGLBINDTEXTUREPROC, glBindTexture) \
+  X(PFNGLBINDVERTEXARRAYPROC, glBindVertexArray) \
+  X(PFNGLBLENDEQUATIONPROC, glBlendEquation) \
+  X(PFNGLBLENDEQUATIONSEPARATEPROC, glBlendEquationSeparate) \
+  X(PFNGLBLENDFUNCPROC, glBlendFunc) \
+  X(PFNGLBLENDFUNCSEPARATEPROC, glBlendFuncSeparate) \
+  X(PFNGLBLITFRAMEBUFFERPROC, glBlitFramebuffer) \
+  X(PFNGLBUFFERDATAPROC, glBufferData) \
+  X(PFNGLBUFFERSUBDATAPROC, glBufferSubData) \
+  X(PFNGLCHECKFRAMEBUFFERSTATUSPROC, glCheckFramebufferStatus) \
+  X(PFNGLCLEARPROC, glClear) \
+  X(PFNGLCLEARCOLORPROC, glClearColor) \
+  X(PFNGLCLEARSTENCILPROC, glClearStencil) \
+  X(PFNGLCOLORMASKPROC, glColorMask) \
+  X(PFNGLCOMPILESHADERPROC, glCompileShader) \
+  X(PFNGLCREATEPROGRAMPROC, glCreateProgram) \
+  X(PFNGLCREATESHADERPROC, glCreateShader) \
+  X(PFNGLDELETEFRAMEBUFFERSPROC, glDeleteFramebuffers) \
+  X(PFNGLDELETETEXTURESPROC, glDeleteTextures) \
+  X(PFNGLDELETEBUFFERSPROC, glDeleteBuffers) \
+  X(PFNGLDELETEPROGRAMPROC, glDeleteProgram) \
+  X(PFNGLDELETESHADERPROC, glDeleteShader) \
+  X(PFNGLDISABLEPROC, glDisable) \
+  X(PFNGLDRAWARRAYSPROC, glDrawArrays) \
+  X(PFNGLENABLEPROC, glEnable) \
+  X(PFNGLENABLEVERTEXATTRIBARRAYPROC, glEnableVertexAttribArray) \
+  X(PFNGLFRAMEBUFFERRENDERBUFFERPROC, glFramebufferRenderbuffer) \
+  X(PFNGLFRAMEBUFFERTEXTURE2DPROC, glFramebufferTexture2D) \
+  X(PFNGLGENBUFFERSPROC, glGenBuffers) \
+  X(PFNGLGENFRAMEBUFFERSPROC, glGenFramebuffers) \
+  X(PFNGLGENRENDERBUFFERSPROC, glGenRenderbuffers) \
+  X(PFNGLGENTEXTURESPROC, glGenTextures) \
+  X(PFNGLGENVERTEXARRAYSPROC, glGenVertexArrays) \
+  X(PFNGLGETPROGRAMINFOLOGPROC, glGetProgramInfoLog) \
+  X(PFNGLGETPROGRAMIVPROC, glGetProgramiv) \
+  X(PFNGLGETSHADERINFOLOGPROC, glGetShaderInfoLog) \
+  X(PFNGLGETSHADERIVPROC, glGetShaderiv) \
+  X(PFNGLGETSTRINGPROC, glGetString) \
+  X(PFNGLGETUNIFORMLOCATIONPROC, glGetUniformLocation) \
+  X(PFNGLLINKPROGRAMPROC, glLinkProgram) \
+  X(PFNGLPIXELSTOREIPROC, glPixelStorei) \
+  X(PFNGLREADPIXELSPROC, glReadPixels) \
+  X(PFNGLRENDERBUFFERSTORAGEPROC, glRenderbufferStorage) \
+  X(PFNGLSCISSORPROC, glScissor) \
+  X(PFNGLSHADERSOURCEPROC, glShaderSource) \
+  X(PFNGLTEXIMAGE2DPROC, glTexImage2D) \
+  X(PFNGLTEXSUBIMAGE2DPROC, glTexSubImage2D) \
+  X(PFNGLTEXPARAMETERIPROC, glTexParameteri) \
+  X(PFNGLUNIFORM1IPROC, glUniform1i) \
+  X(PFNGLUNIFORM1FPROC, glUniform1f) \
+  X(PFNGLUNIFORM2FPROC, glUniform2f) \
+  X(PFNGLUNIFORM2IPROC, glUniform2i) \
+  X(PFNGLUNIFORM4FPROC, glUniform4f) \
+  X(PFNGLUNIFORM4IPROC, glUniform4i) \
+  X(PFNGLUNIFORM1IVPROC, glUniform1iv) \
+  X(PFNGLUNIFORM4FVPROC, glUniform4fv) \
+  X(PFNGLUSEPROGRAMPROC, glUseProgram) \
+  X(PFNGLVERTEXATTRIBPOINTERPROC, glVertexAttribPointer) \
+  X(PFNGLVERTEXATTRIBIPOINTERPROC, glVertexAttribIPointer) \
+  X(PFNGLVIEWPORTPROC, glViewport) \
+  X(PFNGLGETERRORPROC, glGetError) \
+  X(PFNGLFINISHPROC, glFinish) \
+  X(PFNGLFLUSHPROC, glFlush) \
+  X(PFNGLFENCESYNCPROC, glFenceSync) \
+  X(PFNGLCLIENTWAITSYNCPROC, glClientWaitSync) \
+  X(PFNGLWAITSYNCPROC, glWaitSync) \
+  X(PFNGLDELETESYNCPROC, glDeleteSync) \
+  X(PFNGLGETINTEGERVPROC, glGetIntegerv) \
+  X(PFNGLGETFLOATVPROC, glGetFloatv) \
+  X(PFNGLSTENCILFUNCPROC, glStencilFunc) \
+  X(PFNGLSTENCILOPPROC, glStencilOp) \
+  X(PFNGLSTENCILMASKPROC, glStencilMask) \
+  X(PFNGLBINDFRAGDATALOCATIONINDEXEDPROC, glBindFragDataLocationIndexed) \
+  X(PFNGLBINDFRAGDATALOCATIONPROC, glBindFragDataLocation) \
+  X(PFNGLDRAWBUFFERSPROC, glDrawBuffers) \
+  X(PFNGLREADBUFFERPROC, glReadBuffer) \
+  X(PFNGLDELETERENDERBUFFERSPROC, glDeleteRenderbuffers) \
+  X(PFNGLGETSTRINGIPROC, glGetStringi) \
+  X(PFNGLDEPTHMASKPROC, glDepthMask) \
+  X(PFNGLDEPTHFUNCPROC, glDepthFunc) \
+  X(PFNGLCOPYTEXSUBIMAGE2DPROC, glCopyTexSubImage2D) \
+  X(PFNGLBINDATTRIBLOCATIONPROC, glBindAttribLocation) \
+  X(PFNGLBLENDCOLORPROC, glBlendColor) \
+
+#define GL_DECLARE(t, n) extern t p_##n;
+GL_FUNCS(GL_DECLARE)
+#define glActiveTexture p_glActiveTexture
+#define glAttachShader p_glAttachShader
+#define glBindBuffer p_glBindBuffer
+#define glBindFramebuffer p_glBindFramebuffer
+#define glBindRenderbuffer p_glBindRenderbuffer
+#define glBindTexture p_glBindTexture
+#define glBindVertexArray p_glBindVertexArray
+#define glBlendEquation p_glBlendEquation
+#define glBlendEquationSeparate p_glBlendEquationSeparate
+#define glBlendFunc p_glBlendFunc
+#define glBlendFuncSeparate p_glBlendFuncSeparate
+#define glBlitFramebuffer p_glBlitFramebuffer
+#define glBufferData p_glBufferData
+#define glBufferSubData p_glBufferSubData
+#define glCheckFramebufferStatus p_glCheckFramebufferStatus
+#define glClear p_glClear
+#define glClearColor p_glClearColor
+#define glClearStencil p_glClearStencil
+#define glColorMask p_glColorMask
+#define glCompileShader p_glCompileShader
+#define glCreateProgram p_glCreateProgram
+#define glCreateShader p_glCreateShader
+#define glDeleteFramebuffers p_glDeleteFramebuffers
+#define glDeleteTextures p_glDeleteTextures
+#define glDeleteBuffers p_glDeleteBuffers
+#define glDeleteProgram p_glDeleteProgram
+#define glDeleteShader p_glDeleteShader
+#define glDisable p_glDisable
+#define glDrawArrays p_glDrawArrays
+#define glEnable p_glEnable
+#define glEnableVertexAttribArray p_glEnableVertexAttribArray
+#define glFramebufferRenderbuffer p_glFramebufferRenderbuffer
+#define glFramebufferTexture2D p_glFramebufferTexture2D
+#define glGenBuffers p_glGenBuffers
+#define glGenFramebuffers p_glGenFramebuffers
+#define glGenRenderbuffers p_glGenRenderbuffers
+#define glGenTextures p_glGenTextures
+#define glGenVertexArrays p_glGenVertexArrays
+#define glGetProgramInfoLog p_glGetProgramInfoLog
+#define glGetProgramiv p_glGetProgramiv
+#define glGetShaderInfoLog p_glGetShaderInfoLog
+#define glGetShaderiv p_glGetShaderiv
+#define glGetString p_glGetString
+#define glGetUniformLocation p_glGetUniformLocation
+#define glLinkProgram p_glLinkProgram
+#define glPixelStorei p_glPixelStorei
+#define glReadPixels p_glReadPixels
+#define glRenderbufferStorage p_glRenderbufferStorage
+#define glScissor p_glScissor
+#define glShaderSource p_glShaderSource
+#define glTexImage2D p_glTexImage2D
+#define glTexSubImage2D p_glTexSubImage2D
+#define glTexParameteri p_glTexParameteri
+#define glUniform1i p_glUniform1i
+#define glUniform1f p_glUniform1f
+#define glUniform2f p_glUniform2f
+#define glUniform2i p_glUniform2i
+#define glUniform4f p_glUniform4f
+#define glUniform4i p_glUniform4i
+#define glUniform1iv p_glUniform1iv
+#define glUniform4fv p_glUniform4fv
+#define glUseProgram p_glUseProgram
+#define glVertexAttribPointer p_glVertexAttribPointer
+#define glVertexAttribIPointer p_glVertexAttribIPointer
+#define glViewport p_glViewport
+#define glGetError p_glGetError
+#define glFinish p_glFinish
+#define glFlush p_glFlush
+#define glFenceSync p_glFenceSync
+#define glClientWaitSync p_glClientWaitSync
+#define glWaitSync p_glWaitSync
+#define glDeleteSync p_glDeleteSync
+#define glGetIntegerv p_glGetIntegerv
+#define glGetFloatv p_glGetFloatv
+#define glStencilFunc p_glStencilFunc
+#define glStencilOp p_glStencilOp
+#define glStencilMask p_glStencilMask
+#define glBindFragDataLocationIndexed p_glBindFragDataLocationIndexed
+#define glBindFragDataLocation p_glBindFragDataLocation
+#define glDrawBuffers p_glDrawBuffers
+#define glReadBuffer p_glReadBuffer
+#define glDeleteRenderbuffers p_glDeleteRenderbuffers
+#define glGetStringi p_glGetStringi
+#define glDepthMask p_glDepthMask
+#define glDepthFunc p_glDepthFunc
+#define glCopyTexSubImage2D p_glCopyTexSubImage2D
+#define glBindAttribLocation p_glBindAttribLocation
+#define glBlendColor p_glBlendColor
+bool gl_load(void* (*getproc)(const char*));

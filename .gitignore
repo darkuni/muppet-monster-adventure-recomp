@@ -1,0 +1,20 @@
+# Game data - never commit (bring your own disc image)
+*.bin
+*.cue
+*.iso
+*.img
+*.str
+*.mcd
+/game/
+/disc/
+# Build output
+src/build*/
+build/
+dist/
+/run*/
+*.ppm
+# Misc
+__pycache__/
+*.pyc
+*.ini
+.DS_Store

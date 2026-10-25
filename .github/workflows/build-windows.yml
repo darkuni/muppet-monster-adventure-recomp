@@ -1,0 +1,69 @@
+name: Build Windows
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  SDL2_VERSION: 2.30.9
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install mingw-w64 and Ninja
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq mingw-w64 ninja-build cmake
+          x86_64-w64-mingw32-g++-posix --version | head -1
+
+      - name: SDL2 development package (mingw)
+        run: |
+          curl -sSL -o sdl.tar.gz https://github.com/libsdl-org/SDL/releases/download/release-${SDL2_VERSION}/SDL2-devel-${SDL2_VERSION}-mingw.tar.gz
+          tar xzf sdl.tar.gz
+          echo "SDL2_DIR=$PWD/SDL2-${SDL2_VERSION}/x86_64-w64-mingw32" >> $GITHUB_ENV
+
+      - name: Compiler cache
+        uses: hendrikmuhs/ccache-action@v1.2
+        with:
+          key: muppetmonster-win64
+
+      - name: Configure
+        run: |
+          cmake -S src -B build-win -G Ninja -DCMAKE_TOOLCHAIN_FILE=$PWD/src/mingw.cmake \
+            -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
+            -DSDL2_DIR="$SDL2_DIR"
+
+      - name: Build
+        run: ninja -C build-win -j4
+
+      - name: Stage package
+        run: |
+          mkdir -p dist/game
+          cp build-win/muppetmonster.exe dist/
+          cp "$SDL2_DIR/bin/SDL2.dll" dist/
+          cp LICENSE THIRD_PARTY_NOTICES.md dist/
+          cat > dist/README.txt <<'TXT'
+          Muppet Monster Adventure - native Windows port (static recompilation)
+
+          The game is NOT included. Copy your own disc image (the .cue file and its .bin
+          file(s), North American release SLUS-01238) into the "game" folder next to
+          muppetmonster.exe, then run muppetmonster.exe.
+          (Or drag the .cue file onto muppetmonster.exe.)
+
+          F1 or Esc (Start+Select on a controller) opens the settings menu.
+          Saves go to memcard1.mcd next to the exe (a standard PS1 memory card image).
+          TXT
+          sed -i 's/^          //' dist/README.txt
+          ls -la dist
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: muppetmonster-win64
+          path: dist/
