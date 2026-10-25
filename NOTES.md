@@ -60,10 +60,28 @@
   are handled at BIOS level (`memcard.cpp`) on standard 128 KB card images; libcard's BIOS patches
   are no-ops (`config/hle.txt`).
 
+## Notable fixes (found by comparing against a reference emulator)
+
+- Jump-table case labels must never become function entries (the data-pointer scan used to pick
+  them up from `.rodata`); otherwise the dialogue state machine broke and the Hub cutscene hung.
+- Overlays such as HUB1 are entered only through run-time pointers: the gap sweep covers the whole
+  overlay image.
+- GTE 16-bit data registers (IR0-3, VZ, SZ, OTZ) keep only the low half of the written word. The
+  GTE was checked against an independent implementation on millions of random register states.
+- Byte writes to DICR (libcd updates the enable byte with `sb`) must not acknowledge pending DMA
+  IRQ flags; otherwise MDEC slice interrupts were lost and movies dropped frames.
+- Memory cards: libmcrd looks up the "bu" device in the BIOS device table and hooks its
+  `firstfile`; async file I/O returns 0 at once and completes by event from a later interrupt.
+- BIOS string arguments can live in the scratchpad (the game's stack is there).
+- BIOS threads: a retired host thread is told apart from its replacement by a generation number.
+
 ## Debugging aids
 
 - `LOG=bios,cd,irq,thread,ovl,interp,dma,gpu,disp,mdec,...` category logging.
 - `SHOT_DIR`, `SHOT_EVERY`, `SHOT_FROM`, `FRAMES`, `NO_THROTTLE`, `STOP_AT_FRAME` (SIGTRAP for gdb;
   generated code is built with line tables so host backtraces map to guest labels).
+- `WATCH=800bb224,gp+178c` prints RAM words when they change; `RAM_DUMP_AT=frame:file` dumps RAM.
+- Bisect build (`-DCMAKE_CXX_FLAGS=-DRECOMP_BISECT`): `BISECT=lo-hi` runs those functions in the
+  interpreter (from `BISECT_FROM_SEC`), to find code generation bugs.
 - `MDEC_DUMP=1` writes MDEC input per frame; `tools/bs_decode.py` decodes a frame of an STR file
   independently for comparison.

@@ -9,9 +9,10 @@ PlayStation hardware and BIOS. Graphics are re-rendered with OpenGL at higher re
 
 ## Status
 
-- Boots through the Midway / Jim Henson Interactive / Magenta movies, the legal screen, the
-  title screen and the attract-mode demo (gameplay in the castle level), with loading screens.
-- Verified on the headless Linux test build. The Windows build is produced by CI.
+- Plays through the intro movies, title screen, new game (Hub tutorial with Pepe), level select
+  and the castle level; saving and loading on the memory card work.
+- Verified on the headless Linux test build against a reference emulator. The Windows build is
+  produced by CI.
 
 See [NOTES.md](NOTES.md) for the technical write-up.
 
@@ -38,12 +39,14 @@ saves can be copied to and from emulators. Settings are in `muppetmonster.ini`.
 | Fast CD loading | levels load faster; music and movies stay real-time |
 | Game speed | 1x-8x fast-forward (hold Tab for a burst) |
 | Frame rate display | |
+| Keyboard keys | rebind every PlayStation button (or reset to defaults) |
 
 ### Controls
 
 Any XInput/SDL gamepad works as a DualShock (analog sticks and rumble when the game enables them).
-Keyboard: arrows = d-pad, X = Cross, Z = Circle, A = Square, S = Triangle, Q/W = L1/R1,
-1/2 = L2/R2, Enter = Start, Backspace = Select.
+Keyboard defaults: arrows = d-pad, X = Cross, Z = Circle, A = Square, S = Triangle, Q/W = L1/R1,
+1/2 = L2/R2, Enter = Start, Backspace = Select, I/J/K/L = right stick, Tab = fast-forward (hold).
+Change them in the F1 menu under **Keyboard keys** (saved in `muppetmonster.ini`).
 
 ## Layout
 
