@@ -237,6 +237,7 @@ static void dma_finish(int ch) {
     g_dma[ch].chcr &= ~0x11000000u;
     if (g_dicr & (1u << (16 + ch))) g_dicr |= 1u << (24 + ch);
     dicr_update_master();
+    LOG("dma", "ch%d irq flag, dicr=%08x", ch, g_dicr);
 }
 
 static void dma_run(int ch) {
@@ -354,6 +355,7 @@ void dma_write(uint32_t off, uint32_t v) {
         uint32_t ack = v & 0x7f000000u;
         g_dicr = (g_dicr & 0xff000000u & ~ack) | (v & 0x00ff803fu);
         dicr_update_master();
+        LOG("dma", "dicr write %08x -> %08x", v, g_dicr);
         return;
     }
     int ch = off >> 4;
@@ -405,8 +407,8 @@ static uint32_t io_read(uint32_t p, int size) {
     if (off < 0x24) return g_memctrl[off >> 2];
     if (off >= 0x40 && off < 0x60) return sio_read(off, size);
     if (off == 0x60) return g_ram_size;
-    if (off == 0x70) return g_istat;
-    if (off == 0x74) return g_imask;
+    if ((off & ~3u) == 0x70) return g_istat >> ((off & 3) * 8);
+    if ((off & ~3u) == 0x74) return g_imask >> ((off & 3) * 8);
     if (off >= 0x80 && off < 0x100) {
         uint32_t w = dma_read((off - 0x80) & ~3u);
         return w >> ((off & 3) * 8);
@@ -438,14 +440,24 @@ static void io_write(uint32_t p, uint32_t v, int size) {
     if (off < 0x24) { g_memctrl[off >> 2] = v; return; }
     if (off >= 0x40 && off < 0x60) { sio_write(off, v, size); return; }
     if (off == 0x60) { g_ram_size = v; return; }
-    if (off == 0x70) { g_istat &= v; irq_update(); return; }
-    if (off == 0x74) { g_imask = v & 0x7ff; irq_update(); return; }
+    if ((off & ~3u) == 0x70 || (off & ~3u) == 0x74) {
+        // byte/halfword accesses only touch their own bits
+        int sh = (off & 3) * 8;
+        uint32_t mask = (size == 4 ? 0xffffffffu : size == 2 ? 0xffffu : 0xffu) << sh;
+        uint32_t w = (v << sh) & mask;
+        if ((off & ~3u) == 0x70) g_istat &= w | ~mask;                       // write 0 to acknowledge
+        else g_imask = ((g_imask & ~mask) | w) & 0x7ff;
+        irq_update();
+        return;
+    }
     if (off >= 0x80 && off < 0x100) {
         uint32_t reg = (off - 0x80) & ~3u;
         if (size < 4) {
             uint32_t cur = dma_read(reg);
             int sh = (off & 3) * 8;
             uint32_t mask = (size == 1 ? 0xffu : 0xffffu) << sh;
+            // DICR: bytes that were not written must not acknowledge IRQ flags (write-1-to-clear)
+            if (reg == 0x74) cur &= 0x00ffffffu;
             v = (cur & ~mask) | ((v << sh) & mask);
         }
         dma_write(reg, v);

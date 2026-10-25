@@ -165,7 +165,13 @@ static std::vector<uint8_t> g_data;
 static size_t g_data_pos = 0;
 static int g_play_track_end = 0;
 
-static int64_t read_period() { return (g_mode & 0x80) ? CPU_HZ / 150 : CPU_HZ / 75; }
+// Data reads (not XA-ADPCM streaming, which movies and music use) can go faster than the real
+// drive when fast_cd is on; the game only waits for sectors, it never times them.
+static int64_t read_period() {
+    int64_t p = (g_mode & 0x80) ? CPU_HZ / 150 : CPU_HZ / 75;
+    if (g_cfg.fast_cd && !(g_mode & 0x40) && g_state != PLAYING) p /= 4;
+    return p;
+}
 
 static void stat_bits() {
     g_stat &= ~0xe0u;

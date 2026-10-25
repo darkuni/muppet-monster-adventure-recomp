@@ -13,6 +13,9 @@
 #include "config.h"
 #include "hostinput.h"
 #include "overlay.h"
+#include "keybinds.h"
+#include "app_icon.h"
+#include <vector>
 #include "audio_ring.h"
 #include <atomic>
 #include <thread>
@@ -51,6 +54,11 @@ bool gl_platform_init(int w, int h) {
     g_win = SDL_CreateWindow(GAME_NAME " (native)", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                              ww, wh, flags);
     if (!g_win) { fprintf(stderr, "[sdl] window failed: %s\n", SDL_GetError()); return false; }
+    if (SDL_Surface* icon = SDL_CreateRGBSurfaceWithFormatFrom((void*)APP_ICON_RGBA, APP_ICON_W, APP_ICON_H, 32,
+                                                               APP_ICON_W * 4, SDL_PIXELFORMAT_RGBA32)) {
+        SDL_SetWindowIcon(g_win, icon);
+        SDL_FreeSurface(icon);
+    }
     g_present_ctx = SDL_GL_CreateContext(g_win);              // presenter
     if (!g_present_ctx) { fprintf(stderr, "[sdl] GL context failed: %s\n", SDL_GetError()); return false; }
     SDL_GL_SetAttribute(SDL_GL_SHARE_WITH_CURRENT_CONTEXT, 1);
@@ -106,34 +114,27 @@ void platform_audio_push(const int16_t* lr, int frames) {
 
 static void update_input() {
     const Uint8* k = SDL_GetKeyboardState(nullptr);
+    // keyboard bindings (F1 menu / .ini), looked up again whenever they change
+    static unsigned ver = 0;
+    static std::vector<std::pair<SDL_Scancode, uint32_t>> binds;
+    if (ver != keybind_version()) {
+        ver = keybind_version();
+        binds.clear();
+        for (int i = 0; i < keybind_count(); i++) {
+            SDL_Scancode sc = SDL_GetScancodeFromName(keybind_key(i).c_str());
+            if (sc == SDL_SCANCODE_UNKNOWN) sc = SDL_GetScancodeFromName(keybind(i).def);
+            binds.push_back({sc, keybind(i).bit});
+        }
+    }
     uint32_t b = 0;
     float lx = 0, ly = 0;
-    if (k[SDL_SCANCODE_UP] || k[SDL_SCANCODE_DOWN] || k[SDL_SCANCODE_LEFT] || k[SDL_SCANCODE_RIGHT]) b |= IN_KB_ARROWS;
-    if (k[SDL_SCANCODE_UP]) b |= IN_UP;
-    if (k[SDL_SCANCODE_DOWN]) b |= IN_DOWN;
-    if (k[SDL_SCANCODE_LEFT]) b |= IN_LEFT;
-    if (k[SDL_SCANCODE_RIGHT]) b |= IN_RIGHT;
-    if (k[SDL_SCANCODE_I]) b |= IN_ALT_UP;
-    if (k[SDL_SCANCODE_K]) b |= IN_ALT_DOWN;
-    if (k[SDL_SCANCODE_J]) b |= IN_ALT_LEFT;
-    if (k[SDL_SCANCODE_L]) b |= IN_ALT_RIGHT;
-    if (k[SDL_SCANCODE_X]) b |= IN_SOUTH;
-    if (k[SDL_SCANCODE_Z]) b |= IN_EAST;
-    if (k[SDL_SCANCODE_A]) b |= IN_WEST;
-    if (k[SDL_SCANCODE_S]) b |= IN_NORTH;
-    if (k[SDL_SCANCODE_LSHIFT] || k[SDL_SCANCODE_RSHIFT]) b |= IN_L2;
-    if (k[SDL_SCANCODE_C]) b |= IN_R1;
-    if (k[SDL_SCANCODE_RETURN]) b |= IN_START;
-    if (k[SDL_SCANCODE_BACKSPACE]) b |= IN_BACK;
-    if (k[SDL_SCANCODE_H]) b |= IN_GUIDE;
-    if (k[SDL_SCANCODE_Q]) b |= IN_L1;
-    if (k[SDL_SCANCODE_W]) b |= IN_R1;
-    if (k[SDL_SCANCODE_1]) b |= IN_L2;
-    if (k[SDL_SCANCODE_2]) b |= IN_R2;
-    if (k[SDL_SCANCODE_TAB]) b |= IN_TURBO;
+    for (auto& kb : binds) if (kb.first != SDL_SCANCODE_UNKNOWN && k[kb.first]) b |= kb.second;
+    if (b & (IN_UP | IN_DOWN | IN_LEFT | IN_RIGHT)) b |= IN_KB_ARROWS;
     float rx = 0, ry = 0, lt = 0, rt = 0;
-    if (k[SDL_SCANCODE_J]) rx = -1; if (k[SDL_SCANCODE_L]) rx = 1;
-    if (k[SDL_SCANCODE_I]) ry = 1; if (k[SDL_SCANCODE_K]) ry = -1;
+    if (b & IN_ALT_LEFT) rx = -1;
+    if (b & IN_ALT_RIGHT) rx = 1;
+    if (b & IN_ALT_UP) ry = 1;
+    if (b & IN_ALT_DOWN) ry = -1;
     if (g_pad) {
         auto btn = [&](SDL_GameControllerButton x) { return SDL_GameControllerGetButton(g_pad, x) != 0; };
         if (btn(SDL_CONTROLLER_BUTTON_DPAD_UP)) b |= IN_UP;
@@ -191,6 +192,13 @@ bool gl_platform_poll() {
     SDL_Event e;
     while (SDL_PollEvent(&e)) {
         if (e.type == SDL_QUIT) exit(0);
+        if (e.type == SDL_KEYDOWN && overlay_capturing()) {
+            // the keyboard page waits for the key to bind
+            SDL_Keycode k = e.key.keysym.sym;
+            if (k == SDLK_ESCAPE || k == SDLK_F1 || k == SDLK_F11) overlay_key_captured(nullptr);
+            else if (!e.key.repeat) overlay_key_captured(SDL_GetScancodeName(e.key.keysym.scancode));
+            continue;
+        }
         if (e.type == SDL_KEYDOWN) {
             SDL_Keycode k = e.key.keysym.sym;
             if (k == SDLK_F1 || k == SDLK_ESCAPE) {
@@ -345,6 +353,12 @@ static void present_thread() {
         glUseProgram(g_scale_prog);
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, sl.tex);
+        {
+            // sharp scaling: nearest-neighbour when enlarging (downscaling always averages)
+            GLint f = (!g_cfg.smooth_scaling && dw >= sl.w) ? GL_NEAREST : GL_LINEAR;
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, f);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, f);
+        }
         glUniform1i(g_u_src, 0);
         glUniform2f(g_u_scale, (float)sl.w / dw, (float)sl.h / dh);
         glUniform4f(g_u_rect, (float)dx / ww, (float)dy / wh, (float)dw / ww, (float)dh / wh);
