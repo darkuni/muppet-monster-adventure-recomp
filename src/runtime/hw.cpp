@@ -96,7 +96,8 @@ void hw_frame_pacing() {
         static int last_game_frames = 0;
         double fps = (g_game_frames - last_game_frames) / secs;
         last_game_frames = g_game_frames;
-        snprintf(g_perf_text, sizeof g_perf_text, "%.0f FPS", fps);
+        // game frames per second, and emulation speed relative to a real console
+        snprintf(g_perf_text, sizeof g_perf_text, "%.0f FPS  %.0f%%", fps, frames / secs / 59.826 * 100.0);
         if (log_enabled("perf"))
             fprintf(stderr, "[perf] %.1f vblank/s, %.1f game fps, %.1f MHz guest\n", frames / secs, fps,
                     (g_cpu.cycles - perf_c0) / secs / 1e6);

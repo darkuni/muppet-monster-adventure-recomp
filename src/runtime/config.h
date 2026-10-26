@@ -16,6 +16,7 @@ struct Config {
     bool smooth_scaling = true;      // bilinear final scaling (off = sharp pixels)
     bool fast_cd = true;             // read game data faster than a real drive (music and movies stay real-time)
     std::string keys;                // keyboard bindings, "button=key,..." (empty = defaults)
+    std::string pad;                 // controller bindings, "button=input,..." (empty = defaults)
 };
 extern Config g_cfg;
 void config_load(const char* exe_path);

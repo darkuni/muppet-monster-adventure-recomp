@@ -22,9 +22,10 @@ static std::mutex g_ui_mx;
 static bool g_open = false;
 static int g_sel = 0;
 static bool g_quit_armed = false;
-static bool g_keys_page = false;   // keyboard bindings page
+static int g_keys_page = 0;        // bindings page: 0 none, 1 keyboard, 2 controller
 static int g_key_sel = 0;
 static int g_capturing = -1;       // binding waiting for a key
+char g_pad_name[64] = "no controller";   // set by the platform layer
 
 struct Item {
     const char* label;
@@ -44,6 +45,7 @@ static const std::vector<Item>& items() {
         {"Game speed", {"Normal", "2x", "3x", "4x", "5x", "6x", "7x", "8x"}, "Fast-forward. Hold Tab for a burst."},
         {"Frame rate display", {"Off", "On"}, nullptr},
         {"Keyboard keys", {}, "Change which key presses each PlayStation button."},
+        {"Controller buttons", {}, "Change which controller button presses each PlayStation button."},
         {"Close menu", {}, nullptr},
         {"Quit game", {}, nullptr},
     };
@@ -81,18 +83,28 @@ static void set_value(int i, int v) {
 }
 
 bool overlay_open() { return g_open; }
-bool overlay_capturing() { return g_open && g_keys_page && g_capturing >= 0; }
+int overlay_capturing() { return (g_open && g_keys_page && g_capturing >= 0) ? g_keys_page : 0; }
 void overlay_key_captured(const char* name) {
     std::lock_guard<std::mutex> g(g_ui_mx);
     if (g_capturing < 0) return;
-    if (name && *name && !strchr(name, ',')) keybind_set(g_capturing, name);
+    if (name && *name && !strchr(name, ',') && !strchr(name, '=')) {
+        if (g_keys_page == 2) padbind_set(g_capturing, name);
+        else keybind_set(g_capturing, name);
+    }
     g_capturing = -1;
+}
+// Delete on a binding row clears it (no key / no button)
+void overlay_clear_binding() {
+    std::lock_guard<std::mutex> g(g_ui_mx);
+    if (!g_open || !g_keys_page || g_capturing >= 0 || g_key_sel >= keybind_count()) return;
+    if (g_keys_page == 2) padbind_set(g_key_sel, "");
+    else keybind_set(g_key_sel, "");
 }
 void overlay_toggle() {
     std::lock_guard<std::mutex> g(g_ui_mx);
     g_open = !g_open;
     g_quit_armed = false;
-    g_keys_page = false;
+    g_keys_page = 0;
     g_capturing = -1;
 }
 
@@ -102,11 +114,11 @@ static int keys_input(int key) {
     int n = keys_rows();
     if (key == OV_KEY_UP) g_key_sel = (g_key_sel + n - 1) % n;
     else if (key == OV_KEY_DOWN) g_key_sel = (g_key_sel + 1) % n;
-    else if (key == OV_KEY_BACK || key == OV_KEY_LEFT) g_keys_page = false;
+    else if (key == OV_KEY_BACK || key == OV_KEY_LEFT) g_keys_page = 0;
     else if (key == OV_KEY_OK || key == OV_KEY_RIGHT) {
         if (g_key_sel < keybind_count()) g_capturing = g_key_sel;
-        else if (g_key_sel == keybind_count()) keybind_reset();
-        else g_keys_page = false;
+        else if (g_key_sel == keybind_count()) { if (g_keys_page == 2) padbind_reset(); else keybind_reset(); }
+        else g_keys_page = 0;
     }
     return OV_NONE;
 }
@@ -125,7 +137,8 @@ int overlay_input(int key) {
         const Item& m = it[g_sel];
         if (m.opts.empty()) {
             if (key != OV_KEY_OK) return OV_NONE;
-            if (g_sel == n - 3) { g_keys_page = true; g_key_sel = 0; return OV_NONE; }
+            if (g_sel == n - 4) { g_keys_page = 1; g_key_sel = 0; return OV_NONE; }
+            if (g_sel == n - 3) { g_keys_page = 2; g_key_sel = 0; return OV_NONE; }
             if (g_sel == n - 2) { g_open = false; return OV_NONE; }
             if (g_sel == n - 1) {
                 if (g_quit_armed) return OV_QUIT;
@@ -203,7 +216,8 @@ static float text(float x, float y, float s, const char* str, const float* c) {
 }
 
 void overlay_draw(int ww, int wh) {
-    bool open, keys_page;
+    bool open;
+    int keys_page;
     int sel, key_sel, capturing;
     bool armed;
     {
@@ -225,19 +239,24 @@ void overlay_draw(int ww, int wh) {
     }
     if (open && keys_page) {
         int n = keys_rows();
+        float s0 = s;
+        s = std::min(s, wh * 0.92f / ((n + 4.5f) * FONT_CH * 1.25f));   // the long list must fit the window
         float lh = FONT_CH * s * 1.25f;
         float pw = 46 * FONT_CW * s, ph = (n + 4.5f) * lh;
         float px = (ww - pw) / 2, py = (wh - ph) / 2;
         rect(0, 0, (float)ww, (float)wh, shade);
         rect(px, py, pw, ph, panel);
-        text(px + 20 * s, py + 14 * s, s, "KEYBOARD KEYS", gold);
+        text(px + 20 * s, py + 14 * s, s, keys_page == 2 ? "CONTROLLER BUTTONS" : "KEYBOARD KEYS", gold);
+        if (keys_page == 2) text(px + 20 * s + 22 * FONT_CW * s, py + 14 * s, s * 0.75f, g_pad_name, grey);
         float y = py + 14 * s + lh * 1.4f;
         for (int i = 0; i < n; i++) {
             if (i == key_sel) rect(px + 8 * s, y - 4 * s, pw - 16 * s, lh, hl);
             const float* col = i == key_sel ? white : grey;
             if (i < keybind_count()) {
                 text(px + 20 * s, y, s, keybind(i).label, col);
-                std::string k = i == capturing ? std::string("press a key...") : keybind_key(i);
+                std::string k = i == capturing ? std::string(keys_page == 2 ? "press a button..." : "press a key...")
+                                               : (keys_page == 2 ? padbind_input(i) : keybind_key(i));
+                if (k.empty()) k = "-";
                 text(px + 20 * s + 22 * FONT_CW * s, y, s, k.c_str(), i == capturing ? gold : white);
             } else {
                 text(px + 20 * s, y, s, i == keybind_count() ? "Reset to defaults" : "Back", col);
@@ -245,8 +264,11 @@ void overlay_draw(int ww, int wh) {
             y += lh;
         }
         text(px + 20 * s, y + lh * 0.4f, s * 0.75f,
-             capturing >= 0 ? "Press the new key. Esc cancels." : "Enter: change key   Left / Backspace: back", capturing >= 0 ? gold : grey);
+             capturing >= 0 ? (keys_page == 2 ? "Press the controller button, trigger or stick direction. Esc cancels."
+                                              : "Press the new key. Esc cancels.")
+                            : "Enter: change   Delete: clear   Left / Backspace: back", capturing >= 0 ? gold : grey);
         text(px + 20 * s, y + lh * 1.3f, s * 0.75f, "Menu keys (arrows, Enter, Esc, F1) always work in this menu.", grey);
+        s = s0;
     } else if (open) {
         const auto& it = items();
         float lh = FONT_CH * s * 1.35f;

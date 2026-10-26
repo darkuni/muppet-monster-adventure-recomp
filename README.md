@@ -38,12 +38,15 @@ saves can be copied to and from emulators. Settings are in `muppetmonster.ini`.
 | Vibration | DualShock rumble on your controller |
 | Fast CD loading | levels load faster; music and movies stay real-time |
 | Game speed | 1x-8x fast-forward (hold Tab for a burst) |
-| Frame rate display | |
+| Frame rate display | game frames per second and emulation speed (100% = a real console) |
 | Keyboard keys | rebind every PlayStation button (or reset to defaults) |
+| Controller buttons | rebind every PlayStation button to controller buttons, triggers or stick directions |
 
 ### Controls
 
 Any XInput/SDL gamepad works as a DualShock (analog sticks and rumble when the game enables them).
+Controllers SDL has no mapping for are used as generic joysticks (buttons, hats, axes), and a
+`gamecontrollerdb.txt` next to the exe adds more mappings. Start+Select opens the settings menu.
 Keyboard defaults: arrows = d-pad, X = Cross, Z = Circle, A = Square, S = Triangle, Q/W = L1/R1,
 1/2 = L2/R2, Enter = Start, Backspace = Select, I/J/K/L = right stick, Tab = fast-forward (hold).
 Change them in the F1 menu under **Keyboard keys** (saved in `muppetmonster.ini`).

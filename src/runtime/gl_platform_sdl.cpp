@@ -16,6 +16,8 @@
 #include "keybinds.h"
 #include "app_icon.h"
 #include <vector>
+#include <string>
+#include <cstring>
 #include "audio_ring.h"
 #include <atomic>
 #include <thread>
@@ -25,7 +27,79 @@
 static SDL_Window* g_win = nullptr;
 static SDL_GLContext g_glc = nullptr;
 static SDL_AudioDeviceID g_audio = 0;
-static SDL_GameController* g_pad = nullptr;
+static SDL_GameController* g_pad = nullptr;   // a controller SDL knows (XInput, PlayStation, Switch, ...)
+static SDL_Joystick* g_joy = nullptr;          // any other joystick/gamepad, used through raw inputs
+static SDL_JoystickID g_dev_id = -1;
+
+static void set_pad_name() {
+    const char* n = g_pad ? SDL_GameControllerName(g_pad) : g_joy ? SDL_JoystickName(g_joy) : nullptr;
+    snprintf(g_pad_name, sizeof g_pad_name, "%s%s", n ? n : "no controller", (g_joy && !g_pad) ? " (generic)" : "");
+}
+static void close_pad() {
+    if (g_pad) SDL_GameControllerClose(g_pad);
+    else if (g_joy) SDL_JoystickClose(g_joy);
+    g_pad = nullptr; g_joy = nullptr; g_dev_id = -1;
+    set_pad_name();
+}
+static void open_pad(int index) {
+    if (g_pad || g_joy) return;
+    if (SDL_IsGameController(index)) {
+        g_pad = SDL_GameControllerOpen(index);
+        if (g_pad) g_dev_id = SDL_JoystickInstanceID(SDL_GameControllerGetJoystick(g_pad));
+    } else {
+        g_joy = SDL_JoystickOpen(index);
+        if (g_joy) g_dev_id = SDL_JoystickInstanceID(g_joy);
+    }
+    set_pad_name();
+    if (g_pad || g_joy) fprintf(stderr, "[input] controller: %s\n", g_pad_name);
+}
+
+// Raw-joystick defaults for controllers SDL has no mapping for (DirectInput PlayStation-style layout)
+static const char* raw_default(const char* gc) {
+    static const struct { const char* gc; const char* raw; } t[] = {
+        {"dpup", "h0u"}, {"dpdown", "h0d"}, {"dpleft", "h0l"}, {"dpright", "h0r"},
+        {"a", "b1"}, {"b", "b2"}, {"x", "b0"}, {"y", "b3"}, {"leftshoulder", "b4"}, {"rightshoulder", "b5"},
+        {"lefttrigger", "b6"}, {"righttrigger", "b7"}, {"back", "b8"}, {"start", "b9"},
+        {"leftstick", "b10"}, {"rightstick", "b11"}};
+    for (auto& e : t) if (!strcmp(gc, e.gc)) return e.raw;
+    return "";
+}
+// Is this controller input (see keybinds.h) held right now?
+static bool pad_input_held(const std::string& in) {
+    if (in.empty()) return false;
+    if (g_pad) {
+        SDL_GameControllerButton b = SDL_GameControllerGetButtonFromString(in.c_str());
+        if (b != SDL_CONTROLLER_BUTTON_INVALID) return SDL_GameControllerGetButton(g_pad, b) != 0;
+        char sign = in.back();
+        std::string name = (sign == '+' || sign == '-') ? in.substr(0, in.size() - 1) : in;
+        SDL_GameControllerAxis a = SDL_GameControllerGetAxisFromString(name.c_str());
+        if (a == SDL_CONTROLLER_AXIS_INVALID) return false;
+        int v = SDL_GameControllerGetAxis(g_pad, a);
+        return sign == '-' ? v < -16000 : v > 16000;
+    }
+    if (!g_joy) return false;
+    int n = atoi(in.c_str() + 1);
+    switch (in[0]) {
+        case 'b': return SDL_JoystickGetButton(g_joy, n) != 0;
+        case 'h': {
+            Uint8 h = SDL_JoystickGetHat(g_joy, n);
+            char d = in.back();
+            return (d == 'u' && (h & SDL_HAT_UP)) || (d == 'd' && (h & SDL_HAT_DOWN)) ||
+                   (d == 'l' && (h & SDL_HAT_LEFT)) || (d == 'r' && (h & SDL_HAT_RIGHT));
+        }
+        case 'a': {
+            int v = SDL_JoystickGetAxis(g_joy, n);
+            return in.back() == '-' ? v < -16000 : v > 16000;
+        }
+    }
+    return false;
+}
+// The binding for control i on the connected device
+static std::string pad_binding(int i) {
+    std::string in = padbind_input(i);
+    if (g_joy && !g_pad && in == keybind(i).pad_def) in = raw_default(keybind(i).pad_def);
+    return in;
+}
 static GLuint g_present_fbo = 0;
 // Presentation runs on its own thread with a second (shared) GL context, so waiting for
 // vsync never blocks the emulated CPU (which must keep servicing 3 ms audio interrupts).
@@ -78,10 +152,16 @@ bool gl_platform_init(int w, int h) {
     want.callback = [](void*, Uint8* stream, int len) { audio_ring_pull((int16_t*)stream, len / 4); };
     g_audio = SDL_OpenAudioDevice(nullptr, 0, &want, &have, 0);
     if (g_audio) SDL_PauseAudioDevice(g_audio, 0);
-    for (int i = 0; i < SDL_NumJoysticks(); i++)
-        if (SDL_IsGameController(i)) { g_pad = SDL_GameControllerOpen(i); break; }
-    if (g_pad) fprintf(stderr, "[input] controller: %s\n", SDL_GameControllerName(g_pad));
-    else fprintf(stderr, "[input] no controller found (keyboard active; controllers can be plugged in any time)\n");
+    // extra controller mappings (https://github.com/mdqinc/SDL_GameControllerDB) next to the exe
+    if (char* base = SDL_GetBasePath()) {
+        std::string db = std::string(base) + "gamecontrollerdb.txt";
+        int n = SDL_GameControllerAddMappingsFromFile(db.c_str());
+        if (n > 0) fprintf(stderr, "[input] %d controller mappings from %s\n", n, db.c_str());
+        SDL_free(base);
+    }
+    for (int i = 0; i < SDL_NumJoysticks() && !g_pad; i++) if (SDL_IsGameController(i)) open_pad(i);
+    for (int i = 0; i < SDL_NumJoysticks() && !g_pad && !g_joy; i++) open_pad(i);
+    if (!g_pad && !g_joy) fprintf(stderr, "[input] no controller found (keyboard active; controllers can be plugged in any time)\n");
     (void)w; (void)h;
     return true;
 }
@@ -95,11 +175,12 @@ void gl_platform_release_current() {
 // Controller vibration (DualShock motors driven by the game)
 void platform_rumble(int small_on, int large) {
     static int last_s = -1, last_l = -1;
-    if (!g_pad || !g_cfg.vibration) return;
+    if ((!g_pad && !g_joy) || !g_cfg.vibration) return;
     if (small_on == last_s && large == last_l) return;
     last_s = small_on; last_l = large;
     Uint16 lo = (Uint16)(large * 257), hi = small_on ? 0xc000 : 0;
-    SDL_GameControllerRumble(g_pad, lo, hi, 1000);
+    if (g_pad) SDL_GameControllerRumble(g_pad, lo, hi, 1000);
+    else SDL_JoystickRumble(g_joy, lo, hi, 1000);
 }
 
 void gl_platform_make_current() {
@@ -112,6 +193,7 @@ void platform_audio_push(const int16_t* lr, int frames) {
     if (g_audio) audio_ring_push(lr, frames);
 }
 
+static void apply_action(int a);
 static void update_input() {
     const Uint8* k = SDL_GetKeyboardState(nullptr);
     // keyboard bindings (F1 menu / .ini), looked up again whenever they change
@@ -135,38 +217,71 @@ static void update_input() {
     if (b & IN_ALT_RIGHT) rx = 1;
     if (b & IN_ALT_UP) ry = 1;
     if (b & IN_ALT_DOWN) ry = -1;
-    if (g_pad) {
-        auto btn = [&](SDL_GameControllerButton x) { return SDL_GameControllerGetButton(g_pad, x) != 0; };
-        if (btn(SDL_CONTROLLER_BUTTON_DPAD_UP)) b |= IN_UP;
-        if (btn(SDL_CONTROLLER_BUTTON_DPAD_DOWN)) b |= IN_DOWN;
-        if (btn(SDL_CONTROLLER_BUTTON_DPAD_LEFT)) b |= IN_LEFT;
-        if (btn(SDL_CONTROLLER_BUTTON_DPAD_RIGHT)) b |= IN_RIGHT;
-        const bool sw = g_cfg.swap_ab_xy;
-        if (btn(SDL_CONTROLLER_BUTTON_A)) b |= sw ? IN_EAST : IN_SOUTH;
-        if (btn(SDL_CONTROLLER_BUTTON_B)) b |= sw ? IN_SOUTH : IN_EAST;
-        if (btn(SDL_CONTROLLER_BUTTON_X)) b |= sw ? IN_NORTH : IN_WEST;
-        if (btn(SDL_CONTROLLER_BUTTON_Y)) b |= sw ? IN_WEST : IN_NORTH;
-        if (btn(SDL_CONTROLLER_BUTTON_LEFTSHOULDER)) b |= IN_L1;
-        if (btn(SDL_CONTROLLER_BUTTON_RIGHTSHOULDER)) b |= IN_R1;
-        if (SDL_GameControllerGetAxis(g_pad, SDL_CONTROLLER_AXIS_TRIGGERLEFT) > 16000) b |= IN_L2;
-        if (SDL_GameControllerGetAxis(g_pad, SDL_CONTROLLER_AXIS_TRIGGERRIGHT) > 16000) b |= IN_R2;
-        if (btn(SDL_CONTROLLER_BUTTON_START)) b |= IN_START;
-        if (btn(SDL_CONTROLLER_BUTTON_BACK)) b |= IN_BACK;
-        if (btn(SDL_CONTROLLER_BUTTON_GUIDE)) b |= IN_GUIDE;
-        if (btn(SDL_CONTROLLER_BUTTON_LEFTSTICK)) b |= IN_L3;
-        if (btn(SDL_CONTROLLER_BUTTON_RIGHTSTICK)) b |= IN_R3;
-        auto axis = [&](SDL_GameControllerAxis a) {
-            float v = SDL_GameControllerGetAxis(g_pad, a) / 32767.f;
-            const float dz = 0.2f;   // dead zone
-            if (std::fabs(v) < dz) return 0.f;
-            return (v > 0 ? v - dz : v + dz) / (1 - dz);
+    uint32_t pb = 0;   // controller part, also drives the settings menu
+    if (g_pad || g_joy) {
+        for (int i = 0; i < keybind_count(); i++)
+            if (pad_input_held(pad_binding(i))) pb |= keybind(i).bit;
+        if (g_cfg.swap_ab_xy) {   // face buttons by position (Nintendo layout)
+            uint32_t f = pb & (IN_SOUTH | IN_EAST | IN_WEST | IN_NORTH);
+            pb &= ~f;
+            if (f & IN_SOUTH) pb |= IN_EAST;
+            if (f & IN_EAST) pb |= IN_SOUTH;
+            if (f & IN_WEST) pb |= IN_NORTH;
+            if (f & IN_NORTH) pb |= IN_WEST;
+        }
+        auto dz = [](float v) {
+            const float d = 0.2f;   // dead zone
+            if (std::fabs(v) < d) return 0.f;
+            return (v > 0 ? v - d : v + d) / (1 - d);
         };
-        lx = axis(SDL_CONTROLLER_AXIS_LEFTX);
-        ly = -axis(SDL_CONTROLLER_AXIS_LEFTY);
-        float px = axis(SDL_CONTROLLER_AXIS_RIGHTX), py = -axis(SDL_CONTROLLER_AXIS_RIGHTY);
+        float ax[4] = {0, 0, 0, 0}, tl = 0, tr = 0;
+        if (g_pad) {
+            ax[0] = SDL_GameControllerGetAxis(g_pad, SDL_CONTROLLER_AXIS_LEFTX) / 32767.f;
+            ax[1] = SDL_GameControllerGetAxis(g_pad, SDL_CONTROLLER_AXIS_LEFTY) / 32767.f;
+            ax[2] = SDL_GameControllerGetAxis(g_pad, SDL_CONTROLLER_AXIS_RIGHTX) / 32767.f;
+            ax[3] = SDL_GameControllerGetAxis(g_pad, SDL_CONTROLLER_AXIS_RIGHTY) / 32767.f;
+            tl = SDL_GameControllerGetAxis(g_pad, SDL_CONTROLLER_AXIS_TRIGGERLEFT) / 32767.f;
+            tr = SDL_GameControllerGetAxis(g_pad, SDL_CONTROLLER_AXIS_TRIGGERRIGHT) / 32767.f;
+        } else {
+            int na = SDL_JoystickNumAxes(g_joy);
+            for (int i = 0; i < 4 && i < na; i++) ax[i] = SDL_JoystickGetAxis(g_joy, i) / 32767.f;
+        }
+        lx = dz(ax[0]);
+        ly = -dz(ax[1]);
+        float px = dz(ax[2]), py = -dz(ax[3]);
         if (px || py) { rx = px; ry = py; }
-        lt = std::max(lt, SDL_GameControllerGetAxis(g_pad, SDL_CONTROLLER_AXIS_TRIGGERLEFT) / 32767.f);
-        rt = std::max(rt, SDL_GameControllerGetAxis(g_pad, SDL_CONTROLLER_AXIS_TRIGGERRIGHT) / 32767.f);
+        lt = std::max(lt, tl);
+        rt = std::max(rt, tr);
+        b |= pb;
+    }
+    // controller drives the settings menu: Start+Select toggles it, d-pad/stick and Cross/Circle navigate
+    {
+        static uint32_t prev = 0;
+        uint32_t nav = pb;
+        if (lx > 0.5f) nav |= IN_RIGHT;
+        if (lx < -0.5f) nav |= IN_LEFT;
+        if (ly > 0.5f) nav |= IN_UP;
+        if (ly < -0.5f) nav |= IN_DOWN;
+        uint32_t down = nav & ~prev;
+        prev = nav;
+        // the button that was just bound must not also act on the menu
+        static bool was_capturing = false;
+        bool capturing = overlay_capturing() != 0;
+        if (was_capturing) down = 0;
+        was_capturing = capturing;
+        if (!capturing) {
+            if ((down & (IN_START | IN_BACK)) && (nav & IN_START) && (nav & IN_BACK)) overlay_toggle();
+            else if (overlay_open()) {
+                int key = -1;
+                if (down & IN_UP) key = OV_KEY_UP;
+                else if (down & IN_DOWN) key = OV_KEY_DOWN;
+                else if (down & IN_LEFT) key = OV_KEY_LEFT;
+                else if (down & IN_RIGHT) key = OV_KEY_RIGHT;
+                else if (down & IN_SOUTH) key = OV_KEY_OK;
+                else if (down & IN_EAST) key = OV_KEY_BACK;
+                if (key >= 0) apply_action(overlay_input(key));
+            }
+        }
     }
     if (b & IN_L2) lt = 1;
     if (b & IN_R2) rt = 1;
@@ -193,10 +308,10 @@ bool gl_platform_poll() {
     while (SDL_PollEvent(&e)) {
         if (e.type == SDL_QUIT) exit(0);
         if (e.type == SDL_KEYDOWN && overlay_capturing()) {
-            // the keyboard page waits for the key to bind
+            // keyboard page: the key to bind; controller page: Esc cancels
             SDL_Keycode k = e.key.keysym.sym;
             if (k == SDLK_ESCAPE || k == SDLK_F1 || k == SDLK_F11) overlay_key_captured(nullptr);
-            else if (!e.key.repeat) overlay_key_captured(SDL_GetScancodeName(e.key.keysym.scancode));
+            else if (!e.key.repeat && overlay_capturing() == 1) overlay_key_captured(SDL_GetScancodeName(e.key.keysym.scancode));
             continue;
         }
         if (e.type == SDL_KEYDOWN) {
@@ -209,6 +324,7 @@ bool gl_platform_poll() {
                 config_save();
                 apply_action(OV_FULLSCREEN);
             } else if (overlay_open()) {
+                if (k == SDLK_DELETE) { overlay_clear_binding(); continue; }
                 int key = -1;
                 if (k == SDLK_UP) key = OV_KEY_UP;
                 else if (k == SDLK_DOWN) key = OV_KEY_DOWN;
@@ -219,29 +335,35 @@ bool gl_platform_poll() {
                 if (key >= 0) apply_action(overlay_input(key));
             }
         }
-        if (e.type == SDL_CONTROLLERBUTTONDOWN && g_pad) {
-            int btn = e.cbutton.button;
-            bool start = SDL_GameControllerGetButton(g_pad, SDL_CONTROLLER_BUTTON_START);
-            bool back = SDL_GameControllerGetButton(g_pad, SDL_CONTROLLER_BUTTON_BACK);
-            if ((btn == SDL_CONTROLLER_BUTTON_START && back) || (btn == SDL_CONTROLLER_BUTTON_BACK && start)) overlay_toggle();
-            else if (overlay_open()) {
-                int key = -1;
-                if (btn == SDL_CONTROLLER_BUTTON_DPAD_UP) key = OV_KEY_UP;
-                else if (btn == SDL_CONTROLLER_BUTTON_DPAD_DOWN) key = OV_KEY_DOWN;
-                else if (btn == SDL_CONTROLLER_BUTTON_DPAD_LEFT) key = OV_KEY_LEFT;
-                else if (btn == SDL_CONTROLLER_BUTTON_DPAD_RIGHT) key = OV_KEY_RIGHT;
-                else if (btn == SDL_CONTROLLER_BUTTON_A) key = g_cfg.swap_ab_xy ? OV_KEY_BACK : OV_KEY_OK;
-                else if (btn == SDL_CONTROLLER_BUTTON_B) key = g_cfg.swap_ab_xy ? OV_KEY_OK : OV_KEY_BACK;
-                if (key >= 0) apply_action(overlay_input(key));
+        // capturing a controller binding in the settings menu
+        if (overlay_capturing() == 2) {
+            std::string in;
+            if (g_pad && e.type == SDL_CONTROLLERBUTTONDOWN && e.cbutton.which == g_dev_id)
+                in = SDL_GameControllerGetStringForButton((SDL_GameControllerButton)e.cbutton.button);
+            else if (g_pad && e.type == SDL_CONTROLLERAXISMOTION && e.caxis.which == g_dev_id && std::abs(e.caxis.value) > 24000) {
+                SDL_GameControllerAxis a = (SDL_GameControllerAxis)e.caxis.axis;
+                in = SDL_GameControllerGetStringForAxis(a);
+                if (a != SDL_CONTROLLER_AXIS_TRIGGERLEFT && a != SDL_CONTROLLER_AXIS_TRIGGERRIGHT) in += e.caxis.value < 0 ? "-" : "+";
+            } else if (!g_pad && g_joy && e.type == SDL_JOYBUTTONDOWN && e.jbutton.which == g_dev_id) {
+                in = "b" + std::to_string(e.jbutton.button);
+            } else if (!g_pad && g_joy && e.type == SDL_JOYHATMOTION && e.jhat.which == g_dev_id && e.jhat.value) {
+                Uint8 v = e.jhat.value;
+                in = "h" + std::to_string(e.jhat.hat) + (v & SDL_HAT_UP ? "u" : v & SDL_HAT_DOWN ? "d" : v & SDL_HAT_LEFT ? "l" : "r");
+            } else if (!g_pad && g_joy && e.type == SDL_JOYAXISMOTION && e.jaxis.which == g_dev_id && std::abs(e.jaxis.value) > 24000) {
+                in = "a" + std::to_string(e.jaxis.axis) + (e.jaxis.value < 0 ? "-" : "+");
             }
+            if (!in.empty()) { overlay_key_captured(in.c_str()); continue; }
         }
         if (e.type == SDL_CONTROLLERDEVICEADDED && !g_pad) {
-            g_pad = SDL_GameControllerOpen(e.cdevice.which);
-            if (g_pad) fprintf(stderr, "[input] controller: %s\n", SDL_GameControllerName(g_pad));
+            if (g_joy) close_pad();   // a known controller beats a generic joystick
+            open_pad(e.cdevice.which);
         }
-        if (e.type == SDL_CONTROLLERDEVICEREMOVED && g_pad &&
-            e.cdevice.which == SDL_JoystickInstanceID(SDL_GameControllerGetJoystick(g_pad))) {
-            SDL_GameControllerClose(g_pad); g_pad = nullptr;
+        if (e.type == SDL_JOYDEVICEADDED && !g_pad && !g_joy && !SDL_IsGameController(e.jdevice.which))
+            open_pad(e.jdevice.which);
+        if ((e.type == SDL_CONTROLLERDEVICEREMOVED && e.cdevice.which == g_dev_id) ||
+            (e.type == SDL_JOYDEVICEREMOVED && e.jdevice.which == g_dev_id)) {
+            close_pad();
+            for (int i = 0; i < SDL_NumJoysticks() && !g_pad && !g_joy; i++) open_pad(i);
         }
     }
     update_input();

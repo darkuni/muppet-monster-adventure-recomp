@@ -350,8 +350,10 @@ static void ensure_stencil() {
     g_stencil_dirty = false;
 }
 
+extern int g_stat_flushes, g_stat_tris;
 void gfx_flush() {
     if (g_batch.empty()) return;
+    g_stat_flushes++; g_stat_tris += (int)g_batch.size() / 3;
     if (g_batch_check) ensure_stencil();
     glBindFramebuffer(GL_FRAMEBUFFER, g_fbo);
     glViewport(0, 0, 1024 * S, 512 * S);
@@ -391,6 +393,7 @@ void gfx_flush() {
     g_batch_blend = -1;
 }
 
+int g_stat_copies = 0, g_stat_flushes = 0, g_stat_tris = 0; int64_t g_stat_copy_px = 0;
 static void sync_read_copy() {
     if (g_dirty[2] <= g_dirty[0] || g_dirty[3] <= g_dirty[1]) return;
     gfx_flush();
@@ -399,6 +402,7 @@ static void sync_read_copy() {
     glBindFramebuffer(GL_DRAW_FRAMEBUFFER, g_fbo_read);
     glDisable(GL_SCISSOR_TEST);
     glBlitFramebuffer(x1, y1, x2, y2, x1, y1, x2, y2, GL_COLOR_BUFFER_BIT, GL_NEAREST);
+    g_stat_copies++; g_stat_copy_px += (int64_t)(x2 - x1) * (y2 - y1);
     g_dirty[0] = g_dirty[1] = 1 << 30;
     g_dirty[2] = g_dirty[3] = -1;
 }
@@ -623,6 +627,11 @@ void gfx_present(const DisplayInfo& d) {
     }
     static int frame = 0;
     frame++;
+    if (log_enabled("gstat") && frame % 60 == 0) {
+        fprintf(stderr, "[gstat] per frame: %d copies (%.2f Mpx), %d flushes, %d tris\n", g_stat_copies / 60,
+                g_stat_copy_px / 60.0 / 1e6, g_stat_flushes / 60, g_stat_tris / 60);
+        g_stat_copies = g_stat_flushes = g_stat_tris = 0; g_stat_copy_px = 0;
+    }
     static const char* shot_dir = getenv("SHOT_DIR");
     static int shot_every = getenv("SHOT_EVERY") ? atoi(getenv("SHOT_EVERY")) : 0;
     static int shot_from = getenv("SHOT_FROM") ? atoi(getenv("SHOT_FROM")) : 0;
