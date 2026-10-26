@@ -54,6 +54,42 @@ static void scripted_input(int frame) {
         }
     }
     for (auto& st : steps) if (st.first == frame) g_host_input.buttons = st.second;
+    // ANCHOR=addr=value: ASCRIPT frames count from the first frame RAM[addr] == value (compare runs)
+    static int anchor = -1;
+    static uint32_t aa = 0, av = 0;
+    static std::vector<std::pair<int, uint32_t>> as;
+    static bool ainit = false;
+    if (!ainit) {
+        ainit = true;
+        if (getenv("ANCHOR")) sscanf(getenv("ANCHOR"), "%x=%x", &aa, &av);
+        if (const char* e = getenv("ASCRIPT")) {
+            auto save = steps;
+            steps.clear();
+            // reuse the parser on a temporary copy
+            std::string s2 = e; size_t p = 0;
+            while (p < s2.size()) {
+                size_t c = s2.find(',', p);
+                std::string item = s2.substr(p, c == std::string::npos ? std::string::npos : c - p);
+                p = c == std::string::npos ? s2.size() : c + 1;
+                size_t eq = item.find('=');
+                if (eq == std::string::npos) continue;
+                uint32_t b = 0; std::string names = item.substr(eq + 1) + "+"; size_t q = 0;
+                while (q < names.size()) {
+                    size_t pl = names.find('+', q); std::string n = names.substr(q, pl - q); q = pl + 1;
+                    static const struct { const char* n; uint32_t b; } map[] = {
+                        {"up", IN_UP}, {"down", IN_DOWN}, {"left", IN_LEFT}, {"right", IN_RIGHT}, {"cross", IN_SOUTH},
+                        {"circle", IN_EAST}, {"square", IN_WEST}, {"triangle", IN_NORTH}, {"l1", IN_L1}, {"r1", IN_R1},
+                        {"l2", IN_L2}, {"r2", IN_R2}, {"start", IN_START}, {"select", IN_BACK}};
+                    for (auto& m : map) if (n == m.n) b |= m.b;
+                }
+                as.push_back({atoi(item.substr(0, eq).c_str()), b});
+            }
+            steps = save;
+        }
+    }
+    static int after = getenv("ANCHOR_AFTER") ? atoi(getenv("ANCHOR_AFTER")) : 0;
+    if (aa && anchor < 0 && frame > after && MEM_RW(aa & ~3u) == av) { anchor = frame; fprintf(stderr, "[anchor] frame %d\n", frame); }
+    if (anchor >= 0) for (auto& st : as) if (st.first == frame - anchor) g_host_input.buttons = st.second;
 }
 
 // WATCH="800bb360,gp+178c" : print these RAM words whenever they change (debugging)

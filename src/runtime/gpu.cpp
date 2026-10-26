@@ -173,8 +173,15 @@ static void draw_line(const uint32_t* c, size_t n) {
     for (size_t k = 1; k < pts.size(); k++) draw_line_seg(pts[k - 1], pts[k], s);
 }
 
+static int g_vbl_count = 0;
 static void gp0_command(const uint32_t* c, size_t n) {
     uint32_t op = c[0] >> 24;
+    static int dump_at = getenv("GP0_DUMP_AT") ? atoi(getenv("GP0_DUMP_AT")) : -1;
+    if (g_vbl_count == dump_at && (op >> 5) >= 1 && (op >> 5) <= 3) {
+        fprintf(stderr, "[gp0]");
+        for (size_t i = 0; i < n; i++) fprintf(stderr, " %08x", c[i]);
+        fprintf(stderr, "\n");
+    }
     switch (op >> 5) {
         case 1: draw_polygon(c); return;
         case 2: draw_line(c, n); return;
@@ -391,6 +398,7 @@ void gpu_write(int reg, uint32_t v) {
 }
 
 void gpu_vblank() {
+    g_vbl_count++;
     g_field = !g_field;
     DisplayInfo d;
     d.x = g_disp_x;

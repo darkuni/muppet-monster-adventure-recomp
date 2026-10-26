@@ -425,6 +425,13 @@ void gfx_triangle(const GfxVertex v[3], const GfxState& s) {
     if (clip[2] < clip[0] || clip[3] < clip[1]) return;
     bool clip_changed = memcmp(clip, g_clip, sizeof clip) != 0;
     bool blend_conflict = s.semi && g_batch_blend >= 0 && g_batch_blend != s.blend;
+    // Subtractive blending (B-F) draws a batch in two passes, opaque pixels first: keep the
+    // submission order by never mixing semi-transparent and opaque triangles in such a batch
+    // (otherwise shadows land on top of walls drawn after them).
+    static bool last_semi = false;
+    int batch_mode = s.semi ? s.blend : g_batch_blend;
+    if (!g_batch.empty() && batch_mode == 2 && s.semi != last_semi) blend_conflict = true;
+    last_semi = s.semi;
     if (s.check_mask) g_mask_used = true;
     if (clip_changed || blend_conflict || s.check_mask != g_batch_check || g_batch.size() > 60000) {
         gfx_flush();
