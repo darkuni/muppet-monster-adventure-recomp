@@ -206,7 +206,7 @@ void rt_interp(Cpu* c, uint32_t addr) {
             case 0x2b: MEM_WW(r[rs] + simm, r[rt]); break;
             case 0x2e: MEM_SWR(r[rs] + simm, r[rt]); break;
             case 0x32: gte_write_data(rt, MEM_RW(r[rs] + simm)); break;
-            case 0x3a: MEM_WW(r[rs] + simm, gte_read_data(rt)); break;
+            case 0x3a: if (rt >= 12 && rt <= 15) gte_store_sxy(r[rs] + simm, rt); else MEM_WW(r[rs] + simm, gte_read_data(rt)); break;
             default: rt_bad_insn(c, pc, w);
         }
         if (!kind) { pc = next; continue; }
@@ -310,7 +310,7 @@ void interp_one(Cpu* c, uint32_t pc, uint32_t w) {
         case 0x2b: MEM_WW(r[rs] + simm, r[rt]); break;
         case 0x2e: MEM_SWR(r[rs] + simm, r[rt]); break;
         case 0x32: gte_write_data(rt, MEM_RW(r[rs] + simm)); break;
-        case 0x3a: MEM_WW(r[rs] + simm, gte_read_data(rt)); break;
+        case 0x3a: if (rt >= 12 && rt <= 15) gte_store_sxy(r[rs] + simm, rt); else MEM_WW(r[rs] + simm, gte_read_data(rt)); break;
         default: rt_bad_insn(c, pc, w);
     }
 }

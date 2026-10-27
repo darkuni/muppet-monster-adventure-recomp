@@ -6,6 +6,7 @@ struct GfxVertex {
     float x, y;          // VRAM pixel coordinates (drawing offset applied)
     uint32_t color;      // 0x00BBGGRR
     float u, v;          // texture coordinates (texels)
+    float w = 0;         // view depth from the GTE (0 = unknown: affine texturing)
 };
 
 struct GfxState {
@@ -20,6 +21,7 @@ struct GfxState {
     int blend = 0;                 // 0 B/2+F/2, 1 B+F, 2 B-F, 3 B+F/4
     bool set_mask = false, check_mask = false;
     bool dither = false;
+    bool sprite = false;           // rectangle (2D) rather than polygon
     // clipping (inclusive)
     int clip_x1 = 0, clip_y1 = 0, clip_x2 = 1023, clip_y2 = 511;
 };

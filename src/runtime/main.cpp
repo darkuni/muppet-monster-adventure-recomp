@@ -5,6 +5,7 @@
 #include "bios.h"
 #include "gte.h"
 #include "log.h"
+#include "rumble.h"
 #include <csignal>
 #include <cstdio>
 #include <cstdlib>
@@ -122,10 +123,14 @@ static void watch_ram(int frame) {
     }
 }
 
+unsigned g_frame_no = 0;
+
 void platform_vblank() {
     static int frames = 0;
     static int vbl = 0;
-    scripted_input(++vbl);
+    g_frame_no = ++vbl;
+    scripted_input(vbl);
+    rumble_frame();
     watch_ram(vbl);
     static int dump_at = -1;
     static char dump_fn[256];
@@ -160,7 +165,7 @@ static std::string find_disc_in(const fs::path& dir) {
     for (auto& e : fs::directory_iterator(dir, ec)) {
         std::string ext = e.path().extension().string();
         for (auto& ch : ext) ch = (char)tolower(ch);
-        if (ext == ".cue") return e.path().string();
+        if (ext == ".cue" || ext == ".chd") return e.path().string();
     }
     if (fs::exists(dir / "track01.bin")) return dir.string();
     return {};
@@ -239,8 +244,8 @@ static void import_disc(const std::string& disc, const fs::path& pack) {
     char buf[64];
     snprintf(buf, sizeof buf, "%.0f MB", mb);
     info("Your disc was imported into assets.dat (" + std::string(buf) + ", verified lossless).\n\n"
-         "The game now runs from assets.dat alone. The .cue and .bin files are no longer needed "
-         "and can be deleted.");
+         "The game now runs from assets.dat alone. The disc image (" + fs::path(disc).filename().string() +
+         " and any .bin files) is no longer needed and can be deleted.");
 }
 
 int main(int argc, char** argv) {
@@ -284,7 +289,7 @@ int main(int argc, char** argv) {
         if (!cd_init_pack(use_pack.string().c_str(), &err)) fatal(err);
     } else if (disc.empty() || !cd_init(disc.c_str())) {
         fatal("Muppet Monster Adventure game data not found.\n\n"
-              "First run: put your .cue and .bin files (NTSC-U, SLUS-01238) next to muppetmonster.exe "
+              "First run: put your disc image (.chd, or .cue + .bin; NTSC-U, SLUS-01238) next to muppetmonster.exe "
               "or in a folder named \"game\" (or drag the .cue onto the exe). They are imported once "
               "into assets.dat, after which they can be deleted.");
     }

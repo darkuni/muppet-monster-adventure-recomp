@@ -12,6 +12,7 @@
 
 #include "config.h"
 #include "hostinput.h"
+int gfx_scale();
 #include "overlay.h"
 #include "keybinds.h"
 #include "app_icon.h"
@@ -112,7 +113,32 @@ static std::condition_variable g_pcv;
 static void present_thread();
 static thread_local bool t_current = false;
 
+// Window size: 240 lines times the resolution setting (or window_scale), shrunk to the largest
+// whole multiple that fits the desktop's usable area. Sizes are real pixels (DPI aware).
+static void window_size(int display, int* w, int* h) {
+    int scale = g_cfg.window_scale > 0 ? g_cfg.window_scale : g_cfg.resolution_scale;
+    SDL_Rect ub;
+    int max_h = 100000, max_w = 100000;
+    if (SDL_GetDisplayUsableBounds(display, &ub) == 0) { max_h = ub.h * 92 / 100; max_w = ub.w * 95 / 100; }
+    const int an = g_cfg.widescreen ? 16 : 4, ad = g_cfg.widescreen ? 9 : 3;
+    while (scale > 1 && (240 * scale > max_h || 240 * scale * an / ad > max_w)) scale--;
+    *h = 240 * scale;
+    *w = *h * an / ad;
+}
+
+void platform_fit_window() {
+    if (!g_win || g_cfg.fullscreen) return;
+    if (SDL_GetWindowFlags(g_win) & SDL_WINDOW_MAXIMIZED) SDL_RestoreWindow(g_win);
+    int w, h;
+    window_size(SDL_GetWindowDisplayIndex(g_win), &w, &h);
+    SDL_SetWindowSize(g_win, w, h);
+    SDL_SetWindowPosition(g_win, SDL_WINDOWPOS_CENTERED_DISPLAY(SDL_GetWindowDisplayIndex(g_win)),
+                          SDL_WINDOWPOS_CENTERED_DISPLAY(SDL_GetWindowDisplayIndex(g_win)));
+}
+
 bool gl_platform_init(int w, int h) {
+    // real pixels on scaled desktops (otherwise Windows stretches the window by the display scale)
+    SDL_SetHint("SDL_WINDOWS_DPI_AWARENESS", "permonitorv2");
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_GAMECONTROLLER | SDL_INIT_EVENTS) != 0) {
         fprintf(stderr, "[sdl] init failed: %s\n", SDL_GetError());
         return false;
@@ -121,8 +147,9 @@ bool gl_platform_init(int w, int h) {
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-    int scale = g_cfg.window_scale;
-    int ww = (g_cfg.widescreen ? 854 : 640) * scale, wh = 480 * scale;
+    int ww, wh;
+    window_size(0, &ww, &wh);
+    fprintf(stderr, "[sdl] window %dx%d\n", ww, wh);
     Uint32 flags = SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI;
     if (g_cfg.fullscreen) flags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
     g_win = SDL_CreateWindow(GAME_NAME " (native)", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
@@ -175,12 +202,25 @@ void gl_platform_release_current() {
 // Controller vibration (DualShock motors driven by the game)
 void platform_rumble(int small_on, int large) {
     static int last_s = -1, last_l = -1;
-    if ((!g_pad && !g_joy) || !g_cfg.vibration) return;
+    if (!g_pad && !g_joy) return;
+    if (!g_cfg.vibration) small_on = large = 0;
+    large = large * g_cfg.vibration_strength / 100;
     if (small_on == last_s && large == last_l) return;
     last_s = small_on; last_l = large;
-    Uint16 lo = (Uint16)(large * 257), hi = small_on ? 0xc000 : 0;
+    Uint16 lo = (Uint16)(large * 257), hi = small_on ? (Uint16)(0xc000 * g_cfg.vibration_strength / 100) : 0;
     if (g_pad) SDL_GameControllerRumble(g_pad, lo, hi, 1000);
     else SDL_JoystickRumble(g_joy, lo, hi, 1000);
+}
+
+// Vibration made by the port (rumble.cpp): both motors, 0..1
+void platform_rumble_f(float low, float high) {
+    static Uint16 last_lo = 0xffff, last_hi = 0xffff;
+    if (!g_pad && !g_joy) return;
+    Uint16 lo = (Uint16)(low * 65535.0f), hi = (Uint16)(high * 65535.0f);
+    if (lo == last_lo && hi == last_hi) return;
+    last_lo = lo; last_hi = hi;
+    if (g_pad) SDL_GameControllerRumble(g_pad, lo, hi, 200);
+    else SDL_JoystickRumble(g_joy, lo, hi, 200);
 }
 
 void gl_platform_make_current() {
@@ -298,7 +338,8 @@ static void update_input() {
 static std::atomic<bool> g_vsync_dirty{false};
 
 static void apply_action(int a) {
-    if (a == OV_FULLSCREEN) SDL_SetWindowFullscreen(g_win, g_cfg.fullscreen ? SDL_WINDOW_FULLSCREEN_DESKTOP : 0);
+    if (a == OV_FULLSCREEN) { SDL_SetWindowFullscreen(g_win, g_cfg.fullscreen ? SDL_WINDOW_FULLSCREEN_DESKTOP : 0); if (!g_cfg.fullscreen) platform_fit_window(); }
+    else if (a == OV_WINDOW) platform_fit_window();
     else if (a == OV_VSYNC) g_vsync_dirty = true;
     else if (a == OV_QUIT) exit(0);
 }
@@ -411,12 +452,12 @@ void gl_platform_present(unsigned tex, int w, int h) {
 // window size) averages a grid of bilinear taps across each window pixel's footprint
 // so the extra resolution becomes anti-aliasing instead of shimmer; upscaling is bilinear.
 static GLuint g_scale_prog = 0, g_scale_vao = 0;
-static GLint g_u_src = -1, g_u_scale = -1, g_u_rect = -1;
+static GLint g_u_src = -1, g_u_scale = -1, g_u_rect = -1, g_u_crt = -1, g_u_lines = -1;
 static void init_scaler() {
     const char* vs = "#version 330 core\nuniform vec4 u_rect; out vec2 uv;\n"
         "void main(){ vec2 p = vec2(gl_VertexID & 1, gl_VertexID >> 1); uv = vec2(p.x, p.y);\n"
         " vec2 q = u_rect.xy + p * u_rect.zw; gl_Position = vec4(q.x * 2.0 - 1.0, 1.0 - q.y * 2.0, 0.0, 1.0); }\n";
-    const char* fs = "#version 330 core\nin vec2 uv; uniform sampler2D u_src; uniform vec2 u_scale; out vec4 o;\n"
+    const char* fs = "#version 330 core\nin vec2 uv; uniform sampler2D u_src; uniform vec2 u_scale; uniform int u_crt; uniform float u_lines; out vec4 o;\n"
         "void main(){\n"
         " vec2 ts = vec2(textureSize(u_src, 0));\n"
         " vec2 n = clamp(ceil(u_scale), vec2(1.0), vec2(4.0));\n"   // taps per axis
@@ -427,7 +468,25 @@ static void init_scaler() {
         "  vec2 off = (vec2(i, j) + 0.5) / n - 0.5;\n"
         "  acc += texture(u_src, uv + off * fp);\n"
         " }\n"
-        " o = vec4(acc.rgb / (n.x * n.y), 1.0); }\n";
+        " vec3 c = acc.rgb / (n.x * n.y);\n"
+        " if (u_crt > 0) {\n"
+        // scanlines: a soft beam profile per original line, brightness kept about the same
+        "  float d = fract(uv.y * u_lines) - 0.5;\n"
+        "  float beam = exp(-d * d * 14.0);\n"
+        "  vec3 lin = pow(c, vec3(2.2));\n"
+        "  float wgt = mix(0.35, 1.0, beam);\n"
+        "  lin *= wgt * 1.35;\n"
+        "  if (u_crt > 1) {\n"
+        // aperture grille (RGB stripes per window pixel column) and a gentle bloom of bright areas
+        "   int col = int(gl_FragCoord.x) % 3;\n"
+        "   vec3 m = col == 0 ? vec3(1.0, 0.7, 0.7) : col == 1 ? vec3(0.7, 1.0, 0.7) : vec3(0.7, 0.7, 1.0);\n"
+        "   lin *= m * 1.25;\n"
+        "   vec3 b = texture(u_src, uv + vec2(0.0, 1.0 / u_lines)).rgb + texture(u_src, uv - vec2(0.0, 1.0 / u_lines)).rgb;\n"
+        "   lin += pow(b * 0.5, vec3(2.2)) * 0.12;\n"
+        "  }\n"
+        "  c = pow(clamp(lin, 0.0, 1.0), vec3(1.0 / 2.2));\n"
+        " }\n"
+        " o = vec4(c, 1.0); }\n";
     auto sh = [](GLenum t, const char* src) { GLuint s = glCreateShader(t); glShaderSource(s, 1, &src, nullptr); glCompileShader(s); return s; };
     g_scale_prog = glCreateProgram();
     glAttachShader(g_scale_prog, sh(GL_VERTEX_SHADER, vs));
@@ -436,6 +495,8 @@ static void init_scaler() {
     g_u_src = glGetUniformLocation(g_scale_prog, "u_src");
     g_u_scale = glGetUniformLocation(g_scale_prog, "u_scale");
     g_u_rect = glGetUniformLocation(g_scale_prog, "u_rect");
+    g_u_crt = glGetUniformLocation(g_scale_prog, "u_crt");
+    g_u_lines = glGetUniformLocation(g_scale_prog, "u_lines");
     glGenVertexArrays(1, &g_scale_vao);
 }
 
@@ -484,6 +545,9 @@ static void present_thread() {
         glUniform1i(g_u_src, 0);
         glUniform2f(g_u_scale, (float)sl.w / dw, (float)sl.h / dh);
         glUniform4f(g_u_rect, (float)dx / ww, (float)dy / wh, (float)dw / ww, (float)dh / wh);
+        // the CRT look needs at least ~3 window pixels per original line
+        glUniform1i(g_u_crt, dh >= 600 ? g_cfg.crt : 0);
+        glUniform1f(g_u_lines, sl.h > 300 * gfx_scale() ? 480.0f : 240.0f);
         glBindVertexArray(g_scale_vao);
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
         overlay_draw(ww, wh);

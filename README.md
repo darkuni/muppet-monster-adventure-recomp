@@ -19,7 +19,7 @@ See [NOTES.md](NOTES.md) for the technical write-up.
 ## Running (Windows)
 
 1. Download the `muppetmonster-win64` artifact from the latest **Build Windows** run (Actions tab).
-2. First run only: put your disc image (`Muppet Monster Adventure.cue` + its `.bin` file(s)) in a
+2. First run only: put your disc image (a `.chd`, or `Muppet Monster Adventure.cue` + its `.bin` file(s)) in a
    `game` folder next to `muppetmonster.exe` (or next to the exe itself), then run
    `muppetmonster.exe` - or drag the `.cue` onto it. One `.bin` per track and single-`.bin` rips
    both work.
@@ -40,12 +40,17 @@ saves can be copied to and from emulators. Settings are in `muppetmonster.ini`.
 
 | Setting | Options |
 |---|---|
-| Resolution | 1x (original) to 6x internal resolution (restart) |
+| Resolution | 1x (original) to 6x internal resolution (restart); the window follows it (240 lines x the setting, shrunk to fit the desktop) |
 | Widescreen 16:9 | wider view of the 3D world |
 | VSync, Fullscreen (F11 / Alt+Enter) | |
 | Scaling | sharp or smooth |
+| Texture filtering | off (original), smooth 3D (2D art and text stay sharp), smooth everything - bilinear on the palette-decoded texels, so transparent edges stay clean |
+| Colour | true colour, or the original 15-bit colour with the PlayStation's dither pattern |
+| Precise geometry | sub-pixel polygon positions and perspective-correct textures (no wobble or texture warping), PGXP-style |
+| Screen filter | off, scanlines, CRT (scanlines + aperture grille + glow; needs a window 600+ pixels tall) |
+| Audio resampling | standard, or high quality (windowed-sinc) for the streamed XA music and voices |
 | Swap A/B and X/Y | face buttons by position |
-| Vibration | DualShock rumble on your controller |
+| Vibration | DualShock rumble on your controller (off/on, strength 25-100%) |
 | Fast CD loading | levels load faster; music and movies stay real-time |
 | Game speed | 1x-8x fast-forward (hold Tab for a burst) |
 | Frame rate display | game frames per second and emulation speed (100% = a real console) |

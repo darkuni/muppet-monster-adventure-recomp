@@ -17115,7 +17115,7 @@ L_800e88d8:
     MEM_WB(R(7) + 0x7u, R(3));
     MEM_WW(R(7) + 0x1cu, R(4));
     MEM_WB(R(7) + 0x17u, R(0));
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = R(29) + 0x44u;
     MEM_WW(R(3) + 0x0u, gte_read_data(19));
     R(2) = MEM_RW(R(29) + 0x44u);
@@ -17170,7 +17170,7 @@ L_800e88d8:
     MEM_WB(R(7) + 0xdu, R(3));
     R(3) = R(29) + 0x30u;
     MEM_WB(R(7) + 0xeu, R(2));
-    MEM_WW(R(3) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(3) + 0x0u, 14);
     R(2) = MEM_RW(R(29) + 0x44u);
     R(3) = R(29) + 0x48u;
     R(2) = R(2) & 0x7ff8u;

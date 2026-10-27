@@ -14,6 +14,12 @@ add_executable(muppetmonster ${RT_SRC} ${GEN_SRC})
 target_include_directories(muppetmonster PRIVATE runtime gen third_party/miniz)
 # miniz (deflate) for the packed disc file
 target_sources(muppetmonster PRIVATE third_party/miniz/miniz.c)
+# libchdr (reads .chd disc images for the import)
+file(GLOB CHDR_SRC third_party/libchdr/src/*.c)
+list(APPEND CHDR_SRC third_party/libchdr/deps/lzma-26.02/src/LzmaDec.c third_party/libchdr/deps/zstd-1.5.7/zstddeclib.c)
+target_sources(muppetmonster PRIVATE ${CHDR_SRC})
+target_include_directories(muppetmonster PRIVATE third_party/libchdr/include)
+set_source_files_properties(${CHDR_SRC} PROPERTIES COMPILE_OPTIONS "-w;-O2")
 set_source_files_properties(third_party/miniz/miniz.c PROPERTIES COMPILE_DEFINITIONS "MINIZ_NO_ARCHIVE_APIS;MINIZ_NO_STDIO;MINIZ_NO_TIME" COMPILE_OPTIONS "-w")
 # The generated code is large and simple: -O1 compiles much faster with little speed loss.
 set_source_files_properties(${GEN_SRC} PROPERTIES COMPILE_OPTIONS "-O1;-fno-strict-aliasing;-w;-g1")

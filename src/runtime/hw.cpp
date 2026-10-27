@@ -47,6 +47,7 @@ void log_printf(const char* cat, const char* fmt, ...) {
 }
 
 // ---------------------------------------------------------------- scheduler
+extern uint32_t g_gp0_addr;
 static int64_t g_ev[EV_COUNT];
 static const int64_t NEVER = INT64_MAX;
 
@@ -247,6 +248,7 @@ static void dma_run(int ch) {
     bool from_ram = d.chcr & 1;
     int step = (d.chcr & 2) ? -4 : 4;
     uint32_t addr = d.madr & 0x1ffffc;
+    const uint32_t dma_start_addr = addr;
     int64_t cost = 0;
     if (mode == 2) {
         // linked list (GPU); an address with bit 23 set (the 0xFFFFFF terminator) ends it at once
@@ -260,8 +262,10 @@ static void dma_run(int ch) {
                 uint32_t w;
                 addr = (addr + 4) & 0x1ffffc;
                 memcpy(&w, g_ram + addr, 4);
+                g_gp0_addr = 0x80000000u | addr;
                 gpu_write(0, w);
             }
+            g_gp0_addr = 0xffffffffu;
             cost += n + 1;
             a = hdr & 0xffffff;
             if (++guard > 1000000) { LOG("dma", "GPU linked list loop"); break; }
@@ -285,7 +289,7 @@ static void dma_run(int ch) {
                     memcpy(&w, g_ram + addr, 4);
                     switch (ch) {
                         case 0: mdec_dma_in(w); break;
-                        case 2: gpu_write(0, w); break;
+                        case 2: g_gp0_addr = 0x80000000u | addr; gpu_write(0, w); g_gp0_addr = 0xffffffffu; break;
                         case 4: spu_dma_write(w); break;
                         default: break;
                     }
@@ -307,6 +311,10 @@ static void dma_run(int ch) {
         cost = words;
     }
     LOG("dma", "ch%d done: madr=%08x bcr=%08x chcr=%08x", ch, d.madr, d.bcr, d.chcr);
+    if (ch == 3 && log_enabled("cdmap")) {
+        extern int cd_sector_lba();
+        fprintf(stderr, "[cdmap] lba %d -> %08x\n", cd_sector_lba(), dma_start_addr);
+    }
     // The data moved instantly; the channel stays busy for a while like real hardware.
     sched_in(EV_DMA0 + ch, std::max<int64_t>(16, cost));
 }

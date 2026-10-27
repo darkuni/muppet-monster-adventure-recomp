@@ -3,6 +3,8 @@
 #include "gpu.h"
 #include "hw.h"
 #include "log.h"
+#include "precise.h"
+#include <cmath>
 #include <algorithm>
 #include <cstring>
 #include <vector>
@@ -11,6 +13,8 @@ extern int g_game_frames;
 int64_t hw_vblank_time();
 
 static std::vector<uint32_t> g_fifo;
+static std::vector<uint32_t> g_fifo_addr;   // RAM address each word came from (DMA), or ~0
+uint32_t g_gp0_addr = 0xffffffffu;           // set by the DMA for the word being written
 static size_t g_need = 0;          // words needed for the current command (0 = waiting for a command)
 static bool g_polyline = false;
 
@@ -72,6 +76,22 @@ static bool too_big(const GfxVertex* v, int n) {
     return false;
 }
 
+// precise vertex position for command word i (sub-pixel x/y and depth), if the GTE made it
+static int64_t g_prec_hit = 0, g_prec_all = 0, g_prec_addr = 0;
+static bool precise_vertex(size_t i, uint32_t w, GfxVertex& v) {
+    PreciseVtx p;
+    g_prec_all++;
+    uint32_t a = i < g_fifo_addr.size() ? g_fifo_addr[i] : 0xffffffffu;
+    if (!precise_lookup(a, w, &p)) return false;
+    float ix = (float)sx11((int)(w & 0x7ff)), iy = (float)sx11((int)((w >> 16) & 0x7ff));
+    if (std::fabs(p.x - ix) >= 1.5f || std::fabs(p.y - iy) >= 1.5f) return false;
+    v.x = p.x + (float)g_off_x;
+    v.y = p.y + (float)g_off_y;
+    v.w = p.w;
+    g_prec_hit++;
+    return true;
+}
+
 static void draw_polygon(const uint32_t* c) {
     uint32_t op = c[0] >> 24;
     bool gouraud = op & 0x10, quad = op & 0x08, textured = op & 0x04, semi = op & 0x02, raw = op & 0x01;
@@ -81,7 +101,10 @@ static void draw_polygon(const uint32_t* c) {
     uint32_t clut = 0, page = 0;
     for (int k = 0; k < n; k++) {
         v[k].color = (k == 0 || !gouraud) ? (c[0] & 0xffffff) : (c[i++] & 0xffffff);
-        vertex(c[i++], v[k]);
+        vertex(c[i], v[k]);
+        v[k].w = 0;
+        precise_vertex(i, c[i], v[k]);
+        i++;
         if (textured) {
             uint32_t uv = c[i++];
             v[k].u = (float)(uv & 0xff);
@@ -95,6 +118,7 @@ static void draw_polygon(const uint32_t* c) {
     if (textured) g_drawmode = (g_drawmode & ~0x9ffu) | (page & 0x9ff);
     GfxState s;
     fill_state(s, textured, raw && textured, semi);
+    s.dither = s.dither && (gouraud || (textured && !raw));   // flat and raw-textured polygons are not dithered
     s.clut_x = (clut & 0x3f) * 16;
     s.clut_y = (clut >> 6) & 0x1ff;
     if (!too_big(v, 3)) gfx_triangle(v, s);
@@ -118,6 +142,8 @@ static void draw_rect(const uint32_t* c) {
     if (w == 0 || h == 0) return;
     GfxState s;
     fill_state(s, textured, raw && textured, semi);
+    s.sprite = true;
+    s.dither = false;   // rectangles are never dithered
     s.clut_x = ((uv >> 16) & 0x3f) * 16;
     s.clut_y = (uv >> 22) & 0x1ff;
     uint32_t col = c[0] & 0xffffff;
@@ -273,21 +299,22 @@ static void gp0(uint32_t w) {
         g_polyline = g_need == 0;
     }
     g_fifo.push_back(w);
+    g_fifo_addr.push_back(g_gp0_addr);
     if (g_polyline) {
         // terminated by 5xxx5xxx (on a vertex/colour word), at least two vertices
         bool gouraud = (g_fifo[0] >> 24) & 0x10;
         size_t min = gouraud ? 4 : 3;
         if (g_fifo.size() > min && (w & 0xf000f000u) == 0x50005000u) {
             gp0_command(g_fifo.data(), g_fifo.size());
-            g_fifo.clear();
+            g_fifo.clear(); g_fifo_addr.clear();
         } else if (g_fifo.size() > 4096) {
-            g_fifo.clear();
+            g_fifo.clear(); g_fifo_addr.clear();
         }
         return;
     }
     if (g_fifo.size() >= g_need) {
         gp0_command(g_fifo.data(), g_fifo.size());
-        g_fifo.clear();
+        g_fifo.clear(); g_fifo_addr.clear();
     }
 }
 
@@ -295,13 +322,13 @@ static void gp1(uint32_t v) {
     uint32_t cmd = (v >> 24) & 0x3f;
     switch (cmd) {
         case 0x00:
-            g_fifo.clear(); g_up_remaining = 0; g_down_active = false;
+            g_fifo.clear(); g_fifo_addr.clear(); g_up_remaining = 0; g_down_active = false;
             g_irq = false; g_display_off = true; g_dma_dir = 0;
             g_disp_x = g_disp_y = 0; g_hrange = 0xc60260; g_vrange = 0x3fc10; g_dispmode = 0;
             g_drawmode = 0; g_texwin = 0; g_area_x1 = g_area_y1 = g_area_x2 = g_area_y2 = 0; g_off_x = g_off_y = 0;
             g_set_mask = g_check_mask = false;
             break;
-        case 0x01: g_fifo.clear(); g_up_remaining = 0; break;
+        case 0x01: g_fifo.clear(); g_fifo_addr.clear(); g_up_remaining = 0; break;
         case 0x02: g_irq = false; break;
         case 0x03: g_display_off = v & 1; break;
         case 0x04: g_dma_dir = v & 3; break;
@@ -399,6 +426,11 @@ void gpu_write(int reg, uint32_t v) {
 
 void gpu_vblank() {
     g_vbl_count++;
+    precise_frame();
+    if (g_vbl_count % 300 == 0 && log_enabled("precise")) {
+        fprintf(stderr, "[precise] %lld of %lld polygon vertices precise\n", (long long)g_prec_hit, (long long)g_prec_all);
+        g_prec_hit = g_prec_all = 0;
+    }
     g_field = !g_field;
     DisplayInfo d;
     d.x = g_disp_x;

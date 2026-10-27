@@ -153,7 +153,7 @@ L_8004bdc8:
     gte_write_data(1, MEM_RW(R(4) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x10u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = R(29) + 0x18u;
     R(12) = gte_read_data(19);
     MEM_WW(R(3), R(12));
@@ -235,7 +235,7 @@ L_8004bea4:
     gte_write_data(1, MEM_RW(R(8) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x10u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = R(29) + 0x18u;
     R(12) = gte_read_data(19);
     MEM_WW(R(3), R(12));
@@ -569,7 +569,7 @@ void f_8004c260(Cpu* c) {
     gte_write_data(0, MEM_RW(R(4) + 0x0u));
     gte_write_data(1, MEM_RW(R(4) + 0x4u));
     gte_command(0x4a180001u);
-    MEM_WW(R(29) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(29) + 0x0u, 14);
     R(2) = R(29) + 0x8u;
     R(12) = gte_read_data(19);
     MEM_WW(R(2), R(12));
@@ -748,7 +748,7 @@ void f_8004c468(Cpu* c) {
     gte_write_data(0, MEM_RW(R(4) + 0x0u));
     gte_write_data(1, MEM_RW(R(4) + 0x4u));
     gte_command(0x4a180001u);
-    MEM_WW(R(29) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(29) + 0x0u, 14);
     R(2) = R(29) + 0x8u;
     R(12) = gte_read_data(19);
     MEM_WW(R(2), R(12));
@@ -930,7 +930,7 @@ void f_8004c66c(Cpu* c) {
     gte_write_data(1, MEM_RW(R(2) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x8u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = R(29) + 0x18u;
     R(12) = gte_read_data(19);
     MEM_WW(R(3), R(12));
@@ -976,7 +976,7 @@ void f_8004c66c(Cpu* c) {
     gte_write_data(0, MEM_RW(R(8) + 0x0u));
     gte_write_data(1, MEM_RW(R(8) + 0x4u));
     gte_command(0x4a180001u);
-    MEM_WW(R(29) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(29) + 0x0u, 14);
     R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29));
     {
         bool t = (int32_t)R(3) >= 0;
@@ -1587,7 +1587,7 @@ L_8004ce28:
     gte_write_data(1, MEM_RW(R(11) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x8u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = R(29) + 0x20u;
     R(12) = gte_read_data(19);
     MEM_WW(R(3), R(12));
@@ -1610,7 +1610,7 @@ L_8004ce28:
     gte_write_data(1, MEM_RW(R(11) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x10u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(12) = gte_read_data(19);
     MEM_WW(R(14), R(12));
     R(2) = MEM_RW(R(29) + 0x20u);
@@ -1636,7 +1636,7 @@ L_8004ce28:
     gte_write_data(1, MEM_RW(R(11) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0xcu;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(12) = gte_read_data(19);
     MEM_WW(R(14), R(12));
     R(2) = MEM_RW(R(29) + 0x20u);
@@ -1662,7 +1662,7 @@ L_8004ce28:
     gte_write_data(1, MEM_RW(R(11) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x14u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(12) = gte_read_data(19);
     MEM_WW(R(14), R(12));
     R(2) = MEM_RW(R(29) + 0x20u);
@@ -2180,7 +2180,7 @@ L_8004d594:
     gte_write_data(1, MEM_RW(R(29) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x28u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(4) = (uint32_t)((int32_t)R(10) >> 1);
     R(2) = MEM_RH(R(29));
     R(3) = MEM_RH(R(29) + 0x2u);
@@ -2192,7 +2192,7 @@ L_8004d594:
     gte_write_data(1, MEM_RW(R(29) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x8u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = R(29) + 0xcu;
     R(12) = gte_read_data(19);
     MEM_WW(R(3), R(12));
@@ -2203,7 +2203,7 @@ L_8004d594:
     gte_write_data(1, MEM_RW(R(29) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x10u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = R(29) + 0x14u;
     R(12) = gte_read_data(19);
     MEM_WW(R(3), R(12));
@@ -2305,7 +2305,7 @@ L_8004d7c4:
     gte_write_data(1, MEM_RW(R(29) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x20u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = R(29) + 0x24u;
     R(12) = gte_read_data(19);
     MEM_WW(R(3), R(12));
@@ -2383,7 +2383,7 @@ L_8004d8d4:
     gte_write_data(1, MEM_RW(R(29) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x18u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = R(29) + 0x1cu;
     R(12) = gte_read_data(19);
     MEM_WW(R(3), R(12));
@@ -2555,7 +2555,7 @@ L_8004dad4:
     gte_write_data(0, MEM_RW(R(2) + 0x0u));
     gte_write_data(1, MEM_RW(R(2) + 0x4u));
     gte_command(0x4a180001u);
-    MEM_WW(R(29) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(29) + 0x0u, 14);
     R(2) = R(29) + 0x18u;
     R(12) = gte_read_data(19);
     MEM_WW(R(2), R(12));
@@ -2581,7 +2581,7 @@ L_8004dad4:
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(3) = R(29) + 0x4u;
-    MEM_WW(R(3) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(3) + 0x0u, 14);
     R(2) = MEM_RH(R(29) + 0x12u);
     R(3) = R(29) + 0x10u;
     R(2) = R(2) - R(5);
@@ -2590,7 +2590,7 @@ L_8004dad4:
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(3) = R(29) + 0xcu;
-    MEM_WW(R(3) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(3) + 0x0u, 14);
     R(2) = MEM_RH(R(29) + 0x10u);
     R(3) = R(29) + 0x10u;
     R(2) = R(2) - R(5);
@@ -2599,7 +2599,7 @@ L_8004dad4:
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x8u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29));
     {
         bool t = (int32_t)R(3) >= 0;
@@ -2843,7 +2843,7 @@ void f_8004de10(Cpu* c) {
     gte_write_data(0, MEM_RW(R(3) + 0x0u));
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
-    MEM_WW(R(29) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(29) + 0x0u, 14);
     R(2) = R(29) + 0x28u;
     R(12) = gte_read_data(19);
     MEM_WW(R(2), R(12));
@@ -2885,7 +2885,7 @@ void f_8004de10(Cpu* c) {
     gte_write_data(1, MEM_RW(R(5) + 0x4u));
     gte_command(0x4a180001u);
     R(3) = R(29) + 0x4u;
-    MEM_WW(R(3) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(3) + 0x0u, 14);
     R(2) = MEM_RH(R(8));
     R(3) = MEM_RH(R(29) + 0x18u);
     R(4) = MEM_RH(R(29) + 0x20u);
@@ -2909,7 +2909,7 @@ void f_8004de10(Cpu* c) {
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(3) = R(29) + 0x8u;
-    MEM_WW(R(3) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(3) + 0x0u, 14);
     R(2) = MEM_RH(R(8));
     R(3) = MEM_RH(R(29) + 0x18u);
     R(4) = MEM_RH(R(29) + 0x20u);
@@ -2933,7 +2933,7 @@ void f_8004de10(Cpu* c) {
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0xcu;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29));
     {
         bool t = (int32_t)R(3) >= 0;
@@ -3169,7 +3169,7 @@ void f_8004e2d4(Cpu* c) {
     gte_write_data(0, MEM_RW(R(2) + 0x0u));
     gte_write_data(1, MEM_RW(R(2) + 0x4u));
     gte_command(0x4a180001u);
-    MEM_WW(R(29) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(29) + 0x0u, 14);
     R(2) = R(29) + 0x18u;
     R(12) = gte_read_data(19);
     MEM_WW(R(2), R(12));
@@ -3195,7 +3195,7 @@ void f_8004e2d4(Cpu* c) {
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(3) = R(29) + 0x4u;
-    MEM_WW(R(3) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(3) + 0x0u, 14);
     R(2) = MEM_RH(R(29) + 0x12u);
     R(3) = R(29) + 0x10u;
     R(2) = R(2) - R(5);
@@ -3204,7 +3204,7 @@ void f_8004e2d4(Cpu* c) {
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(3) = R(29) + 0xcu;
-    MEM_WW(R(3) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(3) + 0x0u, 14);
     R(2) = MEM_RH(R(29) + 0x10u);
     R(3) = R(29) + 0x10u;
     R(2) = R(2) - R(5);
@@ -3213,7 +3213,7 @@ void f_8004e2d4(Cpu* c) {
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x8u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29));
     {
         bool t = (int32_t)R(3) >= 0;
@@ -3441,7 +3441,7 @@ void f_8004e638(Cpu* c) {
     gte_write_data(0, MEM_RW(R(2) + 0x0u));
     gte_write_data(1, MEM_RW(R(2) + 0x4u));
     gte_command(0x4a180001u);
-    MEM_WW(R(29) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(29) + 0x0u, 14);
     R(2) = R(29) + 0x18u;
     R(12) = gte_read_data(19);
     MEM_WW(R(2), R(12));
@@ -3465,7 +3465,7 @@ void f_8004e638(Cpu* c) {
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(3) = R(29) + 0x4u;
-    MEM_WW(R(3) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(3) + 0x0u, 14);
     R(2) = MEM_RH(R(29) + 0x12u);
     R(3) = R(29) + 0x10u;
     R(2) = R(2) - R(5);
@@ -3474,7 +3474,7 @@ void f_8004e638(Cpu* c) {
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(3) = R(29) + 0xcu;
-    MEM_WW(R(3) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(3) + 0x0u, 14);
     R(2) = MEM_RH(R(29) + 0x10u);
     R(3) = R(29) + 0x10u;
     R(2) = R(2) - R(5);
@@ -3483,7 +3483,7 @@ void f_8004e638(Cpu* c) {
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x8u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29));
     {
         bool t = (int32_t)R(3) >= 0;
@@ -3788,7 +3788,7 @@ L_8004e9ac:
     gte_write_data(0, MEM_RW(R(5) + 0x0u));
     gte_write_data(1, MEM_RW(R(5) + 0x4u));
     gte_command(0x4a180001u);
-    MEM_WW(R(29) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(29) + 0x0u, 14);
     R(2) = R(29) + 0x20u;
     R(12) = gte_read_data(19);
     MEM_WW(R(2), R(12));
@@ -3821,7 +3821,7 @@ L_8004e9ac:
     gte_write_data(1, MEM_RW(R(4) + 0x4u));
     gte_command(0x4a180001u);
     R(3) = R(29) + 0x4u;
-    MEM_WW(R(3) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(3) + 0x0u, 14);
     R(2) = MEM_RH(R(29) + 0x10u);
     R(3) = R(6) << 1;
     R(2) = R(2) - R(3);
@@ -3839,7 +3839,7 @@ L_8004e9ac:
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(3) = R(29) + 0xcu;
-    MEM_WW(R(3) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(3) + 0x0u, 14);
     R(2) = MEM_RH(R(29) + 0x10u);
     R(3) = R(8) << 1;
     R(2) = R(2) - R(3);
@@ -3857,7 +3857,7 @@ L_8004e9ac:
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x8u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29));
     {
         bool t = (int32_t)R(3) >= 0;
@@ -4237,7 +4237,7 @@ L_8004f004:
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x28u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29) + 0x40u);
     { int64_t m = (int64_t)(int32_t)R(3) * (int32_t)R(11); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
     R(3) = c->lo;
@@ -4264,7 +4264,7 @@ L_8004f004:
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x30u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29) + 0x28u);
     {
         bool t = (int32_t)R(3) >= 0;
@@ -4849,7 +4849,7 @@ L_8004f770:
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x38u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29) + 0x18u);
     { int64_t m = (int64_t)(int32_t)R(3) * (int32_t)R(11); c->lo = (uint32_t)m; c->hi = (uint32_t)((uint64_t)m >> 32); }
     R(3) = c->lo;
@@ -4876,7 +4876,7 @@ L_8004f770:
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x40u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = (uint32_t)(int32_t)(int16_t)MEM_RH(R(29) + 0x38u);
     {
         bool t = (int32_t)R(3) >= 0;
@@ -5623,7 +5623,7 @@ L_80050270:
     gte_write_data(0, MEM_RW(R(29) + 0x0u));
     gte_write_data(1, MEM_RW(R(29) + 0x4u));
     gte_command(0x4a180001u);
-    MEM_WW(R(6) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(6) + 0x0u, 14);
     R(2) = R(6) + 0x4u;
     R(12) = gte_read_data(19);
     MEM_WW(R(2), R(12));
@@ -5653,7 +5653,7 @@ L_800502d8:
     gte_write_data(0, MEM_RW(R(29) + 0x0u));
     gte_write_data(1, MEM_RW(R(29) + 0x4u));
     gte_command(0x4a180001u);
-    MEM_WW(R(6) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(6) + 0x0u, 14);
     R(2) = R(6) + 0x4u;
     R(12) = gte_read_data(19);
     MEM_WW(R(2), R(12));
@@ -5683,7 +5683,7 @@ L_80050340:
     gte_write_data(0, MEM_RW(R(29) + 0x0u));
     gte_write_data(1, MEM_RW(R(29) + 0x4u));
     gte_command(0x4a180001u);
-    MEM_WW(R(6) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(6) + 0x0u, 14);
     R(2) = R(6) + 0x4u;
     R(12) = gte_read_data(19);
     MEM_WW(R(2), R(12));
@@ -5713,7 +5713,7 @@ L_800503a8:
     gte_write_data(0, MEM_RW(R(29) + 0x0u));
     gte_write_data(1, MEM_RW(R(29) + 0x4u));
     gte_command(0x4a180001u);
-    MEM_WW(R(6) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(6) + 0x0u, 14);
     R(2) = R(6) + 0x4u;
     R(12) = gte_read_data(19);
     MEM_WW(R(2), R(12));
@@ -6745,7 +6745,7 @@ void f_80050fe4(Cpu* c) {
     gte_write_data(1, MEM_RW(R(6) + 0x4u));
     gte_command(0x4a180001u);
     R(3) = R(29) + 0x20u;
-    MEM_WW(R(3) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(3) + 0x0u, 14);
     R(2) = MEM_RH(R(6));
     R(3) = MEM_RH(R(6) + 0x2u);
     R(2) = R(2) - R(5);
@@ -6755,7 +6755,7 @@ void f_80050fe4(Cpu* c) {
     gte_write_data(0, MEM_RW(R(6) + 0x0u));
     gte_write_data(1, MEM_RW(R(6) + 0x4u));
     gte_command(0x4a180001u);
-    MEM_WW(R(29) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(29) + 0x0u, 14);
     R(3) = R(29) + 0x4u;
     R(12) = gte_read_data(19);
     MEM_WW(R(3), R(12));
@@ -6767,7 +6767,7 @@ void f_80050fe4(Cpu* c) {
     gte_write_data(1, MEM_RW(R(6) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x8u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = R(29) + 0xcu;
     R(12) = gte_read_data(19);
     MEM_WW(R(3), R(12));
@@ -6845,7 +6845,7 @@ L_800511c4:
     gte_write_data(1, MEM_RW(R(6) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x18u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = R(29) + 0x1cu;
     R(12) = gte_read_data(19);
     MEM_WW(R(3), R(12));
@@ -6921,7 +6921,7 @@ L_800512d0:
     gte_write_data(1, MEM_RW(R(6) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x10u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(3) = R(29) + 0x14u;
     R(12) = gte_read_data(19);
     MEM_WW(R(3), R(12));
@@ -10846,7 +10846,7 @@ void f_80053e64(Cpu* c) {
     gte_write_data(0, MEM_RW(R(4) + 0x0u));
     gte_write_data(1, MEM_RW(R(4) + 0x4u));
     gte_command(0x4a180001u);
-    MEM_WW(R(29) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(29) + 0x0u, 14);
     R(2) = R(29) + 0x8u;
     R(12) = gte_read_data(19);
     MEM_WW(R(2), R(12));
@@ -10980,7 +10980,7 @@ void f_80053fe8(Cpu* c) {
     gte_write_data(0, MEM_RW(R(4) + 0x0u));
     gte_write_data(1, MEM_RW(R(4) + 0x4u));
     gte_command(0x4a180001u);
-    MEM_WW(R(29) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(29) + 0x0u, 14);
     R(2) = R(29) + 0x8u;
     R(12) = gte_read_data(19);
     MEM_WW(R(2), R(12));
@@ -13694,7 +13694,7 @@ L_80055d1c:
     gte_write_data(1, MEM_RW(R(3) + 0x4u));
     gte_command(0x4a180001u);
     R(2) = R(29) + 0x10u;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     R(5) = 0x260000u;
     R(5) = R(5) | 0x9ec3u;
     R(2) = 0x800b0000u;
@@ -21880,7 +21880,7 @@ void f_8005be0c(Cpu* c) {
     gte_write_data(1, MEM_RW(R(4) + 0x4u));
     gte_command(0x4a180001u);
     R(4) = R(29) + 0x10u;
-    MEM_WW(R(4) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(4) + 0x0u, 14);
     R(3) = R(29) + 0x14u;
     R(12) = gte_read_data(19);
     R(12) = (uint32_t)((int32_t)R(12) >> 2);
@@ -23275,7 +23275,7 @@ L_8005cca8:
     gte_write_data(0, MEM_RW(R(16) + 0x0u));
     gte_write_data(1, MEM_RW(R(16) + 0x4u));
     gte_command(0x4a180001u);
-    MEM_WW(R(4) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(4) + 0x0u, 14);
     R(3) = 0u - 0x1u;
     R(2) = 0x80080000u;
     R(2) = R(2) - 0x27fcu;

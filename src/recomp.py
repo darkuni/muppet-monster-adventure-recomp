@@ -560,6 +560,9 @@ class Recompiler:
                 addr = '%s + 0x%xu' % (rs, i.imm) if i.simm >= 0 else '%s - 0x%xu' % (rs, -i.simm)
                 if mn == 'lwc2':
                     out.append(ind + 'gte_write_data(%d, MEM_RW(%s));' % (i.rt, addr))
+                elif 12 <= i.rt <= 15:
+                    # screen coordinates: also remember the precise (sub-pixel) values for the GPU
+                    out.append(ind + 'gte_store_sxy(%s, %d);' % (addr, i.rt))
                 else:
                     out.append(ind + 'MEM_WW(%s, gte_read_data(%d));' % (addr, i.rt))
                 return

@@ -30,7 +30,7 @@ static int g_tmp_w = 0, g_tmp_h = 0;
 static GLuint g_out_tex, g_out_fbo;                 // presented frame
 static int g_out_w = 0, g_out_h = 0;
 static GLuint g_prog, g_prog24, g_prog_stencil, g_vao, g_vbo;
-static GLint u_vram, u_scale, u_blend, u_pass;
+static GLint u_vram, u_scale, u_blend, u_pass, u_filter, u_dither;
 static GLint u24_vram, u24_scale, u24_rect;
 static GLint us_vram, us_scale;
 static bool g_ready = false;
@@ -41,6 +41,8 @@ struct Vtx {
     float u, v;
     int16_t tex[4];     // tpage x, tpage y, clut x, clut y
     int16_t info[4];    // flags, window mask, window offset, unused
+    int16_t lim[4];     // texel bounds of the primitive (u min, v min, u max, v max) for filtering
+    float w;            // perspective divisor (1 = affine, like the PS1)
 };
 static std::vector<Vtx> g_batch;
 static int g_batch_blend = -1;                      // blend mode of the semi-transparent primitives in the batch
@@ -91,28 +93,35 @@ layout(location = 1) in vec4 a_color;
 layout(location = 2) in vec2 a_uv;
 layout(location = 3) in ivec4 a_tex;
 layout(location = 4) in ivec4 a_info;
+layout(location = 5) in ivec4 a_lim;
+layout(location = 6) in float a_w;
 out vec4 v_color;
-noperspective out vec2 v_uv;
+out vec2 v_uv;
 flat out ivec4 v_tex;
 flat out ivec4 v_info;
+flat out ivec4 v_lim;
 void main() {
-    gl_Position = vec4(a_pos.x / 512.0 - 1.0, a_pos.y / 256.0 - 1.0, 0.0, 1.0);
+    gl_Position = vec4((a_pos.x / 512.0 - 1.0) * a_w, (a_pos.y / 256.0 - 1.0) * a_w, 0.0, a_w);
     v_color = a_color;
     v_uv = a_uv;
     v_tex = a_tex;
     v_info = a_info;
+    v_lim = a_lim;
 }
 )";
 
 static const char* kDrawFS = R"(#version 330 core
 in vec4 v_color;
-noperspective in vec2 v_uv;
+in vec2 v_uv;
 flat in ivec4 v_tex;
 flat in ivec4 v_info;
+flat in ivec4 v_lim;
 uniform sampler2D u_vram;
 uniform int u_scale;
 uniform int u_blend;
 uniform int u_pass;
+uniform int u_filter;   // 0 nearest, 1 bilinear on polygons, 2 bilinear on everything
+uniform int u_dither;   // 0 true colour, 1 original 15-bit colour with the GPU's dither pattern
 layout(location = 0, index = 0) out vec4 o_color;
 layout(location = 0, index = 1) out vec4 o_blend;
 
@@ -127,6 +136,25 @@ uint vram16(ivec2 p) {
 vec4 unpack16(uint v) {
     return vec4(float(v & 31u), float((v >> 5u) & 31u), float((v >> 10u) & 31u), float(v >> 15u) * 31.0) / 31.0;
 }
+// one texel at texture coordinate t (texture window applied); raw == 0 is transparent
+vec4 fetch(ivec2 t, int mode, out uint raw) {
+    t &= 255;
+    ivec2 wm = ivec2(v_info.y & 31, (v_info.y >> 5) & 31) * 8;
+    ivec2 wo = ivec2(v_info.z & 31, (v_info.z >> 5) & 31) * 8;
+    t = (t & ~wm) | (wo & wm);
+    if (mode == 0) {
+        uint w = vram16(ivec2(v_tex.x + t.x / 4, v_tex.y + t.y));
+        raw = vram16(ivec2(v_tex.z + int((w >> uint((t.x & 3) * 4)) & 15u), v_tex.w));
+    } else if (mode == 1) {
+        uint w = vram16(ivec2(v_tex.x + t.x / 2, v_tex.y + t.y));
+        raw = vram16(ivec2(v_tex.z + int((w >> uint((t.x & 1) * 8)) & 255u), v_tex.w));
+    } else {
+        raw = vram16(ivec2(v_tex.x + t.x, v_tex.y + t.y));
+    }
+    return unpack16(raw);
+}
+
+const float kDither[16] = float[16](-4.0, 0.0, -3.0, 1.0, 2.0, -2.0, 3.0, -1.0, -3.0, 1.0, -4.0, 0.0, 3.0, -1.0, 2.0, -2.0);
 
 void main() {
     int flags = v_info.x;
@@ -134,24 +162,37 @@ void main() {
     vec3 col = v_color.rgb;
     float stp = 0.0;
     if (textured) {
-        ivec2 t = ivec2(floor(v_uv)) & 255;
-        ivec2 wm = ivec2(v_info.y & 31, (v_info.y >> 5) & 31) * 8;
-        ivec2 wo = ivec2(v_info.z & 31, (v_info.z >> 5) & 31) * 8;
-        t = (t & ~wm) | (wo & wm);
         int mode = (flags >> 2) & 3;
         vec4 texel;
         uint raw;
-        if (mode == 0) {
-            uint w = vram16(ivec2(v_tex.x + t.x / 4, v_tex.y + t.y));
-            uint idx = (w >> uint((t.x & 3) * 4)) & 15u;
-            raw = vram16(ivec2(v_tex.z + int(idx), v_tex.w));
+        bool sprite = (flags & 64) != 0;
+        if (u_filter == 2 || (u_filter == 1 && !sprite)) {
+            // bilinear between the opaque neighbours (palette lookups first, so colour keys and
+            // edges stay clean); the shape follows the nearest texel, the bounds keep neighbouring
+            // atlas entries out
+            fetch(ivec2(floor(v_uv)), mode, raw);
+            if (raw == 0u) discard;
+            vec2 p = v_uv - 0.5;
+            ivec2 b = ivec2(floor(p));
+            vec2 f = fract(p);
+            ivec2 lo = v_lim.xy, hi = max(v_lim.zw, v_lim.xy);
+            ivec2 t0 = clamp(b, lo, hi), t1 = clamp(b + 1, lo, hi);
+            uint r00, r10, r01, r11;
+            vec4 c00 = fetch(ivec2(t0.x, t0.y), mode, r00), c10 = fetch(ivec2(t1.x, t0.y), mode, r10);
+            vec4 c01 = fetch(ivec2(t0.x, t1.y), mode, r01), c11 = fetch(ivec2(t1.x, t1.y), mode, r11);
+            vec4 w = vec4((1.0 - f.x) * (1.0 - f.y), f.x * (1.0 - f.y), (1.0 - f.x) * f.y, f.x * f.y);
+            w *= vec4(r00 != 0u, r10 != 0u, r01 != 0u, r11 != 0u);
+            float ws = w.x + w.y + w.z + w.w;
             texel = unpack16(raw);
-        } else if (mode == 1) {
-            uint w = vram16(ivec2(v_tex.x + t.x / 2, v_tex.y + t.y));
-            uint idx = (w >> uint((t.x & 1) * 8)) & 255u;
-            raw = vram16(ivec2(v_tex.z + int(idx), v_tex.w));
-            texel = unpack16(raw);
+            if (ws > 0.0) texel.rgb = (c00.rgb * w.x + c10.rgb * w.y + c01.rgb * w.z + c11.rgb * w.w) / ws;
+        } else if (mode < 2) {
+            texel = fetch(ivec2(floor(v_uv)), mode, raw);
         } else {
+            // 15-bit textures may be rendered at the internal resolution: sample the sub-texel
+            ivec2 t = ivec2(floor(v_uv)) & 255;
+            ivec2 wm = ivec2(v_info.y & 31, (v_info.y >> 5) & 31) * 8;
+            ivec2 wo = ivec2(v_info.z & 31, (v_info.z >> 5) & 31) * 8;
+            t = (t & ~wm) | (wo & wm);
             ivec2 base = ivec2(v_tex.x + t.x, v_tex.y + t.y) & ivec2(1023, 511);
             ivec2 sub = clamp(ivec2(floor(fract(v_uv) * float(u_scale))), ivec2(0), ivec2(u_scale - 1));
             texel = texelFetch(u_vram, base * u_scale + sub, 0);
@@ -161,6 +202,15 @@ void main() {
         stp = texel.a > 0.5 ? 1.0 : 0.0;
         if ((flags & 2) != 0) col = texel.rgb;
         else col = min(texel.rgb * v_color.rgb * (255.0 / 128.0), vec3(1.0));
+    }
+    if (u_dither != 0) {
+        // the PS1 writes 15-bit colour, dithered (4x4 pattern, per original pixel) where enabled
+        vec3 c8 = col * 255.0;
+        if ((flags & 128) != 0) {
+            ivec2 q = ivec2(gl_FragCoord.xy) / u_scale;
+            c8 += kDither[(q.y & 3) * 4 + (q.x & 3)];
+        }
+        col = floor(clamp(c8, 0.0, 255.0) / 8.0) / 31.0;
     }
     bool semi = (flags & 16) != 0 && (!textured || stp > 0.5);
     if (u_pass == 1 && semi) discard;
@@ -278,6 +328,8 @@ void gfx_init() {
     u_scale = glGetUniformLocation(g_prog, "u_scale");
     u_blend = glGetUniformLocation(g_prog, "u_blend");
     u_pass = glGetUniformLocation(g_prog, "u_pass");
+    u_filter = glGetUniformLocation(g_prog, "u_filter");
+    u_dither = glGetUniformLocation(g_prog, "u_dither");
     g_prog24 = link(kQuadVS, k24FS);
     u24_vram = glGetUniformLocation(g_prog24, "u_vram");
     u24_scale = glGetUniformLocation(g_prog24, "u_scale");
@@ -294,7 +346,9 @@ void gfx_init() {
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vtx), (void*)offsetof(Vtx, u));
     glVertexAttribIPointer(3, 4, GL_SHORT, sizeof(Vtx), (void*)offsetof(Vtx, tex));
     glVertexAttribIPointer(4, 4, GL_SHORT, sizeof(Vtx), (void*)offsetof(Vtx, info));
-    for (int i = 0; i < 5; i++) glEnableVertexAttribArray(i);
+    glVertexAttribIPointer(5, 4, GL_SHORT, sizeof(Vtx), (void*)offsetof(Vtx, lim));
+    glVertexAttribPointer(6, 1, GL_FLOAT, GL_FALSE, sizeof(Vtx), (void*)offsetof(Vtx, w));
+    for (int i = 0; i < 7; i++) glEnableVertexAttribArray(i);
     g_ready = true;
     fprintf(stderr, "[gpu] internal resolution %dx (%dx%d VRAM)\n", S, 1024 * S, 512 * S);
 }
@@ -369,6 +423,8 @@ void gfx_flush() {
     glBindTexture(GL_TEXTURE_2D, g_vram_read);
     glUniform1i(u_vram, 0);
     glUniform1i(u_scale, S);
+    glUniform1i(u_filter, g_cfg.texture_filter);
+    glUniform1i(u_dither, g_cfg.dither);
     int mode = g_batch_blend < 0 ? 0 : g_batch_blend;
     glUniform1i(u_blend, mode);
     glBindVertexArray(g_vao);
@@ -439,17 +495,26 @@ void gfx_triangle(const GfxVertex v[3], const GfxState& s) {
         g_batch_check = s.check_mask;
     }
     if (s.semi) g_batch_blend = s.blend;
-    int16_t flags = (int16_t)((s.textured ? 1 : 0) | (s.raw ? 2 : 0) | (s.tex_mode << 2) | (s.semi ? 16 : 0) | (s.set_mask ? 32 : 0));
+    int16_t flags = (int16_t)((s.textured ? 1 : 0) | (s.raw ? 2 : 0) | (s.tex_mode << 2) | (s.semi ? 16 : 0) | (s.set_mask ? 32 : 0) |
+                              (s.sprite ? 64 : 0) | (s.dither ? 128 : 0));
+    // texel bounds for filtering: a primitive's own texture area (sprites end one texel early)
+    float umin = std::min(v[0].u, std::min(v[1].u, v[2].u)), umax = std::max(v[0].u, std::max(v[1].u, v[2].u));
+    float vmin = std::min(v[0].v, std::min(v[1].v, v[2].v)), vmax = std::max(v[0].v, std::max(v[1].v, v[2].v));
+    if (s.sprite) { umax -= 1; vmax -= 1; }
     int16_t wm = (int16_t)(s.win_mask_x | (s.win_mask_y << 5));
     int16_t wo = (int16_t)(s.win_off_x | (s.win_off_y << 5));
     float minx = 1e9f, miny = 1e9f, maxx = -1e9f, maxy = -1e9f;
+    // perspective-correct texturing when the GTE depth of all three vertices is known
+    bool persp = s.textured && v[0].w > 0 && v[1].w > 0 && v[2].w > 0;
     for (int i = 0; i < 3; i++) {
         Vtx t;
+        t.w = persp ? v[i].w / 4096.0f : 1.0f;
         t.x = v[i].x; t.y = v[i].y;
         t.color = v[i].color | 0xff000000u;
         t.u = v[i].u; t.v = v[i].v;
         t.tex[0] = (int16_t)s.tpage_x; t.tex[1] = (int16_t)s.tpage_y; t.tex[2] = (int16_t)s.clut_x; t.tex[3] = (int16_t)s.clut_y;
         t.info[0] = flags; t.info[1] = wm; t.info[2] = wo; t.info[3] = 0;
+        t.lim[0] = (int16_t)umin; t.lim[1] = (int16_t)vmin; t.lim[2] = (int16_t)std::max(umin, umax); t.lim[3] = (int16_t)std::max(vmin, vmax);
         g_batch.push_back(t);
         minx = std::min(minx, v[i].x); maxx = std::max(maxx, v[i].x);
         miny = std::min(miny, v[i].y); maxy = std::max(maxy, v[i].y);

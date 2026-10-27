@@ -3,6 +3,7 @@
 // 44.1 kHz in batches from the scheduler and feeds the host audio ring.
 #include "hw.h"
 #include "log.h"
+#include "rumble.h"
 #include "spu_gauss.h"
 #include "audio_ring.h"
 #include <algorithm>
@@ -142,8 +143,22 @@ static void decode_block(Voice& v) {
     v.block_valid = true;
 }
 
+extern unsigned g_frame_no;
 static void key_on(int i) {
     Voice& v = g_v[i];
+    {
+        uint32_t h = 2166136261u, a = (uint32_t)v.start * 8;
+        for (int k = 0; k < 64; k++) h = (h ^ g_sram[(a + k) & 0x7ffff]) * 16777619u;
+        int vol = std::max(R(i * 16) & 0x8000 ? 0 : R(i * 16) & 0x7fff, R(i * 16 + 2) & 0x8000 ? 0 : R(i * 16 + 2) & 0x7fff);
+        rumble_sample(h, vol);
+    }
+    if (log_enabled("kon")) {
+        uint32_t h = 2166136261u, a = (uint32_t)v.start * 8;
+        for (int k = 0; k < 64; k++) h = (h ^ g_sram[(a + k) & 0x7ffff]) * 16777619u;
+        char hex[129];
+        for (int k = 0; k < 64; k++) snprintf(hex + 2 * k, 3, "%02x", g_sram[(a + k) & 0x7ffff]);
+        fprintf(stderr, "[kon] f%u v%d start %05x hash %08x pitch %04x vol %04x %04x data %s\n", g_frame_no, i, a, h, v.pitch, R(i * 16), R(i * 16 + 2), hex);
+    }
     v.addr = (uint32_t)v.start * 8;
     v.counter = 0;
     v.p1 = v.p2 = 0;

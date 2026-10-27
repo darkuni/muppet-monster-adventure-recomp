@@ -18467,7 +18467,7 @@ void o13_800deca0(Cpu* c) {
     gte_command(0x4a180001u);
     R(2) = 0x800e0000u;
     R(2) = R(2) + 0x7b7cu;
-    MEM_WW(R(2) + 0x0u, gte_read_data(14));
+    gte_store_sxy(R(2) + 0x0u, 14);
     {
         c->cycles += 41;
         goto L_800deedc;

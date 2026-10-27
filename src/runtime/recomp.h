@@ -107,6 +107,7 @@ void cop0_rfe(Cpu* c);
 
 // GTE (COP2)
 uint32_t gte_read_data(int reg);
+void gte_store_sxy(uint32_t addr, int reg);   // swc2 of SXY0-2/SXYP (keeps precise coordinates)
 void gte_write_data(int reg, uint32_t v);
 uint32_t gte_read_ctrl(int reg);
 void gte_write_ctrl(int reg, uint32_t v);

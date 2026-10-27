@@ -3,6 +3,10 @@
 // the IR3 flag quirk of RTPS/RTPT and the MVMVA far-color bug.
 #include "recomp.h"
 #include "gte.h"
+#include "precise.h"
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
 #include <algorithm>
 #include <cstdint>
 
@@ -85,6 +89,14 @@ static inline void push_sz(int32_t v) {
     else if (v < 0) { v = 0; FLAG |= 1u << 18; }
     d[16] = d[17]; d[17] = d[18]; d[18] = d[19]; d[19] = v;
 }
+// precise copies of the SXY FIFO (see precise.h)
+static PreciseVtx g_pfifo[3];
+static bool g_pvalid[3];
+static inline void push_precise(bool ok, const PreciseVtx& p) {
+    g_pfifo[0] = g_pfifo[1]; g_pvalid[0] = g_pvalid[1];
+    g_pfifo[1] = g_pfifo[2]; g_pvalid[1] = g_pvalid[2];
+    g_pfifo[2] = p; g_pvalid[2] = ok;
+}
 static inline void push_sxy(int32_t x, int32_t y) {
     if (x > 0x3ff) { x = 0x3ff; FLAG |= 1u << 14; } else if (x < -0x400) { x = -0x400; FLAG |= 1u << 14; }
     if (y > 0x3ff) { y = 0x3ff; FLAG |= 1u << 13; } else if (y < -0x400) { y = -0x400; FLAG |= 1u << 13; }
@@ -148,6 +160,24 @@ static void rtp(int v, int shift, bool lm, bool last) {
     mac0_check(sy);
     g_gte.on_vertex(v, (int32_t)x, (int32_t)y, (int32_t)z, sx, sy, q);
     push_sxy((int32_t)(sx >> 16), (int32_t)(sy >> 16));
+    {
+        // the same projection without integer rounding: X = OFX + IR1 * H / SZ
+        double zf = (double)(mac_check(3, z)) / 4096.0;
+        double sc = shift ? 4096.0 : 1.0;
+        double ir1p = (double)mac_check(1, x) / sc, ir2p = (double)mac_check(2, y) / sc;
+        if (g_gte_widescreen != 1.0f) ir1p *= g_gte_widescreen;
+        bool ok = zf >= 1.0 && !(FLAG & ((1u << 17) | (1u << 14) | (1u << 13) | (1u << 24) | (1u << 23)));
+        PreciseVtx p{0, 0, 0};
+        if (ok) {
+            double hz = (double)(uint16_t)H / zf;
+            p.x = (float)(OFX / 65536.0 + ir1p * hz);
+            p.y = (float)(OFY / 65536.0 + ir2p * hz);
+            p.w = (float)zf;
+            int32_t ix = (int16_t)(d[14] & 0xffff), iy = (int16_t)(d[14] >> 16);
+            ok = std::fabs(p.x - ix) < 1.5f && std::fabs(p.y - iy) < 1.5f;   // agrees with the integer result
+        }
+        push_precise(ok, p);
+    }
     MAC0 = (int32_t)sy;
     if (last) {
         int64_t dq = (int64_t)q * DQA + DQB;
@@ -307,7 +337,19 @@ void gte_command(uint32_t op) {
 
 static inline int32_t clamp_rgb5(int32_t v) { return std::clamp(v >> 7, 0, 0x1f); }
 
+void gte_store_sxy(uint32_t addr, int r) {
+    uint32_t v = (uint32_t)d[r == 15 ? 14 : r];
+    MEM_WW(addr, v);
+    int i = r == 15 ? 2 : r - 12;
+    if (g_pvalid[i]) precise_store(addr, v, g_pfifo[i]);
+}
+
 uint32_t gte_read_data(int r) {
+    if (r >= 12 && r <= 15) {
+        // mfc2 of a screen coordinate: the game moves it around in registers (swc2 has its own path)
+        int i = r == 15 ? 2 : r - 12;
+        if (g_pvalid[i]) precise_note((uint32_t)d[r == 15 ? 14 : r], g_pfifo[i]);
+    }
     switch (r) {
         case 1: case 3: case 5: case 8: case 9: case 10: case 11:
             return (uint32_t)(int32_t)(int16_t)d[r];
@@ -322,7 +364,8 @@ uint32_t gte_read_data(int r) {
 
 void gte_write_data(int r, uint32_t v) {
     switch (r) {
-        case 15: d[12] = d[13]; d[13] = d[14]; d[14] = (int32_t)v; break;   // SXYP pushes
+        case 15: d[12] = d[13]; d[13] = d[14]; d[14] = (int32_t)v; push_precise(false, PreciseVtx{}); break;   // SXYP pushes
+        case 12: case 13: case 14: d[r] = (int32_t)v; g_pvalid[r - 12] = false; break;
         case 28:
             IR1 = (int32_t)((v & 0x1f) << 7);
             IR2 = (int32_t)(((v >> 5) & 0x1f) << 7);

@@ -65,6 +65,8 @@ static uint16_t buttons() {
     }
     return (uint16_t)~v;
 }
+uint16_t sio_pad_buttons() { return buttons(); }   // active low, for the BIOS pad driver
+
 static uint8_t axis(float v, bool invert) {
     if (invert) v = -v;
     int a = (int)std::lround(128 + v * 127.5f);

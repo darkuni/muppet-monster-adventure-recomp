@@ -34,6 +34,7 @@ static thread_local bool t_current = false;
 void gl_platform_make_current() { if (t_current) return; eglMakeCurrent(g_dpy, EGL_NO_SURFACE, EGL_NO_SURFACE, g_ctx); t_current = true; }
 void gl_platform_release_current() { if (!t_current) return; eglMakeCurrent(g_dpy, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT); t_current = false; }
 void platform_rumble(int, int) {}
+void platform_rumble_f(float, float) {}
 // Simulated sound device for headless runs: pulls 32 kHz audio in real time from the
 // jitter buffer so dropouts can be counted (see the [audio] line in the perf log).
 #include "audio_ring.h"

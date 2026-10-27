@@ -5,7 +5,9 @@
 #include "log.h"
 #include "config.h"
 #include "discpack.h"
+#include <libchdr/chd.h>
 #include <algorithm>
+#include <cmath>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -35,6 +37,81 @@ static void lba_to_msf(int lba, int* m, int* s, int* f) {
 
 static bool g_packed = false;     // reading from assets.dat instead of the .bin files
 
+// .chd disc images (MAME CHD v5, as made by chdman createcd): frames of 2352 bytes + 96 bytes
+// subcode, 8 frames per hunk, every track padded to a multiple of 4 frames; audio is big-endian.
+struct ChdTrack { bool audio; int lba, frames, pregap; bool pregap_stored; int chd_frame; };
+static const int CD_FRAME_SIZE_ = 2448;
+static chd_file* g_chd = nullptr;
+static std::vector<ChdTrack> g_chd_tracks;
+static std::vector<uint8_t> g_chd_hunk;
+static int g_chd_hunk_no = -1, g_chd_frames_per_hunk = 8;
+
+static bool chd_sector(int lba, uint8_t* out, bool* audio) {
+    for (auto& t : g_chd_tracks) {
+        int first = t.lba - t.pregap;
+        if (lba < first || lba >= t.lba + t.frames) continue;
+        *audio = t.audio;
+        int f;
+        if (lba < t.lba) {
+            if (!t.pregap_stored) { memset(out, 0, 2352); return true; }
+            f = t.chd_frame + (lba - first);
+        } else {
+            f = t.chd_frame + (t.pregap_stored ? t.pregap : 0) + (lba - t.lba);
+        }
+        int h = f / g_chd_frames_per_hunk;
+        if (h != g_chd_hunk_no) {
+            if (chd_read(g_chd, (uint32_t)h, g_chd_hunk.data()) != CHDERR_NONE) { g_chd_hunk_no = -1; return false; }
+            g_chd_hunk_no = h;
+        }
+        const uint8_t* src = &g_chd_hunk[(size_t)(f % g_chd_frames_per_hunk) * CD_FRAME_SIZE_];
+        if (t.audio) for (int i = 0; i < 2352; i += 2) { out[i] = src[i + 1]; out[i + 1] = src[i]; }
+        else memcpy(out, src, 2352);
+        return true;
+    }
+    *audio = lba >= g_t1_sectors;
+    memset(out, 0, 2352);
+    return lba >= 0 && lba < g_t2_start + g_t2_sectors;
+}
+
+static bool open_chd(const std::string& path) {
+    if (chd_open(path.c_str(), CHD_OPEN_READ, nullptr, &g_chd) != CHDERR_NONE) return false;
+    const chd_header* h = chd_get_header(g_chd);
+    g_chd_frames_per_hunk = (int)(h->hunkbytes / CD_FRAME_SIZE_);
+    g_chd_hunk.resize(h->hunkbytes);
+    int chd_frame = 0, lba = 0;
+    for (uint32_t i = 0;; i++) {
+        char meta[256] = {};
+        uint32_t len = 0, tag = 0;
+        uint8_t flags = 0;
+        if (chd_get_metadata(g_chd, CDROM_TRACK_METADATA2_TAG, i, meta, sizeof meta - 1, &len, &tag, &flags) != CHDERR_NONE) break;
+        int num = 0, frames = 0, pregap = 0, postgap = 0;
+        char type[32] = {}, sub[32] = {}, pgtype[32] = {}, pgsub[32] = {};
+        if (sscanf(meta, CDROM_TRACK_METADATA2_FORMAT, &num, type, sub, &frames, &pregap, pgtype, pgsub, &postgap) < 5) break;
+        ChdTrack t;
+        t.audio = strcmp(type, "AUDIO") == 0;
+        t.pregap_stored = pgtype[0] == 'V';
+        t.pregap = pregap;
+        t.frames = frames - (t.pregap_stored ? pregap : 0);
+        t.chd_frame = chd_frame;
+        if (i == 0) t.pregap = 0;          // track 1's pregap is the lead-in before LBA 0
+        lba += t.pregap;
+        t.lba = lba;
+        lba += t.frames;
+        chd_frame += (frames + 3) / 4 * 4;
+        g_chd_tracks.push_back(t);
+    }
+    if (g_chd_tracks.empty() || g_chd_tracks[0].audio) { chd_close(g_chd); g_chd = nullptr; return false; }
+    g_t1_sectors = g_chd_tracks[0].frames;
+    if (g_chd_tracks.size() > 1) {
+        g_t2_start = g_chd_tracks[1].lba;
+        g_t2_sectors = g_chd_tracks.back().lba + g_chd_tracks.back().frames - g_t2_start;
+    } else {
+        g_t2_start = g_t1_sectors + 150;
+        g_t2_sectors = 0;
+    }
+    return true;
+}
+
 // Reads the raw 2352-byte sector at disc LBA; returns false past the end.
 static bool read_raw(int lba, uint8_t* out, bool* audio) {
     if (g_packed) {
@@ -42,6 +119,7 @@ static bool read_raw(int lba, uint8_t* out, bool* audio) {
         if (lba < 0 || lba >= g_t2_start + g_t2_sectors) { memset(out, 0, 2352); return false; }
         return pack_read(lba, out);
     }
+    if (g_chd) return chd_sector(lba, out, audio);
     if (lba >= 0 && lba < g_t1_sectors) {
         *audio = false;
         fseek(g_t1, (g_t1_off + lba) * 2352L, SEEK_SET);
@@ -158,6 +236,8 @@ static uint8_t g_mode = 0;
 static int g_setloc = 0;                   // target LBA from Setloc
 static bool g_setloc_pending = false;
 static int g_loc = 0;                      // current read head LBA
+static int g_sector_lba = -1;               // LBA of the sector in the buffer
+int cd_sector_lba() { return g_sector_lba; }
 static enum { IDLE, READING, PLAYING } g_state = IDLE;
 static uint8_t g_filter_file = 0, g_filter_chan = 0;
 static bool g_muted = false, g_adpcm_muted = false;
@@ -233,7 +313,68 @@ static std::vector<int16_t> g_xa_out;   // interleaved stereo at 44.1 kHz (resam
 static double g_xa_phase = 0;
 static int16_t g_xa_last[2] = {0, 0};
 
+// High-quality resampling: Kaiser-windowed sinc, 32 taps, 512 phases, cut off just below the
+// lower of the two Nyquist rates (so 18.9 kHz streams are not aliased either).
+static const int kTaps = 32, kPhases = 512;
+static std::vector<float> g_sinc;            // kPhases+1 rows of kTaps
+static int g_sinc_rate = 0;
+static std::vector<float> g_hq_hist[2];      // input history per channel
+static double g_hq_pos = 0;                  // position of the next output, in input samples from hist start
+
+static double bessel_i0(double x) {
+    double s = 1, t = 1;
+    for (int k = 1; k < 30; k++) { t *= (x / (2 * k)) * (x / (2 * k)); s += t; }
+    return s;
+}
+static void build_sinc(int rate) {
+    g_sinc_rate = rate;
+    g_sinc.assign((size_t)(kPhases + 1) * kTaps, 0.f);
+    double fc = 0.5 * std::min(1.0, 44100.0 / rate) * 0.92;   // cutoff, cycles per input sample
+    const double beta = 8.0, i0b = bessel_i0(beta);
+    for (int ph = 0; ph <= kPhases; ph++) {
+        double frac = (double)ph / kPhases, sum = 0;
+        float* row = &g_sinc[(size_t)ph * kTaps];
+        for (int k = 0; k < kTaps; k++) {
+            double x = (k - (kTaps / 2 - 1)) - frac;              // distance from the output point
+            double sinc = x == 0 ? 2 * fc : std::sin(2 * M_PI * fc * x) / (M_PI * x);
+            double r = x / (kTaps / 2.0);
+            double win = std::fabs(r) >= 1 ? 0 : bessel_i0(beta * std::sqrt(1 - r * r)) / i0b;
+            row[k] = (float)(sinc * win);
+            sum += row[k];
+        }
+        for (int k = 0; k < kTaps; k++) row[k] = (float)(row[k] / sum);
+    }
+}
+static void xa_resample_hq(const std::vector<int16_t>& lr, int rate) {
+    if (rate != g_sinc_rate) build_sinc(rate);
+    size_t n = lr.size() / 2;
+    for (int ch = 0; ch < 2; ch++) {
+        if (g_hq_hist[ch].empty()) g_hq_hist[ch].assign(kTaps, 0.f);
+        for (size_t i = 0; i < n; i++) g_hq_hist[ch].push_back(lr[i * 2 + ch]);
+    }
+    const double step = (double)rate / 44100.0;
+    size_t avail = g_hq_hist[0].size();
+    while (g_hq_pos + kTaps < (double)avail) {
+        size_t i0 = (size_t)g_hq_pos;
+        double fr = g_hq_pos - i0;
+        int ph = (int)(fr * kPhases + 0.5);
+        const float* row = &g_sinc[(size_t)ph * kTaps];
+        for (int ch = 0; ch < 2; ch++) {
+            const float* h = &g_hq_hist[ch][i0];
+            float acc = 0;
+            for (int k = 0; k < kTaps; k++) acc += h[k] * row[k];
+            g_xa_out.push_back((int16_t)std::clamp(acc, -32768.f, 32767.f));
+        }
+        g_hq_pos += step;
+    }
+    // drop consumed history
+    size_t drop = std::min((size_t)g_hq_pos, avail);
+    for (int ch = 0; ch < 2; ch++) g_hq_hist[ch].erase(g_hq_hist[ch].begin(), g_hq_hist[ch].begin() + drop);
+    g_hq_pos -= (double)drop;
+}
+
 static void xa_resample_push(const std::vector<int16_t>& lr, int rate) {
+    if (g_cfg.hq_audio) { xa_resample_hq(lr, rate); return; }
     // linear resampling to 44100 Hz
     double step = (double)rate / 44100.0;
     size_t n = lr.size() / 2;
@@ -346,6 +487,7 @@ static void read_sector_event() {
     }
     if ((g_mode & 0x08) && (g_mode & 0x40) && is_audio) return;   // filtered-out audio
     memcpy(g_sector, raw, 2352);
+    g_sector_lba = lba;
     g_sector_ready = true;
     // the previous INT1 may not have been acknowledged yet; the newest sector wins
     for (auto it = g_pending.begin(); it != g_pending.end();) {
@@ -615,7 +757,7 @@ bool cd_init_pack(const char* path, std::string* err) {
 
 // Packs the disc opened by cd_init (the .cue/.bin) into one file
 bool cd_make_pack(const char* out_path, void (*progress)(int, int), std::string* err) {
-    if (!g_t1) { *err = "No disc image is open."; return false; }
+    if (!g_t1 && !g_chd) { *err = "No disc image is open."; return false; }
     DiscLayout lay;
     lay.t1_sectors = g_t1_sectors;
     lay.t2_start = g_t2_start;
@@ -624,6 +766,10 @@ bool cd_make_pack(const char* out_path, void (*progress)(int, int), std::string*
 }
 
 void cd_close_image() {
+    if (g_chd) chd_close(g_chd);
+    g_chd = nullptr;
+    g_chd_tracks.clear();
+    g_chd_hunk_no = -1;
     if (g_t1) fclose(g_t1);
     if (g_t2) fclose(g_t2);
     g_t1 = g_t2 = nullptr;
@@ -631,6 +777,13 @@ void cd_close_image() {
 
 bool cd_init(const char* path) {
     std::string p = path;
+    std::string ext = p.size() > 4 ? p.substr(p.size() - 4) : "";
+    for (auto& ch : ext) ch = (char)tolower(ch);
+    if (ext == ".chd") {
+        if (!open_chd(p)) return false;
+        fprintf(stderr, "[cd] %s: data track %d sectors, audio %d sectors at LBA %d\n", path, g_t1_sectors, g_t2_sectors, g_t2_start);
+        return true;
+    }
     if (p.size() > 4 && (p.substr(p.size() - 4) == ".cue" || p.substr(p.size() - 4) == ".CUE")) {
         if (!open_cue(p)) return false;
     } else {
