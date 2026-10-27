@@ -166,34 +166,132 @@ static std::string find_disc_in(const fs::path& dir) {
     return {};
 }
 
+// Reads and checks the game executable from the open disc (empty string = ok)
+static std::string check_exe(std::vector<uint8_t>& exe) {
+    if (!cd_read_file(GAME_EXE_NAME, exe) || exe.size() < 0x800 || memcmp(exe.data(), "PS-X EXE", 8) != 0)
+        return "This disc image does not contain " GAME_EXE_NAME ".\n"
+               "This port needs the North American release of Muppet Monster Adventure (SLUS-01238).";
+    uint32_t pc;
+    memcpy(&pc, exe.data() + 0x10, 4);
+    if (exe.size() != 692224 || pc != 0x8009c520u)
+        return "This copy of " GAME_EXE_NAME " is a different build than the one this port was made from.";
+    return {};
+}
+
+// ---------------------------------------------------------------- one-time disc import
+#if defined(_WIN32) || defined(USE_SDL)
+static SDL_Window* g_imp_win = nullptr;
+static SDL_Renderer* g_imp_ren = nullptr;
+static void import_progress(int done, int total) {
+    SDL_Event e;
+    while (SDL_PollEvent(&e)) {}
+    int pct = total ? done * 100 / total : 0;
+    char t[96];
+    snprintf(t, sizeof t, "Importing disc into assets.dat - %d%%", pct);
+    SDL_SetWindowTitle(g_imp_win, t);
+    if (g_imp_ren) {
+        SDL_SetRenderDrawColor(g_imp_ren, 24, 18, 32, 255);
+        SDL_RenderClear(g_imp_ren);
+        SDL_Rect frame = {20, 40, 440, 28}, bar = {24, 44, total ? 432 * done / total : 0, 20};
+        SDL_SetRenderDrawColor(g_imp_ren, 120, 110, 140, 255);
+        SDL_RenderDrawRect(g_imp_ren, &frame);
+        SDL_SetRenderDrawColor(g_imp_ren, 240, 140, 40, 255);
+        SDL_RenderFillRect(g_imp_ren, &bar);
+        SDL_RenderPresent(g_imp_ren);
+    }
+    fprintf(stderr, "\r[import] %d%%", pct);
+}
+#else
+static void import_progress(int done, int total) { fprintf(stderr, "\r[import] %d%%", total ? done * 100 / total : 0); }
+#endif
+
+static void info(const std::string& msg) {
+    fprintf(stderr, "%s\n", msg.c_str());
+#if defined(_WIN32) || defined(USE_SDL)
+    if (!getenv("NO_MSGBOX")) SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, GAME_NAME, msg.c_str(), nullptr);
+#endif
+}
+
+// .cue/.bin -> assets.dat. The disc is checked first, then packed and verified sector by sector.
+static void import_disc(const std::string& disc, const fs::path& pack) {
+    if (!cd_init(disc.c_str())) fatal("Cannot read the disc image " + disc);
+    std::vector<uint8_t> exe;
+    std::string bad = check_exe(exe);
+    if (!bad.empty()) fatal(bad);
+#if defined(_WIN32) || defined(USE_SDL)
+    SDL_Init(SDL_INIT_VIDEO);
+    g_imp_win = SDL_CreateWindow("Importing disc", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 480, 108, 0);
+    if (g_imp_win) g_imp_ren = SDL_CreateRenderer(g_imp_win, -1, 0);
+#endif
+    std::string err;
+    bool ok = cd_make_pack(pack.string().c_str(), import_progress, &err);
+    fprintf(stderr, "\n");
+#if defined(_WIN32) || defined(USE_SDL)
+    if (g_imp_ren) SDL_DestroyRenderer(g_imp_ren);
+    if (g_imp_win) SDL_DestroyWindow(g_imp_win);
+    g_imp_ren = nullptr;
+    g_imp_win = nullptr;
+#endif
+    cd_close_image();
+    if (!ok) fatal("Importing the disc failed: " + err);
+    std::error_code ec;
+    double mb = (double)fs::file_size(pack, ec) / (1024.0 * 1024.0);
+    char buf[64];
+    snprintf(buf, sizeof buf, "%.0f MB", mb);
+    info("Your disc was imported into assets.dat (" + std::string(buf) + ", verified lossless).\n\n"
+         "The game now runs from assets.dat alone. The .cue and .bin files are no longer needed "
+         "and can be deleted.");
+}
+
 int main(int argc, char** argv) {
     std::string self = argv[0];
     size_t slash = self.find_last_of("/\\");
     g_exe_dir = slash == std::string::npos ? "" : self.substr(0, slash + 1);
     config_load(argv[0]);
+    fs::path base = g_exe_dir.empty() ? fs::path(".") : fs::path(g_exe_dir);
+    fs::path pack = base / "assets.dat";
 
-    std::string disc;
+    // muppetmonster --import <cue> [out.dat] : build the packed file and exit
+    if (argc > 2 && !strcmp(argv[1], "--import")) {
+        fs::path p = argv[2];
+        std::string disc = fs::is_directory(p) ? find_disc_in(p) : p.string();
+        import_disc(disc, argc > 3 ? fs::path(argv[3]) : pack);
+        return 0;
+    }
+
+    std::string disc;   // .cue (or prepared folder) to run from directly
+    fs::path use_pack;
+    std::error_code ec;
     if (argc > 1) {
         fs::path p = argv[1];
-        disc = fs::is_directory(p) ? find_disc_in(p) : p.string();
+        std::string ext = p.extension().string();
+        for (auto& ch : ext) ch = (char)tolower(ch);
+        if (ext == ".dat") use_pack = p;
+        else {
+            disc = fs::is_directory(p, ec) ? find_disc_in(p) : p.string();
+            if (!disc.empty() && !fs::exists(pack, ec)) { import_disc(disc, pack); use_pack = pack; disc.clear(); }
+        }
+    } else if (fs::exists(pack, ec)) {
+        use_pack = pack;
     } else {
-        fs::path base = g_exe_dir.empty() ? fs::path(".") : fs::path(g_exe_dir);
-        disc = find_disc_in(base / "game");
-        if (disc.empty()) disc = find_disc_in(base);
+        std::string found = find_disc_in(base / "game");
+        if (found.empty()) found = find_disc_in(base);
+        if (!found.empty()) { import_disc(found, pack); use_pack = pack; }
     }
-    if (disc.empty() || !cd_init(disc.c_str()))
-        fatal("Muppet Monster Adventure disc image not found.\n\n"
-              "Put your .cue and .bin files (NTSC-U, SLUS-01238) in a folder named \"game\" "
-              "next to muppetmonster.exe, or drag the .cue file onto the exe.");
+
+    if (!use_pack.empty()) {
+        std::string err;
+        if (!cd_init_pack(use_pack.string().c_str(), &err)) fatal(err);
+    } else if (disc.empty() || !cd_init(disc.c_str())) {
+        fatal("Muppet Monster Adventure game data not found.\n\n"
+              "First run: put your .cue and .bin files (NTSC-U, SLUS-01238) next to muppetmonster.exe "
+              "or in a folder named \"game\" (or drag the .cue onto the exe). They are imported once "
+              "into assets.dat, after which they can be deleted.");
+    }
 
     std::vector<uint8_t> exe;
-    if (!cd_read_file(GAME_EXE_NAME, exe) || exe.size() < 0x800 || memcmp(exe.data(), "PS-X EXE", 8) != 0)
-        fatal("This disc image does not contain " GAME_EXE_NAME ".\n"
-              "This port needs the North American release of Muppet Monster Adventure (SLUS-01238).");
-    uint32_t pc;
-    memcpy(&pc, exe.data() + 0x10, 4);
-    if (exe.size() != 692224 || pc != 0x8009c520u)
-        fatal("This copy of " GAME_EXE_NAME " is a different build than the one this port was made from.");
+    std::string bad = check_exe(exe);
+    if (!bad.empty()) fatal(bad);
 
     g_gte_widescreen = g_cfg.widescreen ? 0.75f : 1.0f;
     hw_init();

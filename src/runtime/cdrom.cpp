@@ -4,6 +4,7 @@
 #include "hw.h"
 #include "log.h"
 #include "config.h"
+#include "discpack.h"
 #include <algorithm>
 #include <cstdio>
 #include <cstdlib>
@@ -32,8 +33,15 @@ static void lba_to_msf(int lba, int* m, int* s, int* f) {
     *m = lba / 4500; *s = (lba / 75) % 60; *f = lba % 75;
 }
 
+static bool g_packed = false;     // reading from assets.dat instead of the .bin files
+
 // Reads the raw 2352-byte sector at disc LBA; returns false past the end.
 static bool read_raw(int lba, uint8_t* out, bool* audio) {
+    if (g_packed) {
+        *audio = lba >= g_t1_sectors;
+        if (lba < 0 || lba >= g_t2_start + g_t2_sectors) { memset(out, 0, 2352); return false; }
+        return pack_read(lba, out);
+    }
     if (lba >= 0 && lba < g_t1_sectors) {
         *audio = false;
         fseek(g_t1, (g_t1_off + lba) * 2352L, SEEK_SET);
@@ -592,6 +600,33 @@ uint32_t cd_dma_read() {
         w |= (uint32_t)b << (8 * i);
     }
     return w;
+}
+
+bool cd_init_pack(const char* path, std::string* err) {
+    DiscLayout lay;
+    if (!pack_open(path, &lay, err)) return false;
+    g_t1_sectors = lay.t1_sectors;
+    g_t2_start = lay.t2_start;
+    g_t2_sectors = lay.t2_sectors;
+    g_packed = true;
+    fprintf(stderr, "[cd] packed disc %s: data track %d sectors, audio track %d sectors at LBA %d\n", path, g_t1_sectors, g_t2_sectors, g_t2_start);
+    return true;
+}
+
+// Packs the disc opened by cd_init (the .cue/.bin) into one file
+bool cd_make_pack(const char* out_path, void (*progress)(int, int), std::string* err) {
+    if (!g_t1) { *err = "No disc image is open."; return false; }
+    DiscLayout lay;
+    lay.t1_sectors = g_t1_sectors;
+    lay.t2_start = g_t2_start;
+    lay.t2_sectors = g_t2_sectors;
+    return pack_build(out_path, lay, read_raw, progress, err);
+}
+
+void cd_close_image() {
+    if (g_t1) fclose(g_t1);
+    if (g_t2) fclose(g_t2);
+    g_t1 = g_t2 = nullptr;
 }
 
 bool cd_init(const char* path) {

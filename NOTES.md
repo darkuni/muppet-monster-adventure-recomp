@@ -60,6 +60,27 @@
   are handled at BIOS level (`memcard.cpp`) on standard 128 KB card images; libcard's BIOS patches
   are no-ops (`config/hle.txt`).
 
+## Packed disc file (`assets.dat`, `src/runtime/discpack.cpp`)
+
+The whole disc (both tracks and the 150-sector pregap, 239,682 sectors) in one file. Header
+(64 bytes: magic `MMAPACK`, version, track layout, block count, index offset, index CRC), then
+deflate blocks of 16 sectors, then an index (offset, compressed size, size, CRC-32 per block).
+A block holds one kind byte per sector followed by the payloads:
+
+| kind | stored | rebuilt on read |
+|------|--------|-----------------|
+| 0 Mode 2 Form 1 | subheader + 2048 data | sync, MSF header, subheader copy, EDC, P/Q ECC |
+| 1 Mode 2 Form 2 | subheader + 2324 data + EDC | sync, MSF header, subheader copy |
+| 2 raw | 2352 | - (any sector that does not rebuild exactly) |
+| 3 audio | 2352 | - |
+| 4 zero | nothing | all zeros |
+
+The import rebuilds every sector from its compact form and from the decompressed block and
+compares it with the original, so the pack is bit-exact (an independent check against the .bin
+files and a 2400-frame run from each source give identical RAM and frames). 563 MB of .bin
+becomes 336 MB. The reader keeps the last decoded block; the CD controller reads through the
+same `read_raw` interface either way.
+
 ## Notable fixes (found by comparing against a reference emulator)
 
 - Jump-table case labels must never become function entries (the data-pointer scan used to pick

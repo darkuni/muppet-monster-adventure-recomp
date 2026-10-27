@@ -1,6 +1,7 @@
 // PlayStation hardware: scheduler, interrupt controller, timers, DMA, and the device interfaces.
 #pragma once
 #include <cstdint>
+#include <string>
 #include <vector>
 #include "recomp.h"
 
@@ -43,6 +44,9 @@ int gpu_dot_divider();                 // video clock divider for the current ho
 
 bool cd_init(const char* cue_or_dir);
 bool cd_read_file(const char* name, std::vector<uint8_t>& out);
+bool cd_init_pack(const char* path, std::string* err);                         // assets.dat
+bool cd_make_pack(const char* out_path, void (*progress)(int, int), std::string* err);  // .cue/.bin -> assets.dat
+void cd_close_image();
 uint8_t cd_read(int reg);
 void cd_write(int reg, uint8_t v);
 uint32_t cd_dma_read();

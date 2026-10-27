@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(muppetmonster CXX)
+project(muppetmonster C CXX)
 if(WIN32)
   enable_language(RC)
 endif()
@@ -11,7 +11,10 @@ endif()
 file(GLOB GEN_SRC CONFIGURE_DEPENDS gen/*.cpp)
 file(GLOB RT_SRC CONFIGURE_DEPENDS runtime/*.cpp)
 add_executable(muppetmonster ${RT_SRC} ${GEN_SRC})
-target_include_directories(muppetmonster PRIVATE runtime gen)
+target_include_directories(muppetmonster PRIVATE runtime gen third_party/miniz)
+# miniz (deflate) for the packed disc file
+target_sources(muppetmonster PRIVATE third_party/miniz/miniz.c)
+set_source_files_properties(third_party/miniz/miniz.c PROPERTIES COMPILE_DEFINITIONS "MINIZ_NO_ARCHIVE_APIS;MINIZ_NO_STDIO;MINIZ_NO_TIME" COMPILE_OPTIONS "-w")
 # The generated code is large and simple: -O1 compiles much faster with little speed loss.
 set_source_files_properties(${GEN_SRC} PROPERTIES COMPILE_OPTIONS "-O1;-fno-strict-aliasing;-w;-g1")
 if(WIN32)

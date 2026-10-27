@@ -51,13 +51,20 @@ jobs:
           cat > dist/README.txt <<'TXT'
           Muppet Monster Adventure - native Windows port (static recompilation)
 
-          The game is NOT included. Copy your own disc image (the .cue file and its .bin
-          file(s), North American release SLUS-01238) into the "game" folder next to
-          muppetmonster.exe, then run muppetmonster.exe.
+          The game is NOT included. First run only: copy your own disc image (the .cue
+          file and its .bin file(s), North American release SLUS-01238) into the "game"
+          folder next to muppetmonster.exe, then run muppetmonster.exe.
           (Or drag the .cue file onto muppetmonster.exe.)
 
-          F1 or Esc (Start+Select on a controller) opens the settings menu.
-          Saves go to memcard1.mcd next to the exe (a standard PS1 memory card image).
+          The disc is imported once into assets.dat and verified to be an exact copy.
+          After that the game runs from assets.dat alone - delete the .cue/.bin files
+          and the game folder. The install is then just:
+            muppetmonster.exe, SDL2.dll, assets.dat (+ memcard1.mcd, muppetmonster.ini)
+
+          F1 or Esc (Start+Select on a controller) opens the settings menu, including
+          Keyboard keys and Controller buttons for rebinding. Hold Tab to fast-forward.
+          Saves go to memcard1.mcd next to the exe (a standard PS1 memory card image,
+          usable in emulators). Settings are in muppetmonster.ini.
           TXT
           sed -i 's/^          //' dist/README.txt
           ls -la dist

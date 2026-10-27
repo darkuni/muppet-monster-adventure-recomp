@@ -19,9 +19,19 @@ See [NOTES.md](NOTES.md) for the technical write-up.
 ## Running (Windows)
 
 1. Download the `muppetmonster-win64` artifact from the latest **Build Windows** run (Actions tab).
-2. Put your disc image (`Muppet Monster Adventure.cue` + its `.bin` file(s)) in the `game` folder
-   next to `muppetmonster.exe`. One `.bin` per track and single-`.bin` rips both work.
-3. Run `muppetmonster.exe` (or drag the `.cue` onto it).
+2. First run only: put your disc image (`Muppet Monster Adventure.cue` + its `.bin` file(s)) in a
+   `game` folder next to `muppetmonster.exe` (or next to the exe itself), then run
+   `muppetmonster.exe` - or drag the `.cue` onto it. One `.bin` per track and single-`.bin` rips
+   both work.
+3. The disc is imported once into **`assets.dat`** (about 340 MB, a few seconds to a minute) and
+   checked sector by sector to be an exact copy. From then on the game runs from `assets.dat` and
+   the `.cue`/`.bin` files can be deleted. The finished install is just:
+
+   ```
+   muppetmonster.exe  SDL2.dll  assets.dat  (memcard1.mcd, muppetmonster.ini once created)
+   ```
+
+`muppetmonster.exe --import <file.cue> [out.dat]` builds the file without starting the game.
 
 Saves go to `memcard1.mcd` next to the exe - a standard 128 KB PlayStation memory card image, so
 saves can be copied to and from emulators. Settings are in `muppetmonster.ini`.
