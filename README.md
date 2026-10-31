@@ -1,4 +1,4 @@
-# Muppet Monster Adventure - native recompilation (private)
+# Muppet Monster Adventure - native recompilation
 
 A static recompilation of **Muppet Monster Adventure** (PlayStation, NTSC-U, `SLUS-01238`,
 Magenta Software / Midway, 2000) to native code. The game's MIPS executable and its 35 code
@@ -18,7 +18,8 @@ See [NOTES.md](NOTES.md) for the technical write-up.
 
 ## Running (Windows)
 
-1. Download the `muppetmonster-win64` artifact from the latest **Build Windows** run (Actions tab).
+1. Download the latest `MuppetMonsterAdventure-<version>-win64.zip` from [Releases](https://github.com/darkuni/muppet-monster-adventure-recomp/releases)
+   (or the `muppetmonster-win64` artifact of any **Build Windows** run on the Actions tab) and unzip it.
 2. First run only: put your disc image (a `.chd`, or `Muppet Monster Adventure.cue` + its `.bin` file(s)) in a
    `game` folder next to `muppetmonster.exe` (or next to the exe itself), then run
    `muppetmonster.exe` - or drag the `.cue` onto it. One `.bin` per track and single-`.bin` rips
@@ -96,8 +97,9 @@ Windows (cross-compiled with mingw-w64): see `.github/workflows/build-windows.ym
 
 This is an unofficial fan project. It is **not affiliated with, endorsed by, or sponsored by** The Jim
 Henson Company, Midway, Psygnosis, Magenta Software or Sony. *Muppet Monster Adventure*, the Muppets
-and all related names and marks belong to their respective owners. This repository contains no game
-data; you need your own legally obtained copy of the game.
+and all related names and marks belong to their respective owners. This repository and its releases contain no game data
+(graphics, sound, music, movies): those come from your own legally obtained disc image. The recompiled
+source and the release exe contain code machine-translated from the game's executables.
 
 ## License
 
